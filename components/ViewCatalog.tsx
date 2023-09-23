@@ -140,7 +140,7 @@ const ViewCatalog = () => {
                         {product.items.map((item: any, index: number) => (
                           <Link
                             key={index}
-                            href={`/${pathname[1]}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
+                            href={`/${pathname[1] || "moscow"}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
                           >
                             <li
                               onClick={onClickLink}
