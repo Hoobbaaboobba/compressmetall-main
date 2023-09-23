@@ -3,14 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Key } from "react";
-import useLocationModal from "@/hooks/useLocationModal";
+import { usePathname } from "next/navigation";
 
 interface PageComponentProps {
   data: any[];
 }
 
 const PageComponent: React.FC<PageComponentProps> = ({ data }) => {
-  const { link } = useLocationModal();
+  const pathname = usePathname().split("/");
   return (
     <div>
       {data.map((product) => (
@@ -23,14 +23,16 @@ const PageComponent: React.FC<PageComponentProps> = ({ data }) => {
               <Link
                 key={index}
                 className="cursor-pointer p-[10px] sm:p-[20px] border border-light-gray rounded-lg first-letter:font-bold hover:opacity-100 w-full sm:w-[230px] flex flex-col justify-center items-center hover:shadow-lg transition duration-200"
-                href={`/${link}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
+                href={`/${pathname[1]}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
               >
                 <li className="flex flex-col w-full h-full justify-center items-center gap-6">
                   <Image
-                    src={`/${item[1]}.png`}
+                    src={require(`../../public/${item[1]}.png`)}
                     alt={product.label}
                     width={160}
                     height={160}
+                    placeholder="blur"
+                    className="rounded-lg"
                   />
                   <div className="text-center w-full flex flex-col gap-2">
                     <h1 className="opacity-60">{product.label}</h1>

@@ -12,16 +12,16 @@ import {
 
 import OurContacts from "./Home/OurContacts/OurContacts";
 import useCatalogModal from "@/hooks/useCatalogModal";
-import useLocationModal from "@/hooks/useLocationModal";
 import OrangeButton from "./OrangeButton";
 import usePriceModal from "@/hooks/usePriceModal";
 import Link from "next/link";
 import useRequestModal from "@/hooks/useRequestModal";
+import { usePathname } from "next/navigation";
 
 const items = [
   {
     data: blackMetal,
-    label: "Чёрный метал",
+    label: "Чёрный металл",
     img: "menuCatalog",
     links: true,
   },
@@ -85,7 +85,7 @@ const ViewCatalog = () => {
   const { isOpenCatalog, onCloseCatalog, typeOfMenu, changeTypeOfMenu } =
     useCatalogModal();
 
-  const { link } = useLocationModal();
+  const pathname = usePathname().split("/");
   const { onOpen } = usePriceModal();
   const { onOpen: onOpenRequest } = useRequestModal();
 
@@ -140,7 +140,7 @@ const ViewCatalog = () => {
                         {product.items.map((item: any, index: number) => (
                           <Link
                             key={index}
-                            href={`/${link}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
+                            href={`/${pathname[1]}/catalog/${product.label}/${item[0]}?i=${item[1]}&q=${item[2]}&amount=${item[3]}`}
                           >
                             <li
                               onClick={onClickLink}

@@ -28,11 +28,12 @@ const DynamicPage: React.FC<DynamicPageProps> = ({ category, id }) => {
       </h1>
       <div className="w-full flex flex-col md:flex-row justify-between items-center gap-3 ">
         <Image
-          src={`/${image}.png`}
+          src={require(`../../../public/${image}.png`)}
           alt={category}
           width={400}
           height={250}
           className="border border-light-gray rounded-[15px]"
+          placeholder="blur"
         />
         <div className="flex flex-col gap-3 justify-center items-center w-full">
           <h1 className="text-lg max-w-[400px] text-center">{id}</h1>

@@ -12,7 +12,8 @@ import {
   precenSplav,
 } from "./productsData";
 import HoverMenuItem from "./hoverMenuItem";
-import useLocationModal from "@/hooks/useLocationModal";
+
+import { usePathname } from "next/navigation";
 
 const CatalogMenu = () => {
   const items = [
@@ -95,12 +96,12 @@ const CatalogMenu = () => {
     },
   ];
 
-  const { link } = useLocationModal();
+  const pathname = usePathname().split("/");
 
   return (
     <div className="flex-col relative hidden xl:flex z-30">
       <div className="sticky top-[137px] overflow-y-auto h-[81vh] mt-2 bg-">
-        <Link href="/catalog?q=Все товары">
+        <Link href={`/${pathname[1] || "moscow"}/catalog?q=Все товары`}>
           <div className="flex justify-center items-center">
             <div className="w-[80px] h-[80px] bg-light-gray font-bold flex justify-center items-center text-orange-bg text-lg">
               А-Я
@@ -121,7 +122,7 @@ const CatalogMenu = () => {
               topic={item.label}
               bold={item.bold}
               items={item.items}
-              link={link}
+              link={pathname[1] || "moscow"}
             />
             <hr />
           </>

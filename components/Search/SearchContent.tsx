@@ -1,8 +1,8 @@
 "use client";
 
-import useLocationModal from "@/hooks/useLocationModal";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 interface SearchContentProps {
@@ -14,7 +14,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
   query,
   currentPosts,
 }) => {
-  const { link } = useLocationModal();
+  const pathname = usePathname().split("/");
   return (
     <div className="flex flex-col pt-8 gap-4">
       <h2 className="text-2xl text-center lg:text-start">
@@ -28,18 +28,19 @@ const SearchContent: React.FC<SearchContentProps> = ({
               className="rounded-md relative border text-center border-light-gray gap-2 w-full min-h-[250px] flex flex-col justify-between items-center p-[20px] cursor-pointer hover:shadow-lg transition duration-200"
             >
               <Link
-                href={`/${link}/catalog/${encodeURI(post[0])}/${encodeURI(
-                  post[1]
-                )}?i=${encodeURI(post[2])}&q=${encodeURI(
+                href={`/${pathname[1] || "moscow"}/catalog/${encodeURI(
+                  post[0]
+                )}/${encodeURI(post[1])}?i=${encodeURI(post[2])}&q=${encodeURI(
                   post[3]
                 )}&amount=${encodeURI(post[4])}`}
                 className="absolute w-full h-full top-0 left-0"
               ></Link>
               <Image
-                src={`/${post[2]}.png`}
+                src={require(`../../public/${post[2]}.png`)}
                 alt={post[0]}
                 width={160}
                 height={160}
+                placeholder="blur"
               />
               <div className="text-center w-full">
                 <h1 className="opacity-60">{post[0]}</h1>

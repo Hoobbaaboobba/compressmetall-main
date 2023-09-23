@@ -13,7 +13,6 @@ import { usePathname } from "next/navigation";
 import Search from "./Search";
 import usePriceModal from "@/hooks/usePriceModal";
 import useRequestModal from "@/hooks/useRequestModal";
-import useLocationModal from "@/hooks/useLocationModal";
 import CityButton from "./CityButton";
 import Logo from "./Logo";
 
@@ -44,16 +43,18 @@ const LowerHeader = () => {
     document.body.classList.remove("overflowHidden");
   };
 
-  const pathname = usePathname();
-
-  const { link } = useLocationModal();
+  const pathname = usePathname().split("/");
 
   return (
     <nav className="text-white nav bg-gray-bg flex justify-center items-center flex-col w-full text-lg z-10 ">
       <div className="sticky top-0 left-0 hidden xl:flex justify-center items-center max-w-[1300px] w-full">
         <div className={`flex justify-center w-full`}>
           <div className="relative w-1/5">
-            <MenuButton src={`/${link}/catalog`} name="Каталог" icon="true" />
+            <MenuButton
+              src={`/${pathname[1] || "moscow"}/catalog`}
+              name="Каталог"
+              icon="true"
+            />
           </div>
           <div
             onClick={showPrice}
@@ -67,7 +68,7 @@ const LowerHeader = () => {
             onMouseEnter={() => setPopUp(true)}
           >
             <MenuButton
-              src={`/${link}/about_company`}
+              src={`/${pathname[1] || "moscow"}/about_company`}
               name="Компания"
               icon="false"
             />
@@ -78,13 +79,13 @@ const LowerHeader = () => {
                 } bg-white rounded-lg mt-2 text-black w-full text-start flex flex-col py-2 shadow-lg`}
               >
                 <Link
-                  href={`/${link}/about_company/requisites`}
+                  href={`/${pathname[1] || "moscow"}/about_company/requisites`}
                   className="hover:bg-orange-bg hover:text-white py-1 px-2"
                 >
                   Реквизиты
                 </Link>
                 <Link
-                  href={`/${link}/about_company/partners`}
+                  href={`/${pathname[1] || "moscow"}/about_company/partners`}
                   className="hover:bg-orange-bg hover:text-white py-1 px-2"
                 >
                   Партнёры
@@ -94,14 +95,14 @@ const LowerHeader = () => {
           </div>
           <div className="relative w-1/5">
             <MenuButton
-              src={`/${link}/contacts`}
+              src={`/${pathname[1] || "moscow"}/contacts`}
               name="Контакты"
               icon="false"
             />
           </div>
           <div className="relative w-1/5">
             <MenuButton
-              src={`/${link}/certificates`}
+              src={`/${pathname[1] || "moscow"}/certificates`}
               name="Сертификаты"
               icon="false"
             />
@@ -164,9 +165,9 @@ const LowerHeader = () => {
         } backdrop-blur-md w-full transition-all duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-gray-bg justify-start items-center z-30`}
       >
         <Link
-          href={`/${link}/catalog`}
+          href={`/${pathname[1] || "moscow"}/catalog`}
           className={`font-bold w-full flex justify-center items-center py-6 ${
-            pathname === `/${link}/catalog` ? "bg-orange-bg" : "bg-transparent"
+            pathname[2] === `/catalog` ? "bg-orange-bg" : "bg-transparent"
           }`}
           onClick={navbarHide}
         >
@@ -175,7 +176,7 @@ const LowerHeader = () => {
         <hr className="border w-full" />
         <button
           className={`font-bold w-full flex justify-center items-center py-6 ${
-            pathname === `/${link}/price` ? "bg-orange-bg" : "bg-transparent"
+            pathname[2] === `/price` ? "bg-orange-bg" : "bg-transparent"
           }`}
           onClick={showPrice}
         >
@@ -183,12 +184,9 @@ const LowerHeader = () => {
         </button>
         <hr className="border w-full" />
         <Link
-          href={`/${link}/about_company`}
+          href={`/${pathname[1] || "moscow"}/about_company`}
           className={`font-bold w-full flex justify-center items-center py-6 ${
-            pathname === "/about_company" ||
-            pathname === "/about_company/certificate"
-              ? "bg-orange-bg"
-              : "bg-transparent"
+            pathname[2] === "/about_company" ? "bg-orange-bg" : "bg-transparent"
           }`}
           onClick={navbarHide}
         >
@@ -196,9 +194,9 @@ const LowerHeader = () => {
         </Link>
         <hr className="border w-full" />
         <Link
-          href={`/${link}/contacts`}
+          href={`/${pathname[1] || "moscow"}/contacts`}
           className={`font-bold w-full flex justify-center items-center py-6 ${
-            pathname === `/${link}/contacts` ? "bg-orange-bg" : "bg-transparent"
+            pathname[2] === `/contacts` ? "bg-orange-bg" : "bg-transparent"
           }`}
           onClick={navbarHide}
         >
@@ -206,11 +204,9 @@ const LowerHeader = () => {
         </Link>
         <hr className="border w-full" />
         <Link
-          href={`/${link}/certificates`}
+          href={`/${pathname[1] || "moscow"}/certificates`}
           className={`font-bold w-full flex justify-center items-center py-6 ${
-            pathname === `/${link}/certificates`
-              ? "bg-orange-bg"
-              : "bg-transparent"
+            pathname[2] === `/certificates` ? "bg-orange-bg" : "bg-transparent"
           }`}
           onClick={navbarHide}
         >
