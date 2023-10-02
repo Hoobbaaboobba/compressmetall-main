@@ -5,9 +5,11 @@ import { Suspense, useState } from "react";
 import CatalogContent from "./CatalogContent";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 import Link from "next/link";
 import Loading from "@/app/loading";
+import { useRouter } from "next/navigation";
 
 const options = [
   {
@@ -44,24 +46,34 @@ const CatalogSelectorPage = () => {
   const params = useSearchParams();
   const query = params.get("q");
 
+  const router = useRouter();
+
   return (
     <main className="flex justify-center">
       <div className="max-w-[1000px] w-full flex flex-col py-8 px-4">
         <div className="w-full relative">
-          <button
-            id="select"
-            onClick={() => setSelectOption((event) => !event)}
-            className="w-[260px] focus:outline-orange-bg rounded-lg cursor-pointer font-bold py-1 px-2 text-gray-bg border border-light-gray z-20"
-          >
-            <div className="w-full flex justify-between items-center">
-              <h1>{query ? query : "Все товары"}</h1>
-              <KeyboardArrowDownIcon
-                className={`${
-                  selectOption ? "rotate-180" : "rotate-0"
-                } transition duration-200`}
-              />
+          <div className="flex gap-4 justify-start items-center">
+            <div
+              onClick={() => router.back()}
+              className="rounded-full text-white bg-orange-bg cursor-pointer"
+            >
+              <ChevronLeftIcon fontSize="large" />
             </div>
-          </button>
+            <button
+              id="select"
+              onClick={() => setSelectOption((event) => !event)}
+              className="w-[260px] focus:outline-orange-bg rounded-lg cursor-pointer font-bold py-1 px-2 text-gray-bg border border-light-gray z-0"
+            >
+              <div className="w-full flex justify-between items-center">
+                <h1>{query ? query : "Все товары"}</h1>
+                <KeyboardArrowDownIcon
+                  className={`${
+                    selectOption ? "rotate-180" : "rotate-0"
+                  } transition duration-200`}
+                />
+              </div>
+            </button>
+          </div>
           <div
             className={`${
               selectOption ? "block" : "hidden"

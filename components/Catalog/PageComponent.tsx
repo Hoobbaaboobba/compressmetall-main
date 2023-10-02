@@ -30,7 +30,7 @@ const PageComponent: React.FC<PageComponentProps> = ({ data }) => {
                     src={require(`../../public/${item[1]}.png`)}
                     alt={product.label}
                     width={160}
-                    height={160}
+                    height={100}
                     placeholder="blur"
                     className="rounded-lg"
                   />

@@ -1,3 +1,4 @@
+import { metalArray } from "../Home/MainSection/data";
 import {
   blackMetal,
   colorMetal,
@@ -8,6 +9,7 @@ import {
   zincMetal,
 } from "../Home/MainSection/productsData";
 import AllItems from "./AllItems/AllItems";
+import CatalogItself from "./CatalogItself";
 import PageComponent from "./PageComponent";
 
 interface CatalogContentProps {
@@ -16,11 +18,11 @@ interface CatalogContentProps {
 
 const CatalogContent: React.FC<CatalogContentProps> = ({ query }) => {
   return (
-    <div className="mt-2 xl:mt-8 w-full justify-center items-center">
+    <div className="mt-8 w-full justify-center items-center">
       {query === "Все товары" || query === "" ? <AllItems /> : ""}
       {query === "Чёрный металл" ? <PageComponent data={blackMetal} /> : ""}
       {query === "Цветной металл" ? <PageComponent data={colorMetal} /> : ""}
-      {query === "Нержавеющая сталь" ? <PageComponent data={nershav} /> : ""}
+      {query === "Нержавеющие металлы" ? <PageComponent data={nershav} /> : ""}
       {query === "Оцинкованная сталь" ? <PageComponent data={zincMetal} /> : ""}
       {query === "Метизы" ? <PageComponent data={metiza} /> : ""}
       {query === "Трубопроводная арматура" ? (
@@ -38,6 +40,7 @@ const CatalogContent: React.FC<CatalogContentProps> = ({ query }) => {
       ) : (
         ""
       )}
+      {query ? <CatalogItself data={metalArray} label={query} /> : ""}
     </div>
   );
 };
