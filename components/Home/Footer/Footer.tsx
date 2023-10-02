@@ -56,15 +56,19 @@ const catalog = [
 
 const services = [
   {
-    label: "Резка арматуры",
+    label: "Остатки",
     href: "/services",
   },
   {
-    label: "Плазменная резка",
+    label: "Покраска",
     href: "/services",
   },
   {
-    label: "Рубка стального листа",
+    label: "Размотка раматуры",
+    href: "/services",
+  },
+  {
+    label: "Резка металла в размер",
     href: "/services",
   },
 ];
