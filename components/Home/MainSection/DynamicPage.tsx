@@ -8,9 +8,10 @@ import usePriceModal from "@/hooks/usePriceModal";
 interface DynamicPageProps {
   category: string;
   id: string;
+  title?: string;
 }
 
-const DynamicPage: React.FC<DynamicPageProps> = ({ category, id }) => {
+const DynamicPage: React.FC<DynamicPageProps> = ({ category, id, title }) => {
   const { onOpen } = usePriceModal();
 
   const showPrice = () => {
@@ -36,7 +37,9 @@ const DynamicPage: React.FC<DynamicPageProps> = ({ category, id }) => {
           placeholder="blur"
         />
         <div className="flex flex-col gap-3 justify-center items-center w-full">
-          <h1 className="text-lg max-w-[400px] text-center">{id}</h1>
+          <h1 className="text-lg max-w-[400px] text-center">
+            {id} {title === "undefined" ? "" : title}
+          </h1>
           <h2 className="opacity-60">
             {isInStock} (<span className="text-orange-bg">{amount}</span>)
           </h2>

@@ -1,101 +1,12 @@
 "use client";
 
 import Link from "next/link";
-
-import {
-  blackMetal,
-  colorMetal,
-  nershav,
-  zincMetal,
-  metiza,
-  truba,
-  precenSplav,
-} from "./productsData";
 import HoverMenuItem from "./hoverMenuItem";
 
 import { usePathname } from "next/navigation";
+import { metalArray } from "./data";
 
 const CatalogMenu = () => {
-  const items = [
-    {
-      label: "Чёрный металл",
-      img: "menuCatalog",
-      data: blackMetal,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Цветной металл",
-      img: "menuCatalogColor",
-      data: colorMetal,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Нержавеющая сталь",
-      img: "menuCatalogSteel",
-      data: nershav,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Оцинкованная сталь",
-      img: "menuCatalogZincSteel",
-      data: zincMetal,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Метизы",
-      img: "menuCatalogMetiza",
-      data: metiza,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Трубопроводная арматура",
-      img: "menuCatalogTruba",
-      data: truba,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Прецензионные сплавы",
-      img: "menuCatalogSplav",
-      data: precenSplav,
-      bold: "",
-      items: true,
-    },
-    {
-      label: "Позиции под заказы",
-      img: "menuCatalogPosotion",
-      data: blackMetal,
-      bold: "",
-      items: false,
-    },
-    {
-      label: "Остатки",
-      img: "menuCatalogStroy",
-      data: blackMetal,
-      bold: "",
-      items: false,
-    },
-    {
-      label: "Размотка арматура",
-      img: "menuCatalogPosotion",
-      data: blackMetal,
-      bold: "",
-      items: false,
-    },
-    {
-      label: "Плазменная резка",
-      img: "menuCatalogServices",
-      data: blackMetal,
-      bold: "",
-      items: false,
-    },
-  ];
-
   const pathname = usePathname().split("/");
 
   return (
@@ -112,17 +23,13 @@ const CatalogMenu = () => {
           </div>
         </Link>
         <hr />
-        {items.map((item, index) => (
+        {metalArray.map((metal, index) => (
           <>
             <HoverMenuItem
               key={index}
-              products={item.data}
-              productImg={item.img}
-              label={item.label}
-              topic={item.label}
-              bold={item.bold}
-              items={item.items}
-              link={pathname[1] || "moscow"}
+              label={metal.label}
+              buttonImg={metal.img}
+              item={metal.items}
             />
             <hr />
           </>
