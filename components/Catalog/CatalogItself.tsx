@@ -47,12 +47,20 @@ const CatalogItself = ({ data, label }: CatalogItselfProps) => {
                     <h1>{link.variant}</h1>
                     {link.items.length === 0 ? (
                       <Link
-                        href={`/${pathname[1]}/catalog/${card.name}/${link.variant}/?i=${link.img}&q=Имеется в наличии&amount=400`}
+                        href={`/${pathname[1] || "moscow"}/catalog/${
+                          card.name
+                        }/${link.variant}/?i=${
+                          link.img
+                        }&q=Имеется в наличии&amount=400`}
                       >
                         <OrangeButton label={"Приобрести"} mark />
                       </Link>
                     ) : (
-                      <Link href={`/${pathname[1]}/catalog?q=${link.variant}`}>
+                      <Link
+                        href={`/${pathname[1] || "moscow"}/catalog?q=${
+                          link.variant
+                        }`}
+                      >
                         <OrangeButton label={"Выбрать марку"} mark />
                       </Link>
                     )}
