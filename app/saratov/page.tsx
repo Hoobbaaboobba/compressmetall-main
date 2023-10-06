@@ -5,7 +5,8 @@ import Loading from "./loading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Копресс металл | Саратов",
+  title:
+    "Металлопрокат оптом и в розницу в Саратове | Купить металл в компании Копресс металл недорого",
   description: "Продажа металлопроката в Саратове и Саратовской области",
   generator: "Компресс металл",
   applicationName: "Компресс металл",

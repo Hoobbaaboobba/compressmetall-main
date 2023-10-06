@@ -5,7 +5,8 @@ import Loading from "./loading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Копресс металл | Донетск",
+  title:
+    "Металлопрокат оптом и в розницу в Донецке | Купить металл в компании Копресс металл недорого",
   description: "Продажа металлопроката в Донетске и Донетской области",
   generator: "Компресс металл",
   applicationName: "Компресс металл",
@@ -50,7 +51,8 @@ export const metadata: Metadata = {
   creator: "Reptile Design",
   publisher: "Reptile Design",
   openGraph: {
-    title: "Копресс металл | Донетск",
+    title:
+      "Металлопрокат оптом и в розницу в Донецке | Купить металл в компании Копресс металл недорого",
     description: "Продажа металлопроката в Донетске и Донетской области",
     url: "https://www.kometal.ru/donetsk",
     images: {

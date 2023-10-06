@@ -6,7 +6,8 @@ import Loading from "./loading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Копресс металл | Нижний Новгород",
+  title:
+    "Металлопрокат оптом и в розницу в Нижнем Новгороде | Купить металл в компании Копресс металл недорого",
   description:
     "Продажа металлопроката в Нижнем Новгороде и Нижегородской области",
   generator: "Компресс металл",
@@ -52,7 +53,8 @@ export const metadata: Metadata = {
   creator: "Reptile Design",
   publisher: "Reptile Design",
   openGraph: {
-    title: "Копресс металл | Нижний Новгород",
+    title:
+      "Металлопрокат оптом и в розницу в Нижнем Новгороде | Купить металл в компании Копресс металл недорого",
     description:
       "Продажа металлопроката в Нижнем Новгороде и Нижегородской области",
     url: "https://www.kometal.ru/nizhnynovgorod",

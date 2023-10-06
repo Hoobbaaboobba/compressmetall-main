@@ -6,7 +6,8 @@ import Loading from "./loading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Копресс металл | Ярославль",
+  title:
+    "Металлопрокат оптом и в розницу в Ярославле | Купить металл в компании Копресс металл недорого",
   description: "Продажа металлопроката в Ярославле и в Ярославской области",
   generator: "Компресс металл",
   applicationName: "Компресс металл",
@@ -51,7 +52,8 @@ export const metadata: Metadata = {
   creator: "Reptile Design",
   publisher: "Reptile Design",
   openGraph: {
-    title: "Копресс металл | Ярославль",
+    title:
+      "Металлопрокат оптом и в розницу в Ярославле | Купить металл в компании Копресс металл недорого",
     description: "Продажа металлопроката в Ярославле и в Ярославской области",
     url: "https://www.kometal.ru/yaroslavl",
     images: {
