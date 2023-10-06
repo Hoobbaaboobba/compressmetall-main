@@ -44,12 +44,13 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const productsData: Promise<Product[]> = getAllProducts("", "");
+  const ids = products;
 
-  const products = await productsData;
-
-  return products;
+  return ids.map((item) => ({
+    item,
+  }));
 }
+
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product> = getAllProducts(
     params.id[0] || "",
