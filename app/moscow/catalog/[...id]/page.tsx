@@ -2,7 +2,7 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { ids } from "@/components/pagesLinks";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
-import { Suspense } from "react";
+import { Fragment, Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "../loading";
 import { products } from "@/app/api/products/products";
@@ -47,9 +47,7 @@ export async function generateMetadata(
 export async function generateStaticParams() {
   const ids = products;
 
-  return ids.map((item) => {
-    return item;
-  });
+  return ids.map((item: Product) => item);
 }
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product> = getAllProducts(
