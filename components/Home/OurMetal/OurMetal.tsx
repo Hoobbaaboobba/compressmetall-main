@@ -3,10 +3,13 @@ import Slider from "./Slider";
 const OurMetal = () => {
   return (
     <section className="flex flex-col justify-start items-center w-full">
-      <div className="max-w-[1000px] w-full flex flex-col">
-        <h2 className="text-xl font-bold text-gray-bg mb-8 text-center xl:text-start">
-          Хиты продаж
-        </h2>
+      <div className="w-full flex flex-col">
+        <div className="w-full mb-8 flex flex-col justify-center items-center">
+          <h2 className="text-3xl font-bold text-black text-center xl:text-start">
+            Хиты продаж
+          </h2>
+          <div className="bg-black h-[5px] w-[80px] my-4"></div>
+        </div>
         <div className="hidden lg:block">
           <Slider amountSlides={4} />
         </div>

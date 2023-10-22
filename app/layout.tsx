@@ -62,26 +62,22 @@ export default function RootLayout({
           <Header />
         </Suspense>
         <div className="flex w-full justify-center mt-[80px] xl:mt-[130px]">
-          <div className="max-w-[1300px] w-full flex justify-center xl:justify-between gap-4">
-            <CatalogMenu />
-            <div className="max-w-[1000px] w-full">
-              <ViewCatalog />
-              {children}
-              <hr className="w-full border-light-gray my-12" />
-              <OurMetal />
-              <hr className="w-full border-light-gray my-12" />
-              <OurServices />
-              <hr className="w-full border-light-gray my-12" />
-              <BuyMetal />
-              <hr className="w-full border-light-gray my-12" />
-              <Reviews />
-              <hr className="w-full border-light-gray my-12" />
-              <OurContacts />
-              <GoToTop />
-            </div>
+          <div className="max-w-[1300px] w-full flex flex-col justify-center xl:justify-between gap-4">
+            <ViewCatalog />
+            {children}
+            <hr className="w-full border-transparent my-8" />
+            <OurMetal />
+            <hr className="w-full border-transparent my-8" />
+            <OurServices />
+            <hr className="w-full border-transparent my-8" />
+            <BuyMetal />
+            <hr className="w-full border-transparent my-8" />
+            <Reviews />
+            <hr className="w-full border-transparent my-8" />
+            <OurContacts />
+            <GoToTop />
           </div>
         </div>
-        <OurPartners />
         <Footer />
       </body>
     </html>

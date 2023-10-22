@@ -7,7 +7,7 @@ interface OrangeButtonProps {
 
 const OrangeButton: React.FC<OrangeButtonProps> = ({ label, mark }) => {
   return (
-    <button className={`py-2 px-5 bg-orange-bg boxshadow text-white underline`}>
+    <button className={`py-2 px-5 bg-orange-bg boxshadow underline text-white`}>
       {label}
       {mark ? "" : <CheckCircleOutlineIcon fontSize="small" className="ml-2" />}
     </button>

@@ -4208,24 +4208,4 @@ export const metalArray = [
       },
     ],
   },
-  {
-    label: "Резка металла в размер",
-    img: "menuCatalogPosotion",
-    items: [],
-  },
-  {
-    label: "Покраска",
-    img: "menuCatalogStroy",
-    items: [],
-  },
-  {
-    label: "Размотка арматуры",
-    img: "menuCatalogPosotion",
-    items: [],
-  },
-  {
-    label: "Остатки",
-    img: "menuCatalogSplav",
-    items: [],
-  },
 ];

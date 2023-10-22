@@ -12,7 +12,7 @@ const AdvantagesCard: React.FC<AdvantagesCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex justify-center items-center gap-4 max-w-[300px]">
+    <div className="flex flex-col justify-center items-center gap-2 text-center w-full border-b-2 border-b-zinc-400 py-4">
       <div className="w-[60px] h-[60px]">
         <Image
           src={`/${image}.png`}
@@ -22,10 +22,8 @@ const AdvantagesCard: React.FC<AdvantagesCardProps> = ({
           priority
         />
       </div>
-      <div className="w-[240px]">
-        <h3 className="text-base font-medium">{topic}</h3>
-        <p className="opacity-80 leading-5 text-sm">{description}</p>
-      </div>
+      <h3 className="text-xl font-medium">{topic}</h3>
+      <p className="opacity-80 leading-5 text-md">{description}</p>
     </div>
   );
 };

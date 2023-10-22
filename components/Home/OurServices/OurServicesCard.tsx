@@ -1,5 +1,6 @@
 "use client";
 
+import OrangeButton from "@/components/OrangeButton";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -27,9 +28,7 @@ const OurServicesCard: React.FC<OurServicesCard> = ({
         </div>
       </div>
       <Link href={`/${pathname[1] || "moscow"}/services`}>
-        <button className="py-2 px-6 boxshadow text-white bg-orange-bg mt-4 underline">
-          Подробнее
-        </button>
+        <OrangeButton mark label={"Подробнее"} />
       </Link>
     </div>
   );

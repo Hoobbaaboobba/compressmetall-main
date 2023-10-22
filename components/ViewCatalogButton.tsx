@@ -21,7 +21,7 @@ const ViewCatalogButton = () => {
   return (
     <button
       onClick={showCatalog}
-      className="w-full boxshadow z-[11] text-white py-4 bg-orange-bg fixed bottom-[0vh] left-0 xl:hidden underline"
+      className="w-full boxshadow z-[11] text-white py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden underline"
     >
       {isOpenCatalog && typeOfMenu && "Назад"}
       {isOpenCatalog && typeOfMenu === "" && "Закрыть каталог"}

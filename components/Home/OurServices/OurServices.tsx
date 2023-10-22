@@ -4,9 +4,12 @@ const OurServices = () => {
   return (
     <section className="w-full flex flex-col justify-center items-center">
       <div>
-        <h2 className="text-xl font-bold text-gray-bg mb-8 text-center xl:text-start">
-          Наши услуги
-        </h2>
+        <div className="w-full mb-8 flex flex-col justify-center items-center">
+          <h2 className="text-3xl font-bold text-black text-center xl:text-start">
+            Наши услуги
+          </h2>
+          <div className="bg-black h-[5px] w-[80px] my-4"></div>
+        </div>
         <div className="flex max-w-[1000px] flex-wrap xl:flex-nowrap justify-center items-center">
           <OurServicesCard
             image={"/servicesPlasma"}

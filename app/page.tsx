@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="flex justify-center">
-      <div className="max-w-[1050px] w-full">
+      <div className="max-w-[1300px] w-full">
         <Suspense fallback={<Loading />}>
           <MainSection />
         </Suspense>

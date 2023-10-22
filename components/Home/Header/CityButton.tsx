@@ -12,7 +12,7 @@ const CityButton = () => {
   const [cityHover, setCityHover] = useState(false);
   const [cityClick, setCityClick] = useState(false);
 
-  const { location, changeLocation, changeLink } = useLocationModal();
+  const { changeLocation, changeLink } = useLocationModal();
 
   const changeCityName = (name: string, link: string) => {
     changeLocation(name);
@@ -29,7 +29,7 @@ const CityButton = () => {
       onMouseLeave={() => setCityHover(false)}
       className="relative"
     >
-      <button className="text-orange-bg text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
+      <button className="text-orange-text text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
         <FmdGoodOutlinedIcon />
         {(pathname[1] === "moscow" || pathname[1] === "") && "Москва"}
         {pathname[1] === "ufa" && "Уфа"}

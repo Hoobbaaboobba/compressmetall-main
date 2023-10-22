@@ -1,3 +1,4 @@
+import OrangeButton from "@/components/OrangeButton";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,7 +21,7 @@ const OurMetalCard: React.FC<OurMetalCardProps> = ({
   const pathname = usePathname().split("/");
 
   return (
-    <div className="border border-light-gray h-full max-h-[280px] rounded-xl flex flex-col justify-between items-center text-center gap-2 p-[20px] transitionr">
+    <div className="border border-light-gray h-[320px] w-[250px] rounded-xl flex flex-col justify-between items-center text-center gap-2 p-[20px] transitionr">
       <div className="relative">
         <div className="bg-orange-bg text-center text-white text-sm absolute -top-2 -left-2 px-1 rounded">
           хит
@@ -38,9 +39,7 @@ const OurMetalCard: React.FC<OurMetalCardProps> = ({
           isInStock
         )}&amount=${encodeURI(amount)}`}
       >
-        <button className="py-2 px-6 boxshadow bg-orange-bg mt-4 underline text-white">
-          Подробнее
-        </button>
+        <OrangeButton label={"Подробнее"} mark />
       </Link>
     </div>
   );

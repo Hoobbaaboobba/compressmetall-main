@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+
 import CityButton from "./CityButton";
 import Search from "./Search";
 import { Suspense } from "react";
@@ -16,15 +17,6 @@ const Loading = () => {
 };
 
 const UpperHeader = () => {
-  const { onOpen } = useCallModal();
-
-  const hideRequest = () => {
-    onOpen();
-    document.body.style.overflowY = "hidden";
-  };
-
-  const { link } = useLocationModal();
-
   return (
     <div className="hidden xl:flex justify-center bg-white items-center w-full text-white py-3">
       <div className="flex justify-between items-center max-w-[1300px] w-full">
@@ -38,17 +30,17 @@ const UpperHeader = () => {
         </Suspense>
         <div className="flex flex-col">
           <div className="flex gap-2">
-            <EmailOutlinedIcon className="text-orange-bg mt-[3px]" />
-            <h3 className="font-bold text-xl text-black opacity-80">
+            <EmailOutlinedIcon className="text-orange-text mt-[3px]" />
+            <h3 className="font-bold text-xl text-black underline">
               info@kometal.ru
             </h3>
           </div>
-          <button
-            onClick={hideRequest}
-            className="text-lg w-full text-orange-bg underline font-bold"
-          >
-            Заказать звонок
-          </button>
+          <div className="flex gap-2">
+            <LocalPhoneOutlinedIcon className="text-orange-text mt-[3px]" />
+            <h3 className="font-bold text-xl text-black underline">
+              +7 (495) 116-66-86
+            </h3>
+          </div>
         </div>
       </div>
     </div>

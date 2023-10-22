@@ -1,17 +1,22 @@
+"use client";
+import { products } from "@/app/api/products/products";
 import Image from "next/image";
 
 const AboutCompanyContent = () => {
   return (
-    <div className="max-w-[1050px] w-full flex flex-col gap-4">
-      <h1 className="text-xl font-bold text-gray-bg text-center xl:text-start">
-        О компании
-      </h1>
-      <div className="flex flex-col lg:flex-row gap-4">
+    <div className="max-w-[1300px] w-full flex flex-col gap-4">
+      <div className="w-full mb-8 flex flex-col justify-center items-center">
+        <h1 className="text-3xl font-bold text-black text-center xl:text-start">
+          О компании
+        </h1>
+        <div className="bg-black h-[5px] w-[80px] mt-4"></div>
+      </div>
+      <div className="flex flex-col justify-center items-center text-center lg:flex-row gap-8 xl:gap-12">
         <Image
           src={require(`../../public/aboutComponyPhoto.png`)}
           alt="about_company_image"
-          width={600}
-          height={520}
+          width="600"
+          height="520"
           placeholder="blur"
         />
         <div className="flex flex-col gap-2">
@@ -38,6 +43,16 @@ const AboutCompanyContent = () => {
           </p>
         </div>
       </div>
+      {/* <div className="flex flex-col">
+        {products.map((product) =>
+          product.id.map(
+            (ids) =>
+              `{
+                id: ['${product.type}', '${product.category}', '${product.variety}', '${ids}', '${product.ENGSize[0]}']
+              },`
+          )
+        )}
+      </div> */}
     </div>
   );
 };

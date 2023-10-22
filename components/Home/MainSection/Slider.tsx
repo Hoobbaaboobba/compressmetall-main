@@ -58,27 +58,27 @@ export const Slider = () => {
   return (
     <div
       ref={sliderRef}
-      className="keen-slider text-white w-full max-w-[1050px]"
+      className="keen-slider text-white w-full max-w-[1300px]"
     >
-      <div className="keen-slider__slide slider1 relative max-w-[1050px]">
+      <div className="keen-slider__slide slider1 relative w-full">
         <Image
           src={sliderImageFactory}
           alt="slider_img"
           quality={100}
           fill
           loading="eager"
-          sizes="(max-width: 1050px), (height: 300px)"
+          sizes="(max-width: 1300px), (height: 350px)"
           style={{
             objectFit: "cover",
-            objectPosition: "top right",
+            objectPosition: "60% 50%",
           }}
           placeholder="blur"
         />
-        <div className="absolute top-[20%] left-[5%] z-10 flex justify-start items-start flex-col gap-1">
-          <h1 className="uppercase text-xl sm:text-4xl font-bold">
+        <div className="absolute top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2 text-black">
+          <h1 className="uppercase text-2xl sm:text-4xl font-bold">
             широкий выбор <br /> металлургической продукции
           </h1>
-          <p className="leading-5 text-sm sm:text-md ml-4">
+          <p className="leading-5 font-bold text-sm sm:text-md ml-4">
             Ознакомьтесь с нашим ассортиментом прямо сейчас и <br /> приобретите
             идеальные материалы для вашего успеха.
           </p>
@@ -87,22 +87,22 @@ export const Slider = () => {
           </div>
         </div>
       </div>
-      <div className="keen-slider__slide slider2 relative max-w-[1050px]">
+      <div className="keen-slider__slide slider2 relative w-full">
         <Image
           src={sliderImageMap}
           alt="slider_img"
           quality={100}
           fill
           loading="eager"
-          sizes="(width: 100%), (height: 300px)"
+          sizes="(width: 100%), (height: 350px)"
           style={{
             objectFit: "cover",
             objectPosition: "60% 50%",
           }}
           placeholder="blur"
         />
-        <div className="absolute top-[20%] left-[5%] z-10 flex justify-start items-start flex-col gap-1">
-          <h1 className="uppercase text-xl sm:text-4xl font-bold">
+        <div className="absolute top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2">
+          <h1 className="uppercase text-2xl sm:text-4xl font-bold">
             Качественный металлопрокат: <br /> ваш надежный партнер
           </h1>
           <p className="leading-5 text-sm sm:text-md ml-4">
@@ -114,22 +114,22 @@ export const Slider = () => {
           </div>
         </div>
       </div>
-      <div className="keen-slider__slide slider3 relative max-w-[1050px]">
+      <div className="keen-slider__slide slider3 relative w-full">
         <Image
           src={sliderImageMetal}
           alt="slider_img"
           quality={100}
           fill
           loading="eager"
-          sizes="(width:100%, (height: 300px)"
+          sizes="(width:100%, (height: 350px)"
           style={{
             objectFit: "cover",
             objectPosition: "top right",
           }}
           placeholder="blur"
         />
-        <div className="absolute top-[20%] left-[5%] z-10 flex justify-start items-start flex-col gap-1">
-          <h1 className="uppercase text-xl sm:text-4xl font-bold">
+        <div className="absolute top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2">
+          <h1 className="uppercase text-2xl sm:text-4xl font-bold">
             Ключ к надежной конструкции: <br /> наш металлопрокат
           </h1>
           <p className="leading-5 text-sm sm:text-md ml-4">
