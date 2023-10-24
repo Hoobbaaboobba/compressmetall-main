@@ -1,52 +1,53 @@
 "use client";
 
-import CatalogItem from "./Home/MainSection/CatalogItem";
-("./Home/MainSection/productsData");
-
-import OurContacts from "./Home/OurContacts/OurContacts";
 import useCatalogModal from "@/hooks/useCatalogModal";
-import OrangeButton from "./OrangeButton";
-import usePriceModal from "@/hooks/usePriceModal";
 import Link from "next/link";
-import useRequestModal from "@/hooks/useRequestModal";
 import { usePathname } from "next/navigation";
-import { metalArray } from "./Home/MainSection/data";
-
-import Image from "next/image";
+import { menuCatalog } from "./Home/Header/menuData";
 
 const ViewCatalog = () => {
-  const {
-    isOpenCatalog,
-    onCloseCatalog,
-    typeOfMenu,
-    changeTypeOfMenu,
-    onCloseMenu,
-  } = useCatalogModal();
+  const { isOpenCatalog, openCatalog } = useCatalogModal();
 
   const pathname = usePathname().split("/");
-  const { onOpen } = usePriceModal();
-  const { onOpen: onOpenRequest } = useRequestModal();
-
-  const showPrice = () => {
-    onOpen();
-    document.body.style.overflowY = "hidden";
-  };
-
-  const showRequest = () => {
-    onOpenRequest();
-    document.body.style.overflowY = "hidden";
-  };
-
-  const onClickLink = () => {
-    changeTypeOfMenu("");
-    onCloseCatalog();
-    onCloseMenu();
-    document.body.style.overflowY = "auto";
-  };
 
   return (
     <>
       <div
+        className={`${
+          isOpenCatalog ? "translate-y-[0]" : "translate-y-[120%]"
+        } transition duration-300 w-full h-[100dvh] pb-[140px] bg-white grid grid-cols-1 overflow-y-auto lg:grid-cols-2 fixed top-[80px] xl:top-[137px] left-0 z-40`}
+      >
+        {menuCatalog.map((item, index) => (
+          <div
+            key={index}
+            className="flex text-black flex-col gap-6 xl:rounded-md xl:border-r border-b border-r-black/70 :border-b-black/70 p-4"
+          >
+            <div className="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center w-full gap-1  sm:gap-3">
+              <h1 className="uppercase text-[26px] font-bold">{item.label}</h1>
+              <div className="hidden sm:block w-2 h-2 bg-black rounded-full"></div>
+              <Link
+                href={`/${pathname[1] || "moscow"}/catalog/${item.href}`}
+                onClick={openCatalog}
+                className="text-black/70 hover:underline text-lg"
+              >
+                Посмотреть всё
+              </Link>
+            </div>
+            <div className="w-full flex justify-center sm:justify-start items-center flex-wrap gap-2">
+              {item.links.map((link) => (
+                <Link
+                  href={`/${pathname[1] || "moscow"}/catalog/${link.link}`}
+                  onClick={openCatalog}
+                  className="py-1 px-2 border border-black/70 rounded-md hover:bg-orange-bg hover:text-white hover:border-white"
+                >
+                  <h1>{link.title}</h1>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* <div
         className={`fixed ${
           isOpenCatalog ? "translate-y-0" : "translate-y-[-120%]"
         } left-0 top-
@@ -198,7 +199,7 @@ const ViewCatalog = () => {
             </div>
           </>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };

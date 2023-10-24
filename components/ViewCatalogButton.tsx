@@ -5,27 +5,23 @@ import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import useCatalogModal from "@/hooks/useCatalogModal";
 
 const ViewCatalogButton = () => {
-  const { typeOfMenu, onOpenCatalog, changeTypeOfMenu, isOpenCatalog } =
-    useCatalogModal();
+  const { isOpenCatalog, openCatalog } = useCatalogModal();
 
   const showCatalog = () => {
-    if (typeOfMenu === "") {
-      onOpenCatalog();
-      document.body.style.overflowY = "auto";
-    }
-    if (typeOfMenu) {
-      changeTypeOfMenu("");
+    if (!isOpenCatalog) {
+      openCatalog();
+      document.body.style.overflowY = "hidden";
+    } else {
+      openCatalog();
       document.body.style.overflowY = "auto";
     }
   };
   return (
     <button
       onClick={showCatalog}
-      className="w-full boxshadow z-[11] text-white py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden underline"
+      className="w-full boxshadow z-50 text-white py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden underline"
     >
-      {isOpenCatalog && typeOfMenu && "Назад"}
-      {isOpenCatalog && typeOfMenu === "" && "Закрыть каталог"}
-      {isOpenCatalog === false && typeOfMenu === "" && "Посмотреть каталог"}
+      {isOpenCatalog ? "Закрыть каталог" : "Посмотреть каталог"}
       {isOpenCatalog ? (
         <CancelOutlinedIcon fontSize="small" className="ml-2" />
       ) : (

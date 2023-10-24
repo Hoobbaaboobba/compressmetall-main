@@ -74,11 +74,11 @@ export const Slider = () => {
           }}
           placeholder="blur"
         />
-        <div className="absolute top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2 text-black">
+        <div className="absolute top-[20%] sm:top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2 text-black px-2">
           <h1 className="uppercase text-2xl sm:text-4xl font-bold">
             широкий выбор <br /> металлургической продукции
           </h1>
-          <p className="leading-5 font-bold text-sm sm:text-md ml-4">
+          <p className="leading-5 font-bold text-sm sm:text-md ml-4 mr-5">
             Ознакомьтесь с нашим ассортиментом прямо сейчас и <br /> приобретите
             идеальные материалы для вашего успеха.
           </p>

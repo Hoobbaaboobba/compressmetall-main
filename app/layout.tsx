@@ -58,12 +58,12 @@ export default function RootLayout({
         <Call />
         <Price />
         <ViewCatalogButton />
+        <ViewCatalog />
         <Suspense fallback={<Loading />}>
           <Header />
         </Suspense>
         <div className="flex w-full justify-center mt-[80px] xl:mt-[130px]">
           <div className="max-w-[1300px] w-full flex flex-col justify-center xl:justify-between gap-4">
-            <ViewCatalog />
             {children}
             <hr className="w-full border-transparent my-8" />
             <OurMetal />

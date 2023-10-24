@@ -217,7 +217,7 @@ const LowerHeader = () => {
         <div
           className={`xl:hidden ${
             menu ? "translate-x-0" : "translate-x-[100%]"
-          } backdrop-blur-md w-full transition-all duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-gray-bg justify-start items-center z-30`}
+          } w-full transition-all duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-black/70 justify-start items-center z-30 backdrop-blur-lg`}
         >
           <Link
             href={`/${pathname[1] || "moscow"}/catalog`}
@@ -228,7 +228,7 @@ const LowerHeader = () => {
           >
             Каталог
           </Link>
-          <hr className="border w-full" />
+          <hr className="border border-white/10 w-[50%]" />
           <button
             className={`font-bold w-full flex justify-center items-center py-6 ${
               pathname[2] === `/price` ? "bg-orange-bg" : "bg-transparent"
@@ -237,7 +237,7 @@ const LowerHeader = () => {
           >
             Прайс
           </button>
-          <hr className="border w-full" />
+          <hr className="border border-white/10 w-[50%]" />
           <Link
             href={`/${pathname[1] || "moscow"}/about_company`}
             className={`font-bold w-full flex justify-center items-center py-6 ${
@@ -249,7 +249,7 @@ const LowerHeader = () => {
           >
             Компания
           </Link>
-          <hr className="border w-full" />
+          <hr className="border border-white/10 w-[50%]" />
           <Link
             href={`/${pathname[1] || "moscow"}/contacts`}
             className={`font-bold w-full flex justify-center items-center py-6 ${
@@ -259,7 +259,7 @@ const LowerHeader = () => {
           >
             Контакты
           </Link>
-          <hr className="border w-full" />
+          <hr className="border border-white/10 w-[50%]" />
           <Link
             href={`/${pathname[1] || "moscow"}/certificates`}
             className={`font-bold w-full flex justify-center items-center py-6 ${
@@ -271,7 +271,6 @@ const LowerHeader = () => {
           >
             Сертификаты
           </Link>
-          <hr className="border w-full" />
           <div className="w-full flex flex-col justify-center items-center">
             <button
               onClick={showRequest}

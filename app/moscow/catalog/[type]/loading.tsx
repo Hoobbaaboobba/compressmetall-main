@@ -12,6 +12,11 @@ export default function Loading() {
           <Skeleton animation="wave" width="100%" height={325} />
           <Skeleton animation="wave" width="100%" height={325} />
           <Skeleton animation="wave" width="100%" height={325} />
+          <Skeleton animation="wave" width="100%" height={325} />
+          <Skeleton animation="wave" width="100%" height={325} />
+          <Skeleton animation="wave" width="100%" height={325} />
+          <Skeleton animation="wave" width="100%" height={325} />
+          <Skeleton animation="wave" width="100%" height={325} />
         </div>
       </div>
     </div>
