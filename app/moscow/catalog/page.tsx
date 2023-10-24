@@ -1,4 +1,3 @@
-import { products } from "@/app/api/products/products";
 import CatalogSelectorPage from "@/components/Catalog/CatalogSelectorPage";
 import { Metadata } from "next";
 
