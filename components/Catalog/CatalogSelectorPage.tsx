@@ -1,56 +1,30 @@
-"use client";
-
-import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
-import CatalogContent from "./CatalogContent";
-
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-
-import Link from "next/link";
-import Loading from "@/app/loading";
-import { useRouter } from "next/navigation";
-import getAllProducts from "../servers/getProducts";
 import DynamicItem from "../Home/MainSection/dynamicItem";
 import { menuCatalog } from "../Home/Header/menuData";
 
-type Props = {
-  promise: Promise<Product[]>;
-  params: {
-    type: string;
-    category: string;
-    variant: string;
-    id: string;
-    size: string;
-  };
-};
-
-const CatalogSelectorPage = async ({ promise, params }: Props) => {
-  const pathname = usePathname().split("/");
-
-  const products = await promise;
-
+const CatalogSelectorPage = () => {
   return (
-    <main className="w-full flex justify-center items-center">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {menuCatalog.map((menulink) =>
-          menulink.links.map((sublink) =>
-            products.map((item) =>
-              item.id.map((ids) =>
-                item.ENGSize.map((sizes, index) => (
-                  <DynamicItem
-                    key={index}
-                    img={item.img}
-                    label={ids}
-                    sublabel={sizes}
-                    href={`/${pathname[1]}/catalog/${menulink}/${sublink}/${item.variety}/${ids}/${sizes}`}
-                  />
-                ))
-              )
-            )
-          )
-        )}
-      </div>
+    <main className="w-full flex flex-col justify-center items-center">
+      {menuCatalog.map((menulink) => (
+        <>
+          <div className="w-full mb-8 flex flex-col justify-center items-center">
+            <h1 className="text-3xl font-bold text-black text-center xl:text-start mt-4">
+              {menulink.label}
+            </h1>
+            <div className="bg-black h-[5px] w-[80px] mt-4"></div>
+          </div>
+          <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {menulink.links.map((sublink, index) => (
+              <DynamicItem
+                key={index}
+                img={sublink.img}
+                label={menulink.label}
+                sublabel={sublink.title}
+                href={sublink.link}
+              />
+            ))}
+          </div>
+        </>
+      ))}
       {/* <div className="max-w-[1000px] w-full flex flex-col py-8 px-4">
         <div className="w-full relative">
           <div className="flex gap-4 justify-start items-center">

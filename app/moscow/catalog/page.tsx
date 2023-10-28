@@ -19,12 +19,5 @@ type Props = {
 };
 
 export default async function Catalog({ params }: Props) {
-  const productsData: Promise<Product[]> = getAllProducts(
-    params.type || "",
-    params.category || "",
-    params.variant || "",
-    params.id || "",
-    params.size || ""
-  );
-  return <CatalogSelectorPage params={params} promise={productsData} />;
+  return <CatalogSelectorPage />;
 }
