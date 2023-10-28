@@ -28,23 +28,25 @@ const DynamicItem = ({
 }: DynamicProps) => {
   const pathname = usePathname().split("/");
   return (
-    <Link
-      href={`/${pathname[1]}/catalog/${href}/${category || ""}/${
-        variety || ""
-      }/${id || ""}/${size || ""}`}
-      className="relative"
-    >
+    <div className="relative">
+      <Link
+        href={`/${pathname[1]}/catalog/${href}/${category || ""}/${
+          variety || ""
+        }/${id || ""}/${size || ""}`}
+        className="absolute top-0 left-0 w-full h-full"
+      ></Link>
       <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-4 rounded-lg">
         <Image
           src={require(`../../../public/${img}.png`)}
           alt={label}
           width={160}
           height={100}
+          placeholder="blur"
         />
         <h1>{sublabel}</h1>
         <OrangeButton label={"Подробнее"} mark />
       </div>
-    </Link>
+    </div>
   );
 };
 

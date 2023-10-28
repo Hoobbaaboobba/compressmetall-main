@@ -39,7 +39,7 @@ const CityButton = () => {
         {pathname[1] === "tula" && "Тула"}
         {pathname[1] === "nizhnynovgorod" && "Нижний Новгород"}
         {pathname[1] === "voronezh" && "Воронеж"}
-        {pathname[1] === "donetsk" && "Донетск"}
+        {pathname[1] === "donetsk" && "Донецк"}
         {pathname[1] === "saratov" && "Саратов"}
         {pathname[1] === "kazan" && "Казань"}
         <KeyboardArrowDownOutlinedIcon

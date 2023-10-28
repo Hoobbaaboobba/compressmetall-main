@@ -26,7 +26,28 @@ export async function GET(
           .includes(params.id[0].toLocaleLowerCase()) &&
         product.category
           .toLocaleLowerCase()
-          .includes(params.id[1].toLocaleLowerCase())
+          .includes(params.id[1].toLocaleLowerCase()) &&
+        product.type.length === params.id[0].length &&
+        product.category.length === params.id[1].length
+    );
+    return NextResponse.json(currentProducts);
+  }
+
+  if (params.id[0] && params.id[1] && params.id[2] && !params.id[3]) {
+    currentProducts = products.filter(
+      (product) =>
+        product.type
+          .toLocaleLowerCase()
+          .includes(params.id[0].toLocaleLowerCase()) &&
+        product.category
+          .toLocaleLowerCase()
+          .includes(params.id[1].toLocaleLowerCase()) &&
+        product.variety
+          .toLocaleLowerCase()
+          .includes(params.id[2].toLocaleLowerCase()) &&
+        product.type.length === params.id[0].length &&
+        product.category.length === params.id[1].length &&
+        product.variety.length === params.id[2].length
     );
     return NextResponse.json(currentProducts);
   }
@@ -58,6 +79,7 @@ export async function GET(
     );
 
     return NextResponse.json(currentProducts);
+  } else {
+    return NextResponse.json(currentProducts);
   }
-  return NextResponse.json(currentProducts);
 }

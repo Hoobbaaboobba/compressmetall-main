@@ -1,4 +1,5 @@
 import CatalogSelectorPage from "@/components/Catalog/CatalogSelectorPage";
+import getAllProducts from "@/components/servers/getProducts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,6 +8,23 @@ export const metadata: Metadata = {
   description: "Продажа металлопроката в по всей территории России и СНГ",
 };
 
-export default function Catalog() {
-  return <CatalogSelectorPage />;
+type Props = {
+  params: {
+    type: string;
+    category: string;
+    variant: string;
+    id: string;
+    size: string;
+  };
+};
+
+export default async function Catalog({ params }: Props) {
+  const productsData: Promise<Product[]> = getAllProducts(
+    params.type || "",
+    params.category || "",
+    params.variant || "",
+    params.id || "",
+    params.size || ""
+  );
+  return <CatalogSelectorPage params={params} promise={productsData} />;
 }

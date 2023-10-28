@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
-import Loading from "./loading";
+import Loading from "../../loading";
 import { products } from "@/app/api/products/products";
 
 type Props = {
@@ -94,7 +94,7 @@ export default async function MetalPage({ params }: Props) {
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPage promise={productsData} params={params} />
+        <DynamicPage promise={productsData || ""} params={params} />
       </Suspense>
     </main>
   );

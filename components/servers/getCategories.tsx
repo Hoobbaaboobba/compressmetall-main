@@ -6,7 +6,9 @@ export default async function getAllCategories(
   size: string | ""
 ) {
   const res = await fetch(
-    `https://kometal.ru/api/products/${type}/${variety}/${category}/${id}/${size}`
+    `http://localhost:3000/api/products/${type && `${type}/`}${
+      variety && `${variety}/`
+    }${category && `${category}/`}${id && `${id}/`}${size && `${size}/`}`
   );
 
   if (!res.ok) {

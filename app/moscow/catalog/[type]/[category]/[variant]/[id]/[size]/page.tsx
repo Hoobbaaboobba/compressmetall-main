@@ -76,7 +76,7 @@ export async function generateStaticParams() {
   const links = ids.map((product) =>
     product.id.map((link) =>
       product.ENGSize.map((sizes) => ({
-        id: `/donetsk/${product.type}/${product.category}/${link}/${sizes}`,
+        id: `/moscow/${product.type}/${product.category}/${link}/${sizes}`,
       }))
     )
   );
