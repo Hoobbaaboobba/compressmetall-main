@@ -47,7 +47,7 @@ const DynamicItem = ({
         />
         <div className="flex flex-col gap-2 justify-center items-center">
           {topic && <h1>{topic}</h1>}
-          {label && <h2>{label}</h2>}
+          {/* {label && <h2>{label}</h2>} */}
           <h3>{sublabel}</h3>
           <OrangeButton label={"Подробнее"} mark />
         </div>
