@@ -12,7 +12,7 @@ export const cities = [
   {
     region: "donetsk oblast",
     capital: "donetsk",
-    name: "Донетск",
+    name: "Донецк",
   },
   {
     region: "tatarstan republic",

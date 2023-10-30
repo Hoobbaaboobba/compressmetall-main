@@ -96,7 +96,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                     <p className="text-start text-lg hidden sm:block text-black/50 font-bold">
                       {product.isInStock}
                     </p>
-                    <h3 className="font-bold text-xl pb-4 pt-3">
+                    <h3 className="font-bold text-xl pb-4 pt-3 text-center">
                       {product.price}
                     </h3>
                     <ShowButtonPrice />
