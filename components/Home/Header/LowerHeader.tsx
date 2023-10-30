@@ -55,6 +55,7 @@ const LowerHeader = () => {
               className="relative w-1/5"
               onMouseEnter={() => setHoverCatalog(true)}
               onMouseLeave={() => setHoverCatalog(false)}
+              onClick={() => setHoverCatalog(false)}
             >
               <MenuButton
                 src={`/${pathname[1] || "moscow"}/catalog`}
@@ -109,6 +110,13 @@ const LowerHeader = () => {
                 </div>
               </div>
             </div>
+            <div className="relative w-1/5">
+              <MenuButton
+                src={`/${pathname[1] || "moscow"}/services`}
+                name="Услуги"
+                icon="false"
+              />
+            </div>
             <div
               onClick={showPrice}
               className="relative w-1/5 flex py-2 font-medium justify-center items-center gap-8 xl:hover:bg-orange-bg transition cursor-pointer"
@@ -155,13 +163,13 @@ const LowerHeader = () => {
                 icon="false"
               />
             </div>
-            <div className="relative w-1/5">
+            {/* <div className="relative w-1/5">
               <MenuButton
                 src={`/${pathname[1] || "moscow"}/certificates`}
                 name="Сертификаты"
                 icon="false"
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex fixed top-0 left-0 w-full bg-white shadow-md xl:hidden justify-between items-center px-4 py-1 h-[84px]">
@@ -229,6 +237,16 @@ const LowerHeader = () => {
             Каталог
           </Link>
           <hr className="border border-white/10 w-[50%]" />
+          <Link
+            href={`/${pathname[1] || "moscow"}/sercvices`}
+            className={`font-bold w-full flex justify-center items-center py-6 ${
+              pathname[2] === `/services` ? "bg-orange-bg" : "bg-transparent"
+            }`}
+            onClick={navbarHide}
+          >
+            Услуги
+          </Link>
+          <hr className="border border-white/10 w-[50%]" />
           <button
             className={`font-bold w-full flex justify-center items-center py-6 ${
               pathname[2] === `/price` ? "bg-orange-bg" : "bg-transparent"
@@ -258,18 +276,6 @@ const LowerHeader = () => {
             onClick={navbarHide}
           >
             Контакты
-          </Link>
-          <hr className="border border-white/10 w-[50%]" />
-          <Link
-            href={`/${pathname[1] || "moscow"}/certificates`}
-            className={`font-bold w-full flex justify-center items-center py-6 ${
-              pathname[2] === `/certificates`
-                ? "bg-orange-bg"
-                : "bg-transparent"
-            }`}
-            onClick={navbarHide}
-          >
-            Сертификаты
           </Link>
           <div className="w-full flex flex-col justify-center items-center">
             <button
