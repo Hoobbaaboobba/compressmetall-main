@@ -1,30 +1,32 @@
 "use client";
 
+import { menuCatalog } from "@/components/Home/Header/menuData";
 import SearchContent from "@/components/Search/SearchContent";
-import { posts } from "@/posts";
+import getSearchProducts from "@/components/servers/getSearch";
 import { useSearchParams } from "next/navigation";
 
-const SearchPage = () => {
+export default async function SearchPage() {
   const search = useSearchParams();
   const query = search.get("query");
 
-  let currentPosts = posts;
+  const products: Promise<Product[]> = getSearchProducts();
+
+  let currentProducts = await products;
+  let oldProsucts = await products;
 
   if (query) {
-    currentPosts = posts.filter(
-      (post) =>
-        post[0].toLowerCase().includes(query.toLowerCase()) ||
-        post[1].toLowerCase().includes(query.toLowerCase())
+    currentProducts = oldProsucts.filter(
+      (item) =>
+        item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase()) ||
+        item.subLabel.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+      // item.ENGSize.map((sizes) =>
+      //   sizes.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+      // ) ||
+      // item.id.map((ids) =>
+      //   ids.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+      // )
     );
   }
 
-  // if (query) {
-  //   currentPosts = posts.filter((post) =>
-  //     post[1].toLowerCase().includes(query.toLowerCase())
-  //   );
-  // }
-
-  return <SearchContent query={query || ""} currentPosts={currentPosts} />;
-};
-
-export default SearchPage;
+  return <SearchContent query={query || ""} productsData={currentProducts} />;
+}

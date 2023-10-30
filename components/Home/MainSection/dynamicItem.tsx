@@ -9,6 +9,7 @@ interface DynamicProps {
   img: string;
   label: string;
   sublabel: string;
+  topic?: string;
   href: string;
   category?: string;
   variety?: string;
@@ -19,6 +20,7 @@ interface DynamicProps {
 const DynamicItem = ({
   img,
   label,
+  topic,
   sublabel,
   href,
   category,
@@ -43,8 +45,12 @@ const DynamicItem = ({
           height={100}
           placeholder="blur"
         />
-        <h1>{sublabel}</h1>
-        <OrangeButton label={"Подробнее"} mark />
+        <div className="flex flex-col gap-2 justify-center items-center">
+          {topic && <h1>{topic}</h1>}
+          {label && <h2>{label}</h2>}
+          <h3>{sublabel}</h3>
+          <OrangeButton label={"Подробнее"} mark />
+        </div>
       </div>
     </div>
   );

@@ -10,10 +10,8 @@ const ViewCatalogButton = () => {
   const showCatalog = () => {
     if (!isOpenCatalog) {
       openCatalog();
-      document.body.style.overflowY = "hidden";
     } else {
       openCatalog();
-      document.body.style.overflowY = "auto";
     }
   };
   return (
