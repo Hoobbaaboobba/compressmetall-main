@@ -432,7 +432,7 @@ export const products = [
       "Шина медная — разновидность медного проката имеющая прямоугольное сечение, изготавливаемая из различных медных сплавов методом холодной прокатки. ",
     type: "tsvetnoi-prokat",
     category: "copper",
-    variety: "pipe",
+    variety: "shina",
     amount: "",
     isInStock: "Имеется в наличии",
     img: "shinaCopper",
@@ -2394,7 +2394,7 @@ export const products = [
     description: "",
     type: "tsvetnoi-prokat",
     category: "dural",
-    variety: "wire",
+    variety: "wire-dural",
     amount: "",
     isInStock: "Имеется в наличии",
     img: "wireDural",
@@ -3560,7 +3560,7 @@ export const products = [
     description: "",
     type: "tsvetnoi-prokat",
     category: "dural",
-    variety: "wire",
+    variety: "wire-hihrom",
     amount: "",
     isInStock: "Имеется в наличии",
     img: "wireNichrome",
@@ -11282,7 +11282,7 @@ export const products = [
   },
   {
     label: "Нержавейки",
-    subLabel: "Круг нержавеющий",
+    subLabel: "Шестигранник нержавеющий",
     id: [
       "03Х18Н11",
       "03ХН28МДТ",
@@ -11438,13 +11438,14 @@ export const products = [
     isInStock: "Имеется в наличии",
     img: "hexagonNershav",
     price: "от 250р кг",
-    title: "Круг нержавеющий по цене от 250р кг., купить оптом и в розницу в",
+    title:
+      "Шестигранник нержавеющий по цене от 250р кг., купить оптом и в розницу в",
     typeOfSize: "Размер проката, мм",
     metaType: "Нержавеющий Прокат",
   },
   {
     label: "Нержавейки",
-    subLabel: "Шестигранник нержавеющий",
+    subLabel: "Круг нержавеющий",
     id: [
       "02Х25Н22АМ2",
       "03Х11Н10М2Т",
@@ -12105,8 +12106,7 @@ export const products = [
     isInStock: "Имеется в наличии",
     img: "circleNershav",
     price: "от 250р кг",
-    title:
-      "Шестигранник нержавеющий по цене от 250р кг., купить оптом и в розницу в",
+    title: "Круг нержавеющий по цене от 250р кг., купить оптом и в розницу в",
     typeOfSize: "Диаметр, мм",
     metaType: "Нержавеющий Прокат",
   },

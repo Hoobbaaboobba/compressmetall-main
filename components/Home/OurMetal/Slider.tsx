@@ -16,42 +16,42 @@ const brandNew = [
     label: "Стальная арматура A500C А3",
     img: "armatura",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/cherniy-prokat/armatura/armatura-a500c",
   },
   {
     title: "Алюминий",
-    label: "Стальной круг Ст45",
-    img: "circle",
+    label: "Труба алюминиевая 1050",
+    img: "pipeAlum",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/tsvetnoi-prokat/aluminum/pipe/1050/6mm",
   },
   {
     title: "Медь",
     label: "Лента медная",
     img: "lentaCopper",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/tsvetnoi-prokat/copper/lenta/М0б/0.05mm",
   },
   {
     title: "Латунь",
     label: "Шестигранник латунный",
     img: "hexagonBrass",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/tsvetnoi-prokat/brass/hexagon/Л59/3mm",
   },
   {
     title: "Трубы нержавеющие",
     label: "Труба нержавеющая AISI 201",
     img: "trubaNershav",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/nershav-prokat/truba-nershav/pipe/AISI%20201/6mm",
   },
   {
     title: "Оцинкованная сетка",
     label: "Сетка оцинкованная сварная",
     img: "gridZinc",
     isInStock: "Имеется в наличии",
-    amount: "400",
+    href: "/tsvetnoi-prokat/zinc/grid-svar/08пс/0.4х0.4mm",
   },
 ];
 
@@ -104,8 +104,7 @@ const Slider: React.FC<SliderProps> = ({ amountSlides }) => {
             src={card.img}
             name={card.title}
             description={card.label}
-            isInStock={card.isInStock}
-            amount={card.amount}
+            href={card.href || ""}
           />
         </div>
       ))}

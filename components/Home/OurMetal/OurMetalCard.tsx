@@ -7,16 +7,14 @@ interface OurMetalCardProps {
   src: string;
   name: string;
   description: string;
-  isInStock: string;
-  amount: string;
+  href: string;
 }
 
 const OurMetalCard: React.FC<OurMetalCardProps> = ({
   src,
   name,
   description,
-  isInStock,
-  amount,
+  href,
 }) => {
   const pathname = usePathname().split("/");
 
@@ -32,13 +30,7 @@ const OurMetalCard: React.FC<OurMetalCardProps> = ({
         <p className="opacity-60 text-sm">{name}</p>
         <h2 className="text-sm ">{description}</h2>
       </div>
-      <Link
-        href={`/${pathname[1] || "moscow"}/catalog/${encodeURI(
-          name
-        )}/${encodeURI(description)}?i=${encodeURI(src)}&q=${encodeURI(
-          isInStock
-        )}&amount=${encodeURI(amount)}`}
-      >
+      <Link href={`/${pathname[1] || "moscow"}/catalog${href}`}>
         <OrangeButton label={"Подробнее"} mark />
       </Link>
     </div>
