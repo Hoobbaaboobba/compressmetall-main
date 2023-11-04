@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
-import Loading from "../../loading";
+import Loading from "../../../(category)/loading";
 import { products } from "@/app/api/products/products";
 
 type Props = {
@@ -35,7 +35,9 @@ export async function generateMetadata(
   return {
     title: `${products.map((item) => item.subLabel)} ${decodeURI(
       params.id
-    )} по цене ${products.map(
+    )} ${params.size
+      .replace("mm", " мм")
+      .replace(".", ",")} по цене ${products.map(
       (item) => item.price
     )} в Москве с доставкой по всей России`,
     description: `${products[0].metaType} ${products[0].title} Москве по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,

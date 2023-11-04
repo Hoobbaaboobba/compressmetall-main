@@ -133,8 +133,6 @@ export default async function DynamicPage({ promise, params }: Props) {
                   href={product.type}
                   category={product.category}
                   variety={product.variety}
-                  id={product.id[0]}
-                  size={product.ENGSize[0]}
                 />
               )
           )}

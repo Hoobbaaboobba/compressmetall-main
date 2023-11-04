@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import MainSection from "../components/Home/MainSection/MainSection";
 import Advantages from "../components/Home/advantages/Advantages";
 import { Suspense } from "react";
-import Loading from "./loading";
+// import Loading from "./loading";
 
 export const metadata: Metadata = {
   title:
@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <main className="flex justify-center">
       <div className="max-w-[1300px] w-full">
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<h1>Loading...</h1>}>
           <MainSection />
         </Suspense>
         <Advantages />

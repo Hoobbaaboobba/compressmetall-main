@@ -12,7 +12,7 @@ import Reviews from "../components/Home/Reviews/Reviews";
 import GoToTop from "../components/Catalog/GoToTop";
 import Script from "next/script";
 import { Suspense } from "react";
-import Loading from "./loading";
+// import Loading from "./loading";
 import LocationModal from "@/components/LocationModal";
 import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
@@ -59,7 +59,7 @@ export default function RootLayout({
         <Price />
         <ViewCatalogButton />
         <ViewCatalog />
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<h1>Loading...</h1>}>
           <Header />
         </Suspense>
         <div className="flex w-full justify-center mt-[80px] xl:mt-[130px]">
