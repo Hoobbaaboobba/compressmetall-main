@@ -1,7 +1,7 @@
 import { Metadata, ResolvingMetadata } from "next";
 
 import { Suspense } from "react";
-import Loading from "../../(catalog)/loading";
+import Loading from "./loading";
 import getAllCategories from "@/components/servers/getCategories";
 import DynamicPageCategories from "@/components/Home/MainSection/DynamicPageCategories";
 import { products } from "@/app/api/products/products";

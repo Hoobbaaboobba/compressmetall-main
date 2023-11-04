@@ -1,6 +1,5 @@
 import { Metadata, ResolvingMetadata } from "next";
 
-import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
@@ -34,9 +33,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
-      params.id
-    )} по цене ${products.map(
+    title: `${products.map((item) => item.subLabel)} по цене ${products.map(
       (item) => item.price
     )} в Москве с доставкой по всей России`,
     description: `${products[0].metaType} ${products[0].title} Москве по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
