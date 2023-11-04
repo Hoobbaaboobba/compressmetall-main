@@ -92,7 +92,6 @@ export default async function MetalPage({ params }: Props) {
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        {/* <DynamicPage promise={productsData || ""} params={params} /> */}
         <DynamicVariants promise={productsData || ""} />
       </Suspense>
     </main>

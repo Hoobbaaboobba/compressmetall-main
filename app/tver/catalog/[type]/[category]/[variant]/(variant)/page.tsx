@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
 import { products } from "@/app/api/products/products";
+import DynamicVariants from "@/components/Home/MainSection/DynamicVariants";
 
 type Props = {
   params: {
@@ -33,12 +34,8 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
-      params.id
-    )} ${params.size
-      .replace("mm", " мм")
-      .replace(".", ",")} по цене ${products.map(
-      (item) => item.price
+    title: `${products.map(
+      (item) => item.subLabel
     )} в Саратове с доставкой по всей России`,
     description: `${products[0].metaType} ${products[0].title} Саратове по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
@@ -96,7 +93,7 @@ export default async function MetalPage({ params }: Props) {
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPage promise={productsData || ""} params={params} />
+        <DynamicVariants promise={productsData || ""} />
       </Suspense>
     </main>
   );
