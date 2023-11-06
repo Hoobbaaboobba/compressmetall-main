@@ -12,12 +12,24 @@ import Reviews from "../components/Home/Reviews/Reviews";
 import GoToTop from "../components/Catalog/GoToTop";
 import Script from "next/script";
 import { Suspense } from "react";
-// import Loading from "./loading";
 import LocationModal from "@/components/LocationModal";
 import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
 import Price from "@/components/Requests/Price";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
+import Skeleton from "@mui/material/Skeleton";
+
+export function Loading() {
+  return (
+    <div className="w-full px-4 flex gap-4">
+      <Skeleton animation="wave" width="15%" height={100} />
+      <Skeleton animation="wave" width="10%" height={100} />
+      <Skeleton animation="wave" width="25%" height={100} />
+      <Skeleton animation="wave" width="40%" height={100} />
+      <Skeleton animation="wave" width="10%" height={100} />
+    </div>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -59,7 +71,7 @@ export default function RootLayout({
         <Price />
         <ViewCatalogButton />
         <ViewCatalog />
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loading />}>
           <Header />
         </Suspense>
         <div className="flex w-full justify-center mt-[80px] xl:mt-[130px]">

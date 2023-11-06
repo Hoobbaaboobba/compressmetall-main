@@ -1,5 +1,4 @@
 import CatalogSelectorPage from "@/components/Catalog/CatalogSelectorPage";
-import getAllProducts from "@/components/servers/getProducts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

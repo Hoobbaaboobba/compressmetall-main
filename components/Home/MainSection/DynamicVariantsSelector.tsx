@@ -64,7 +64,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
   };
 
   return (
-    <div className="flex w-full gap-2 justify-start items-center">
+    <div className="flex bg-white left-0 w-full gap-2 justify-start items-center">
       <div
         onClick={closeEverything}
         className={`${
