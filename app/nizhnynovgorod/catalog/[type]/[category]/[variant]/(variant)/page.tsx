@@ -73,19 +73,19 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams() {
-  const ids = products;
+// export async function generateStaticParams() {
+//   const ids = products;
 
-  const links = ids.map((product) =>
-    product.id.map((link) =>
-      product.ENGSize.map((sizes) => ({
-        id: `/donetsk/${product.type}/${product.category}/${link}/${sizes}`,
-      }))
-    )
-  );
+//   const links = ids.map((product) =>
+//     product.id.map((link) =>
+//       product.ENGSize.map((sizes) => ({
+//         id: `/donetsk/${product.type}/${product.category}/${link}/${sizes}`,
+//       }))
+//     )
+//   );
 
-  return [...links];
-}
+//   return [...links];
+// }
 
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(

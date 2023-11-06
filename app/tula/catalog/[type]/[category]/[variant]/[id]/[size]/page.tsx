@@ -69,7 +69,7 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const ids = await fetch("http://localhost:3000/api/products").then((res) =>
+  const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
     res.json()
   );
 
