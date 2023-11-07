@@ -1,9 +1,7 @@
 import Header from "../components/Home/Header/Header";
 import Footer from "../components/Home/Footer/Footer";
-import OurPartners from "../components/Home/OurPartners/OurPartners";
 import "./globals.css";
 import ViewCatalog from "../components/ViewCatalog";
-import CatalogMenu from "../components/Home/MainSection/CatalogMenu";
 import OurMetal from "../components/Home/OurMetal/OurMetal";
 import OurServices from "../components/Home/OurServices/OurServices";
 import BuyMetal from "../components/Home/BuyMetal/BuyMetal";
@@ -17,7 +15,6 @@ import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
 import Price from "@/components/Requests/Price";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
-import Skeleton from "@mui/material/Skeleton";
 
 export default function RootLayout({
   children,
@@ -60,7 +57,9 @@ export default function RootLayout({
         <ViewCatalogButton />
         <ViewCatalog />
         <Suspense
-          fallback={<Skeleton animation="wave" width={200} height={100} />}
+          fallback={
+            <div className="w-[300px] h-[100px[ rounded-md bg-light-gray"></div>
+          }
         >
           <Header />
         </Suspense>
