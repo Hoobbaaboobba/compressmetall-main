@@ -9,7 +9,7 @@ export default function Loading() {
       </div>
       <div className="w-full flex gap-2 justify-start items-center mb-4">
         <Skeleton animation="wave" variant="circular" width={40} height={40} />
-        <div className="flex gap-2 justify-start items-start bg-light-gray rounded-md px-3 py-4">
+        <div className="flex gap-2 justify-start items-start rounded-md px-3 py-4">
           <Skeleton animation="wave" width={80} height={30} />
           <Skeleton
             animation="wave"
@@ -18,7 +18,7 @@ export default function Loading() {
             height={30}
           />
         </div>
-        <div className="flex gap-2 justify-start items-start bg-light-gray rounded-md px-3 py-4">
+        <div className="flex gap-2 justify-start items-start rounded-md px-3 py-4">
           <Skeleton animation="wave" width={80} height={30} />
           <Skeleton
             animation="wave"
@@ -29,7 +29,7 @@ export default function Loading() {
         </div>
       </div>
       <div className="w-full flex flex-col">
-        <div className="w-full hidden h-[70px] md:grid grid-cols-4 px-4 bg-light-gray rounded-t-md border-b">
+        <div className="w-full hidden h-[70px] md:grid grid-cols-4 px-4 rounded-t-md border-b">
           <div className="w-full h-full flex justify-center items-center">
             <Skeleton animation="wave" width={200} height={40} />
           </div>
@@ -40,7 +40,7 @@ export default function Loading() {
             <Skeleton animation="wave" width={100} height={40} />
           </div>
         </div>
-        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center bg-light-gray px-4 h-[200px] md:h-[120px]">
+        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center px-4 h-[200px] md:h-[120px]">
           <Skeleton animation="wave" width={300} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
@@ -51,7 +51,7 @@ export default function Loading() {
             <Skeleton animation="wave" width="100%" height={70} />
           </div>
         </div>
-        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center bg-light-gray px-4 h-[200px] md:h-[120px]">
+        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center px-4 h-[200px] md:h-[120px]">
           <Skeleton animation="wave" width={300} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
@@ -62,7 +62,7 @@ export default function Loading() {
             <Skeleton animation="wave" width="100%" height={70} />
           </div>
         </div>
-        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center bg-light-gray px-4 h-[200px] md:h-[120px]">
+        <div className="w-full flex flex-col border-b md:flex-row justify-between items-start md:items-center px-4 h-[200px] md:h-[120px]">
           <Skeleton animation="wave" width={300} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
@@ -73,7 +73,7 @@ export default function Loading() {
             <Skeleton animation="wave" width="100%" height={70} />
           </div>
         </div>
-        <div className="w-full md:flex hidden flex-col border-b md:flex-row justify-between items-start md:items-center bg-light-gray px-4 h-[200px] md:h-[120px]">
+        <div className="w-full md:flex hidden flex-col border-b md:flex-row justify-between items-start md:items-center px-4 h-[200px] md:h-[120px]">
           <Skeleton animation="wave" width={300} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
@@ -84,7 +84,7 @@ export default function Loading() {
             <Skeleton animation="wave" width="100%" height={70} />
           </div>
         </div>
-        <div className="w-full md:flex hidden flex-col border-b md:flex-row justify-between items-start md:items-center bg-light-gray px-4 h-[200px] md:h-[120px]">
+        <div className="w-full md:flex hidden flex-col border-b md:flex-row justify-between items-start md:items-center px-4 h-[200px] md:h-[120px]">
           <Skeleton animation="wave" width={300} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
           <Skeleton animation="wave" width={100} height={70} />
