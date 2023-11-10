@@ -60,7 +60,7 @@ const OurContacts = () => {
               <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
                 <EmailOutlinedIcon className="text-orange-bg" />
                 <p className="font-bold text-gray-bg text-center xl:text-start">
-                  info@kometal.ru
+                  zakaz@kometal.ru
                 </p>
               </div>
               <div onClick={showCall}>

@@ -8,8 +8,6 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import CityButton from "./CityButton";
 import Search from "./Search";
 import { Suspense } from "react";
-import useLocationModal from "@/hooks/useLocationModal";
-import useCallModal from "@/hooks/useCallModal";
 import Logo from "./Logo";
 
 const Loading = () => {
@@ -32,7 +30,7 @@ const UpperHeader = () => {
           <div className="flex gap-2">
             <EmailOutlinedIcon className="text-orange-text mt-[3px]" />
             <h3 className="font-bold text-xl text-black underline">
-              info@kometal.ru
+              zakaz@kometal.ru
             </h3>
           </div>
           <div className="flex gap-2">

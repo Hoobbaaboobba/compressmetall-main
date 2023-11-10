@@ -31,7 +31,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
       {products.map(
         (product) =>
           params.size && (
-            <div className="w-full flex flex-col sm:flex-row gap-4 justify-start items-center px-6 sm:px-12">
+            <div className="w-full flex flex-col sm:flex-row gap-4 justify-start items-center px-6 sm:px-0 my-6">
               <div className="border border-orange-text relative z-30 w-full sm:w-auto">
                 <div
                   onClick={() => setValueMark((event) => !event)}
