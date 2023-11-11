@@ -52,9 +52,13 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                   } max-h-[250px] py-2 z-50 shadow-md overflow-y-auto w-full flex-col absolute top-[50px] left-0 gap-1 bg-white rounded-md justify-start items-center`}
                 >
                   {product.id.map((ids) => (
-                    <li key={ids} onClick={() => setValueMark(false)}>
+                    <li
+                      key={ids}
+                      onClick={() => setValueMark(false)}
+                      className="w-full"
+                    >
                       <Link
-                        className="hover:underline"
+                        className="hover:underline w-full"
                         href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${ids}/${params.size}`}
                       >
                         {ids.replace("mm", " мм").replace(".", ",")}
@@ -77,22 +81,26 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     />
                   </h1>
                 </div>
-                <div
+                <ul
                   className={`${
                     valueWidth ? "flex" : "hidden"
                   } max-h-[250px] py-2 z-50 shadow-md overflow-y-scroll w-full flex-col absolute top-[50px] left-0 gap-1 bg-white rounded-md justify-stert items-center`}
                 >
                   {product.ENGSize.map((sizes) => (
-                    <div key={sizes} onClick={() => setValueWidth(false)}>
+                    <li
+                      key={sizes}
+                      onClick={() => setValueWidth(false)}
+                      className="w-full"
+                    >
                       <Link
-                        className="hover:underline"
+                        className="hover:underline w-full"
                         href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${sizes}`}
                       >
                         {sizes.replace("mm", " мм").replace(".", ",")}
                       </Link>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
               <div

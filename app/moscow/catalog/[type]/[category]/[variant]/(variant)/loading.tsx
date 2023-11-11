@@ -28,7 +28,7 @@ export default function Loading() {
           />
         </div>
       </div>
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col border border-light-gray rounded-md">
         <div className="w-full hidden h-[70px] md:grid grid-cols-4 px-4 rounded-t-md border-b">
           <div className="w-full h-full flex justify-center items-center">
             <Skeleton animation="wave" width={200} height={40} />

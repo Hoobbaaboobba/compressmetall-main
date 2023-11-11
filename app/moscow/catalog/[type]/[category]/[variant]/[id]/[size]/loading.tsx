@@ -25,7 +25,7 @@ export default function Loading() {
               width={100}
             />
           </div>
-          <div className="w-full flex flex-col justify-center items-center sm:justify-start sm:items-start gap-4">
+          <div className="w-full flex flex-col justify-center items-center sm:justify-start sm:items-start gap-4 border border-light-gray rounded-md">
             <div className="hidden lg:block">
               <Skeleton
                 variant="rounded"

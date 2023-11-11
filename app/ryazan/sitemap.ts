@@ -1,14 +1,8 @@
-import { posts } from "@/posts";
+import { products } from "../api/products/products";
 
 export default function sitemap() {
   const city = "ryazan";
   const baseUrl = "https://www.kometal.ru";
-
-  const links = posts;
-  const linksUrls = links.map((link) => ({
-    url: `${baseUrl}/${city}/catalog/${link[0]}/${link[1]}?i=${link[2]}&amp;q=${link[3]}&amp;amount=${link[4]}`,
-    lastModified: new Date(),
-  }));
 
   return [
     { url: baseUrl, lastModified: new Date() },
@@ -27,6 +21,9 @@ export default function sitemap() {
       url: `${baseUrl}/${city}/about_company/requisites`,
       lastModified: new Date(),
     },
-    ...linksUrls,
+    ...products.map((link) => ({
+      url: `${baseUrl}/${city}/catalog/${link.type}/${link.category}/${link.variety}/`,
+      lastModified: new Date(),
+    })),
   ];
 }

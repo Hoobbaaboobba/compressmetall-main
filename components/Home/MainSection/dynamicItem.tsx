@@ -42,7 +42,7 @@ const DynamicItem = ({
           src={require(`../../../public/${img}.png`)}
           alt={label}
           width={160}
-          height={100}
+          height={128}
           placeholder="blur"
         />
         <div className="flex flex-col gap-2 justify-center items-center">

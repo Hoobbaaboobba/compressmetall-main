@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import AboutCompanyContent from "../../../components/AboutCompany/AboutCompanyContent";
 import Loading from "./loading";
 import { Metadata } from "next";
+import { products } from "@/app/api/products/products";
 
 export const metadata: Metadata = {
   title:
