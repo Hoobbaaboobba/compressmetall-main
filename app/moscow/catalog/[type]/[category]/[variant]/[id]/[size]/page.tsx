@@ -30,7 +30,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
+    title: `${products.map((item) => item.subLabel)}, ${decodeURI(
       params.id
     )} ${params.size
       .replace("mm", " мм")
@@ -54,7 +54,7 @@ export async function generateMetadata(
     openGraph: {
       title: `${decodeURI(products[0].metaType)} в Москве | Компресс Металл`,
       description: `${products[0].metaType} ${products[0].title} по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `http://localhost:3000/moscow/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
+      url: `https://www.kometal.ru/moscow/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
       siteName: "Компресс Металл",
       images: [
         {
@@ -67,22 +67,23 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams({ params }: Props) {
-//   const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
-//     res.json()
-//   );
+export async function generateStaticParams() {
+  const ids = await fetch("https://www.kometal.ru/api/products/").then((res) =>
+    res.json()
+  );
 
-//   return ids.map(
-//     (product: any) =>
-//       params.size && {
-//         type: product.type,
-//         category: product.category,
-//         variant: product.variety,
-//         id: encodeURI(product.id[0]),
-//         size: encodeURI(product.ENGSize[0]),
-//       }
-//   );
-// }
+  return ids.map(
+    (product: any) =>
+      product.id.length > 1 &&
+      product.ENGSize.length > 1 && {
+        type: product.type,
+        category: product.category,
+        variant: product.variety,
+        id: encodeURI(product.id[0]),
+        size: encodeURI(product.ENGSize[0]),
+      }
+  );
+}
 
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(

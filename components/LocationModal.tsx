@@ -16,7 +16,8 @@ const LocationModal = () => {
   const [currLocationJs, setCurrLocationJs] = useState({});
   const [changeLoc, setChangeLoc] = useState(false);
 
-  const { onClose, isOpen, changeLocation, changeLink } = useLocationModal();
+  const { onClose, isOpen, changeLocation, changeLink, onOpen } =
+    useLocationModal();
 
   useEffect(() => {
     getLocation();
@@ -65,11 +66,17 @@ const LocationModal = () => {
     onClose();
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      onOpen();
+    }, 3000);
+  }, []);
+
   return (
     <div
       className={`fixed ${
-        isOpen ? "flex" : "hidden"
-      } justify-center items-start z-[100] top-0 left-0 w-full h-[100dvh] bg-black/40 transition`}
+        isOpen ? "z-[100] opacity-100" : "opacity-0"
+      } justify-center items-start flex trasnition duration-300 top-0 left-0 w-full h-[100dvh] bg-black/40 transition`}
     >
       <div
         onClick={onClose}

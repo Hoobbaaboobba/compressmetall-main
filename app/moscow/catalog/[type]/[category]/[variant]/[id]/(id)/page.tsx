@@ -67,24 +67,22 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams({ params }: Props) {
-//   const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
+// export async function generateStaticParams() {
+//   const ids = await fetch("https://www.kometal.ru/api/products/").then((res) =>
 //     res.json()
 //   );
 
 //   return ids.map(
 //     (product: any) =>
-//       params.id &&
-//       !params.size && {
+//       product.id.length > 1 &&
+//       product.ENGSize.length < 1 && {
 //         type: product.type,
 //         category: product.category,
 //         variant: product.variety,
 //         id: encodeURI(product.id[0]),
-//         size: encodeURI(product.ENGSize[0]),
 //       }
 //   );
 // }
-
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(
     params.type || "",

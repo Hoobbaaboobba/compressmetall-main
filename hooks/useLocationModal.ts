@@ -13,7 +13,7 @@ interface LocationModalStore {
 const useLocationModal = create<LocationModalStore>((set) => ({
   location: "Москва",
   link: "moscow",
-  isOpen: true,
+  isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
   changeLocation: (loc) => set({ location: loc }),

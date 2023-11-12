@@ -30,10 +30,8 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} по цене ${products.map(
-      (item) => item.price
-    )} в Москве с доставкой по всей России`,
-    description: `${products[0].metaType} ${products[0].title} Москве по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    title: `${products[0].subLabel} по цене ${products[0].price} в Москве с доставкой по всей России`,
+    description: `${products[0].metaType}, ${products[0].title} Москве по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       decodeURI(products[0].label),
       `Компресс металл ${decodeURI(

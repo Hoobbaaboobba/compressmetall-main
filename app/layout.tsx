@@ -15,6 +15,7 @@ import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
 import Price from "@/components/Requests/Price";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function RootLayout({
   children,
@@ -50,6 +51,7 @@ export default function RootLayout({
           });`}
       </Script>
       <body>
+        <LoadingScreen />
         <LocationModal />
         <Request />
         <Call />
