@@ -51,7 +51,7 @@ export default function RootLayout({
           });`}
       </Script>
       <body>
-        <LoadingScreen />
+        {/* <LoadingScreen /> */}
         <LocationModal />
         <Request />
         <Call />
