@@ -83,6 +83,7 @@ export async function generateMetadata(
 //       }
 //   );
 // }
+
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(
     params.type || "",
