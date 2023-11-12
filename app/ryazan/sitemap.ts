@@ -22,6 +22,14 @@ export default function sitemap() {
       lastModified: new Date(),
     },
     ...products.map((link) => ({
+      url: `${baseUrl}/${city}/catalog/${link.type}/`,
+      lastModified: new Date(),
+    })),
+    ...products.map((link) => ({
+      url: `${baseUrl}/${city}/catalog/${link.type}/${link.category}/`,
+      lastModified: new Date(),
+    })),
+    ...products.map((link) => ({
       url: `${baseUrl}/${city}/catalog/${link.type}/${link.category}/${link.variety}/`,
       lastModified: new Date(),
     })),
