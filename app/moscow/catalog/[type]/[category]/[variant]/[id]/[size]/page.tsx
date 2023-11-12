@@ -4,6 +4,7 @@ import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
+import { products } from "@/app/api/products/products";
 
 type Props = {
   params: {
@@ -68,11 +69,7 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const ids = await fetch("https://www.kometal.ru/api/products/").then((res) =>
-    res.json()
-  );
-
-  return ids.map(
+  return products.map(
     (product: any) =>
       product.id.length > 1 &&
       product.ENGSize.length > 1 && {
