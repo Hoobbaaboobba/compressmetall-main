@@ -2,8 +2,6 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { Suspense } from "react";
 import Loading from "./loading";
-import { links } from "@/components/Home/MainSection/pagesLinks";
-import { products } from "@/app/api/products/products";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import getAllProducts from "@/components/servers/getProducts";
 
@@ -16,8 +14,6 @@ type Props = {
     size: string;
   };
 };
-
-export const runtime = "edge";
 
 export async function generateMetadata(
   { params }: Props,
@@ -65,17 +61,14 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const ids = products;
-
-  const links = ids.map((product) =>
-    product.id.map((link) =>
-      product.ENGSize.map((sizes) => ({
-        id: `/moscow/${product.type}/${product.category}/${link}/${sizes}`,
-      }))
-    )
+  const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
+    res.json()
   );
 
-  return [...links];
+  return ids.map((product: any) => ({
+    type: product.type,
+    category: product.category,
+  }));
 }
 
 export default async function MetalPage({ params }: Props) {

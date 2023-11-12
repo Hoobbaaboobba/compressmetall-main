@@ -269,7 +269,7 @@ export const menuCatalog = [
       },
       {
         title: "Болты и гайки",
-        link: "metizi-bolty/bolty-i-gaiky",
+        link: "metizi-prokat/bolty-i-gaiky",
         img: "boltyIGayky",
         metaData: "Прокат",
       },

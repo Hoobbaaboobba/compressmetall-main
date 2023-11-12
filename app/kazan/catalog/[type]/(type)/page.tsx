@@ -16,8 +16,6 @@ type Props = {
   };
 };
 
-export const runtime = "edge";
-
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -68,17 +66,13 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const ids = products;
-
-  const links = ids.map((product) =>
-    product.id.map((link) =>
-      product.ENGSize.map((sizes) => ({
-        id: `/moscow/${product.type}/${product.category}/${link}/${sizes}`,
-      }))
-    )
+  const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
+    res.json()
   );
 
-  return [...links];
+  return ids.map((product: any) => ({
+    type: product.type,
+  }));
 }
 
 export default async function MetalPage({ params }: Props) {

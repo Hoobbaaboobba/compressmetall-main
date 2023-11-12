@@ -73,19 +73,17 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams() {
-//   const ids = products;
+export async function generateStaticParams() {
+  const ids = await fetch("https://www.kometal.ru/api/products").then((res) =>
+    res.json()
+  );
 
-//   const links = ids.map((product) =>
-//     product.id.map((link) =>
-//       product.ENGSize.map((sizes) => ({
-//         id: `/donetsk/${product.type}/${product.category}/${link}/${sizes}`,
-//       }))
-//     )
-//   );
-
-//   return [...links];
-// }
+  return ids.map((product: any) => ({
+    type: product.type,
+    category: product.category,
+    variant: product.variety,
+  }));
+}
 
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(

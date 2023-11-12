@@ -2,7 +2,6 @@ import Image from "next/image";
 import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
-import { Fragment } from "react";
 
 type Props = {
   promise: Promise<Product[]>;
