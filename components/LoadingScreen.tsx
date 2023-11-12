@@ -17,7 +17,7 @@ const LoadingScreen = () => {
   return (
     <div
       className={`${
-        loading ? "opacity-100 z-[200]" : "opacity-0"
+        loading ? "opacity-100 z-[200]" : "opacity-0 -z-[50]"
       } fixed top-0 left-0 bg-white transition duration-500 w-full h-full px-8 flex justify-center items-center`}
     >
       <Image

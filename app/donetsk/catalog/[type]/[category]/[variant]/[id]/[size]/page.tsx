@@ -4,7 +4,6 @@ import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
-import { products } from "@/app/api/products/products";
 
 type Props = {
   params: {

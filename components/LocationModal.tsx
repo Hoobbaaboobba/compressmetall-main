@@ -75,7 +75,7 @@ const LocationModal = () => {
   return (
     <div
       className={`fixed ${
-        isOpen ? "z-[100] opacity-100" : "opacity-0"
+        isOpen ? "z-[100] opacity-100" : "opacity-0 -z-50"
       } justify-center items-start flex trasnition duration-300 top-0 left-0 w-full h-[100dvh] bg-black/40 transition`}
     >
       <div
