@@ -41,7 +41,9 @@ export default async function DynamicPage({ promise, params }: Props) {
                       <h2 className="text-black/60 text-2xl underline">
                         {product.id.map((ids) =>
                           ids === decodeURI(params.id)
-                            ? ids.replace(".", ",").replace("|", "/")
+                            ? decodeURI(params.id)
+                                .replace(".", ",")
+                                .replace("|", "/")
                             : ""
                         )}
                       </h2>
