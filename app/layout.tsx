@@ -50,6 +50,7 @@ export default function RootLayout({
                accurateTrackBounce:true
           });`}
       </Script>
+      <meta name="yandex-verification" content="d99d66f200d7f09a" />
       <body>
         {/* <LoadingScreen /> */}
         <LocationModal />
