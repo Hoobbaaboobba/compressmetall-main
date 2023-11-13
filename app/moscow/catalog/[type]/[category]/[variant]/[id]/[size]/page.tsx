@@ -76,8 +76,8 @@ export async function generateStaticParams() {
         type: product.type,
         category: product.category,
         variant: product.variety,
-        id: encodeURI(product.id[0]),
-        size: encodeURI(product.ENGSize[0]),
+        id: product.id[0],
+        size: product.ENGSize[0],
       }
   );
 }

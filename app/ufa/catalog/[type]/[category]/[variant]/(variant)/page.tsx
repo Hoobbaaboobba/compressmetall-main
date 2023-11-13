@@ -31,10 +31,8 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map(
-      (item) => item.subLabel
-    )} Уфе с доставкой по всей России`,
-    description: `${products[0].metaType} ${products[0].title} Уфе по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    title: `${products[0].subLabel} в Уфе с доставкой по всей России`,
+    description: `${products[0].metaType} в Уфе по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       decodeURI(products[0].label),
       `Компресс металл ${decodeURI(
@@ -48,12 +46,12 @@ export async function generateMetadata(
     ],
     openGraph: {
       title: `${decodeURI(products[0].metaType)} в Уфе | Компресс Металл`,
-      description: `${products[0].metaType} ${products[0].title} по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `http://localhost:3000/ufa/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
+      description: `${products[0].metaType} по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+      url: `https://www.kometal.ru/ufa/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: `https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75`,
+          url: `/logo.png`,
           width: 800,
           height: 600,
         },

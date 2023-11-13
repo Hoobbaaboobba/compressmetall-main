@@ -3,7 +3,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
-import Loading from "../../../../../(catalog)/loading";
+import Loading from "./loading";
 import { products } from "@/app/api/products/products";
 
 type Props = {
@@ -31,9 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
-      params.id
-    )} ${params.size
+    title: `${products[0].subLabel} ${decodeURI(params.id)} ${params.size
       .replace("mm", " мм")
       .replace(".", ",")} по цене ${products.map(
       (item) => item.price
@@ -53,11 +51,11 @@ export async function generateMetadata(
     openGraph: {
       title: `${decodeURI(products[0].metaType)} в Уфе | Компресс Металл`,
       description: `${products[0].metaType} ${products[0].title} по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `http://localhost:3000/ufa/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
+      url: `https://www.kometal.ru/ufa/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: `https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75`,
+          url: `/logo.png`,
           width: 800,
           height: 600,
         },
@@ -74,8 +72,8 @@ export async function generateStaticParams() {
         type: product.type,
         category: product.category,
         variant: product.variety,
-        id: encodeURI(product.id[0]),
-        size: encodeURI(product.ENGSize[0]),
+        id: product.id[0],
+        size: product.ENGSize[0],
       }
   );
 }

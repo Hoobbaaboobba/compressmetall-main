@@ -30,8 +30,8 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products[0].metaType} ${products[0].title} Донецке с доставкой по России | Купить ${products[0].metaType} в компании Компресс Металл`,
-    description: `${products[0].metaType} ${products[0].title} Донецке по доступным ценам — ${products[0].metaType} в Донецке от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    title: `${products[0].metaType} в Донецке с доставкой по России | Купить ${products[0].metaType} в компании Компресс Металл`,
+    description: `${products[0].metaType} в Донецке по доступным ценам — ${products[0].metaType} в Донецке от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       `${decodeURI(products[0].label)} в Донецке оптом и в розницу`,
       `Компресс металл ${decodeURI(
@@ -47,12 +47,12 @@ export async function generateMetadata(
     ],
     openGraph: {
       title: `${decodeURI(products[0].metaType)} в Донецке | Компресс Металл`,
-      description: `${products[0].metaType}, ${products[0].title} по доступным ценам — ${products[0].metaType} в Донецке от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://kometal.ru/donetsk/catalog/${params.type}/${params.category}`,
+      description: `${products[0].metaType} по доступным ценам — ${products[0].metaType} в Донецке от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+      url: `https://www.kometal.ru/donetsk/catalog/${params.type}/${params.category}`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: "https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75",
+          url: "/logo.png",
           width: 800,
           height: 600,
         },

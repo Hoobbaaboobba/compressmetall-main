@@ -35,7 +35,7 @@ export async function generateMetadata(
     )} в Нижнем Новгороде с доставкой по России | Купить ${categories.map(
       (item) => decodeURI(item.label)
     )} в компании Компресс Металл`,
-    description: `${products[0].metaType} ${products[0].title} Нижнем Новгороде по доступным ценам — ${products[0].metaType} в Нижнем Новгороде от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    description: `${products[0].metaType} в Нижнем Новгороде по доступным ценам — ${products[0].metaType} в Нижнем Новгороде от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       `${decodeURI(categories[0].label)} в Нижнем Новгороде оптом и в розницу`,
       `Компресс металл ${decodeURI(
@@ -58,11 +58,11 @@ export async function generateMetadata(
         categories[0].label
       )} в Нижнем Новгороде | Компресс Металл`,
       description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Нижнем Новгороде от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://kometal.ru/nizhnynovgorod/catalog/${params.type}/`,
+      url: `https://www.kometal.ru/nizhnynovgorod/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: "https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75",
+          url: "/logo.png",
           width: 800,
           height: 600,
         },

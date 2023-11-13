@@ -52,11 +52,11 @@ export async function generateMetadata(
     openGraph: {
       title: `${decodeURI(categories[0].label)} в Туле | Компресс Металл`,
       description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Туле от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://kometal.ru/tula/catalog/${params.type}/`,
+      url: `https://www.kometal.ru/tula/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: "https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75",
+          url: "/logo.png",
           width: 800,
           height: 600,
         },

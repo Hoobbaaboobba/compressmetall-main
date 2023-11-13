@@ -34,28 +34,28 @@ export async function generateMetadata(
     title: `${products.map(
       (item) => item.subLabel
     )} в Саратове с доставкой по всей России`,
-    description: `${products[0].metaType} ${products[0].title} Саратове по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    description: `${products[0].metaType} в Саратове по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       decodeURI(products[0].label),
       `Компресс металл ${decodeURI(
         products[0].metaType
       )} в Саратове оптом и в розницу`,
-      `Купить ${decodeURI(products[0].metaType)} Саратове оптом и в розницу`,
-      `Металлопрокат ${products[0].metaType} Саратове оптом и в розницу`,
-      `Компресс металл ${products[0].metaType} Саратове оптом и в розницу`,
-      `Купить ${decodeURI(products[0].label)} Саратове оптом и в розницу`,
+      `Купить ${decodeURI(products[0].metaType)} в Саратове оптом и в розницу`,
+      `Металлопрокат ${products[0].metaType} в Саратове оптом и в розницу`,
+      `Компресс металл ${products[0].metaType} в Саратове оптом и в розницу`,
+      `Купить ${decodeURI(products[0].label)} в Саратове оптом и в розницу`,
       `Металлопрокат ${decodeURI(
         products[0].metaType
       )} Саратове оптом и в розницу`,
     ],
     openGraph: {
       title: `${decodeURI(products[0].metaType)} в Саратове | Компресс Металл`,
-      description: `${products[0].metaType} ${products[0].title} по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `http://localhost:3000/saratov/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
+      description: `${products[0].metaType} по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+      url: `https://www.kometal.ru/saratov/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: `https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75`,
+          url: `/logo.png`,
           width: 800,
           height: 600,
         },

@@ -32,10 +32,10 @@ export async function generateMetadata(
   return {
     title: `${decodeURI(categories[0].metaData)}, ${decodeURI(
       categories[0].label
-    )} в Твери с доставкой по России | Купить ${categories.map((item) =>
-      decodeURI(item.label)
-    )} в компании Компресс Металл`,
-    description: `${products[0].metaType} ${products[0].title} Твери по доступным ценам — ${products[0].metaType} в Твери от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    )} в Твери с доставкой по России | Купить ${
+      categories[0].label
+    } в компании Компресс Металл`,
+    description: `${products[0].metaType} в Твери по доступным ценам — ${products[0].metaType} в Твери от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       `${decodeURI(categories[0].label)} в Твери оптом и в розницу`,
       `Компресс металл ${decodeURI(
@@ -52,11 +52,11 @@ export async function generateMetadata(
     openGraph: {
       title: `${decodeURI(categories[0].label)} в Твери | Компресс Металл`,
       description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Твери от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://kometal.ru/saratov/catalog/${params.type}/`,
+      url: `https://www.kometal.ru/saratov/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [
         {
-          url: "https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75",
+          url: "/logo.png",
           width: 800,
           height: 600,
         },

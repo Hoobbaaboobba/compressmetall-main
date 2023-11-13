@@ -31,7 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
+    title: `${products.map((item) => item.subLabel)}, ${decodeURI(
       params.id
     )} ${params.size
       .replace("mm", " мм")
@@ -59,7 +59,7 @@ export async function generateMetadata(
       siteName: "Компресс Металл",
       images: [
         {
-          url: `https://www.kometal.ru/_next/image?url=%2Flogo.png&w=256&q=75`,
+          url: `/logo.png`,
           width: 800,
           height: 600,
         },
@@ -76,8 +76,8 @@ export async function generateStaticParams() {
         type: product.type,
         category: product.category,
         variant: product.variety,
-        id: encodeURI(product.id[0]),
-        size: encodeURI(product.ENGSize[0]),
+        id: product.id[0],
+        size: product.ENGSize[0],
       }
   );
 }
