@@ -5,7 +5,7 @@ export default function sitemap() {
   const baseUrl = "https://www.kometal.ru";
 
   return [
-    { url: baseUrl, lastModified: new Date() },
+    { url: `${baseUrl}/${city}`, lastModified: new Date() },
     { url: `${baseUrl}/${city}/services`, lastModified: new Date() },
     { url: `${baseUrl}/${city}/information`, lastModified: new Date() },
     { url: `${baseUrl}/${city}/contacts`, lastModified: new Date() },
