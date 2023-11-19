@@ -20,7 +20,7 @@ export default async function DynamicPage({ promise, params }: Props) {
   return (
     <>
       <div className="max-w-[1300px] flex flex-col gap-4">
-        {products?.map((product, index) => (
+        {products.map((product, index) => (
           <>
             {params.variant && (
               <>
@@ -87,11 +87,11 @@ export default async function DynamicPage({ promise, params }: Props) {
                 <div className="w-full px-6 xl:px-12 mt-4">
                   <div className="w-full mb-4 flex flex-col justify-center items-center">
                     <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-                      <h3>Описание</h3>
+                      Описание
                     </h1>
                     <div className="bg-black h-[5px] w-[80px] mt-4"></div>
                   </div>
-                  <p>{product.description}</p>
+                  <p className="text-black">{products[0].description}</p>
                 </div>
               </>
             )}
@@ -104,7 +104,7 @@ export default async function DynamicPage({ promise, params }: Props) {
         ) : (
           <div className="w-full mb-4 flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-              <h1>{products[0].metaType}</h1>
+              {products[0].metaType}
             </h1>
             <div className="bg-black h-[5px] w-[80px] mt-4"></div>
           </div>
