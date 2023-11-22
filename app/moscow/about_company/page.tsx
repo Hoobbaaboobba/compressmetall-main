@@ -3,6 +3,7 @@ import AboutCompanyContent from "../../../components/AboutCompany/AboutCompanyCo
 import Loading from "./loading";
 import { Metadata } from "next";
 import { products } from "@/app/api/products/products";
+import { menuCatalog } from "@/components/Home/Header/menuData";
 
 export const metadata: Metadata = {
   title:
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AboutCompany() {
   return (
-    <main className="px-4 w-full flex justify-center items-center">
+    <main className="px-4 w-full flex flex-col justify-center items-center">
       <Suspense fallback={<Loading />}>
         <AboutCompanyContent />
       </Suspense>
