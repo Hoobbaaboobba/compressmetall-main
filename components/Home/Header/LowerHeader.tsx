@@ -238,7 +238,7 @@ const LowerHeader = () => {
           </Link>
           <hr className="border border-white/10 w-[50%]" />
           <Link
-            href={`/${pathname[1] || "moscow"}/services`}
+            href={`/${pathname[1] || "moscow"}/sercvices`}
             className={`font-bold w-full flex justify-center items-center py-6 ${
               pathname[2] === `/services` ? "bg-orange-bg" : "bg-transparent"
             }`}
