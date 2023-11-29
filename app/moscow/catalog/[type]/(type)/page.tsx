@@ -52,7 +52,7 @@ export async function generateMetadata(
     openGraph: {
       title: `${decodeURI(categories[0].label)} в Москве | Компресс Металл`,
       description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Москве от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://kometal.ru/moscow/catalog/${params.type}/`,
+      url: `https://www.kometal.ru/moscow/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [
         {
