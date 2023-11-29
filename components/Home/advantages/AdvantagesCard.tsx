@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
 interface AdvantagesCardProps {
@@ -12,7 +13,7 @@ const AdvantagesCard: React.FC<AdvantagesCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-2 text-center w-full border-b-2 border-b-zinc-400 py-4">
+    <Card className="flex flex-col justify-center items-center gap-2 text-center w-full px-2 py-4 xl:hover:shadow-md transition duration-300">
       <div className="w-[60px] h-[60px]">
         <Image
           src={`/${image}.png`}
@@ -22,9 +23,11 @@ const AdvantagesCard: React.FC<AdvantagesCardProps> = ({
           priority
         />
       </div>
-      <h3 className="text-xl font-medium">{topic}</h3>
-      <p className="opacity-80 leading-5 text-md">{description}</p>
-    </div>
+      <CardContent>
+        <h3 className="text-xl font-medium">{topic}</h3>
+        <p className="opacity-80 leading-5 text-md">{description}</p>
+      </CardContent>
+    </Card>
   );
 };
 

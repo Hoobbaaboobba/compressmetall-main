@@ -3,7 +3,7 @@ import AdvantagesCard from "./AdvantagesCard";
 const Advantages = () => {
   return (
     <section className="w-full flex flex-col justify-center items-center">
-      <div className="max-w-[1300px] w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pt-12 px-6">
+      <div className="max-w-[1300px] w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pt-12 px-6 lg:px-auto">
         <AdvantagesCard
           image={"advantageHome"}
           topic={"Конкурентные цены"}
