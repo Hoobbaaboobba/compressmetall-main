@@ -52,12 +52,6 @@ export const menuCatalog = [
         img: "leadImg",
         metaData: "Свинцовый Прокат купить",
       },
-      {
-        title: "Цинк",
-        link: "tsvetnoi-prokat/zinc",
-        img: "zincImg",
-        metaData: "Цинковый Прокат купить",
-      },
     ],
   },
   {
@@ -109,7 +103,7 @@ export const menuCatalog = [
     metaData: "Купить Чёрный металлопрокат оптом и в розницу",
     links: [
       {
-        title: "Арматура",
+        title: "Арматура / Катанка",
         link: "cherniy-prokat/armatura",
         img: "armaturaCatalog",
         metaData: "Прокат",
@@ -120,12 +114,12 @@ export const menuCatalog = [
         img: "beamCatalog",
         metaData: "Прокат",
       },
-      // {
-      //   title: "Рулонная сталь",
-      //   link: "cherniy-prokat/roll",
-      //   img: "circleNershavCatalog",
-      //   metaData: "Прокат",
-      // },
+      {
+        title: "Полоса г/к",
+        link: "cherniy-prokat/polosa",
+        img: "beamCatalog",
+        metaData: "Прокат",
+      },
       {
         title: "Уголок",
         link: "cherniy-prokat/corner",
@@ -149,6 +143,12 @@ export const menuCatalog = [
         link: "cherniy-prokat/pipe",
         img: "pipeCatalog",
         metaData: "Прокат",
+      },
+      {
+        title: "Цинк",
+        link: "tsvetnoi-prokat/zinc",
+        img: "zincImg",
+        metaData: "Цинковый Прокат купить",
       },
     ],
   },
