@@ -61,12 +61,12 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams() {
-//   return products.map((product: any) => ({
-//     type: product.type,
-//     category: product.category,
-//   }));
-// }
+export async function generateStaticParams() {
+  return products.map((product: any) => ({
+    type: product.type,
+    category: product.category,
+  }));
+}
 
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(

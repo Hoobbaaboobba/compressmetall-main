@@ -6,7 +6,7 @@ export default async function getAllCategories(
   size: string | ""
 ) {
   const res = await fetch(
-    `https://www.kometal.ru/api/products/${type && `${type}/`}${
+    `https://kometal-api.vercel.app/api/products/${type && `${type}/`}${
       variety && `${variety}/`
     }${category && `${category}/`}${id && `${id}/`}${size && `${size}/`}`
   );

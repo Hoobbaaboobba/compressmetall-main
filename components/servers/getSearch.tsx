@@ -1,5 +1,5 @@
 export default async function getSearchProducts() {
-  const res = await fetch(`https://www.kometal.ru/api/products/`);
+  const res = await fetch(`https://kometal-api.vercel.app/api/products/`);
 
   if (!res.ok) {
     throw new Error("Неудалось получить товар");

@@ -66,19 +66,19 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams() {
-//   return products.map(
-//     (product: any) =>
-//       product.id.length > 1 &&
-//       product.ENGSize.length > 1 && {
-//         type: product.type,
-//         category: product.category,
-//         variant: product.variety,
-//         id: product.id[0],
-//         size: product.ENGSize[0],
-//       }
-//   );
-// }
+export async function generateStaticParams() {
+  return products.map(
+    (product: any) =>
+      product.id.length > 1 &&
+      product.ENGSize.length > 1 && {
+        type: product.type,
+        category: product.category,
+        variant: product.variety,
+        id: product.id[0],
+        size: product.ENGSize[0],
+      }
+  );
+}
 
 export default async function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(
