@@ -15,6 +15,7 @@ import useRequestModal from "@/hooks/useRequestModal";
 import CityButton from "./CityButton";
 import Logo from "./Logo";
 import { menuCatalog } from "./menuData";
+import { Button } from "@/components/ui/button";
 
 const LowerHeader = () => {
   const [menu, setMenu] = useState(false);
@@ -82,27 +83,29 @@ const LowerHeader = () => {
                           {item.label}
                         </h1>
                         <div className="w-2 h-2 bg-black rounded-full"></div>
-                        <Link
-                          href={`/${pathname[1] || "moscow"}/catalog/${
-                            item.href
-                          }`}
-                          onClick={() => setHoverCatalog(false)}
-                          className="text-black/70 hover:underline text-lg"
-                        >
-                          Посмотреть всё
-                        </Link>
+                        <Button variant="link" size="lg" asChild>
+                          <Link
+                            href={`/${pathname[1] || "moscow"}/catalog/${
+                              item.href
+                            }`}
+                            onClick={() => setHoverCatalog(false)}
+                          >
+                            Посмотреть всё
+                          </Link>
+                        </Button>
                       </div>
                       <div className="w-full flex justify-start items-center flex-wrap gap-2">
                         {item.links.map((link) => (
-                          <Link
-                            href={`/${pathname[1] || "moscow"}/catalog/${
-                              link.link
-                            }`}
-                            onClick={() => setHoverCatalog(false)}
-                            className="py-1 px-2 border border-black/70 rounded-md hover:bg-orange-bg hover:text-white hover:border-white"
-                          >
-                            <h1>{link.title}</h1>
-                          </Link>
+                          <Button variant="outline" className="text-md" asChild>
+                            <Link
+                              href={`/${pathname[1] || "moscow"}/catalog/${
+                                link.link
+                              }`}
+                              onClick={() => setHoverCatalog(false)}
+                            >
+                              <h1>{link.title}</h1>
+                            </Link>
+                          </Button>
                         ))}
                       </div>
                     </div>

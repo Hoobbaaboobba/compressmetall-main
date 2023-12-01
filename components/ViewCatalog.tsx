@@ -4,6 +4,7 @@ import useCatalogModal from "@/hooks/useCatalogModal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuCatalog } from "./Home/Header/menuData";
+import { Button } from "./ui/button";
 
 const ViewCatalog = () => {
   const { isOpenCatalog, openCatalog } = useCatalogModal();
@@ -25,23 +26,27 @@ const ViewCatalog = () => {
             <div className="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center w-full gap-1  sm:gap-3">
               <h1 className="uppercase text-[26px] font-bold">{item.label}</h1>
               <div className="hidden sm:block w-2 h-2 bg-black rounded-full"></div>
-              <Link
-                href={`/${pathname[1] || "moscow"}/catalog/${item.href}`}
-                onClick={openCatalog}
-                className="text-black/70 hover:underline text-lg"
-              >
-                Посмотреть всё
-              </Link>
+              <Button variant="link" size="lg" asChild>
+                <Link
+                  href={`/${pathname[1] || "moscow"}/catalog/${item.href}`}
+                  onClick={openCatalog}
+                  className="text-black/70 hover:underline text-lg"
+                >
+                  Посмотреть всё
+                </Link>
+              </Button>
             </div>
             <div className="w-full flex justify-center sm:justify-start items-center flex-wrap gap-2">
               {item.links.map((link) => (
-                <Link
-                  href={`/${pathname[1] || "moscow"}/catalog/${link.link}`}
-                  onClick={openCatalog}
-                  className="py-1 px-2 border border-black/70 rounded-md hover:bg-orange-bg hover:text-white hover:border-white"
-                >
-                  <h1>{link.title}</h1>
-                </Link>
+                <Button variant="outline" className="text-md" asChild>
+                  <Link
+                    href={`/${pathname[1] || "moscow"}/catalog/${link.link}`}
+                    onClick={openCatalog}
+                    className="py-1 px-2 border border-black/70 rounded-md hover:bg-orange-bg hover:text-white hover:border-white"
+                  >
+                    <h1>{link.title}</h1>
+                  </Link>
+                </Button>
               ))}
             </div>
           </div>

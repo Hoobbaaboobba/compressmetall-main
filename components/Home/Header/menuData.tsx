@@ -52,12 +52,6 @@ export const menuCatalog = [
         img: "leadImg",
         metaData: "Свинцовый Прокат купить",
       },
-      {
-        title: "Цинк",
-        link: "tsvetnoi-prokat/zinc",
-        img: "zincImg",
-        metaData: "Цинковый Прокат купить",
-      },
     ],
   },
   {
@@ -155,6 +149,24 @@ export const menuCatalog = [
         link: "cherniy-prokat/zinc",
         img: "zincImg",
         metaData: "Цинковый Прокат купить",
+      },
+      {
+        title: "Лента",
+        link: "wire-metizi/lenta-steel",
+        img: "provolokaSteel",
+        metaData: "Прокат",
+      },
+      {
+        title: "Судовая сталь",
+        link: "cherniy-prokat/sudovaya_stal",
+        img: "provolokaSteel",
+        metaData: "Прокат",
+      },
+      {
+        title: "Поковки",
+        link: "cherniy-prokat/pokovky",
+        img: "provolokaSteel",
+        metaData: "Прокат",
       },
     ],
   },
