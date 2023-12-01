@@ -7,6 +7,20 @@ import { cities } from "@/regions";
 import OrangeButton from "./OrangeButton";
 import Link from "next/link";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+
 const LocationModal = () => {
   const [currLocation, setCurrLocation] = useState({
     region: "",
@@ -73,80 +87,99 @@ const LocationModal = () => {
   }, []);
 
   return (
-    <div
-      className={`fixed ${
-        isOpen ? "z-[100] opacity-100" : "opacity-0 -z-50"
-      } justify-center items-start flex trasnition duration-300 top-0 left-0 w-full h-[100dvh] bg-black/40 transition`}
-    >
+    <>
+      {/* <Dialog defaultOpen>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-center">
+              {currentGorod === "не найдена"
+                ? "Ваша геолокация не найдена"
+                : `Ваш город ${currentGorod}?`}
+            </DialogTitle>
+          </DialogHeader>
+          <DialogDescription>Мы работаем в следующих городах</DialogDescription>
+          <DialogFooter>
+            <Button variant="ghost">
+              <OrangeButton label={"Да"} />
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog> */}
       <div
-        onClick={onClose}
-        className="fixed top-0 left-0 w-full h-[100vh]"
-      ></div>
-      <div
-        className={`flex flex-col max-w-[400px] w-full mx-4 z-50 gap-4 justify-center items-center bg-white rounded-lg mt-[100px] transition duration-200`}
+        className={`fixed ${
+          isOpen ? "z-[100] opacity-100" : "opacity-0 -z-50"
+        } justify-center items-start flex trasnition duration-300 top-0 left-0 w-full h-[100dvh] bg-black/40 transition`}
       >
         <div
-          className={`${
-            changeLoc ? "hidden" : "flex"
-          } flex-col justify-center items-center gap-6 w-full py-[70px]`}
+          onClick={onClose}
+          className="fixed top-0 left-0 w-full h-[100vh]"
+        ></div>
+        <div
+          className={`flex flex-col max-w-[400px] w-full mx-4 z-50 gap-4 justify-center items-center bg-white rounded-lg mt-[100px] transition duration-200`}
         >
-          <h1 className="font-bold text-2xl">
-            {" "}
-            {currentGorod === "не найдена"
-              ? "Ваша геолокация не найдена"
-              : `Ваш город ${currentGorod}?`}
-          </h1>
-          <div className="flex gap-6">
-            {currentGorod === "не найдена" ? (
-              <>
-                <Link href="/moscow" onClick={locationInfo}>
-                  <OrangeButton label={"Москва"} />
-                </Link>
-                <button
-                  onClick={() => setChangeLoc(true)}
-                  className="flex justify-center items-center border px-4 py-2"
+          <div
+            className={`${
+              changeLoc ? "hidden" : "flex"
+            } flex-col justify-center items-center gap-6 w-full py-[70px]`}
+          >
+            <h1 className="font-bold text-2xl">
+              {" "}
+              {currentGorod === "не найдена"
+                ? "Ваша геолокация не найдена"
+                : `Ваш город ${currentGorod}?`}
+            </h1>
+            <div className="flex gap-6">
+              {currentGorod === "не найдена" ? (
+                <>
+                  <Link href="/moscow" onClick={locationInfo}>
+                    <OrangeButton label={"Москва"} />
+                  </Link>
+                  <button
+                    onClick={() => setChangeLoc(true)}
+                    className="flex justify-center items-center border px-4 py-2"
+                  >
+                    Выбрать
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link href={`/${currentCapital}`} onClick={locationInfo}>
+                    <OrangeButton label={"Да"} />
+                  </Link>
+                  <button
+                    onClick={() => setChangeLoc(true)}
+                    className="flex justify-center items-center border px-4 py-2"
+                  >
+                    Выбрать
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+          <div
+            className={`${
+              changeLoc ? "flex" : "hidden"
+            } flex-col w-full justify-center items-center p-[20px]`}
+          >
+            <h1 className="font-bold text-2xl text-center">
+              Мы работаем в следующих городах:
+            </h1>
+            <ul className="flex flex-col w-full justify-center items-center p-[10px]">
+              {cities.map((city) => (
+                <Link
+                  onClick={() => changeCityName(city.name, city.capital)}
+                  key={city.capital}
+                  className="w-full text-center text-xl hover:underline px-[15px] py-[5px]"
+                  href={`/${city.capital.split(" ").join("")}`}
                 >
-                  Выбрать
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href={`/${currentCapital}`} onClick={locationInfo}>
-                  <OrangeButton label={"Да"} />
+                  <li>{city.name}</li>
                 </Link>
-                <button
-                  onClick={() => setChangeLoc(true)}
-                  className="flex justify-center items-center border px-4 py-2"
-                >
-                  Выбрать
-                </button>
-              </>
-            )}
+              ))}
+            </ul>
           </div>
         </div>
-        <div
-          className={`${
-            changeLoc ? "flex" : "hidden"
-          } flex-col w-full justify-center items-center p-[20px]`}
-        >
-          <h1 className="font-bold text-2xl text-center">
-            Мы работаем в следующих городах:
-          </h1>
-          <ul className="flex flex-col w-full justify-center items-center p-[10px]">
-            {cities.map((city) => (
-              <Link
-                onClick={() => changeCityName(city.name, city.capital)}
-                key={city.capital}
-                className="w-full text-center text-xl hover:underline px-[15px] py-[5px]"
-                href={`/${city.capital.split(" ").join("")}`}
-              >
-                <li>{city.name}</li>
-              </Link>
-            ))}
-          </ul>
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
