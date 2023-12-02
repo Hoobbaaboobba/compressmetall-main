@@ -2,8 +2,6 @@
 
 interface OrderCallProps {
   // onChange: (open: boolean) => void;
-  topic: string;
-  description: string;
   placeHolder1: string;
   placeHolder2: string;
   firstType: string;
@@ -13,8 +11,6 @@ interface OrderCallProps {
 import { useForm } from "react-hook-form";
 
 const OrderCall: React.FC<OrderCallProps> = ({
-  topic,
-  description,
   placeHolder1,
   placeHolder2,
   firstType,
@@ -34,9 +30,7 @@ const OrderCall: React.FC<OrderCallProps> = ({
   };
 
   return (
-    <div className="flex flex-col bg-white text-gray-bg py-8 px-12 text-center z-50">
-      <h1 className="text-3xl font-bold">{topic}</h1>
-      <p className="font-bold text-base opacity-70 mb-2">{description}</p>
+    <div className="flex flex-col bg-white text-gray-bg text-center z-50">
       <form
         method="POST"
         action="https://formsubmit.co/info@kometal.ru"

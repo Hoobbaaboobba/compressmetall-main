@@ -7,6 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import Image from "next/image";
 import OrangeButton from "@/components/OrangeButton";
 import usePriceModal from "@/hooks/usePriceModal";
+import useRequestModal from "@/hooks/useRequestModal";
 
 const reviews = [
   {
@@ -68,10 +69,12 @@ const reviews = [
 ];
 
 const Reviews = () => {
-  const { onOpen } = usePriceModal();
+  const { onOpen, setDefaultValue } = useRequestModal();
 
   const showPrice = () => {
-    onOpen(), (document.body.style.overflowY = "hidden");
+    setDefaultValue("price");
+    onOpen();
+    document.body.style.overflowY = "hidden";
   };
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>(

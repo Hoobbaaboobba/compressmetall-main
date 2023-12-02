@@ -23,8 +23,6 @@ const Call = () => {
       ></div>
       <div className="relative z-50">
         <OrderCall
-          topic={"Заказать звонок"}
-          description={"Оставьте ваши контакты и мы перезвоним Вам"}
           placeHolder1={"Ваше имя / Ваша компания"}
           placeHolder2={"Ваш номер телефона"}
           firstType={"Имя"}

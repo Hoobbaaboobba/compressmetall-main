@@ -10,7 +10,6 @@ import MenuButton from "./MenuButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
-import usePriceModal from "@/hooks/usePriceModal";
 import useRequestModal from "@/hooks/useRequestModal";
 import CityButton from "./CityButton";
 import Logo from "./Logo";
@@ -23,16 +22,11 @@ const LowerHeader = () => {
   const [popUp, setPopUp] = useState(false);
   const [hoverCatalog, setHoverCatalog] = useState(false);
 
-  const { onOpen } = usePriceModal();
-  const { onOpen: onOpenRequest } = useRequestModal();
-
-  const showPrice = () => {
-    onOpen();
-    document.body.style.overflowY = "hidden";
-  };
+  const { onOpen, setDefaultValue } = useRequestModal();
 
   const showRequest = () => {
-    onOpenRequest();
+    setDefaultValue("price");
+    onOpen();
     document.body.style.overflowY = "hidden";
   };
 
@@ -121,7 +115,7 @@ const LowerHeader = () => {
               />
             </div>
             <div
-              onClick={showPrice}
+              onClick={showRequest}
               className="relative w-1/5 flex py-2 font-medium justify-center items-center gap-8 xl:hover:bg-orange-bg transition cursor-pointer"
             >
               Прайс
@@ -254,7 +248,7 @@ const LowerHeader = () => {
             className={`font-bold w-full flex justify-center items-center py-6 ${
               pathname[2] === `/price` ? "bg-orange-bg" : "bg-transparent"
             }`}
-            onClick={showPrice}
+            onClick={showRequest}
           >
             Прайс
           </button>

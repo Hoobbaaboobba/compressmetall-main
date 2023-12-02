@@ -12,9 +12,10 @@ import sliderImageMap from "../../../public/backgroundMap.png";
 import sliderImageMetal from "../../../public/backgroundImage.png";
 
 export const Slider = () => {
-  const { onOpen } = useRequestModal();
+  const { onOpen, setDefaultValue } = useRequestModal();
 
   const showRequest = () => {
+    setDefaultValue("request");
     onOpen();
     document.body.style.overflowY = "hidden";
   };

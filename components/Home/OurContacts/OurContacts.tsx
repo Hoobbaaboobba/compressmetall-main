@@ -6,17 +6,19 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
 import Image from "next/image";
 import OrangeButton from "@/components/OrangeButton";
-import useCallModal from "@/hooks/useCallModal";
 import { addresses } from "@/addresses";
 import { usePathname } from "next/navigation";
+import useRequestModal from "@/hooks/useRequestModal";
 
 const OurContacts = () => {
-  const { onOpen } = useCallModal();
+  const { onOpen, setDefaultValue } = useRequestModal();
 
   const pathname = usePathname().split("/");
 
   const showCall = () => {
-    onOpen(), (document.body.style.overflowY = "hidden");
+    onOpen();
+    setDefaultValue("call");
+    document.body.style.overflowY = "hidden";
   };
   return (
     <>

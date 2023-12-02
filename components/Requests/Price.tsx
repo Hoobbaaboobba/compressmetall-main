@@ -23,8 +23,6 @@ const Price = () => {
       ></div>
       <div className="relative z-50">
         <OrderCall
-          topic={"Запросить прайс"}
-          description={"Оставьте ваши контакты и мы отправим Вам прайс"}
           placeHolder1={"Ваш номер телефона"}
           placeHolder2={"Товар"}
           firstType={"Номер телефона"}
