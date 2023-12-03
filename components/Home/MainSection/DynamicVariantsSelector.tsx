@@ -149,7 +149,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
           <Command>
-            <CommandInput placeholder="Выбрать марку" />
+            <CommandInput placeholder="Выбрать размер" />
             <CommandEmpty>Размер не найден</CommandEmpty>
             <CommandGroup className="overflow-y-auto">
               {products[0].ENGSize.map((sizes: string) => (

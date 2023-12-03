@@ -1,18 +1,20 @@
 "use client";
 
 import OrangeButton from "@/components/OrangeButton";
-import usePriceModal from "@/hooks/usePriceModal";
+import useRequestModal from "@/hooks/useRequestModal";
 
 const ShowButtonPrice = () => {
-  const { onOpen } = usePriceModal();
+  const { onOpen, setDefaultValue } = useRequestModal();
 
   const showPrice = () => {
-    onOpen(), (document.body.style.overflowY = "hidden");
+    setDefaultValue("ptice");
+    onOpen();
+    document.body.style.overflowY = "hidden";
   };
 
   return (
     <div onClick={showPrice}>
-      <OrangeButton label={"Запросить прайс"} />
+      <OrangeButton label={"Оставить заявку"} />
     </div>
   );
 };
