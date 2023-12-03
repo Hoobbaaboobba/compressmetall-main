@@ -31,7 +31,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                   <div className="w-full h-full flex flex-col gap-6 justify-center items-start pt-4">
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-center sm:justify-start items-center w-full">
                       <h1 className="text-3xl font-bold text-center md:text-start text-black/80">
-                        {product.subLabel}
+                        {product.subLabel[0]}
                       </h1>
                       <div
                         className={`${
@@ -119,7 +119,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                   key={index}
                   img={product.img}
                   label={""}
-                  sublabel={product.subLabel}
+                  sublabel={product.subLabel[0]}
                   href={product.type}
                   category={product.category}
                   variety={product.variety}

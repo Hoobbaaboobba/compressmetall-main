@@ -23,7 +23,7 @@ const SearchContent = async ({ query, productsData }: Props) => {
                 key={index}
                 img={product.img}
                 label={ids}
-                topic={product.subLabel}
+                topic={product.subLabel[0]}
                 sublabel={sizes}
                 href={product.type}
                 category={product.category}

@@ -31,7 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products[0].subLabel} ${decodeURI(params.id)} ${params.size
+    title: `${products[0].subLabel[0]} ${decodeURI(params.id)} ${params.size
       .replace("mm", " мм")
       .replace(".", ",")} по цене ${products.map(
       (item) => item.price

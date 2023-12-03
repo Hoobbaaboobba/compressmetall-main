@@ -31,7 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} по цене ${products.map(
+    title: `${products.map((item) => item.subLabel[0])} по цене ${products.map(
       (item) => item.price
     )} в Донецке с доставкой по всей России`,
     description: `${products[0].metaType} в Донецке по доступным ценам — ${products[0].metaType} в Донецке от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,

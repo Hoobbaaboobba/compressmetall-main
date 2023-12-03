@@ -31,7 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products[0].subLabel} в Уфе с доставкой по всей России`,
+    title: `${products[0].subLabel[0]} в Уфе с доставкой по всей России`,
     description: `${products[0].metaType} в Уфе по доступным ценам — ${products[0].metaType} в Уфе от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       decodeURI(products[0].label),

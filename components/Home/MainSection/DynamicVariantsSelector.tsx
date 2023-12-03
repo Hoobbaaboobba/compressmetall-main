@@ -103,7 +103,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-[200px] justify-between border-orange-text"
+            className="w-[200px] justify-between border-orange-text overflow-hidden text-ellipsis whitespace-nowrap"
           >
             {markaQ ? Marka : "Выбрать марку..."}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -125,7 +125,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      valueFilter === framework ? "opacity-100" : "opacity-0"
+                      markaQ === framework ? "opacity-100" : "opacity-0"
                     )}
                   />
                   {framework}
@@ -163,7 +163,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      marka === sizes ? "opacity-100" : "opacity-0"
+                      sizeQ === sizes ? "opacity-100" : "opacity-0"
                     )}
                   />
                   {sizes.replace("mm", " мм")}

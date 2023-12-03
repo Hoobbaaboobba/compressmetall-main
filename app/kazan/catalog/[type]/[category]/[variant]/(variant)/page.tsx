@@ -32,7 +32,7 @@ export async function generateMetadata(
 
   return {
     title: `${products.map(
-      (item) => item.subLabel
+      (item) => item.subLabel[0]
     )} в Казани с доставкой по всей России`,
     description: `${products[0].metaType} в Казани по доступным ценам — ${products[0].metaType} в Казани от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [

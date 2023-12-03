@@ -33,7 +33,7 @@ export async function generateMetadata(
 
   return {
     title: `${products.map(
-      (item) => item.subLabel
+      (item) => item.subLabel[0]
     )} в Саратове с доставкой по всей России`,
     description: `${products[0].metaType} ${products[0].title} в Саратове по доступным ценам — ${products[0].metaType} в Саратове от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [

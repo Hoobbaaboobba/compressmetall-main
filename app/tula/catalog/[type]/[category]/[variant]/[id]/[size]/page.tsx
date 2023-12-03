@@ -31,7 +31,7 @@ export async function generateMetadata(
   const products = await productsData;
 
   return {
-    title: `${products.map((item) => item.subLabel)} ${decodeURI(
+    title: `${products.map((item) => item.subLabel[0])} ${decodeURI(
       params.id
     )} ${params.size
       .replace("mm", " мм")
