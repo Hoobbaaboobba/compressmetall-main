@@ -33,7 +33,7 @@ export async function generateMetadata(
 
   return {
     title: `${products.map(
-      (item) => item.subLabel[0]
+      (item) => item.subLabel
     )} в Нижнем Новгороде с доставкой по всей России`,
     description: `${products[0].metaType} в Нижнем Новгороде по доступным ценам — ${products[0].metaType} в Нижнем Новгороде от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [

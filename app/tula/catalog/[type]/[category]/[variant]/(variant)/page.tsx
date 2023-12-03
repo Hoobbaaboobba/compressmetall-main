@@ -32,7 +32,7 @@ export async function generateMetadata(
 
   return {
     title: `${products.map(
-      (item) => item.subLabel[0]
+      (item) => item.subLabel
     )} в Туле с доставкой по всей России`,
     description: `${products[0].metaType} в Туле по доступным ценам — ${products[0].metaType} в Туле от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [

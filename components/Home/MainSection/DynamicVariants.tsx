@@ -26,7 +26,7 @@ const DynamicVariants = async ({ promise }: Props) => {
     <div className="flex flex-col w-full justify-center items-center gap-6 py-6 px-4">
       <div className="w-full mb-4 flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-          <h1>{products[0].subLabel[0]}</h1>
+          <h1>{products[0].subLabel}</h1>
         </h1>
         <div className="bg-black h-[5px] w-[80px] mt-4"></div>
       </div>
@@ -67,7 +67,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                   >
                     <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                       <h1 className="text-lg hidden md:block">
-                        {product.subLabel[0]}
+                        {product.subLabel}
                       </h1>
                       <h2 className="text-lg hidden md:block">{ids}</h2>
                       <h3 className="text-lg hidden md:block">
@@ -79,7 +79,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                       <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
                         <div className="flex gap-1">
                           <h1 className="text-lg">
-                            {product.subLabel[0]} {ids}{" "}
+                            {product.subLabel} {ids}{" "}
                             {sizes.replace("mm", " мм")}
                           </h1>
                         </div>
@@ -110,7 +110,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                   >
                     <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                       <h1 className="text-lg hidden md:block">
-                        {product.subLabel[0]}
+                        {product.subLabel}
                       </h1>
                       <h2 className="text-lg hidden md:block">{ids}</h2>
                       <h3 className="text-lg hidden md:block">
@@ -121,7 +121,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                       </div>
                       <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
                         <div className="flex gap-1">
-                          <h1 className="text-lg">{product.subLabel[0]}</h1>
+                          <h1 className="text-lg">{product.subLabel}</h1>
                           <h2 className="text-lg">{ids}</h2>
                           <h3 className="text-lg">
                             {sizes.replace("mm", " мм")}

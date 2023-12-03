@@ -32,7 +32,7 @@ export async function generateMetadata(
 
   return {
     title: `${products.map(
-      (item) => item.subLabel[0]
+      (item) => item.subLabel
     )} в Ярославле с доставкой по всей России`,
     description: `${products[0].metaType} ${products[0].title} в Ярославле по доступным ценам — ${products[0].metaType} в Ярославле от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
