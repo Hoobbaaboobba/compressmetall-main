@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
+import HyperLinks from "./HyperLinks";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -30,6 +31,11 @@ const DynamicVariants = async ({ promise }: Props) => {
         </h1>
         <div className="bg-black h-[5px] w-[80px] mt-4"></div>
       </div>
+      <HyperLinks
+        categoryTitle={products[0].metaType}
+        variantTitle={products[0].subLabel}
+        lastVariant
+      />
       <DynamicVariantsSelector
         products={products}
         markaQ={markaQuery || ""}
@@ -142,7 +148,7 @@ const DynamicVariants = async ({ promise }: Props) => {
           )
         )}
       </div>
-      {products[0].ENGSize.length > 10 ? (
+      {/* {products[0].ENGSize.length > 10 ? (
         <div onClick={() => setNumberOfItems((event) => event + 1)}>
           <OrangeButton label="Загрузить больше" />
         </div>
@@ -150,7 +156,7 @@ const DynamicVariants = async ({ promise }: Props) => {
         <div className="cursor-not-allowed px-4 py-2 bg-light-gray text-black/50 rounded-sm flex justify-center items-center">
           Загрузить больше
         </div>
-      )}
+      )} */}
     </div>
   );
 };

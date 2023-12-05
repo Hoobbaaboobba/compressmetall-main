@@ -2,6 +2,7 @@ import Image from "next/image";
 import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
+import HyperLinks from "./HyperLinks";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -29,6 +30,11 @@ export default async function DynamicPage({ promise, params }: Props) {
                   className="relative w-fullmt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-center px-6 xl:px-12"
                 >
                   <div className="w-full h-full flex flex-col gap-6 justify-center items-start pt-4">
+                    <HyperLinks
+                      categoryTitle={product.metaType}
+                      variantTitle={product.subLabel}
+                      pageTitle=""
+                    />
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-center sm:justify-start items-center w-full">
                       <h1 className="text-3xl font-bold text-center md:text-start text-black/80">
                         {product.subLabel}
@@ -102,12 +108,15 @@ export default async function DynamicPage({ promise, params }: Props) {
         {params.variant ? (
           ""
         ) : (
-          <div className="w-full mb-4 flex flex-col justify-center items-center">
-            <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-              {products[0].metaType}
-            </h1>
-            <div className="bg-black h-[5px] w-[80px] mt-4"></div>
-          </div>
+          <>
+            <div className="w-full mb-4 flex flex-col justify-center items-center">
+              <h1 className="text-3xl font-bold text-black text-center xl:text-start">
+                {products[0].metaType}
+              </h1>
+              <div className="bg-black h-[5px] w-[80px] mt-4"></div>
+            </div>
+            <HyperLinks categoryTitle={products[0].metaType} lastCategory />
+          </>
         )}
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
           {products.map(
