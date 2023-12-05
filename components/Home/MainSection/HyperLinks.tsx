@@ -31,7 +31,7 @@ const HyperLinks = ({
   const titleOfProkat = pathname[3] === "tsvetnoi-prokat" && "Цветной прокат";
 
   return (
-    <div className="w-full justify-start items-start my-1 flex gap-2">
+    <div className="w-full justify-center items-center sm:justify-start sm:items-start my-1 flex flex-wrap gap-2">
       <Link
         className="hover:underline"
         href={`/${pathname[1]}/catalog/${pathname[3]}`}
