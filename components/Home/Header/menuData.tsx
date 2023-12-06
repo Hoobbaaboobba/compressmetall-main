@@ -157,6 +157,12 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
+        title: "Лист",
+        link: "cherniy-prokat/list",
+        img: "provolokaSteel",
+        metaData: "Прокат",
+      },
+      {
         title: "Судовая сталь",
         link: "cherniy-prokat/sudovaya_stal",
         img: "provolokaSteel",

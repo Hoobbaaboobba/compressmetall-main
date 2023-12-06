@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 interface DynamicProps {
   img: string;
   label: string;
-  sublabel: string | string[];
-  topic?: string;
+  sublabel: string;
+  topic?: string[];
   href: string;
   category?: string;
   variety?: string;

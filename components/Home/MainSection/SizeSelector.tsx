@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { Check, ChevronsUpDown } from "lucide-react";
 
@@ -47,6 +46,9 @@ const SizeSelector = ({ products, params }: SizeProps) => {
   const [valueMark, setValueMark] = useState(false);
   const [valueWidth, setValueWidth] = useState(false);
 
+  const searchParams = useSearchParams();
+  const label = searchParams.get("label");
+
   const closeSelector = () => {
     setValueMark(false);
     setValueWidth(false);
@@ -78,7 +80,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                       {products[0].id.map((id: string) => (
                         <Link
                           className="hover:underline w-full"
-                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${id}/${params.size}`}
+                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${id}/${params.size}?label=${label}`}
                         >
                           <CommandItem
                             key={id}
@@ -124,7 +126,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                       {products[0].ENGSize.map((size: string) => (
                         <Link
                           className="hover:underline w-full"
-                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}`}
+                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}`}
                         >
                           <CommandItem
                             key={size}

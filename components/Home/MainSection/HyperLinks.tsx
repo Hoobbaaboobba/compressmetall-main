@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 interface Props {
   categoryTitle?: string;
   lastCategory?: boolean;
-  variantTitle?: string | string[];
+  variantTitle?: string[];
   lastVariant?: boolean;
   pageTitle?: string;
   lastPage?: boolean;
@@ -28,7 +28,13 @@ const HyperLinks = ({
     categoryTitle?.charAt(0).toUpperCase() +
       categoryTitle.slice(1).toLocaleLowerCase();
 
-  const titleOfProkat = pathname[3] === "tsvetnoi-prokat" && "Цветной прокат";
+  const titleOfProkat =
+    (pathname[3] === "tsvetnoi-prokat" && "Цветной прокат") ||
+    (pathname[3] === "cherniy-prokat" && "Чёрный прокат") ||
+    (pathname[3] === "trubniy-prokat" && "Трубопроводный прокат") ||
+    (pathname[3] === "nershav-prokat" && "Нержавеющие металлы") ||
+    (pathname[3] === "metizi-prokat" && "Метизы") ||
+    (pathname[3] === "precensplav" && "Прецензионные сплавы");
 
   return (
     <div className="w-full justify-center items-center sm:justify-start sm:items-start my-1 flex flex-wrap gap-2">
@@ -61,10 +67,10 @@ const HyperLinks = ({
               className="hover:underline"
               href={`/${pathname[1]}/catalog/${pathname[3]}/${pathname[4]}/${pathname[5]}`}
             >
-              {variantTitle}
+              {variantTitle[0]}
             </Link>
           ) : (
-            <span className="opacity-50">{variantTitle}</span>
+            <span className="opacity-50">{variantTitle[0]}</span>
           )}
         </>
       )}

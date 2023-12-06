@@ -1,6 +1,6 @@
 type Product = {
   label: string;
-  subLabel: string | string[];
+  subLabel: string[];
   id: string[];
   ENGSize: string[];
   description: string;

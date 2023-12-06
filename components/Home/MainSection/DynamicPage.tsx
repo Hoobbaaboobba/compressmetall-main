@@ -3,6 +3,7 @@ import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
+import QueryLabel from "./QueryLabel";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -37,7 +38,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                     />
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-center sm:justify-start items-center w-full">
                       <h1 className="text-3xl font-bold text-center md:text-start text-black/80">
-                        {product.subLabel}
+                        <QueryLabel />
                       </h1>
                       <div
                         className={`${
@@ -123,17 +124,18 @@ export default async function DynamicPage({ promise, params }: Props) {
             (product, index) =>
               params.type &&
               params.category &&
-              !params.variant && (
+              !params.variant &&
+              product.subLabel.map((label) => (
                 <DynamicItem
                   key={index}
                   img={product.img}
                   label={""}
-                  sublabel={product.subLabel}
+                  sublabel={label}
                   href={product.type}
                   category={product.category}
                   variety={product.variety}
                 />
-              )
+              ))
           )}
         </div>
       </div>

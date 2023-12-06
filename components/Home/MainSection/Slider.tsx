@@ -131,7 +131,7 @@ export const Slider = () => {
         />
         <div className="absolute top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2">
           <h1 className="uppercase text-2xl sm:text-4xl font-bold">
-            Ключ к надежной конструкции: <br /> наш металлопрокат
+            Режем и продаём без остатка <br /> цветной металлопрокат
           </h1>
           <p className="leading-5 text-sm sm:text-md ml-4">
             Доверьтесь качеству и опыту – выберите идеальные <br /> материалы
