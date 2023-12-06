@@ -36,7 +36,7 @@ export default function RootLayout({
           gtag('config', 'G-5DESE4JXJL');
         `}
       </Script>
-      <script type="text/javascript">
+      {/* <Script type="text/javascript">
         {`
           (function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
           m[i].l=1*new Date();
@@ -50,8 +50,10 @@ export default function RootLayout({
           accurateTrackBounce:true
           }); 
         `}
-      </script>
-      <noscript>
+      </Script> */}
+      <meta name="yandex-verification" content="d99d66f200d7f09a" />
+      <body>
+        {/* <LoadingScreen /> */}
         <div>
           <img
             src="https://mc.yandex.ru/watch/95780946"
@@ -59,10 +61,6 @@ export default function RootLayout({
             alt=""
           />
         </div>
-      </noscript>
-      <meta name="yandex-verification" content="d99d66f200d7f09a" />
-      <body>
-        {/* <LoadingScreen /> */}
         <LocationModal />
         <Request />
         <Call />

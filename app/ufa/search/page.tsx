@@ -17,8 +17,7 @@ export default async function SearchPage() {
   if (query) {
     currentProducts = oldProsucts.filter(
       (item) =>
-        item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase()) ||
-        item.subLabel.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+        item.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())
       // item.ENGSize.map((sizes) =>
       //   sizes.toLocaleLowerCase().includes(query.toLocaleLowerCase())
       // ) ||
