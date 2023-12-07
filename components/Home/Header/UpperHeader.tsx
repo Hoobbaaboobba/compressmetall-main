@@ -9,6 +9,7 @@ import CityButton from "./CityButton";
 import Search from "./Search";
 import { Suspense } from "react";
 import Logo from "./Logo";
+import Link from "next/link";
 
 const Loading = () => {
   return <Image src="/loading.gif" alt="loading" width={100} height={100} />;
@@ -29,15 +30,21 @@ const UpperHeader = () => {
         <div className="flex flex-col">
           <div className="flex gap-2">
             <EmailOutlinedIcon className="text-orange-text mt-[3px]" />
-            <h3 className="font-bold text-xl text-black underline">
+            <Link
+              href="mailto:zakaz@kometal.ru"
+              className="font-bold text-xl text-black hover:underline"
+            >
               zakaz@kometal.ru
-            </h3>
+            </Link>
           </div>
           <div className="flex gap-2">
             <LocalPhoneOutlinedIcon className="text-orange-text mt-[3px]" />
-            <h3 className="font-bold text-xl text-black underline">
+            <Link
+              href="tel: +7 (495) 116-66-86"
+              className="font-bold text-xl text-black hover:  underline"
+            >
               +7 (495) 116-66-86
-            </h3>
+            </Link>
           </div>
         </div>
       </div>
