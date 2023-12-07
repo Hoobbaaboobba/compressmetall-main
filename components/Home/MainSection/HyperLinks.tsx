@@ -37,7 +37,7 @@ const HyperLinks = ({
     (pathname[3] === "precensplav" && "Прецензионные сплавы");
 
   return (
-    <div className="w-full justify-center items-center sm:justify-start sm:items-start my-1 flex flex-wrap gap-2">
+    <div className="w-full text-sm justify-center items-center sm:justify-start  my-1 flex flex-wrap gap-2">
       <Link
         className="hover:underline"
         href={`/${pathname[1]}/catalog/${pathname[3]}`}

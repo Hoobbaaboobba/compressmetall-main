@@ -45,12 +45,8 @@ const DynamicItem = ({
           height={128}
           placeholder="blur"
         />
-        <div className="flex flex-col gap-2 justify-center items-center">
-          {topic && <h1>{topic}</h1>}
-          {/* {label && <h2>{label}</h2>} */}
-          <h3>{sublabel}</h3>
-          <OrangeButton label={"Подробнее"} mark />
-        </div>
+        <h3>{sublabel}</h3>
+        <OrangeButton label={"Подробнее"} mark />
       </div>
     </div>
   );

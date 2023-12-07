@@ -73,11 +73,17 @@ const DynamicVariants = async ({ promise }: Props) => {
                       }/${product.category}/${product.variety}/${ids}/${sizes}`}
                     >
                       <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                        <h1 className="text-lg hidden md:block">{label}</h1>
-                        <h2 className="text-lg hidden md:block">{ids}</h2>
-                        <h3 className="text-lg hidden md:block">
-                          {sizes.replace("mm", " мм")}
-                        </h3>
+                        <div className="grid grid-cols-3 w-full">
+                          <h1 className="text-lg hidden md:block w-[350px]">
+                            {label}
+                          </h1>
+                          <h2 className="text-lg hidden md:block px-16">
+                            {ids}
+                          </h2>
+                          <h3 className="text-lg hidden md:block">
+                            {sizes.replace("mm", " мм")}
+                          </h3>
+                        </div>
                         <div className="hidden md:block">
                           <OrangeButton label={"Подробнее"} mark />
                         </div>
@@ -117,23 +123,23 @@ const DynamicVariants = async ({ promise }: Props) => {
                     }/${ids}/${sizes}?label=${label}`}
                   >
                     <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                      <h1 className="text-lg hidden md:block w-[250px]">
-                        {label}
-                      </h1>
-                      <h2 className="text-lg hidden md:block">{ids}</h2>
-                      <h3 className="text-lg hidden md:block">
-                        {sizes.replace("mm", " мм")}
-                      </h3>
+                      <div className="grid grid-cols-3 w-full">
+                        <h1 className="text-lg hidden md:block w-[350px]">
+                          {label}
+                        </h1>
+                        <h2 className="text-lg hidden md:block px-16">{ids}</h2>
+                        <h3 className="text-lg hidden md:block">
+                          {sizes.replace("mm", " мм")}
+                        </h3>
+                      </div>
                       <div className="hidden md:block">
                         <OrangeButton label={"Подробнее"} mark />
                       </div>
                       <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
                         <div className="flex gap-1">
-                          <h1 className="text-lg">{product.subLabel}</h1>
-                          <h2 className="text-lg">{ids}</h2>
-                          <h3 className="text-lg">
-                            {sizes.replace("mm", " мм")}
-                          </h3>
+                          <h1 className="text-lg">
+                            {label} {ids} {sizes.replace("mm", " мм")}
+                          </h1>
                         </div>
                         <div>
                           <h1 className="text-md text-black/50">{ids}</h1>
