@@ -21,14 +21,8 @@ const DynamicVariants = async ({ promise }: Props) => {
   const products = await promise;
 
   const limitProductsIds = products[0].id.slice(0, products[0].id.length);
-  const limitProductsSizes = products[0].ENGSize.slice(
-    0,
-    products[0].ENGSize.length
-  );
-  const limitProductsLabels = products[0].subLabel.slice(
-    0,
-    products[0].subLabel.length
-  );
+  const limitProductsSizes = products[0].ENGSize.slice(0, 10);
+  const limitProductsLabels = products[0].subLabel.slice(0, 5);
 
   return (
     <div className="flex flex-col w-full justify-center items-center gap-6 py-6 px-4">
@@ -89,7 +83,9 @@ const DynamicVariants = async ({ promise }: Props) => {
                     <Link
                       href={`/${pathname[1] || "moscow"}/catalog/${
                         product.type
-                      }/${product.category}/${product.variety}/${ids}/${sizes}`}
+                      }/${product.category}/${
+                        product.variety
+                      }/${ids}/${sizes}?label=${label}`}
                     >
                       <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                         <div className="grid grid-cols-3 w-full">
