@@ -27,16 +27,25 @@ interface Props {
   products: any[];
   markaQ: string;
   sizeQ: string;
+  secondSizeQ?: string;
 }
 
-const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
+const DynamicVariantsSelector = ({
+  products,
+  markaQ,
+  sizeQ,
+  secondSizeQ,
+}: Props) => {
   const [openMarka, setOpenMarka] = useState(false);
   const [marka, setMarka] = useState("");
 
-  const [value, setValue] = useState(false);
-
   const [open, setOpen] = useState(false);
   const [valueFilter, setValueFilter] = useState("");
+
+  const [openSecond, setOpenSecond] = useState(false);
+  const [valueSecondFilter, setValueSecondFilter] = useState("");
+
+  const [value, setValue] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -46,7 +55,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
   const Size = searchParams.get("size");
 
   const createQueryMarkaString = useCallback(
-    (marka: string, value: string) => {
+    (marka: string, value: string, secondvalue: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(marka, value);
 
@@ -56,7 +65,17 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
   );
 
   const createQuerySizeString = useCallback(
-    (size: string, value: string) => {
+    (size: string, value: string, secondvalue: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(size, value);
+
+      return params;
+    },
+    [searchParams]
+  );
+
+  const createQuerySecondSizeString = useCallback(
+    (size: string, value: string, secondvalue: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(size, value);
 
@@ -71,16 +90,46 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
     setValueFilter("");
   };
 
-  const onClickMarka = (ids: string, currentValue: string) => {
-    router.push(pathname + "?" + createQueryMarkaString("marka", `${ids}`));
+  const onClickMarka = (
+    ids: string,
+    currentValue: string,
+    currentSecondValue: string
+  ) => {
+    router.push(
+      pathname +
+        "?" +
+        createQueryMarkaString("marka", `${ids}`, `${currentSecondValue}`)
+    );
     setValueFilter(currentValue === marka ? "" : currentValue);
     setOpen(false);
   };
 
-  const onClickValue = (sizes: string, currentValue: string) => {
-    router.push(pathname + "?" + createQuerySizeString("size", `${sizes}`));
+  const onClickValue = (
+    sizes: string,
+    currentValue: string,
+    currentSecondValue: string
+  ) => {
+    router.push(
+      pathname +
+        "?" +
+        createQuerySecondSizeString("size", `${sizes}`, `${currentSecondValue}`)
+    );
     setValueFilter(currentValue === marka ? "" : currentValue);
     setOpenMarka(false);
+  };
+
+  const onClickSecondValue = (
+    sizes: string,
+    currentValue: string,
+    currentSecondValue: string
+  ) => {
+    router.push(
+      pathname +
+        "?" +
+        createQuerySizeString("secondsize", `${sizes}`, `${currentSecondValue}`)
+    );
+    setValueFilter(currentValue === marka ? "" : currentValue);
+    setOpenSecond(false);
   };
 
   const closeEverything = () => {
@@ -119,7 +168,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
                   key={framework}
                   value={framework}
                   onSelect={(currentValue) => {
-                    onClickMarka(framework, currentValue);
+                    onClickMarka(framework, currentValue, framework);
                   }}
                 >
                   <Check
@@ -149,7 +198,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
           <Command>
-            <CommandInput placeholder="Выбрать размер" />
+            <CommandInput placeholder={products[0].typeOfSize} />
             <CommandEmpty>Размер не найден</CommandEmpty>
             <CommandGroup className="overflow-y-auto">
               {products[0].ENGSize.map((sizes: string) => (
@@ -157,7 +206,7 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
                   key={sizes}
                   value={sizes}
                   onSelect={(currentValue) => {
-                    onClickValue(sizes, currentValue);
+                    onClickValue(sizes, currentValue, sizes);
                   }}
                 >
                   <Check
@@ -173,6 +222,48 @@ const DynamicVariantsSelector = ({ products, markaQ, sizeQ }: Props) => {
           </Command>
         </PopoverContent>
       </Popover>
+      {products[0].secondFilter && (
+        <Popover open={openSecond} onOpenChange={setOpenSecond}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={openSecond}
+              className="w-[200px] justify-between border-orange-text"
+            >
+              {secondSizeQ
+                ? secondSizeQ.replace("mm", " мм")
+                : products[0].secondFilter}
+              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
+            <Command>
+              <CommandInput placeholder={products[0].secondFilter} />
+              <CommandEmpty>Размер не найден</CommandEmpty>
+              <CommandGroup className="overflow-y-auto">
+                {products[0].secondSize.map((secondSize: string) => (
+                  <CommandItem
+                    key={secondSize}
+                    value={secondSize}
+                    onSelect={(currentValue) => {
+                      onClickSecondValue(secondSize, currentValue, secondSize);
+                    }}
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        secondSizeQ === secondSize ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                    {secondSize.replace("mm", " мм")}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      )}
 
       <div
         onClick={deleteQuery}

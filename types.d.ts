@@ -3,6 +3,7 @@ type Product = {
   subLabel: string[];
   id: string[];
   ENGSize: string[];
+  secondSize?: string[];
   description: string;
   category: string;
   variety: string;
@@ -14,6 +15,7 @@ type Product = {
   type: string;
   typeOfSize: string;
   metaType: string;
+  secondFilter?: string;
 };
 
 type Catergories = {
