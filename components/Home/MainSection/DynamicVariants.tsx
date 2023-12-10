@@ -125,9 +125,9 @@ const DynamicVariants = async ({ promise }: Props) => {
         )}
         {products[0].secondFilter &&
           products.map((product) =>
-            limitProductsIds.map((ids) =>
-              limitProductsSizes.map((sizes) =>
-                limitProductsLabels.map((label) =>
+            product.id.map((ids) =>
+              product.ENGSize.map((sizes) =>
+                product.subLabel.map((label) =>
                   product.secondSize?.map(
                     (secondSize) =>
                       ((ids === markaQuery &&
@@ -157,7 +157,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                             product.type
                           }/${product.category}/${
                             product.variety
-                          }/${ids}/${sizes}/label=${label}`}
+                          }/${ids}/${sizes}?label=${label}`}
                         >
                           <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                             <div
@@ -223,7 +223,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                           product.type
                         }/${product.category}/${
                           product.variety
-                        }/${ids}/${sizes}/label=${label}`}
+                        }/${ids}/${sizes}?label=${label}`}
                       >
                         <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                           <div
@@ -275,7 +275,7 @@ const DynamicVariants = async ({ promise }: Props) => {
                         product.type
                       }/${product.category}/${
                         product.variety
-                      }/${ids}/${sizes}/label=${label}`}
+                      }/${ids}/${sizes}?label=${label}`}
                     >
                       <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
                         <div

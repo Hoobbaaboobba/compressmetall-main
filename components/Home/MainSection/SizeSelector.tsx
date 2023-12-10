@@ -42,6 +42,9 @@ const SizeSelector = ({ products, params }: SizeProps) => {
   const [open, setOpen] = useState(false);
   const [valueFilter, setValueFilter] = useState("");
 
+  const [openSecond, setOpenSecond] = useState(false);
+  const [valueSecondFilter, setValueSecondFilter] = useState("");
+
   const pathname = usePathname().split("/");
   const [valueMark, setValueMark] = useState(false);
   const [valueWidth, setValueWidth] = useState(false);
@@ -135,7 +138,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                               setValueFilter(
                                 currentValue === marka ? "" : currentValue
                               );
-                              setOpen(false);
+                              setOpenMarka(false);
                             }}
                           >
                             <Check
@@ -154,6 +157,51 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                   </Command>
                 </PopoverContent>
               </Popover>
+              {products[0].secondFilter && (
+                <Popover open={openSecond} onOpenChange={setOpenSecond}>
+                  <PopoverTrigger asChild className="w-[200px]">
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={openSecond}
+                      className="w-[200px] justify-between border-orange-text"
+                    >
+                      {products[0].secondFilter}
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
+                    <Command>
+                      <CommandInput placeholder={products[0].secondFilter} />
+                      <CommandEmpty>Размер не найден</CommandEmpty>
+                      <CommandGroup className="overflow-y-auto">
+                        {products[0].secondSize?.map((secondSize: string) => (
+                          <CommandItem
+                            key={secondSize}
+                            value={secondSize}
+                            onSelect={(currentValue) => {
+                              setValueFilter(
+                                currentValue === marka ? "" : currentValue
+                              );
+                              setOpenMarka(false);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                valueFilter === secondSize
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            {secondSize.replace("mm", " мм")}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              )}
             </div>
           )
       )}

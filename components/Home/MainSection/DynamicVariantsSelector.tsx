@@ -114,7 +114,7 @@ const DynamicVariantsSelector = ({
         "?" +
         createQuerySecondSizeString("size", `${sizes}`, `${currentSecondValue}`)
     );
-    setValueFilter(currentValue === marka ? "" : currentValue);
+    setMarka(currentValue === marka ? "" : currentValue);
     setOpenMarka(false);
   };
 
@@ -128,7 +128,7 @@ const DynamicVariantsSelector = ({
         "?" +
         createQuerySizeString("secondsize", `${sizes}`, `${currentSecondValue}`)
     );
-    setValueFilter(currentValue === marka ? "" : currentValue);
+    setValueSecondFilter(currentValue === marka ? "" : currentValue);
     setOpenSecond(false);
   };
 
@@ -145,9 +145,9 @@ const DynamicVariantsSelector = ({
           marka || value ? "block" : "hidden"
         } fixed top-0 left-0 w-full h-full bg-transparent`}
       ></div>
-      <FilterAltIcon fontSize="large" />
+      <FilterAltIcon fontSize="large" className="hidden sm:block" />
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
+        <PopoverTrigger asChild className="w-[200px]">
           <Button
             variant="outline"
             role="combobox"
@@ -185,7 +185,7 @@ const DynamicVariantsSelector = ({
         </PopoverContent>
       </Popover>
       <Popover open={openMarka} onOpenChange={setOpenMarka}>
-        <PopoverTrigger asChild>
+        <PopoverTrigger asChild className="w-[200px]">
           <Button
             variant="outline"
             role="combobox"
@@ -224,7 +224,7 @@ const DynamicVariantsSelector = ({
       </Popover>
       {products[0].secondFilter && (
         <Popover open={openSecond} onOpenChange={setOpenSecond}>
-          <PopoverTrigger asChild>
+          <PopoverTrigger asChild className="w-[200px]">
             <Button
               variant="outline"
               role="combobox"
