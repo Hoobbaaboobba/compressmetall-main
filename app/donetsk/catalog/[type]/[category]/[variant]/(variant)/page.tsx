@@ -71,7 +71,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function MetalPage({ params }: Props) {
+export default function MetalPage({ params }: Props) {
   const productsData: Promise<Product[]> = getAllProducts(
     params.type || "",
     params.category || "",

@@ -6,12 +6,14 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   promise: Promise<Product[]>;
 };
 
 const DynamicVariants = async ({ promise }: Props) => {
+  const [limit, setLimit] = useState<number>(5);
   const pathname = usePathname().split("/");
   const searchParams = useSearchParams();
   const markaQuery = searchParams.get("marka") || "";
@@ -20,9 +22,9 @@ const DynamicVariants = async ({ promise }: Props) => {
 
   const products = await promise;
 
-  const limitProductsIds = products[0].id.slice(0, products[0].id.length);
-  const limitProductsSizes = products[0].ENGSize.slice(0, 10);
-  const limitProductsLabels = products[0].subLabel.slice(0, 5);
+  const limitProductsIds = products[0].id.slice(0, limit);
+  const limitProductsSizes = products[0].ENGSize.slice(0, limit);
+  const limitProductsLabels = products[0].subLabel.slice(0, 2);
 
   return (
     <div className="flex flex-col w-full justify-center items-center gap-6 py-6 px-4">
@@ -208,13 +210,13 @@ const DynamicVariants = async ({ promise }: Props) => {
             )
           )}
         {products.map((product) =>
-          limitProductsIds.map((ids) =>
+          limitProductsLabels.map((label) =>
             limitProductsSizes.map(
               (sizes) =>
                 !markaQuery &&
                 !sizeQuery &&
                 !secondSizeQuery &&
-                limitProductsLabels.map((label) =>
+                limitProductsIds.map((ids) =>
                   product.secondSize ? (
                     product.secondSize.map((secondSize) => (
                       <Link
@@ -320,15 +322,9 @@ const DynamicVariants = async ({ promise }: Props) => {
           )
         )}
       </div>
-      {/* {products[0].ENGSize.length > 10 ? (
-        <div onClick={() => setNumberOfItems((event) => event + 1)}>
-          <OrangeButton label="Загрузить больше" />
-        </div>
-      ) : (
-        <div className="cursor-not-allowed px-4 py-2 bg-light-gray text-black/50 rounded-sm flex justify-center items-center">
-          Загрузить больше
-        </div>
-      )} */}
+      <Button onClick={() => setLimit((event) => event + 5)}>
+        Загрузить больше
+      </Button>
     </div>
   );
 };
