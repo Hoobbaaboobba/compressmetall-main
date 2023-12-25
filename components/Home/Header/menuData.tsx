@@ -152,7 +152,7 @@ export const menuCatalog = [
       },
       {
         title: "Лента",
-        link: "metizi-prokat/lenta-steel",
+        link: "cherniy-prokat/lenta-steel",
         img: "provolokaSteel",
         metaData: "Прокат",
       },
@@ -275,7 +275,7 @@ export const menuCatalog = [
       },
       {
         title: "Лента",
-        link: "metizi-prokat/lenta-steel",
+        link: "cherniy-prokat/lenta-steel",
         img: "lentaZincCatalog",
         metaData: "Прокат",
       },
