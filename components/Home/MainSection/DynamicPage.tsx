@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
+import { useRouter } from "next/navigation";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -18,6 +21,16 @@ type Props = {
 
 export default async function DynamicPage({ promise, params }: Props) {
   const products = await promise;
+
+  // const router = useRouter();
+
+  // if (
+  //   params.variant !== products[0].variety ||
+  //   products[0].id.find((ids) => ids === params.id) === undefined ||
+  //   products[0].ENGSize.find((sizes) => sizes === params.size) === undefined
+  // ) {
+  //   return
+  // }
 
   return (
     <>
@@ -46,13 +59,10 @@ export default async function DynamicPage({ promise, params }: Props) {
                         } w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 sm:block bg-black/50`}
                       ></div>
                       <h2 className="text-black/60 text-2xl underline">
-                        {product.id.map((ids) =>
-                          ids === decodeURI(params.id)
-                            ? decodeURI(params.id)
-                                .replace(".", ",")
-                                .replace("|", "/")
-                            : ""
-                        )}
+                        {decodeURI(params.id)
+                          .replace(".", ",")
+                          .replace("|", "/")
+                          .replace("[", "/")}
                       </h2>
                       <div
                         className={`${
@@ -124,18 +134,17 @@ export default async function DynamicPage({ promise, params }: Props) {
             (product, index) =>
               params.type &&
               params.category &&
-              !params.variant &&
-              product.subLabel.map((label) => (
+              !params.variant && (
                 <DynamicItem
                   key={index}
                   img={product.img}
                   label={""}
-                  sublabel={label}
+                  sublabel={product.subLabel[0]}
                   href={product.type}
                   category={product.category}
                   variety={product.variety}
                 />
-              ))
+              )
           )}
         </div>
       </div>

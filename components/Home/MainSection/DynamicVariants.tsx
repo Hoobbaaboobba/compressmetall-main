@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import { Button } from "@/components/ui/button";
+import DynamicVariantsComponent from "./DynamicVariantsComponent";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -82,44 +83,16 @@ const DynamicVariants = async ({ promise }: Props) => {
                   ((ids === markaQuery && sizes === sizeQuery) ||
                     (ids === markaQuery && !sizeQuery) ||
                     (!markaQuery && sizes === sizeQuery)) && (
-                    <Link
-                      href={`/${pathname[1] || "moscow"}/catalog/${
-                        product.type
-                      }/${product.category}/${
-                        product.variety
-                      }/${ids}/${sizes}?label=${label}`}
-                    >
-                      <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                        <div className="grid grid-cols-3 w-full">
-                          <h1 className="text-lg hidden md:block w-[350px]">
-                            {label}
-                          </h1>
-                          <h2 className="text-lg hidden md:block px-16">
-                            {ids}
-                          </h2>
-                          <h3 className="text-lg hidden md:block">
-                            {sizes.replace("mm", " мм")}
-                          </h3>
-                        </div>
-                        <div className="hidden md:block">
-                          <OrangeButton label={"Подробнее"} mark />
-                        </div>
-                        <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
-                          <div className="flex gap-1">
-                            <h1 className="text-lg">
-                              {label} {ids} {sizes.replace("mm", " мм")}
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className="text-md text-black/50">{ids}</h1>
-                            <h2 className="text-md text-black/50">
-                              {sizes.replace("mm", " мм")}
-                            </h2>
-                          </div>
-                          <OrangeButton label={"Подробнее"} mark full />
-                        </div>
-                      </div>
-                    </Link>
+                    <DynamicVariantsComponent
+                      ids={ids}
+                      pathname={pathname[0] || "moscow"}
+                      productType={product.type}
+                      productCategory={product.category}
+                      productVariety={product.variety}
+                      label={label}
+                      sizes={sizes}
+                      products={products}
+                    />
                   )
               )
             )
@@ -153,56 +126,17 @@ const DynamicVariants = async ({ promise }: Props) => {
                         (ids === markaQuery &&
                           !sizeQuery &&
                           secondSize === secondSizeQuery)) && (
-                        <Link
-                          key={ids}
-                          href={`/${pathname[1] || "moscow"}/catalog/${
-                            product.type
-                          }/${product.category}/${
-                            product.variety
-                          }/${ids}/${sizes}?label=${label}`}
-                        >
-                          <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                            <div
-                              className={`grid ${
-                                products[0].secondFilter
-                                  ? "grid-cols-4"
-                                  : "grid-cols-3"
-                              } w-full`}
-                            >
-                              <h1 className="text-lg hidden md:block w-[350px]">
-                                {label}
-                              </h1>
-                              <h2 className="text-lg hidden md:block px-16">
-                                {ids}
-                              </h2>
-                              <h3 className="text-lg hidden md:block">
-                                {sizes.replace("mm", " мм")}
-                              </h3>
-                              {product.secondFilter && (
-                                <h3 className="text-lg hidden md:block">
-                                  {secondSize.replace("mm", " мм")}
-                                </h3>
-                              )}
-                            </div>
-                            <div className="hidden md:block">
-                              <OrangeButton label={"Подробнее"} mark />
-                            </div>
-                            <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
-                              <div className="flex gap-1">
-                                <h1 className="text-lg">
-                                  {label} {ids} {sizes.replace("mm", " мм")}
-                                </h1>
-                              </div>
-                              <div>
-                                <h1 className="text-md text-black/50">{ids}</h1>
-                                <h2 className="text-md text-black/50">
-                                  {sizes.replace("mm", " мм")}
-                                </h2>
-                              </div>
-                              <OrangeButton label={"Подробнее"} mark full />
-                            </div>
-                          </div>
-                        </Link>
+                        <DynamicVariantsComponent
+                          ids={ids}
+                          pathname={pathname[0] || "moscow"}
+                          productType={product.type}
+                          productCategory={product.category}
+                          productVariety={product.variety}
+                          label={label}
+                          sizes={sizes}
+                          products={products}
+                          secondSize={secondSize}
+                        />
                       )
                   )
                 )
@@ -219,103 +153,29 @@ const DynamicVariants = async ({ promise }: Props) => {
                 limitProductsIds.map((ids) =>
                   product.secondSize ? (
                     product.secondSize.map((secondSize) => (
-                      <Link
-                        key={ids}
-                        href={`/${pathname[1] || "moscow"}/catalog/${
-                          product.type
-                        }/${product.category}/${
-                          product.variety
-                        }/${ids}/${sizes}?label=${label}`}
-                      >
-                        <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                          <div
-                            className={`grid ${
-                              products[0].secondFilter
-                                ? "grid-cols-4"
-                                : "grid-cols-3"
-                            } w-full`}
-                          >
-                            <h1 className="text-lg hidden md:block w-[350px]">
-                              {label}
-                            </h1>
-                            <h2 className="text-lg hidden md:block px-16">
-                              {ids}
-                            </h2>
-                            <h3 className="text-lg hidden md:block">
-                              {sizes.replace("mm", " мм")}
-                            </h3>
-                            {product.secondFilter && (
-                              <h3 className="text-lg hidden md:block">
-                                {secondSize.replace("mm", " мм")}
-                              </h3>
-                            )}
-                          </div>
-                          <div className="hidden md:block">
-                            <OrangeButton label={"Подробнее"} mark />
-                          </div>
-                          <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
-                            <div className="flex gap-1">
-                              <h1 className="text-lg">
-                                {label} {ids} {sizes.replace("mm", " мм")}
-                              </h1>
-                            </div>
-                            <div>
-                              <h1 className="text-md text-black/50">{ids}</h1>
-                              <h2 className="text-md text-black/50">
-                                {sizes.replace("mm", " мм")}
-                              </h2>
-                            </div>
-                            <OrangeButton label={"Подробнее"} mark full />
-                          </div>
-                        </div>
-                      </Link>
+                      <DynamicVariantsComponent
+                        ids={ids}
+                        pathname={pathname[0] || "moscow"}
+                        productType={product.type}
+                        productCategory={product.category}
+                        productVariety={product.variety}
+                        label={label}
+                        sizes={sizes}
+                        products={products}
+                        secondSize={secondSize}
+                      />
                     ))
                   ) : (
-                    <Link
-                      key={ids}
-                      href={`/${pathname[1] || "moscow"}/catalog/${
-                        product.type
-                      }/${product.category}/${
-                        product.variety
-                      }/${ids}/${sizes}?label=${label}`}
-                    >
-                      <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
-                        <div
-                          className={`grid ${
-                            products[0].secondFilter
-                              ? "grid-cols-4"
-                              : "grid-cols-3"
-                          } w-full`}
-                        >
-                          <h1 className="text-lg hidden md:block w-[350px]">
-                            {label}
-                          </h1>
-                          <h2 className="text-lg hidden md:block px-16">
-                            {ids}
-                          </h2>
-                          <h3 className="text-lg hidden md:block">
-                            {sizes.replace("mm", " мм")}
-                          </h3>
-                        </div>
-                        <div className="hidden md:block">
-                          <OrangeButton label={"Подробнее"} mark />
-                        </div>
-                        <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
-                          <div className="flex gap-1">
-                            <h1 className="text-lg">
-                              {label} {ids} {sizes.replace("mm", " мм")}
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className="text-md text-black/50">{ids}</h1>
-                            <h2 className="text-md text-black/50">
-                              {sizes.replace("mm", " мм")}
-                            </h2>
-                          </div>
-                          <OrangeButton label={"Подробнее"} mark full />
-                        </div>
-                      </div>
-                    </Link>
+                    <DynamicVariantsComponent
+                      ids={ids}
+                      pathname={pathname[0] || "moscow"}
+                      productType={product.type}
+                      productCategory={product.category}
+                      productVariety={product.variety}
+                      label={label}
+                      sizes={sizes}
+                      products={products}
+                    />
                   )
                 )
             )

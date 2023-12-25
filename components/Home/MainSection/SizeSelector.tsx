@@ -83,7 +83,11 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                       {products[0].id.map((id: string) => (
                         <Link
                           className="hover:underline w-full"
-                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${id}/${params.size}?label=${label}`}
+                          href={`/${pathname[1]}/catalog/${params.type}/${
+                            params.category
+                          }/${params.variant}/${id.replace("/", "[")}/${
+                            params.size
+                          }?label=${label}`}
                         >
                           <CommandItem
                             key={id}

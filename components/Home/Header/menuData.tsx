@@ -152,7 +152,7 @@ export const menuCatalog = [
       },
       {
         title: "Лента",
-        link: "wire-metizi/lenta-steel",
+        link: "metizi-prokat/lenta-steel",
         img: "provolokaSteel",
         metaData: "Прокат",
       },
