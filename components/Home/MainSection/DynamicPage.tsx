@@ -41,7 +41,7 @@ export default async function DynamicPage({ promise, params }: Props) {
               <>
                 <div
                   key={index}
-                  className="relative w-fullmt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-center px-6 xl:px-12"
+                  className="relative w-full mt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-center px-6 xl:px-12"
                 >
                   <div className="w-full h-full flex flex-col gap-6 justify-center items-start pt-4">
                     <HyperLinks
@@ -49,14 +49,12 @@ export default async function DynamicPage({ promise, params }: Props) {
                       variantTitle={product.subLabel}
                       pageTitle=""
                     />
-                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-center sm:justify-start items-center w-full">
+                    <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-center sm:items-start w-full">
                       <h1 className="text-3xl font-bold text-center md:text-start text-black/80">
                         <QueryLabel />
                       </h1>
                       <div
-                        className={`${
-                          params.size ? "sm:block" : "sm:hidden"
-                        } w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 sm:block bg-black/50`}
+                        className={`block sm:hidden w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 bg-black/50`}
                       ></div>
                       <h2 className="text-black/60 text-2xl underline">
                         {decodeURI(params.id)
@@ -65,9 +63,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                           .replace("[", "/")}
                       </h2>
                       <div
-                        className={`${
-                          params.size ? "sm:block" : "sm:hidden"
-                        } w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 bg-black/50`}
+                        className={`block sm:hidden w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 bg-black/50`}
                       ></div>
                       <h3 className="text-black/60 text-2xl underline">
                         {product.ENGSize.map((ENG) =>

@@ -230,12 +230,12 @@ export const menuCatalog = [
         img: "cornerNershavCatalog",
         metaData: "Прокат",
       },
-      {
-        title: "Квадрат",
-        link: "nershav-prokat/square-nershav",
-        img: "squareNershavCatalog",
-        metaData: "Прокат",
-      },
+      // {
+      //   title: "Квадрат",
+      //   link: "nershav-prokat/square-nershav",
+      //   img: "squareNershavCatalog",
+      //   metaData: "Прокат",
+      // },
       {
         title: "Шестигранник",
         link: "nershav-prokat/hexagon-nershav",
