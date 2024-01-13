@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";

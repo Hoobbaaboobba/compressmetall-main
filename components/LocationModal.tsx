@@ -6,20 +6,7 @@ import axios from "axios";
 import { cities } from "@/regions";
 import OrangeButton from "./OrangeButton";
 import Link from "next/link";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogOverlay,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
-import { Button } from "./ui/button";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
+import { usePathname, useRouter } from "next/navigation";
 
 const LocationModal = () => {
   const [currLocation, setCurrLocation] = useState({
@@ -28,7 +15,7 @@ const LocationModal = () => {
     capital: "",
   });
   const [currLocationJs, setCurrLocationJs] = useState({});
-  const [changeLoc, setChangeLoc] = useState(false);
+  const [changeLoc, setChangeLoc] = useState<boolean>(false);
 
   const { onClose, isOpen, changeLocation, changeLink, onOpen } =
     useLocationModal();
@@ -36,6 +23,10 @@ const LocationModal = () => {
   useEffect(() => {
     getLocation();
     getLocationJs();
+
+    setTimeout(() => {
+      onOpen();
+    }, 3000);
   }, []);
 
   const getLocation = async () => {
@@ -70,8 +61,18 @@ const LocationModal = () => {
     }
   }
 
+  const pathname = usePathname().split("/")[1];
+  const router = useRouter();
+
   const locationInfo = () => {
-    onClose(), changeLocation(currentGorod), changeLink(currentCapital);
+    changeLocation(currentGorod);
+    changeLink(currentCapital);
+
+    if (currentCapital === pathname) {
+      onClose();
+    } else {
+      router.push(`/${currentCapital}`);
+    }
   };
 
   const changeCityName = (name: string, link: string) => {
@@ -80,31 +81,8 @@ const LocationModal = () => {
     onClose();
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      onOpen();
-    }, 3000);
-  }, []);
-
   return (
     <>
-      {/* <Dialog defaultOpen>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle className="text-2xl text-center">
-              {currentGorod === "не найдена"
-                ? "Ваша геолокация не найдена"
-                : `Ваш город ${currentGorod}?`}
-            </DialogTitle>
-          </DialogHeader>
-          <DialogDescription>Мы работаем в следующих городах</DialogDescription>
-          <DialogFooter>
-            <Button variant="ghost">
-              <OrangeButton label={"Да"} />
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog> */}
       <div
         className={`fixed ${
           isOpen ? "z-[100] opacity-100" : "opacity-0 -z-50"
@@ -143,9 +121,9 @@ const LocationModal = () => {
                 </>
               ) : (
                 <>
-                  <Link href={`/${currentCapital}`} onClick={locationInfo}>
+                  <div onClick={locationInfo}>
                     <OrangeButton label={"Да"} />
-                  </Link>
+                  </div>
                   <button
                     onClick={() => setChangeLoc(true)}
                     className="flex justify-center items-center border px-4 py-2"

@@ -15,12 +15,12 @@ import CityButton from "./CityButton";
 import Logo from "./Logo";
 import { menuCatalog } from "./menuData";
 import { Button } from "@/components/ui/button";
+import CatalogMenu from "./CatalogMenu";
 
 const LowerHeader = () => {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [popUp, setPopUp] = useState(false);
-  const [hoverCatalog, setHoverCatalog] = useState(false);
 
   const { onOpen, setDefaultValue } = useRequestModal();
 
@@ -46,8 +46,8 @@ const LowerHeader = () => {
       <nav className="text-white nav bg-gray-bg flex justify-center items-center flex-col w-full text-lg z-10 ">
         <div className="sticky top-0 left-0 hidden xl:flex justify-center items-center max-w-[1300px] w-full">
           <div className={`flex justify-center w-full`}>
-            <div
-              className="relative w-1/5"
+            {/* <div
+              className="relative w-full"
               onMouseEnter={() => setHoverCatalog(true)}
               onMouseLeave={() => setHoverCatalog(false)}
               onClick={() => setHoverCatalog(false)}
@@ -106,8 +106,11 @@ const LowerHeader = () => {
                   ))}
                 </div>
               </div>
+            </div> */}
+            <div className="w-full">
+              <CatalogMenu />
             </div>
-            <div className="relative w-1/5">
+            <div className="relative w-full">
               <MenuButton
                 src={`/${pathname[1] || "moscow"}/services`}
                 name="Услуги"
@@ -116,12 +119,12 @@ const LowerHeader = () => {
             </div>
             <div
               onClick={showRequest}
-              className="relative w-1/5 flex py-2 font-medium justify-center items-center gap-8 xl:hover:bg-orange-bg transition cursor-pointer"
+              className="relative w-full flex py-2 font-medium justify-center items-center gap-8 xl:hover:bg-orange-bg transition cursor-pointer"
             >
               Прайс
             </div>
             <div
-              className="relative w-1/5"
+              className="relative w-full"
               onMouseLeave={() => setPopUp(false)}
               onMouseEnter={() => setPopUp(true)}
             >
@@ -153,14 +156,14 @@ const LowerHeader = () => {
                 </div>
               </div>
             </div>
-            <div className="relative w-1/5">
+            <div className="relative w-full">
               <MenuButton
                 src={`/${pathname[1] || "moscow"}/contacts`}
                 name="Контакты"
                 icon="false"
               />
             </div>
-            {/* <div className="relative w-1/5">
+            {/* <div className="relative w-full">
               <MenuButton
                 src={`/${pathname[1] || "moscow"}/certificates`}
                 name="Сертификаты"
