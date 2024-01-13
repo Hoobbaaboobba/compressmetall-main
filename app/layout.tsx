@@ -15,6 +15,7 @@ import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
 import Price from "@/components/Requests/Price";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -54,6 +55,7 @@ export default function RootLayout({
       <meta name="yandex-verification" content="d99d66f200d7f09a" />
       <body>
         {/* <LoadingScreen /> */}
+        <Analytics />
         <div>
           <img
             src="https://mc.yandex.ru/watch/95780946"
