@@ -71,6 +71,7 @@ const LocationModal = () => {
     if (currentCapital === pathname) {
       onClose();
     } else {
+      onClose();
       router.push(`/${currentCapital}`);
     }
   };
