@@ -10,18 +10,18 @@ const LoadingScreen = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 33);
-    }, 500);
-
+    // const intervalId = setInterval(() => {
+    //   setSeconds((prevSeconds) => prevSeconds + 50);
+    // }, 500);
     setLogo(true);
     setLoading(true);
+    setSeconds(100);
     setTimeout(() => {
       setLoading(false);
       setLoading(false);
     }, 1500);
 
-    return () => clearInterval(intervalId);
+    // return () => clearInterval(intervalId);
   }, []);
 
   return (
