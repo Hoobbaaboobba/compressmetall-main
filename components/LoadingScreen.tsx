@@ -11,8 +11,8 @@ const LoadingScreen = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 2);
-    }, 15);
+      setSeconds((prevSeconds) => prevSeconds + 33);
+    }, 500);
 
     setLogo(true);
     setLoading(true);
