@@ -36,27 +36,31 @@ const CatalogMenu = () => {
                         {item.label}
                       </h1>
                       <div className="w-2 h-2 bg-black rounded-full"></div>
-                      <Button variant="link" size="lg" asChild>
-                        <Link
-                          href={`/${pathname[1] || "moscow"}/catalog/${
-                            item.href
-                          }`}
-                        >
-                          Посмотреть всё
-                        </Link>
-                      </Button>
-                    </div>
-                    <div className="w-full flex justify-start items-center flex-wrap gap-2">
-                      {item.links.map((link) => (
-                        <Button variant="outline" className="text-md" asChild>
+                      <NavigationMenuLink>
+                        <Button variant="link" size="lg" asChild>
                           <Link
                             href={`/${pathname[1] || "moscow"}/catalog/${
-                              link.link
+                              item.href
                             }`}
                           >
-                            <h1>{link.title}</h1>
+                            Посмотреть всё
                           </Link>
                         </Button>
+                      </NavigationMenuLink>
+                    </div>
+                    <div className="w-full flex justify-start items-center flex-wrap gap-2">
+                      {item.links.map((link, index) => (
+                        <NavigationMenuLink key={index}>
+                          <Button variant="outline" className="text-md" asChild>
+                            <Link
+                              href={`/${pathname[1] || "moscow"}/catalog/${
+                                link.link
+                              }`}
+                            >
+                              <h1>{link.title}</h1>
+                            </Link>
+                          </Button>
+                        </NavigationMenuLink>
                       ))}
                     </div>
                   </div>
