@@ -31,17 +31,15 @@ const LoadingScreen = () => {
       } fixed flex-col gap-4 top-0 left-0 bg-white transition duration-300 w-full h-full px-8 flex justify-center items-center`}
     >
       <div className="h-[650px] mt-12 flex flex-col justify-center gap-4 items-center">
-        <div className="w-[632px] h-[545px]">
-          <Image
-            src="/loadingLogo.png"
-            alt="loadingLogo"
-            width={632}
-            height={545}
-            className={`${
-              logo ? "scale-100" : "scale-0"
-            } transition duration-300`}
-          />
-        </div>
+        <Image
+          src="/loadingLogo.png"
+          alt="loadingLogo"
+          width={632}
+          height={545}
+          className={`${
+            logo ? "scale-100" : "scale-0"
+          } transition duration-300`}
+        />
         {loading && (
           <Progress value={seconds} className="max-w-[400px] w-full" />
         )}
