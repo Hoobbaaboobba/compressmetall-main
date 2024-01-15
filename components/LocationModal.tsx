@@ -76,6 +76,14 @@ const LocationModal = () => {
     }
   };
 
+  const locationNotFound = () => {
+    if (pathname === "Москва") {
+      onClose();
+    } else {
+      router.push("/moscow");
+    }
+  };
+
   const changeCityName = (name: string, link: string) => {
     changeLocation(name);
     changeLink(link);
@@ -110,9 +118,9 @@ const LocationModal = () => {
             <div className="flex gap-6">
               {currentGorod === "не найдена" ? (
                 <>
-                  <Link href="/moscow" onClick={locationInfo}>
+                  <div onClick={locationNotFound}>
                     <OrangeButton label={"Москва"} />
-                  </Link>
+                  </div>
                   <button
                     onClick={() => setChangeLoc(true)}
                     className="flex justify-center items-center border px-4 py-2"

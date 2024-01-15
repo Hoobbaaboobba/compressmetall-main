@@ -29,7 +29,7 @@ const LoadingScreen = () => {
   return (
     <div
       className={`${
-        loading ? "opacity-100 z-[200]" : "opacity-0"
+        loading ? "opacity-100 z-[200]" : "opacity-0 hidden"
       } fixed flex-col gap-4 top-0 left-0 bg-white transition duration-300 w-full h-full px-8 flex justify-center items-center`}
     >
       <div className="h-[650px] mt-12 flex flex-col justify-center gap-4 items-center">
