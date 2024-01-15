@@ -77,10 +77,11 @@ const LocationModal = () => {
   };
 
   const locationNotFound = () => {
-    if (pathname === "Москва") {
+    if (pathname === "moscow") {
       onClose();
     } else {
       router.push("/moscow");
+      onClose();
     }
   };
 
