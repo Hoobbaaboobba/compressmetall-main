@@ -12,46 +12,46 @@ interface SliderProps {
 
 const brandNew = [
   {
-    title: "Арматура",
-    label: "Стальная арматура A500C А3",
-    img: "armatura",
+    title: "Лента бронзовая",
+    label: "БрАМц9-2",
+    img: "lentaBronze",
     isInStock: "Имеется в наличии",
-    href: "/cherniy-prokat/armatura/armatura-a500c",
+    href: "/tsvetnoi-prokat/bronze/lenta/БрАМц9-2/0.05mm?label=Лента%20бронзовая",
   },
   {
     title: "Алюминий",
     label: "Труба алюминиевая 1050",
     img: "pipeAlum",
     isInStock: "Имеется в наличии",
-    href: "/tsvetnoi-prokat/aluminum/pipe/1050/6mm",
+    href: "/tsvetnoi-prokat/aluminum/pipe/1050/6mm?label=Труба%20алюминиевая",
   },
   {
     title: "Медь",
     label: "Лента медная",
     img: "lentaCopper",
     isInStock: "Имеется в наличии",
-    href: "/tsvetnoi-prokat/copper/lenta/М0б/0.05mm",
+    href: "/tsvetnoi-prokat/copper/lenta/М0б/0.05mm?label=Лента%20медная",
   },
   {
     title: "Латунь",
     label: "Шестигранник латунный",
     img: "hexagonBrass",
     isInStock: "Имеется в наличии",
-    href: "/tsvetnoi-prokat/brass/hexagon/Л59/3mm",
+    href: "/tsvetnoi-prokat/brass/hexagon/Л59/3mm?label=Шестигранник%20латунный",
   },
   {
     title: "Трубы нержавеющие",
     label: "Труба нержавеющая AISI 201",
     img: "trubaNershav",
     isInStock: "Имеется в наличии",
-    href: "/nershav-prokat/truba-nershav/pipe/AISI%20201/6mm",
+    href: "/nershav-prokat/truba-nershav/pipe/AISI%20201/6mm?label=Трубы%20нержавеющие",
   },
   {
     title: "Оцинкованная сетка",
     label: "Сетка оцинкованная сварная",
     img: "gridZinc",
     isInStock: "Имеется в наличии",
-    href: "/tsvetnoi-prokat/zinc/grid-svar/08пс/0.4х0.4mm",
+    href: "/cherniy-prokat/zinc/grid-svar/08пс/0.4х0.4mm?label=Сетка%20оцинкованная%20сварная",
   },
 ];
 
