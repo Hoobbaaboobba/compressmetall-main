@@ -38,6 +38,7 @@ export default function RootLayout({
           gtag('config', 'G-5DESE4JXJL');
         `}
       </Script>
+      <Script src="//code.jivo.ru/widget/jknCDVfDeq" async></Script>
       {/* <Script type="text/javascript">
         {`
           (function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
