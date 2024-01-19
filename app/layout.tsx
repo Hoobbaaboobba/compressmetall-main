@@ -71,7 +71,7 @@ export default function RootLayout({
       </Script> */}
       <meta name="yandex-verification" content="d99d66f200d7f09a" />
       <body>
-        {/* <LoadingScreen /> */}
+        <LoadingScreen />
         <Analytics />
         <div>
           <img
