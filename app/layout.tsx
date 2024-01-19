@@ -38,6 +38,21 @@ export default function RootLayout({
           gtag('config', 'G-5DESE4JXJL');
         `}
       </Script>
+      <Script type="text/javascript">
+        {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(94803385, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        ecommerce:"dataLayer"
+   })`}
+      </Script>
+      {/* <!-- /Yandex.Metrika counter --> */}
       <Script src="//code.jivo.ru/widget/jknCDVfDeq" async></Script>
       {/* <Script type="text/javascript">
         {`
@@ -56,11 +71,18 @@ export default function RootLayout({
       </Script> */}
       <meta name="yandex-verification" content="d99d66f200d7f09a" />
       <body>
-        <LoadingScreen />
+        {/* <LoadingScreen /> */}
         <Analytics />
         <div>
           <img
             src="https://mc.yandex.ru/watch/95780946"
+            className="position:absolute; left:-9999px;"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://mc.yandex.ru/watch/94803385"
             className="position:absolute; left:-9999px;"
             alt=""
           />

@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
 import { products } from "@/app/api/products/products";
+import Script from "next/script";
 
 type Props = {
   params: {
@@ -93,6 +94,28 @@ export default async function MetalPage({ params }: Props) {
 
   return (
     <main className="mt-1 w-full">
+      <Script type="text/javascript">
+        {`
+          ym(94803385, 'init', {
+            ecommerce: true
+        });
+        window.dataLayer = window.dataLayer || [];
+    `}
+      </Script>
+      <Script type="text/javascript">
+        {`
+        {
+            "ecommerce": {
+                "currencyCode": "RUB",
+                "<actionType>": {
+                    "actionField": detail,
+                    "products" : [${params.id}, ${params.variant}]
+                }
+            }
+        }
+    );[];
+`}
+      </Script>
       <Suspense fallback={<Loading />}>
         <DynamicPage promise={productsData || ""} params={params} />
       </Suspense>
