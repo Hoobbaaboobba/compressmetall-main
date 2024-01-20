@@ -92,7 +92,7 @@ export default function RootLayout({
         <Call />
         <Price />
         <ViewCatalogButton />
-        <ViewCatalog />
+        {/* <ViewCatalog /> */}
         <Suspense
           fallback={
             <div className="w-[300px] h-[100px[ rounded-md bg-light-gray"></div>
