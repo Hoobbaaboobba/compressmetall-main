@@ -14,9 +14,7 @@ const ViewCatalog = () => {
   return (
     <>
       <div
-        className={`${
-          isOpenCatalog ? "translate-y-[0]" : "translate-y-[120%]"
-        } transition duration-300 w-full h-[100dvh] pb-[140px] bg-white grid grid-cols-1 overflow-y-auto lg:grid-cols-2 fixed top-[80px] xl:top-[137px] left-0 z-40`}
+        className={`transition duration-300 w-full bg-white grid grid-cols-1 overflow-y-auto lg:grid-cols-2 z-40`}
       >
         {menuCatalog.map((item, index) => (
           <div
