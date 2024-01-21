@@ -46,67 +46,6 @@ const LowerHeader = () => {
       <nav className="text-white nav bg-gray-bg flex justify-center items-center flex-col w-full text-lg z-10 ">
         <div className="sticky top-0 left-0 hidden xl:flex justify-center items-center max-w-[1300px] w-full">
           <div className={`flex justify-center w-full`}>
-            {/* <div
-              className="relative w-full"
-              onMouseEnter={() => setHoverCatalog(true)}
-              onMouseLeave={() => setHoverCatalog(false)}
-              onClick={() => setHoverCatalog(false)}
-            >
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/catalog`}
-                name="Каталог"
-                icon="true"
-              />
-              <div
-                className={`${
-                  hoverCatalog ? "flex scale-100" : "hidden scale-0"
-                } transition duration-300 fixed top-[137px] left-0 z-50 justify-center item-start w-full h-full`}
-              >
-                <div
-                  onMouseEnter={() => setHoverCatalog(true)}
-                  onMouseLeave={() => setHoverCatalog(false)}
-                  className="w-[1300px] grid grid-cols-2 bg-white max-h-[80vh] overflow-y-auto gap-4 p-4 shadow-lg"
-                >
-                  {menuCatalog.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex text-black flex-col gap-6 rounded-md border-r border-b border-r-black/70 border-b-black/70 p-4"
-                    >
-                      <div className="flex justify-start items-center w-full gap-3">
-                        <h1 className="uppercase text-[26px] font-bold">
-                          {item.label}
-                        </h1>
-                        <div className="w-2 h-2 bg-black rounded-full"></div>
-                        <Button variant="link" size="lg" asChild>
-                          <Link
-                            href={`/${pathname[1] || "moscow"}/catalog/${
-                              item.href
-                            }`}
-                            onClick={() => setHoverCatalog(false)}
-                          >
-                            Посмотреть всё
-                          </Link>
-                        </Button>
-                      </div>
-                      <div className="w-full flex justify-start items-center flex-wrap gap-2">
-                        {item.links.map((link) => (
-                          <Button variant="outline" className="text-md" asChild>
-                            <Link
-                              href={`/${pathname[1] || "moscow"}/catalog/${
-                                link.link
-                              }`}
-                              onClick={() => setHoverCatalog(false)}
-                            >
-                              <h1>{link.title}</h1>
-                            </Link>
-                          </Button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div> */}
             <div className="w-full">
               <CatalogMenu />
             </div>
@@ -158,18 +97,18 @@ const LowerHeader = () => {
             </div>
             <div className="relative w-full">
               <MenuButton
+                src={`/${pathname[1] || "moscow"}/directory/marki_stali`}
+                name="Справочник"
+                icon="false"
+              />
+            </div>
+            <div className="relative w-full">
+              <MenuButton
                 src={`/${pathname[1] || "moscow"}/contacts`}
                 name="Контакты"
                 icon="false"
               />
             </div>
-            {/* <div className="relative w-full">
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/certificates`}
-                name="Сертификаты"
-                icon="false"
-              />
-            </div> */}
           </div>
         </div>
         <div className="flex fixed top-0 left-0 w-full bg-white shadow-md xl:hidden justify-between items-center px-4 py-1 h-[84px]">
@@ -266,6 +205,16 @@ const LowerHeader = () => {
             onClick={navbarHide}
           >
             Компания
+          </Link>
+          <hr className="border border-white/10 w-[50%]" />
+          <Link
+            href={`/${pathname[1] || "moscow"}/directory/marki_stali`}
+            className={`font-bold w-full flex justify-center items-center py-6 ${
+              pathname[2] === `/directory` ? "bg-orange-bg" : "bg-transparent"
+            }`}
+            onClick={navbarHide}
+          >
+            Справочник
           </Link>
           <hr className="border border-white/10 w-[50%]" />
           <Link
