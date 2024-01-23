@@ -12,7 +12,6 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuCatalog } from "./menuData";
-import MenuButton from "./MenuButton";
 
 const CatalogMenu = () => {
   const pathname = usePathname().split("/");

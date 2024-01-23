@@ -1,9 +1,7 @@
 "use client";
 
-import OrangeButton from "@/components/OrangeButton";
-import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import { Button } from "@/components/ui/button";

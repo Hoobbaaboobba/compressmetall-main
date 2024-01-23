@@ -4,7 +4,6 @@ import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
-import { useRouter } from "next/navigation";
 
 type Props = {
   promise: Promise<Product[]>;

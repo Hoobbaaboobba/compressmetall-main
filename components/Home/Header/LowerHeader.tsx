@@ -13,8 +13,6 @@ import Search from "./Search";
 import useRequestModal from "@/hooks/useRequestModal";
 import CityButton from "./CityButton";
 import Logo from "./Logo";
-import { menuCatalog } from "./menuData";
-import { Button } from "@/components/ui/button";
 import CatalogMenu from "./CatalogMenu";
 
 const LowerHeader = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { notFound, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 const QueryLabel = () => {

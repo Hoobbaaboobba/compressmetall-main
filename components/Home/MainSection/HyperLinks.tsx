@@ -18,8 +18,6 @@ const HyperLinks = ({
   lastCategory,
   variantTitle,
   lastVariant,
-  pageTitle,
-  lastPage,
 }: Props) => {
   const pathname = usePathname().split("/");
 
