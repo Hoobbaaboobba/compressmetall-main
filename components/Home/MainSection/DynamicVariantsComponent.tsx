@@ -30,8 +30,6 @@ const DynamicVariantsComponent = ({
   products,
 }: Props) => {
   useEffect(() => {
-    const TRACKING_ID = "G-JZL881ECC3";
-    ReactGA.initialize(TRACKING_ID);
     ReactGA.pageview(window.location.pathname);
   }, []);
 

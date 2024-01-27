@@ -4,6 +4,8 @@ import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
+import { useEffect } from "react";
+import ReactGA from "react-ga";
 
 type Props = {
   promise: Promise<Product[]>;
@@ -18,6 +20,16 @@ type Props = {
 
 export default async function DynamicPage({ promise, params }: Props) {
   const products = await promise;
+
+  // useEffect(() => {
+  //   ReactGA.pageview(window.location.pathname);
+
+  //   ReactGA.event({
+  //     category: products[0].title,
+  //     action: "Page view",
+  //     label: products[0].label,
+  //   });
+  // }, []);
 
   // const router = useRouter();
 
