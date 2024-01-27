@@ -27,20 +27,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      {/* <Script
-        async
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-JZL881ECC3"
-      />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-JZL881ECC3');
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-5QZ5BQHJ');
         `}
-      </Script> */}
+      </Script>
       <Script type="text/javascript">
         {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
           m[i].l=1*new Date();
@@ -53,7 +48,7 @@ export default function RootLayout({
               trackLinks:true,
               accurateTrackBounce:true,
               ecommerce:"dataLayer"
-   })`}
+        })`}
       </Script>
       {/* <!-- /Yandex.Metrika counter --> */}
       <Script src="//code.jivo.ru/widget/jknCDVfDeq" async></Script>
@@ -74,6 +69,12 @@ export default function RootLayout({
       </Script> */}
       <meta name="yandex-verification" content="d99d66f200d7f09a" />
       <body>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-5QZ5BQHJ"
+          height="0"
+          width="0"
+          className="hidden"
+        ></iframe>
         <LoadingScreen />
         <Analytics />
         <div>
@@ -121,7 +122,6 @@ export default function RootLayout({
         </div>
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-5DESE4JXJL" />
     </html>
   );
 }
