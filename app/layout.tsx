@@ -18,6 +18,8 @@ import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 export default function RootLayout({
   children,
 }: {
@@ -25,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <Script
+      {/* <Script
         async
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-JZL881ECC3"
@@ -38,7 +40,7 @@ export default function RootLayout({
 
           gtag('config', 'G-JZL881ECC3');
         `}
-      </Script>
+      </Script> */}
       <Script type="text/javascript">
         {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
           m[i].l=1*new Date();
@@ -119,6 +121,7 @@ export default function RootLayout({
         </div>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-JZL881ECC3" />
     </html>
   );
 }

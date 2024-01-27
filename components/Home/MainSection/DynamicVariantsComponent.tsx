@@ -2,9 +2,7 @@
 
 import OrangeButton from "@/components/OrangeButton";
 import Link from "next/link";
-import { useEffect } from "react";
-
-import ReactGA from "react-ga";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface Props {
   ids: string;
@@ -29,19 +27,6 @@ const DynamicVariantsComponent = ({
   secondSize,
   products,
 }: Props) => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-  }, []);
-
-  const onClick = (label: string) => {
-    ReactGA.event({
-      category: label,
-      action: "test action",
-      label: "test label",
-      value: 500,
-    });
-    console.log(ReactGA.event);
-  };
   return (
     <Link
       key={ids}
@@ -51,7 +36,7 @@ const DynamicVariantsComponent = ({
       )}/${sizes}?label=${label}`}
     >
       <div
-        onClick={() => onClick(label)}
+        onClick={() => sendGAEvent({ event: "test event", value: "hello ga" })}
         className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition"
       >
         <div
