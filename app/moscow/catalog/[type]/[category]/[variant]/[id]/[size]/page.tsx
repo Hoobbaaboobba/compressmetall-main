@@ -6,6 +6,7 @@ import getAllProducts from "@/components/servers/getProducts";
 import Loading from "./loading";
 import { products } from "@/app/api/products/products";
 import Script from "next/script";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 type Props = {
   params: {
@@ -94,6 +95,7 @@ export default async function MetalPage({ params }: Props) {
 
   return (
     <main className="mt-1 w-full">
+      <GoogleAnalytics />
       <Suspense fallback={<Loading />}>
         <DynamicPage promise={productsData || ""} params={params} />
       </Suspense>

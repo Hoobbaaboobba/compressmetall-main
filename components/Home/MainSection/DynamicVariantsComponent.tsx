@@ -3,6 +3,7 @@
 import OrangeButton from "@/components/OrangeButton";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
+import { trackGAEvent } from "@/lib/google-analytics";
 
 interface Props {
   ids: string;
@@ -27,6 +28,9 @@ const DynamicVariantsComponent = ({
   secondSize,
   products,
 }: Props) => {
+  const onClick = () => {
+    trackGAEvent("My category", "My action", "My Label");
+  };
   return (
     <Link
       key={ids}
@@ -36,7 +40,7 @@ const DynamicVariantsComponent = ({
       )}/${sizes}?label=${label}`}
     >
       <div
-        onClick={() => sendGAEvent({ event: "buttonClicked", value: "xyz" })}
+        onClick={onClick}
         className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition"
       >
         <div
