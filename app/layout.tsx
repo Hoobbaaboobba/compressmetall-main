@@ -18,6 +18,8 @@ import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
 
+import ReactGA from "react-ga";
+
 export default function RootLayout({
   children,
 }: {
@@ -26,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <Script
+        async
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-5DESE4JXJL"
+        src="https://www.googletagmanager.com/gtag/js?id=G-JZL881ECC3"
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
@@ -35,21 +38,21 @@ export default function RootLayout({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-5DESE4JXJL');
+          gtag('config', 'G-JZL881ECC3');
         `}
       </Script>
       <Script type="text/javascript">
         {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(94803385, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        ecommerce:"dataLayer"
+          ym(94803385, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              ecommerce:"dataLayer"
    })`}
       </Script>
       {/* <!-- /Yandex.Metrika counter --> */}

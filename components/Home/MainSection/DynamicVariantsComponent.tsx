@@ -1,5 +1,10 @@
+"use client";
+
 import OrangeButton from "@/components/OrangeButton";
 import Link from "next/link";
+import { useEffect } from "react";
+
+import ReactGA from "react-ga";
 
 interface Props {
   ids: string;
@@ -24,6 +29,21 @@ const DynamicVariantsComponent = ({
   secondSize,
   products,
 }: Props) => {
+  useEffect(() => {
+    const TRACKING_ID = "G-JZL881ECC3";
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
+  const onClick = (label: string) => {
+    ReactGA.event({
+      category: label,
+      action: "test action",
+      label: "test label",
+      value: 500,
+    });
+    console.log(ReactGA.event);
+  };
   return (
     <Link
       key={ids}
@@ -32,7 +52,10 @@ const DynamicVariantsComponent = ({
         "["
       )}/${sizes}?label=${label}`}
     >
-      <div className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition">
+      <div
+        onClick={() => onClick(label)}
+        className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition"
+      >
         <div
           className={`grid ${
             products[0].secondFilter ? "grid-cols-4" : "grid-cols-3"

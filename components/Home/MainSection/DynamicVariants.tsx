@@ -1,11 +1,13 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import { Button } from "@/components/ui/button";
 import DynamicVariantsComponent from "./DynamicVariantsComponent";
+
+import ReactGA from "react-ga";
 
 type Props = {
   promise: Promise<Product[]>;
