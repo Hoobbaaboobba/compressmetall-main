@@ -43,10 +43,11 @@ export default function RootLayout({
           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-          ym(94803385, "init", {
+          ym(95780946, "init", {
               clickmap:true,
               trackLinks:true,
               accurateTrackBounce:true,
+              webvisor:true,
               ecommerce:"dataLayer"
         })`}
       </Script>

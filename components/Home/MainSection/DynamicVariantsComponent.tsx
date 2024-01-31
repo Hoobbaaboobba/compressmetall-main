@@ -29,7 +29,7 @@ const DynamicVariantsComponent = ({
   products,
 }: Props) => {
   const onClick = () => {
-    trackGAEvent("My category", "My action", "My Label");
+    trackGAEvent(ids, "view_item", label);
   };
   return (
     <Link
