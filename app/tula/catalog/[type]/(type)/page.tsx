@@ -32,10 +32,10 @@ export async function generateMetadata(
   return {
     title: `${decodeURI(categories[0].metaData)}, ${decodeURI(
       categories[0].label
-    )} в Туле с доставкой по России | Купить ${categories.map((item) =>
-      decodeURI(item.label)
-    )} в компании Компресс Металл`,
-    description: `${products[0].metaType} ${products[0].title} Туле по доступным ценам — ${products[0].metaType} в Туле от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    )} в Туле с доставкой по России | Купить ${
+      categories[0].label
+    } в компании Компресс Металл`,
+    description: `${categories[0].metaData} в Туле по доступным ценам — ${categories[0].metaData} в Туле от компании Компремм Металл. Заказать ${categories[0].metaData} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       `${decodeURI(categories[0].label)} в Туле оптом и в розницу`,
       `Компресс металл ${decodeURI(
@@ -51,7 +51,7 @@ export async function generateMetadata(
     ],
     openGraph: {
       title: `${decodeURI(categories[0].label)} в Туле | Компресс Металл`,
-      description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Туле от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+      description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${categories[0].metaData} в Туле от компании Компремм Металл. Заказать ${categories[0].metaData} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
       url: `https://www.kometal.ru/tula/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [

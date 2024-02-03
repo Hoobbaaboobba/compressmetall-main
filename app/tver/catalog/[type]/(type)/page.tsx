@@ -35,7 +35,7 @@ export async function generateMetadata(
     )} в Твери с доставкой по России | Купить ${
       categories[0].label
     } в компании Компресс Металл`,
-    description: `${products[0].metaType} в Твери по доступным ценам — ${products[0].metaType} в Твери от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+    description: `${categories[0].metaData} в Твери по доступным ценам — ${categories[0].metaData} в Твери от компании Компремм Металл. Заказать ${categories[0].metaData} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [
       `${decodeURI(categories[0].label)} в Твери оптом и в розницу`,
       `Компресс металл ${decodeURI(
@@ -51,8 +51,8 @@ export async function generateMetadata(
     ],
     openGraph: {
       title: `${decodeURI(categories[0].label)} в Твери | Компресс Металл`,
-      description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${products[0].metaType} в Твери от компании Компремм Металл. Заказать ${products[0].metaType} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
-      url: `https://www.kometal.ru/saratov/catalog/${params.type}/`,
+      description: `${categories[0].label}, ${categories[0].metaData} по доступным ценам — ${categories[0].metaData} в Твери от компании Компремм Металл. Заказать ${categories[0].metaData} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
+      url: `https://www.kometal.ru/tver/catalog/${params.type}/`,
       siteName: "Компресс Металл",
       images: [
         {
