@@ -122,7 +122,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     aria-expanded={openMarka}
                     className="w-[200px] justify-between border-orange-text"
                   >
-                    {product.fifthtypeOfSize}
+                    {product.firstTypeOfSize}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
