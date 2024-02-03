@@ -22,9 +22,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Product } from "@prisma/client";
 
 interface Props {
-  products: any[];
+  products: Product[];
   markaQ: string;
   sizeQ: string;
   secondSizeQ?: string;
@@ -163,7 +164,7 @@ const DynamicVariantsSelector = ({
             <CommandInput placeholder="Выбрать марку" />
             <CommandEmpty>Марка не найдена</CommandEmpty>
             <CommandGroup className="overflow-y-auto">
-              {products[0].id.map((framework: string) => (
+              {products[0].marks.map((framework: string) => (
                 <CommandItem
                   key={framework}
                   value={framework}
@@ -192,16 +193,16 @@ const DynamicVariantsSelector = ({
             aria-expanded={openMarka}
             className="w-[200px] justify-between border-orange-text"
           >
-            {sizeQ ? Size?.replace("mm", " мм") : products[0].typeOfSize}
+            {sizeQ ? Size?.replace("mm", " мм") : products[0].firstTypeOfSize}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
           <Command>
-            <CommandInput placeholder={products[0].typeOfSize} />
+            <CommandInput placeholder={products[0].firstTypeOfSize} />
             <CommandEmpty>Размер не найден</CommandEmpty>
             <CommandGroup className="overflow-y-auto">
-              {products[0].ENGSize.map((sizes: string) => (
+              {products[0].sizes.map((sizes: string) => (
                 <CommandItem
                   key={sizes}
                   value={sizes}
@@ -222,7 +223,7 @@ const DynamicVariantsSelector = ({
           </Command>
         </PopoverContent>
       </Popover>
-      {products[0].secondFilter && (
+      {products[0].secondTypeOfSize && (
         <Popover open={openSecond} onOpenChange={setOpenSecond}>
           <PopoverTrigger asChild className="w-[200px]">
             <Button
@@ -233,16 +234,16 @@ const DynamicVariantsSelector = ({
             >
               {secondSizeQ
                 ? secondSizeQ.replace("mm", " мм")
-                : products[0].secondFilter}
+                : products[0].secondTypeOfSize}
               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>
           <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
             <Command>
-              <CommandInput placeholder={products[0].secondFilter} />
+              <CommandInput placeholder={products[0].secondTypeOfSize} />
               <CommandEmpty>Размер не найден</CommandEmpty>
               <CommandGroup className="overflow-y-auto">
-                {products[0].secondSize.map((secondSize: string) => (
+                {products[0].secondSizes.map((secondSize: string) => (
                   <CommandItem
                     key={secondSize}
                     value={secondSize}

@@ -4,6 +4,7 @@ import OrangeButton from "@/components/OrangeButton";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
 import { trackGAEvent } from "@/lib/google-analytics";
+import { Product } from "@prisma/client";
 
 interface Props {
   ids: string;
@@ -45,7 +46,7 @@ const DynamicVariantsComponent = ({
       >
         <div
           className={`grid ${
-            products[0].secondFilter ? "grid-cols-4" : "grid-cols-3"
+            products[0].secondTypeOfSize ? "grid-cols-4" : "grid-cols-3"
           } w-full`}
         >
           <h1 className="text-lg hidden md:block w-[350px]">{label}</h1>
@@ -53,7 +54,7 @@ const DynamicVariantsComponent = ({
           <h3 className="text-lg hidden md:block">
             {sizes.replace("mm", " мм")}
           </h3>
-          {products[0].secondFilter && (
+          {products[0].secondTypeOfSize && (
             <h3 className="text-lg hidden md:block">
               {secondSize?.replace("mm", " мм")}
             </h3>

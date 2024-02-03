@@ -6,12 +6,20 @@ import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import { Button } from "@/components/ui/button";
 import DynamicVariantsComponent from "./DynamicVariantsComponent";
+import { getProducts } from "@/actions/getProducts";
+import { Product } from "@prisma/client";
 
-type Props = {
-  promise: Promise<Product[]>;
-};
+interface ParamsProps {
+  params: {
+    type: string;
+    category: string;
+    variant: string;
+    id: string;
+    size: string;
+  };
+}
 
-const DynamicVariants = async ({ promise }: Props) => {
+const DynamicVariants = async ({ params }: ParamsProps) => {
   const [limit, setLimit] = useState<number>(5);
   const pathname = usePathname().split("/");
   const searchParams = useSearchParams();
@@ -19,23 +27,27 @@ const DynamicVariants = async ({ promise }: Props) => {
   const sizeQuery = searchParams.get("size") || "";
   const secondSizeQuery = searchParams.get("secondsize") || "";
 
-  const products = await promise;
+  const products: Product[] = await getProducts(
+    params.type,
+    params.category,
+    params.variant
+  );
 
-  const limitProductsIds = products[0].id.slice(0, limit);
-  const limitProductsSizes = products[0].ENGSize.slice(0, limit);
-  const limitProductsLabels = products[0].subLabel.slice(0, 2);
+  const limitProductsIds = products[0].marks.slice(0, limit);
+  const limitProductsSizes = products[0].sizes.slice(0, limit);
+  const limitProductsLabels = products[0].label.slice(0, 2);
 
   return (
     <div className="flex flex-col w-full justify-center items-center gap-6 py-6 px-4">
       <div className="w-full mb-4 flex flex-col justify-center items-center">
         <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-          <h1>{products[0].subLabel[0]}</h1>
+          <h1>{products[0].label[0]}</h1>
         </h1>
         <div className="bg-black h-[5px] w-[80px] mt-4"></div>
       </div>
       <HyperLinks
-        categoryTitle={products[0].metaType}
-        variantTitle={products[0].subLabel}
+        categoryTitle={products[0].pageTitle}
+        variantTitle={products[0].label}
         lastVariant
       />
       <DynamicVariantsSelector
@@ -47,7 +59,7 @@ const DynamicVariants = async ({ promise }: Props) => {
       <div className="w-full flex flex-col">
         <div
           className={`w-full h-[70px] hidden md:grid ${
-            products[0].secondFilter ? "grid-cols-5" : "grid-cols-4"
+            products[0].secondTypeOfSize ? "grid-cols-5" : "grid-cols-4"
           } px-4 b border border-light-gray rounded-t-md`}
         >
           <div className="w-full h-full flex justify-center items-center">
@@ -62,21 +74,21 @@ const DynamicVariants = async ({ promise }: Props) => {
           </div>
           <div className="w-full h-full flex justify-center items-center">
             <h3 className="text-center uppercase text-sm font-bold opacity-60">
-              {products[0].typeOfSize}
+              {products[0].firstTypeOfSize}
             </h3>
           </div>
-          {products[0].secondFilter && (
+          {products[0].secondTypeOfSize && (
             <div className="w-full h-full flex justify-center items-center">
               <h3 className="text-center uppercase text-sm font-bold opacity-60">
-                {products[0].secondFilter}
+                {products[0].secondTypeOfSize}
               </h3>
             </div>
           )}
         </div>
         {products.map((product) =>
-          product.id.map((ids) =>
-            product.ENGSize.map((sizes) =>
-              product.subLabel.map(
+          product.marks.map((ids) =>
+            product.sizes.map((sizes) =>
+              product.label.map(
                 (label) =>
                   ((ids === markaQuery && sizes === sizeQuery) ||
                     (ids === markaQuery && !sizeQuery) ||
@@ -96,12 +108,12 @@ const DynamicVariants = async ({ promise }: Props) => {
             )
           )
         )}
-        {products[0].secondFilter &&
+        {products[0].secondTypeOfSize &&
           products.map((product) =>
-            product.id.map((ids) =>
-              product.ENGSize.map((sizes) =>
-                product.subLabel.map((label) =>
-                  product.secondSize?.map(
+            product.marks.map((ids) =>
+              product.sizes.map((sizes) =>
+                product.label.map((label) =>
+                  product.secondSizes?.map(
                     (secondSize) =>
                       ((ids === markaQuery &&
                         sizes === sizeQuery &&
@@ -149,8 +161,8 @@ const DynamicVariants = async ({ promise }: Props) => {
                 !sizeQuery &&
                 !secondSizeQuery &&
                 limitProductsIds.map((ids) =>
-                  product.secondSize ? (
-                    product.secondSize.map((secondSize) => (
+                  product.secondSizes ? (
+                    product.secondSizes.map((secondSize) => (
                       <DynamicVariantsComponent
                         ids={ids}
                         pathname={pathname[0] || "moscow"}

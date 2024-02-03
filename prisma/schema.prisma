@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id Int @id @default(autoincrement()) @unique
+  image String
+  label String[]
+  marks String[]
+  sizes String[]
+  type String
+  category String
+  variety String
+  isInStock String
+  price String
+  description String
+  metaTitle String
+  pageTitle String
+  firstTypeOfSize String
+  secondTypeOfSize String?
+  secondSizes String[] @default([""])
+  thirdTypeOfSize String?
+  thirdSizes String[] @default([""])
+  forthTypeOfSize String?
+  firthSizes String[] @default([""])
+  fifthtypeOfSize String?
+}
+
+model Menu {
+  id Int @id @default(autoincrement())
+  MenuCategories MenuCategory[]
+}
+
+model MenuCategory {
+  id Int @id @default(autoincrement())
+  menu Menu @relation(fields: [id], references: [id])
+  href String
+  metaData String
+  links MenuLink[]
+}
+
+model MenuLink {
+  id Int @id @default(autoincrement())
+  MenuCategory MenuCategory @relation(fields: [id], references: [id])
+  title String
+  image String
+  metaData String
+}

@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: dj-m
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=lexus
+      - POSTGRES_PASSWORD=lexus-compress-metall
+      - POSTGRES_DB=compress-metall-db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

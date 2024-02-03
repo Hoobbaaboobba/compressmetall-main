@@ -21,6 +21,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Product } from "@prisma/client";
 
 type SizeProps = {
   products: Product[];
@@ -80,7 +81,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     <CommandInput placeholder="Выбрать марку" />
                     <CommandEmpty>Марка не найдена</CommandEmpty>
                     <CommandGroup className="overflow-y-auto">
-                      {products[0].id.map((id: string) => (
+                      {products[0].marks.map((id: string) => (
                         <Link
                           className="hover:underline w-full"
                           href={`/${pathname[1]}/catalog/${params.type}/${
@@ -121,7 +122,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     aria-expanded={openMarka}
                     className="w-[200px] justify-between border-orange-text"
                   >
-                    {product.typeOfSize}
+                    {product.fifthtypeOfSize}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -130,7 +131,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     <CommandInput placeholder="Выбрать размер" />
                     <CommandEmpty>Размер не найден</CommandEmpty>
                     <CommandGroup className="overflow-y-auto">
-                      {products[0].ENGSize.map((size: string) => (
+                      {products[0].sizes.map((size: string) => (
                         <Link
                           className="hover:underline w-full"
                           href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}`}
@@ -161,7 +162,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                   </Command>
                 </PopoverContent>
               </Popover>
-              {products[0].secondFilter && (
+              {products[0].secondTypeOfSize && (
                 <Popover open={openSecond} onOpenChange={setOpenSecond}>
                   <PopoverTrigger asChild className="w-[200px]">
                     <Button
@@ -170,16 +171,18 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                       aria-expanded={openSecond}
                       className="w-[200px] justify-between border-orange-text"
                     >
-                      {products[0].secondFilter}
+                      {products[0].secondTypeOfSize}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
                     <Command>
-                      <CommandInput placeholder={products[0].secondFilter} />
+                      <CommandInput
+                        placeholder={products[0].secondTypeOfSize}
+                      />
                       <CommandEmpty>Размер не найден</CommandEmpty>
                       <CommandGroup className="overflow-y-auto">
-                        {products[0].secondSize?.map((secondSize: string) => (
+                        {products[0].secondSizes?.map((secondSize: string) => (
                           <CommandItem
                             key={secondSize}
                             value={secondSize}

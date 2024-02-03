@@ -6,9 +6,9 @@ import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
+import { getProducts } from "@/actions/getProducts";
 
 type Props = {
-  promise: Promise<Product[]>;
   params: {
     type: string;
     category: string;
@@ -18,28 +18,12 @@ type Props = {
   };
 };
 
-export default async function DynamicPage({ promise, params }: Props) {
-  const products = await promise;
-
-  // useEffect(() => {
-  //   ReactGA.pageview(window.location.pathname);
-
-  //   ReactGA.event({
-  //     category: products[0].title,
-  //     action: "Page view",
-  //     label: products[0].label,
-  //   });
-  // }, []);
-
-  // const router = useRouter();
-
-  // if (
-  //   params.variant !== products[0].variety ||
-  //   products[0].id.find((ids) => ids === params.id) === undefined ||
-  //   products[0].ENGSize.find((sizes) => sizes === params.size) === undefined
-  // ) {
-  //   return
-  // }
+export default async function DynamicPage({ params }: Props) {
+  const products = await getProducts(
+    params.type,
+    params.category,
+    params.variant
+  );
 
   return (
     <>
@@ -54,8 +38,8 @@ export default async function DynamicPage({ promise, params }: Props) {
                 >
                   <div className="w-full h-full flex flex-col gap-6 justify-center items-start pt-4">
                     <HyperLinks
-                      categoryTitle={product.metaType}
-                      variantTitle={product.subLabel}
+                      categoryTitle={product.pageTitle}
+                      variantTitle={product.label}
                       pageTitle=""
                     />
                     <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-center sm:items-start w-full">
@@ -75,7 +59,7 @@ export default async function DynamicPage({ promise, params }: Props) {
                         className={`block sm:hidden w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 bg-black/50`}
                       ></div>
                       <h3 className="text-black/60 text-2xl underline">
-                        {product.ENGSize.map((ENG) =>
+                        {product.sizes.map((ENG) =>
                           ENG === decodeURI(params.size)
                             ? ENG.replace("mm", " мм").replace(".", ",")
                             : ""
@@ -95,8 +79,8 @@ export default async function DynamicPage({ promise, params }: Props) {
                   </div>
                   <div className="w-full flex justify-center items-center">
                     <Image
-                      src={require(`../../../public/${product.img}.png`)}
-                      alt={product.label}
+                      src={require(`../../../public/${product.image}.png`)}
+                      alt={params.id}
                       width={500}
                       height={400}
                       priority
@@ -127,11 +111,11 @@ export default async function DynamicPage({ promise, params }: Props) {
           <>
             <div className="w-full mb-4 flex flex-col justify-center items-center">
               <h1 className="text-3xl font-bold text-black text-center xl:text-start">
-                {products[0].metaType}
+                {products[0].pageTitle}
               </h1>
               <div className="bg-black h-[5px] w-[80px] mt-4"></div>
             </div>
-            <HyperLinks categoryTitle={products[0].metaType} lastCategory />
+            <HyperLinks categoryTitle={products[0].pageTitle} lastCategory />
           </>
         )}
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
@@ -142,9 +126,9 @@ export default async function DynamicPage({ promise, params }: Props) {
               !params.variant && (
                 <DynamicItem
                   key={index}
-                  img={product.img}
+                  img={product.image}
                   label={""}
-                  sublabel={product.subLabel[0]}
+                  sublabel={product.label[0]}
                   href={product.type}
                   category={product.category}
                   variety={product.variety}

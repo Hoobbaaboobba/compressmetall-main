@@ -71,18 +71,10 @@ export async function generateStaticParams() {
 }
 
 export default async function MetalPage({ params }: Props) {
-  const productsData: Promise<Product[]> = getAllProducts(
-    params.type || "",
-    params.category || "",
-    params.variant || "",
-    params.id || "",
-    params.size || ""
-  );
-
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicVariants promise={productsData || ""} />
+        <DynamicVariants params={params} />
       </Suspense>
     </main>
   );
