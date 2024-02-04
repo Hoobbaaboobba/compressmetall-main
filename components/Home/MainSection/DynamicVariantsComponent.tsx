@@ -39,33 +39,37 @@ const DynamicVariantsComponent = ({
   };
   return (
     <TableRow className="w-full cursor-pointer" onClick={onClick}>
-      <TableCell className="font-medium text-lg">{label}</TableCell>
-      <TableCell className="font-medium text-lg">{marka}</TableCell>
-      <TableCell className="font-medium text-lg">
+      <TableCell className="md:font-medium text-md md:text-lg">
+        {label}
+      </TableCell>
+      <TableCell className="md:font-medium text-md md:text-lg">
+        {marka}
+      </TableCell>
+      <TableCell className="md:font-medium text-md md:text-lg">
         {first.replace("mm", " мм")}
       </TableCell>
       {second && (
-        <TableCell className="font-medium text-lg">
+        <TableCell className="md:font-medium text-md md:text-lg">
           {second.replace("mm", " мм")}
         </TableCell>
       )}
       {third && (
-        <TableCell className="font-medium text-lg">
+        <TableCell className="md:font-medium text-md md:text-lg">
           {third.replace("mm", " мм")}
         </TableCell>
       )}
       {forth && (
-        <TableCell className="font-medium text-lg">
+        <TableCell className="md:font-medium text-md md:text-lg">
           {forth.replace("mm", " мм")}
         </TableCell>
       )}
       {fifth && (
-        <TableCell className="font-medium text-lg">
+        <TableCell className="md:font-medium text-md md:text-lg">
           {fifth.replace("mm", " мм")}
         </TableCell>
       )}
-      <TableCell className="font-medium flex justify-end items-center">
-        <div className="block">
+      <TableCell className="md:font-medium text-md md:flex justify-end items-center">
+        <div className="w-full flex justify-center items-center">
           <OrangeButton label={"Подробнее"} mark />
         </div>
       </TableCell>

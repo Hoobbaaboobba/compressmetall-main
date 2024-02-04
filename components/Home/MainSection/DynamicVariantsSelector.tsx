@@ -6,6 +6,14 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { Product } from "@prisma/client";
 import FilterSelector from "./FilterSelector";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { FilterIcon } from "lucide-react";
 
 interface Props {
   products: Product[];
@@ -89,36 +97,81 @@ const DynamicVariantsSelector = ({
   ];
 
   return (
-    <div className="flex bg-white left-0 w-full gap-2 justify-start items-center overflow-x-auto">
-      {filtersArray.map(
-        (filter) =>
-          filter.label && (
-            <FilterSelector
-              data={filter.data}
-              label={filter.label}
-              emptyLabel={filter.emptyLabel}
-              queryLabel={filter.queryLabel}
-              query={filter.query}
-            />
-          )
-      )}
-      <div
-        onClick={deleteQuery}
-        className={`${
-          labelQuery.length > 0 ||
-          markaQuery.length > 0 ||
-          sizeQuery.length > 0 ||
-          secondSizeQuery.length > 0 ||
-          thirdSizeQuery.length > 0 ||
-          forthSizeQuery.length > 0 ||
-          fifthSizeQuery.length > 0
-            ? "block"
-            : "hidden"
-        } cursor-pointer`}
-      >
-        <CloseIcon fontSize="large" />
+    <>
+      <Sheet>
+        <SheetTrigger className="block md:hidden w-full text-md">
+          <Button className="w-full bg-orange-bg hover:bg-orange-bg/70">
+            Фильтры <FilterIcon className="w-4 h-4 ml-1" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent className="flex flex-col justify-between items-center">
+          <div className="w-full flex flex-col gap-4 justify-center items-center">
+            {filtersArray.map(
+              (filter) =>
+                filter.label && (
+                  <FilterSelector
+                    data={filter.data}
+                    label={filter.label}
+                    emptyLabel={filter.emptyLabel}
+                    queryLabel={filter.queryLabel}
+                    query={filter.query}
+                  />
+                )
+            )}
+            <Button
+              variant="secondary"
+              onClick={deleteQuery}
+              className={`${
+                labelQuery.length > 0 ||
+                markaQuery.length > 0 ||
+                sizeQuery.length > 0 ||
+                secondSizeQuery.length > 0 ||
+                thirdSizeQuery.length > 0 ||
+                forthSizeQuery.length > 0 ||
+                fifthSizeQuery.length > 0
+                  ? "block"
+                  : "hidden"
+              } cursor-pointer`}
+            >
+              Очистить фильтры
+            </Button>
+          </div>
+          <SheetClose asChild className="w-full">
+            <Button className="w-full bg-orange-bg">Смореть</Button>
+          </SheetClose>
+        </SheetContent>
+      </Sheet>
+      <div className="hidden md:flex bg-white left-0 w-full gap-2 justify-start items-center overflow-x-auto">
+        {filtersArray.map(
+          (filter) =>
+            filter.label && (
+              <FilterSelector
+                data={filter.data}
+                label={filter.label}
+                emptyLabel={filter.emptyLabel}
+                queryLabel={filter.queryLabel}
+                query={filter.query}
+              />
+            )
+        )}
+        <div
+          onClick={deleteQuery}
+          className={`${
+            labelQuery.length > 0 ||
+            markaQuery.length > 0 ||
+            sizeQuery.length > 0 ||
+            secondSizeQuery.length > 0 ||
+            thirdSizeQuery.length > 0 ||
+            forthSizeQuery.length > 0 ||
+            fifthSizeQuery.length > 0
+              ? "block"
+              : "hidden"
+          } cursor-pointer`}
+        >
+          <CloseIcon fontSize="large" />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

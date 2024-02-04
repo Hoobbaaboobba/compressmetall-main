@@ -61,21 +61,21 @@ const FilterSelector = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[200px] justify-between border border-orange-text"
         >
           {query ? query : label}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] h-[200px] overflow-y-auto p-0">
+      <PopoverContent className="w-[200px] max-h-[200px] h-full overflow-y-auto p-0">
         <Command>
           <CommandInput placeholder={label} />
           <CommandEmpty>{emptyLabel}</CommandEmpty>
           <CommandGroup>
-            {data.map((item, index) => (
+            {data.map((item) => (
               <CommandItem
-                key={index}
-                value={value}
+                key={item}
+                value={item}
                 onSelect={(currentValue) =>
                   onClick(queryLabel, item, currentValue)
                 }

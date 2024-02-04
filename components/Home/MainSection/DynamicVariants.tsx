@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
@@ -79,9 +78,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
 
   const filterProductsByMarks = () => {
     if (markaQuery) {
-      return products[0].marks
-        .filter((marka) => marka === markaQuery)
-        .splice(0, 4);
+      return products[0].marks.filter((marka) => marka === markaQuery);
     } else {
       return products[0].marks.splice(0, 4);
     }
@@ -264,9 +261,9 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
           )}
         </TableBody>
       </Table>
-      <Button onClick={() => setLimit((event) => event + 5)}>
+      {/* <Button onClick={() => setLimit((event) => event + 5)}>
         Загрузить больше
-      </Button>
+      </Button> */}
     </div>
   );
 };
