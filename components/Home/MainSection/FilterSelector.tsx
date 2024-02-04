@@ -67,11 +67,11 @@ const FilterSelector = ({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] max-h-[200px] h-full overflow-y-auto p-0">
+      <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
         <Command>
           <CommandInput placeholder={label} />
           <CommandEmpty>{emptyLabel}</CommandEmpty>
-          <CommandGroup>
+          <CommandGroup className="overflow-y-auto">
             {data.map((item) => (
               <CommandItem
                 key={item}
