@@ -30,8 +30,9 @@ model Product {
   thirdTypeOfSize String?
   thirdSizes String[] @default([""])
   forthTypeOfSize String?
-  firthSizes String[] @default([""])
+  forthSizes String[] @default([""])
   fifthtypeOfSize String?
+  fifthSizes String[] @default([""])
 }
 
 model Menu {

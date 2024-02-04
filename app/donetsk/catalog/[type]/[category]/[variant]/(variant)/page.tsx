@@ -55,7 +55,11 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams({ params }: Props) {
-  const products = await getProducts();
+  const products = await getProducts(
+    params.type,
+    params.category,
+    params.variant
+  );
 
   return products.map((product) => ({
     type: product.type,
