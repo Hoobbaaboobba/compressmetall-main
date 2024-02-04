@@ -8,6 +8,15 @@ import { Button } from "@/components/ui/button";
 import DynamicVariantsComponent from "./DynamicVariantsComponent";
 import { getProducts } from "@/actions/getProducts";
 import { Product } from "@prisma/client";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 interface ParamsProps {
   params: {
@@ -23,9 +32,13 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
   const [limit, setLimit] = useState<number>(5);
   const pathname = usePathname().split("/");
   const searchParams = useSearchParams();
+  const labelQuery = searchParams.get("label") || "";
   const markaQuery = searchParams.get("marka") || "";
   const sizeQuery = searchParams.get("size") || "";
   const secondSizeQuery = searchParams.get("secondsize") || "";
+  const thirdSizeQuery = searchParams.get("thirdsize") || "";
+  const forthSizeQuery = searchParams.get("forthsize") || "";
+  const fifthSizeQuery = searchParams.get("fifthsize") || "";
 
   const products: Product[] = await getProducts(
     params.type,
@@ -33,9 +46,183 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     params.variant
   );
 
-  const limitProductsIds = products[0].marks.slice(0, limit);
-  const limitProductsSizes = products[0].sizes.slice(0, limit);
-  const limitProductsLabels = products[0].label.slice(0, 2);
+  const filters = [
+    {
+      filterTitle: products[0].firstTypeOfSize,
+      filterSizes: products[0].sizes,
+    },
+    {
+      filterTitle: products[0].secondTypeOfSize,
+      filterSizes: products[0].secondSizes,
+    },
+    {
+      filterTitle: products[0].thirdTypeOfSize,
+      filterSizes: products[0].thirdSizes,
+    },
+    {
+      filterTitle: products[0].forthTypeOfSize,
+      filterSizes: products[0].forthSizes,
+    },
+    {
+      filterTitle: products[0].fifthtypeOfSize,
+      filterSizes: products[0].fifthSizes,
+    },
+  ];
+
+  const filterProductsByLabel = () => {
+    if (labelQuery) {
+      return products[0].label.filter((label) => label === labelQuery);
+    } else {
+      return products[0].label;
+    }
+  };
+
+  const filterProductsByMarks = () => {
+    if (markaQuery) {
+      return products[0].marks
+        .filter((marka) => marka === markaQuery)
+        .splice(0, 4);
+    } else {
+      return products[0].marks.splice(0, 4);
+    }
+  };
+
+  const filterProductsByFirstSizes = () => {
+    if (sizeQuery) {
+      return products[0].sizes.filter((size) => size === sizeQuery);
+    } else {
+      return products[0].sizes;
+    }
+  };
+
+  const filterProductBySecondSises = () => {
+    if (secondSizeQuery) {
+      return products[0].secondSizes.filter(
+        (second) => second === secondSizeQuery
+      );
+    } else {
+      return products[0].secondSizes;
+    }
+  };
+
+  const filterProductByThirdSises = () => {
+    if (thirdSizeQuery) {
+      return products[0].thirdSizes.filter((third) => third === thirdSizeQuery);
+    } else {
+      return products[0].thirdSizes;
+    }
+  };
+
+  const filterProductByForthSises = () => {
+    if (forthSizeQuery) {
+      return products[0].forthSizes.filter((forth) => forth === forthSizeQuery);
+    } else {
+      return products[0].forthSizes;
+    }
+  };
+
+  const filterProductByFifthSises = () => {
+    if (fifthSizeQuery) {
+      return products[0].fifthSizes.filter((fifth) => fifth === fifthSizeQuery);
+    } else {
+      return products[0].fifthSizes;
+    }
+  };
+
+  const filterSizes = (marka: string, label: string) => {
+    if (products[0].secondTypeOfSize) {
+      if (products[0].thirdTypeOfSize) {
+        if (products[0].forthTypeOfSize) {
+          if (products[0].fifthtypeOfSize) {
+            return filterProductsByFirstSizes().map((first) =>
+              filterProductBySecondSises().map((second) =>
+                filterProductByThirdSises().map((third) =>
+                  filterProductByForthSises().map((forth) =>
+                    filterProductByFifthSises().map((fifth) => (
+                      <DynamicVariantsComponent
+                        pathname={pathname[1] || "moscow"}
+                        marka={marka}
+                        size={first}
+                        label={label}
+                        products={products}
+                        first={first}
+                        second={second}
+                        third={third}
+                        forth={forth}
+                        fifth={fifth}
+                      />
+                    ))
+                  )
+                )
+              )
+            );
+          } else {
+            return filterProductsByFirstSizes().map((first) =>
+              filterProductBySecondSises().map((second) =>
+                filterProductByThirdSises().map((third) =>
+                  filterProductByForthSises().map((forth) => (
+                    <DynamicVariantsComponent
+                      pathname={pathname[1] || "moscow"}
+                      marka={marka}
+                      size={first}
+                      label={label}
+                      products={products}
+                      first={first}
+                      second={second}
+                      third={third}
+                      forth={forth}
+                    />
+                  ))
+                )
+              )
+            );
+          }
+        } else {
+          return filterProductsByFirstSizes().map((first) =>
+            filterProductBySecondSises().map((second) =>
+              filterProductByThirdSises().map((third) => (
+                <DynamicVariantsComponent
+                  pathname={pathname[1] || "moscow"}
+                  marka={marka}
+                  size={first}
+                  label={label}
+                  products={products}
+                  first={first}
+                  second={second}
+                  third={third}
+                />
+              ))
+            )
+          );
+        }
+      } else {
+        return filterProductsByFirstSizes().map((first) =>
+          filterProductBySecondSises().map((second) => (
+            <DynamicVariantsComponent
+              pathname={pathname[1] || "moscow"}
+              marka={marka}
+              size={first}
+              label={label}
+              products={products}
+              first={first}
+              second={second}
+            />
+          ))
+        );
+      }
+    } else {
+      return filterProductsByFirstSizes().map((first) => (
+        <DynamicVariantsComponent
+          pathname={pathname[1] || "moscow"}
+          marka={marka}
+          size={first}
+          label={label}
+          products={products}
+          first={first}
+        />
+      ));
+    }
+  };
 
   return (
     <div className="flex flex-col w-full justify-center items-center gap-6 py-6 px-4">
@@ -56,142 +243,27 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
         sizeQ={sizeQuery}
         secondSizeQ={secondSizeQuery}
       />
-      <div className="w-full flex flex-col">
-        <div
-          className={`w-full h-[70px] hidden md:grid ${
-            products[0].secondTypeOfSize ? "grid-cols-5" : "grid-cols-4"
-          } px-4 b border border-light-gray rounded-t-md`}
-        >
-          <div className="w-full h-full flex justify-center items-center">
-            <h1 className="text-center uppercase text-sm font-bold opacity-60">
-              Наименование
-            </h1>
-          </div>
-          <div className="w-full h-full flex justify-center items-center">
-            <h2 className="text-center uppercase text-sm font-bold opacity-60">
-              Марка
-            </h2>
-          </div>
-          <div className="w-full h-full flex justify-center items-center">
-            <h3 className="text-center uppercase text-sm font-bold opacity-60">
-              {products[0].firstTypeOfSize}
-            </h3>
-          </div>
-          {products[0].secondTypeOfSize && (
-            <div className="w-full h-full flex justify-center items-center">
-              <h3 className="text-center uppercase text-sm font-bold opacity-60">
-                {products[0].secondTypeOfSize}
-              </h3>
-            </div>
-          )}
-        </div>
-        {products.map((product) =>
-          product.marks.map((ids) =>
-            product.sizes.map((sizes) =>
-              product.label.map(
-                (label) =>
-                  ((ids === markaQuery && sizes === sizeQuery) ||
-                    (ids === markaQuery && !sizeQuery) ||
-                    (!markaQuery && sizes === sizeQuery)) && (
-                    <DynamicVariantsComponent
-                      ids={ids}
-                      pathname={pathname[0] || "moscow"}
-                      productType={product.type}
-                      productCategory={product.category}
-                      productVariety={product.variety}
-                      label={label}
-                      sizes={sizes}
-                      products={products}
-                    />
-                  )
-              )
-            )
-          )
-        )}
-        {products[0].secondTypeOfSize &&
-          products.map((product) =>
-            product.marks.map((ids) =>
-              product.sizes.map((sizes) =>
-                product.label.map((label) =>
-                  product.secondSizes?.map(
-                    (secondSize) =>
-                      ((ids === markaQuery &&
-                        sizes === sizeQuery &&
-                        secondSize === secondSizeQuery) ||
-                        (ids === markaQuery &&
-                          !sizeQuery &&
-                          !secondSizeQuery) ||
-                        (!markaQuery &&
-                          sizes === sizeQuery &&
-                          !secondSizeQuery) ||
-                        (!markaQuery &&
-                          !sizeQuery &&
-                          secondSize === secondSizeQuery) ||
-                        (ids === markaQuery &&
-                          sizes === sizeQuery &&
-                          !secondSizeQuery) ||
-                        (!markaQuery &&
-                          sizes === sizeQuery &&
-                          secondSize === secondSizeQuery) ||
-                        (ids === markaQuery &&
-                          !sizeQuery &&
-                          secondSize === secondSizeQuery)) && (
-                        <DynamicVariantsComponent
-                          ids={ids}
-                          pathname={pathname[0] || "moscow"}
-                          productType={product.type}
-                          productCategory={product.category}
-                          productVariety={product.variety}
-                          label={label}
-                          sizes={sizes}
-                          products={products}
-                          secondSize={secondSize}
-                        />
-                      )
-                  )
+      <Table>
+        <TableCaption>Список товаров.</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableCell className="font-medium">Наименования</TableCell>
+            <TableCell className="font-medium">Марки</TableCell>
+            {filters.map(
+              (filter) =>
+                filter.filterTitle && (
+                  <TableCell>{filter.filterTitle}</TableCell>
                 )
-              )
-            )
+            )}
+            <TableCell className="font-medium"></TableCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="w-full">
+          {filterProductsByLabel().map((label) =>
+            filterProductsByMarks().map((marka) => filterSizes(marka, label))
           )}
-        {products.map((product) =>
-          limitProductsLabels.map((label) =>
-            limitProductsSizes.map(
-              (sizes) =>
-                !markaQuery &&
-                !sizeQuery &&
-                !secondSizeQuery &&
-                limitProductsIds.map((ids) =>
-                  product.secondSizes ? (
-                    product.secondSizes.map((secondSize) => (
-                      <DynamicVariantsComponent
-                        ids={ids}
-                        pathname={pathname[0] || "moscow"}
-                        productType={product.type}
-                        productCategory={product.category}
-                        productVariety={product.variety}
-                        label={label}
-                        sizes={sizes}
-                        products={products}
-                        secondSize={secondSize}
-                      />
-                    ))
-                  ) : (
-                    <DynamicVariantsComponent
-                      ids={ids}
-                      pathname={pathname[0] || "moscow"}
-                      productType={product.type}
-                      productCategory={product.category}
-                      productVariety={product.variety}
-                      label={label}
-                      sizes={sizes}
-                      products={products}
-                    />
-                  )
-                )
-            )
-          )
-        )}
-      </div>
+        </TableBody>
+      </Table>
       <Button onClick={() => setLimit((event) => event + 5)}>
         Загрузить больше
       </Button>

@@ -1,84 +1,75 @@
-"use client";
-
 import OrangeButton from "@/components/OrangeButton";
-import Link from "next/link";
-import { sendGAEvent } from "@next/third-parties/google";
-import { trackGAEvent } from "@/lib/google-analytics";
 import { Product } from "@prisma/client";
+import { TableCell, TableRow } from "@/components/ui/table";
+import { useRouter } from "next/navigation";
 
 interface Props {
-  ids: string;
   pathname: string;
-  productType: string;
-  productCategory: string;
-  productVariety: string;
+  marka: string;
+  size: string;
   label: string;
-  sizes: string;
   products: Product[];
-  secondSize?: string;
+  first: string;
+  second?: string;
+  third?: string;
+  forth?: string;
+  fifth?: string;
 }
 
 const DynamicVariantsComponent = ({
-  ids,
   pathname,
-  productCategory,
-  productType,
-  productVariety,
+  marka,
+  size,
   label,
-  sizes,
-  secondSize,
   products,
+  first,
+  second,
+  third,
+  forth,
+  fifth,
 }: Props) => {
+  const router = useRouter();
+
   const onClick = () => {
-    trackGAEvent(ids, "view_item", label);
+    router.push(
+      `/${pathname}/catalog/${products[0].type}/${products[0].category}/${
+        products[0].variety
+      }/${marka.replace("/", "[")}/${size}?label=${label}`
+    );
   };
   return (
-    <Link
-      key={ids}
-      href={`/${pathname}/catalog/${productType}/${productCategory}/${productVariety}/${ids.replace(
-        "/",
-        "["
-      )}/${sizes}?label=${label}`}
-    >
-      <div
-        onClick={onClick}
-        className="flex flex-col md:flex-row w-full justify-center md:justify-between items-center h-[200px] py-4 md:py-0 md:h-[120px] border border-light-gray px-4 lg:hover:shadow-md transition"
-      >
-        <div
-          className={`grid ${
-            products[0].secondTypeOfSize ? "grid-cols-4" : "grid-cols-3"
-          } w-full`}
-        >
-          <h1 className="text-lg hidden md:block w-[350px]">{label}</h1>
-          <h2 className="text-lg hidden md:block px-16">{ids}</h2>
-          <h3 className="text-lg hidden md:block">
-            {sizes.replace("mm", " мм")}
-          </h3>
-          {products[0].secondTypeOfSize && (
-            <h3 className="text-lg hidden md:block">
-              {secondSize?.replace("mm", " мм")}
-            </h3>
-          )}
-        </div>
-        <div className="hidden md:block">
+    <TableRow className="w-full cursor-pointer" onClick={onClick}>
+      <TableCell className="font-medium text-lg">{label}</TableCell>
+      <TableCell className="font-medium text-lg">{marka}</TableCell>
+      <TableCell className="font-medium text-lg">
+        {first.replace("mm", " мм")}
+      </TableCell>
+      {second && (
+        <TableCell className="font-medium text-lg">
+          {second.replace("mm", " мм")}
+        </TableCell>
+      )}
+      {third && (
+        <TableCell className="font-medium text-lg">
+          {third.replace("mm", " мм")}
+        </TableCell>
+      )}
+      {forth && (
+        <TableCell className="font-medium text-lg">
+          {forth.replace("mm", " мм")}
+        </TableCell>
+      )}
+      {fifth && (
+        <TableCell className="font-medium text-lg">
+          {fifth.replace("mm", " мм")}
+        </TableCell>
+      )}
+      <TableCell className="font-medium flex justify-end items-center">
+        <div className="block">
           <OrangeButton label={"Подробнее"} mark />
         </div>
-        <div className="md:hidden w-full h-full flex flex-col justify-between items-start">
-          <div className="flex gap-1">
-            <h1 className="text-lg">
-              {label} {ids} {sizes.replace("mm", " мм")}
-            </h1>
-          </div>
-          <div>
-            <h1 className="text-md text-black/50">{ids}</h1>
-            <h2 className="text-md text-black/50">
-              {sizes.replace("mm", " мм")}
-            </h2>
-          </div>
-          <OrangeButton label={"Подробнее"} mark full />
-        </div>
-      </div>
-    </Link>
+      </TableCell>
+    </TableRow>
   );
 };
 

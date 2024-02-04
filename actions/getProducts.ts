@@ -20,7 +20,6 @@ export const getProducts = async (
         variety,
       },
     });
-
     return products;
   } catch (error) {
     throw new Error("Произошла ошибка при получении товаров!");
