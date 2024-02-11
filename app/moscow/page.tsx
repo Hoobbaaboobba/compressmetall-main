@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { products } from "../api/products/products";
 import { getProducts } from "@/actions/getProducts";
 import { setProducts } from "@/actions/setProducts";
+import { setJsonData } from "@/actions/setJsonData";
 
 export const metadata: Metadata = {
   title:

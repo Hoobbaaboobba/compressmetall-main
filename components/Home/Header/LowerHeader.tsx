@@ -90,6 +90,14 @@ const LowerHeader = () => {
                   >
                     Партнёры
                   </Link>
+                  <Link
+                    href={`/${
+                      pathname[1] || "moscow"
+                    }/about_company/blagodarnosti`}
+                    className="hover:bg-orange-bg hover:text-white py-1 px-2"
+                  >
+                    Благодарности
+                  </Link>
                 </div>
               </div>
             </div>

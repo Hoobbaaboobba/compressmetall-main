@@ -4,8 +4,6 @@ import SizeSelector from "./SizeSelector";
 import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
-import { useEffect } from "react";
-import ReactGA from "react-ga";
 import { getProducts } from "@/actions/getProducts";
 
 type Props = {

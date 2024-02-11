@@ -1,0 +1,338 @@
+[
+  {
+    "id": 2,
+    "title": "Алюминий",
+    "link": "aluminum",
+    "image": "aluminumImg",
+    "metaData": "Алюминиевый Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 3,
+    "title": "Бронза",
+    "link": "bronze",
+    "image": "bronzeImg",
+    "metaData": "Бронзовый Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 4,
+    "title": "Дюраль",
+    "link": "dural",
+    "image": "duralImg",
+    "metaData": "Дюралевый Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 5,
+    "title": "Олово",
+    "link": "olovo",
+    "image": "olovoImg",
+    "metaData": "Оловянный Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 6,
+    "title": "Титан",
+    "link": "titan",
+    "image": "titanImg",
+    "metaData": "Титановый Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 7,
+    "title": "Медь",
+    "link": "copper",
+    "image": "copperImg",
+    "metaData": "Медный Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 8,
+    "title": "Латунь",
+    "link": "brass",
+    "image": "brassImg",
+    "metaData": "Латунный Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 9,
+    "title": "Свинец",
+    "link": "lead",
+    "image": "leadImg",
+    "metaData": "Свинцовый Прокат купить",
+    "linkId": 2
+  },
+  {
+    "id": 10,
+    "title": "Запорная Арматура",
+    "link": "zapor",
+    "image": "zaporTrubCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 11,
+    "title": "Клапаны Регулирующие",
+    "link": "regul",
+    "image": "clapanRegulCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 12,
+    "title": "Клапаны Обратные",
+    "link": "obrat",
+    "image": "clapanRegulCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 13,
+    "title": "Клапаны Защиты",
+    "link": "zashit",
+    "image": "clapanZashitCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 14,
+    "title": "Клапаны Предохранительные",
+    "link": "predohran",
+    "image": "clapanPredohranCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 15,
+    "title": "Клапаны Продувки",
+    "link": "produv",
+    "image": "clapanProduvCatalog",
+    "metaData": "Прокат",
+    "linkId": 3
+  },
+  {
+    "id": 16,
+    "title": "Арматура / Катанка",
+    "link": "armatura",
+    "image": "armaturaCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 17,
+    "title": "Балка",
+    "link": "beam",
+    "image": "beamCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 18,
+    "title": "Полоса г/к",
+    "link": "polosa",
+    "image": "beamCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 19,
+    "title": "Уголок",
+    "link": "corner",
+    "image": "cornerCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 20,
+    "title": "Круг",
+    "link": "circle",
+    "image": "circleCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 21,
+    "title": "Швеллер",
+    "link": "shveller",
+    "image": "shvellerCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 22,
+    "title": "Труба",
+    "link": "pipe",
+    "image": "pipeCatalog",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 23,
+    "title": "Цинк",
+    "link": "zinc",
+    "image": "zincImg",
+    "metaData": "Цинковый Прокат купить",
+    "linkId": 4
+  },
+  {
+    "id": 24,
+    "title": "Лента",
+    "link": "lenta-steel",
+    "image": "provolokaSteel",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 25,
+    "title": "Лист",
+    "link": "list",
+    "image": "provolokaSteel",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 26,
+    "title": "Судовая сталь",
+    "link": "sudovaya_stal",
+    "image": "provolokaSteel",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 27,
+    "title": "Поковки",
+    "link": "pokovky",
+    "image": "provolokaSteel",
+    "metaData": "Прокат",
+    "linkId": 4
+  },
+  {
+    "id": 28,
+    "title": "Нихром",
+    "link": "nihrom",
+    "image": "nihromPrecenCatalog",
+    "metaData": "Прокат",
+    "linkId": 5
+  },
+  {
+    "id": 29,
+    "title": "Фехраль",
+    "link": "fehral",
+    "image": "fehralPrecenCatalog",
+    "metaData": "Прокат",
+    "linkId": 5
+  },
+  {
+    "id": 30,
+    "title": "Пермаллой",
+    "link": "permalloy",
+    "image": "permalloyPrecenCatalog",
+    "metaData": "Прокат",
+    "linkId": 5
+  },
+  {
+    "id": 31,
+    "title": "Лист",
+    "link": "list-nershav",
+    "image": "lineNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 32,
+    "title": "Лента",
+    "link": "lenta-nershav",
+    "image": "lentaNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 38,
+    "title": "Сетка",
+    "link": "grid-nershav",
+    "image": "gridNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 33,
+    "title": "Труба",
+    "link": "truba-nershav",
+    "image": "pipeNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 34,
+    "title": "Уголок",
+    "link": "corner-nershav",
+    "image": "cornerNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 35,
+    "title": "Шестигранник",
+    "link": "hexagon-nershav",
+    "image": "circleNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 36,
+    "title": "Круг",
+    "link": "circle-nershav",
+    "image": "circleNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 37,
+    "title": "Полоса",
+    "link": "polosa-nershav",
+    "image": "lineNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 6
+  },
+  {
+    "id": 39,
+    "title": "Калибровка",
+    "link": "kalibrovka",
+    "image": "kalibrovkaCatalog",
+    "metaData": "Прокат",
+    "linkId": 7
+  },
+  {
+    "id": 40,
+    "title": "Лента",
+    "link": "lenta-steel",
+    "image": "lentaZincCatalog",
+    "metaData": "Прокат",
+    "linkId": 7
+  },
+  {
+    "id": 41,
+    "title": "Проволока",
+    "link": "wire-metizi",
+    "image": "circleNershavCatalog",
+    "metaData": "Прокат",
+    "linkId": 7
+  },
+  {
+    "id": 42,
+    "title": "Шпильки",
+    "link": "shpilki",
+    "image": "shpilkiCatalog",
+    "metaData": "Прокат",
+    "linkId": 7
+  },
+  {
+    "id": 43,
+    "title": "Болты и гайки",
+    "link": "bolty-i-gaiky",
+    "image": "boltyIGayky",
+    "metaData": "Прокат",
+    "linkId": 7
+  }
+]

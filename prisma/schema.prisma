@@ -35,23 +35,20 @@ model Product {
   fifthSizes String[] @default([""])
 }
 
-model Menu {
-  id Int @id @default(autoincrement())
-  MenuCategories MenuCategory[]
-}
-
 model MenuCategory {
-  id Int @id @default(autoincrement())
-  menu Menu @relation(fields: [id], references: [id])
+  id Int @default(autoincrement()) @unique
+  label String
   href String
   metaData String
-  links MenuLink[]
+  links MenuCategoryLinks[]
 }
 
-model MenuLink {
-  id Int @id @default(autoincrement())
-  MenuCategory MenuCategory @relation(fields: [id], references: [id])
+model MenuCategoryLinks {
+  id Int @default(autoincrement()) @unique
   title String
+  link String
   image String
   metaData String
+  menuCategory MenuCategory @relation(fields: [linkId], references: [id])
+  linkId Int
 }

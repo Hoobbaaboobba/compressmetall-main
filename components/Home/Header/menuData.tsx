@@ -66,7 +66,7 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
-        title: "Клапаны Регулирующие ",
+        title: "Клапаны Регулирующие",
         link: "trubniy-prokat/regul",
         img: "clapanRegulCatalog",
         metaData: "Прокат",
@@ -292,8 +292,14 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
-        title: "Болты и гайки",
-        link: "metizi-prokat/bolty-i-gaiky",
+        title: "Болты",
+        link: "metizi-prokat/bolty",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Гайки",
+        link: "metizi-prokat/gaiky",
         img: "boltyIGayky",
         metaData: "Прокат",
       },

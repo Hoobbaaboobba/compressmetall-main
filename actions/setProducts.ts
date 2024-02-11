@@ -1,8 +1,6 @@
 "use server";
 
-import { products } from "@/app/api/products/products";
 import { db } from "@/lib/db";
-import uuid4 from "uuid4";
 
 export const setProducts = async (array: Product[]) => {
   try {
