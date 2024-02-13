@@ -18,6 +18,8 @@ import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 export default function RootLayout({
   children,
 }: {
