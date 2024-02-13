@@ -16,6 +16,7 @@ const LocationModal = () => {
   });
   const [currLocationJs, setCurrLocationJs] = useState({});
   const [changeLoc, setChangeLoc] = useState<boolean>(false);
+  const [currentUrl, setCurrentUrl] = useState<string>("");
 
   const { onClose, isOpen, changeLocation, changeLink, onOpen } =
     useLocationModal();
@@ -23,6 +24,7 @@ const LocationModal = () => {
   useEffect(() => {
     getLocation();
     getLocationJs();
+    setCurrentUrl(window.location.href);
 
     setTimeout(() => {
       onOpen();
@@ -61,14 +63,14 @@ const LocationModal = () => {
     }
   }
 
-  const pathname = usePathname().split("/")[1];
+  const pathname = usePathname();
   const router = useRouter();
 
   const locationInfo = () => {
     changeLocation(currentGorod);
     changeLink(currentCapital);
 
-    if (currentCapital === pathname) {
+    if (currentCapital === pathname.split("/")[1]) {
       onClose();
     } else {
       onClose();
@@ -77,7 +79,7 @@ const LocationModal = () => {
   };
 
   const locationNotFound = () => {
-    if (pathname === "moscow") {
+    if (pathname.split("/")[1] === "moscow") {
       onClose();
     } else {
       router.push("/moscow");
@@ -158,7 +160,10 @@ const LocationModal = () => {
                   onClick={() => changeCityName(city.name, city.capital)}
                   key={city.capital}
                   className="w-full text-center text-xl hover:underline px-[15px] py-[5px]"
-                  href={`/${city.capital.split(" ").join("")}`}
+                  href={currentUrl.replace(
+                    `${pathname.split("/")[1]}`,
+                    `${city.capital.split(" ").join("")}`
+                  )}
                 >
                   <li>{city.name}</li>
                 </Link>

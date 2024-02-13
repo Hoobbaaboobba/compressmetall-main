@@ -6,11 +6,12 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CityButton = () => {
   const [cityHover, setCityHover] = useState(false);
   const [cityClick, setCityClick] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState<string>("");
 
   const { changeLocation, changeLink } = useLocationModal();
 
@@ -21,6 +22,11 @@ const CityButton = () => {
   };
 
   const pathname = usePathname().split("/");
+
+  useEffect(() => {
+    const fullUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
+    setCurrentUrl(fullUrl);
+  }, []);
 
   return (
     <div
@@ -63,7 +69,10 @@ const CityButton = () => {
             className={`${
               pathname[1] === city.capital && "underline"
             } w-full text-center py-[5px] hover:underline`}
-            href={`/${city.capital.split(" ").join("")}`}
+            href={currentUrl.replace(
+              `${pathname[1]}`,
+              `${city.capital.split(" ").join("")}`
+            )}
           >
             <li>{city.name}</li>
           </Link>
