@@ -12,6 +12,8 @@ export const BlagodarnostiComponent = () => {
       </div>
       <div className="grid justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4">
         <ImageDialog
+          width={462}
+          height={641}
           image={"blagodarnosti.jpeg"}
           title={"Благодарность Шнайдер Станистлаву"}
         >

@@ -5,6 +5,7 @@ import DynamicItem from "./dynamicItem";
 import HyperLinks from "./HyperLinks";
 import QueryLabel from "./QueryLabel";
 import { getProducts } from "@/actions/getProducts";
+import { ImageDialog } from "@/components/AboutCompany/Blagodarnosti/ImageDialog";
 
 type Props = {
   params: {
@@ -76,15 +77,22 @@ export default async function DynamicPage({ params }: Props) {
                     </div>
                   </div>
                   <div className="w-full flex justify-center items-center">
-                    <Image
-                      src={require(`../../../public/${product.image}.png`)}
-                      alt={params.id}
-                      width={500}
-                      height={400}
-                      priority
-                      className="border border-light-gray rounded-md lg:hover:shadow-md transition cursor-zoom-in mt-4"
-                      placeholder="blur"
-                    />
+                    <ImageDialog
+                      width={462}
+                      height={641}
+                      image={`${product.image}.png`}
+                      title={params.id}
+                    >
+                      <Image
+                        src={require(`../../../public/${product.image}.png`)}
+                        alt={params.id}
+                        width={500}
+                        height={400}
+                        priority
+                        className="border border-light-gray rounded-md lg:hover:shadow-md transition cursor-zoom-in mt-4"
+                        placeholder="blur"
+                      />
+                    </ImageDialog>
                   </div>
                 </div>
                 {/* <hr className="border border-light-gray my-2" /> */}

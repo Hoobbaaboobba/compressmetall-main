@@ -80,7 +80,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (markaQuery) {
       return products[0].marks.filter((marka) => marka === markaQuery);
     } else {
-      return products[0].marks.splice(0, 4);
+      return products[0].marks.splice(0, 1);
     }
   };
 
@@ -88,7 +88,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (sizeQuery) {
       return products[0].sizes.filter((size) => size === sizeQuery);
     } else {
-      return products[0].sizes;
+      return products[0].sizes.splice(0, 10);
     }
   };
 
@@ -98,7 +98,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
         (second) => second === secondSizeQuery
       );
     } else {
-      return products[0].secondSizes;
+      return products[0].secondSizes.splice(0, 10);
     }
   };
 
