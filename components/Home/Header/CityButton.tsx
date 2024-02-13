@@ -5,13 +5,14 @@ import { cities } from "@/regions";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const CityButton = () => {
   const [cityHover, setCityHover] = useState(false);
   const [cityClick, setCityClick] = useState(false);
   const [currentUrl, setCurrentUrl] = useState<string>("");
+  const [, forceRender] = useState<any>();
 
   const { changeLocation, changeLink } = useLocationModal();
 
@@ -22,11 +23,23 @@ const CityButton = () => {
   };
 
   const pathname = usePathname().split("/");
+  const router = useRouter();
 
   useEffect(() => {
     const fullUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
     setCurrentUrl(fullUrl);
   }, []);
+
+  const onClick = (city: any) => {
+    changeCityName(city.name, city.capital);
+    forceRender({});
+    router.push(
+      currentUrl.replace(
+        `${pathname[1]}`,
+        `${city.capital.split(" ").join("")}`
+      )
+    );
+  };
 
   return (
     <div
@@ -63,19 +76,15 @@ const CityButton = () => {
         } absolute top-[50px] -left-12 xl:left-0 z-50 text-black flex flex-col w-[200px] justify-center items-center py-[10px] bg-white transition duration-200 rounded-lg border border-light-gray`}
       >
         {cities.map((city) => (
-          <Link
+          <li
             key={city.capital}
-            onClick={() => changeCityName(city.name, city.capital)}
+            onClick={() => onClick(city)}
             className={`${
               pathname[1] === city.capital && "underline"
-            } w-full text-center py-[5px] hover:underline`}
-            href={currentUrl.replace(
-              `${pathname[1]}`,
-              `${city.capital.split(" ").join("")}`
-            )}
+            } w-full text-center py-[5px] hover:underline cursor-pointer`}
           >
-            <li>{city.name}</li>
-          </Link>
+            {city.name}
+          </li>
         ))}
       </ul>
     </div>

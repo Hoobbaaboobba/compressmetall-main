@@ -10,6 +10,7 @@ import Search from "./Search";
 import { Suspense } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
+import LocationProvider from "../Providers/LocationProvider";
 
 const Loading = () => {
   return <Image src="/loading.gif" alt="loading" width={100} height={100} />;
@@ -20,7 +21,7 @@ const UpperHeader = () => {
     <div className="hidden xl:flex justify-center bg-white items-center w-full text-white py-3">
       <div className="flex justify-between items-center max-w-[1300px] w-full">
         <Logo />
-        <CityButton />
+        <LocationProvider />
         <h3 className="text-base font-normal text-black opacity-80">
           Продажа металлопроката по всей <br /> территории России и СНГ
         </h3>
