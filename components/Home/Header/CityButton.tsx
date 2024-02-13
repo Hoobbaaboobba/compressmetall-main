@@ -37,7 +37,7 @@ const CityButton = () => {
       currentUrl.replace(
         `${pathname[1]}`,
         `${city.capital.split(" ").join("")}`
-      )
+      ) || `${currentUrl}/${city.capital.split(" ").join("")}`
     );
   };
 
