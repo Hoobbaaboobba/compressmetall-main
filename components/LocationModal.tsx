@@ -160,7 +160,7 @@ const LocationModal = () => {
                   onClick={() => changeCityName(city.name, city.capital)}
                   key={city.capital}
                   className="w-full text-center text-xl hover:underline px-[15px] py-[5px]"
-                  href={pathname ? 
+                  href={pathname.split("/")[1] ? 
                     (currentUrl.replace(
                       `${pathname.split("/")[1]}`,
                       `${city.capital.split(" ").join("")}`
