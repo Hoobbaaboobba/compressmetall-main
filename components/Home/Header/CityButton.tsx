@@ -33,11 +33,11 @@ const CityButton = () => {
   const onClick = (city: any) => {
     changeCityName(city.name, city.capital);
     forceRender({});
-    router.push(
-      currentUrl.replace(
+    router.push(pathname[1] ?
+      (currentUrl.replace(
         `${pathname[1]}`,
         `${city.capital.split(" ").join("")}`
-      ) || `${currentUrl}/${city.capital.split(" ").join("")}`
+      )) : `/${city.capital.split(" ").join("")}`
     );
   };
 
