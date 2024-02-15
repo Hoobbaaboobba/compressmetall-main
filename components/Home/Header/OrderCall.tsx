@@ -33,7 +33,7 @@ const OrderCall: React.FC<OrderCallProps> = ({
     <div className="flex flex-col bg-white text-gray-bg text-center z-50">
       <form
         method="POST"
-        action="https://formsubmit.co/info@kometal.ru"
+        action="https://formsubmit.co/zakaz@kometal.ru"
         onSubmit={onSubmit}
         target="_blank"
         className="flex flex-col text-black gap-4 mt-2"
