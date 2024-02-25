@@ -303,12 +303,12 @@ export const menuCatalog = [
         img: "boltyIGayky",
         metaData: "Прокат",
       },
-      // {
-      //   title: "Сетка",
-      //   link: "metizi-prokat/titan",
-      //   img: "circleNershavCatalog",
-      //   metaData: "Прокат",
-      // },
+            {
+        title: "Фундаментные болты",
+        link: "metizi-prokat/fundament-bolty",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
     ],
   },
 ];
