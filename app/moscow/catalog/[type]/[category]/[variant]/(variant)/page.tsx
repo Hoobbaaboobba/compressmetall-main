@@ -5,6 +5,7 @@ import Loading from "./loading";
 import DynamicVariants from "@/components/Home/MainSection/DynamicVariants";
 import { products } from "@/app/api/products/products";
 import { getProducts } from "@/actions/getProducts";
+import { Product } from "@prisma/client";
 
 type Props = {
   params: {
@@ -69,10 +70,15 @@ export async function generateStaticParams({ params }: Props) {
 }
 
 export default async function MetalPage({ params }: Props) {
+  const products: Product[] = await getProducts(
+    params.type,
+    params.category,
+    params.variant
+  );
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicVariants params={params} />
+        <DynamicVariants products={products} />
       </Suspense>
     </main>
   );

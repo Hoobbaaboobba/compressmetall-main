@@ -15,6 +15,14 @@ import { menuCatalog } from "./menuData";
 import { Badge } from "@/components/ui/badge";
 import { setJsonMenuCategory } from "@/actions/setJsonMenuCategory";
 import { setJsonMenuCategoryLinks } from "@/actions/setJsonMenuCategoryLinks";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 
 const CatalogMenu = () => {
   const pathname = usePathname().split("/");
@@ -37,9 +45,9 @@ const CatalogMenu = () => {
                     } p-4`}
                   >
                     <div className="flex flex-col justify-start items-start w-full">
-                      <h1 className="uppercase text-lg font-bold">
+                      <h2 className="uppercase text-lg font-bold">
                         {item.label}
-                      </h1>
+                      </h2>
                       <NavigationMenuLink>
                         <Button
                           variant="link"
@@ -52,41 +60,58 @@ const CatalogMenu = () => {
                               item.href
                             }`}
                           >
-                            Посмотреть всё
+                            Посмотреть всё{" "}
+                            {item.label === "Трубопроводная арматура" && (
+                              <Badge
+                                variant="outline"
+                                className="ml-2 bg-orange-text text-white border-none"
+                              >
+                                Новое
+                              </Badge>
+                            )}
                           </Link>
                         </Button>
                       </NavigationMenuLink>
                     </div>
-                    <div className="w-full flex flex-col justify-start items-start overflow-y-auto h-[170px]">
-                      {item.links.map((link, index) => (
-                        <div>
-                          <NavigationMenuLink key={index}>
-                            <Button
-                              variant="link"
-                              className="py-0 px-0 h-3"
-                              asChild
-                            >
-                              <Link
-                                href={`/${pathname[1] || "moscow"}/catalog/${
-                                  link.link
-                                }`}
-                              >
-                                <h1>{link.title}</h1>
-                              </Link>
-                            </Button>
-                          </NavigationMenuLink>
-                          {(link.title === "Болты" ||
-                            link.title === "Гайки") && (
-                            <Badge
-                              variant="outline"
-                              className="ml-2 bg-orange-text text-white border-none"
-                            >
-                              Новое
-                            </Badge>
-                          )}
-                        </div>
-                      ))}
-                    </div>
+                    <Command className="w-full rounded-none overflow-x-hidden flex flex-col justify-start items-start overflow-y-auto h-[200px]">
+                      <CommandInput
+                        className="border-none"
+                        placeholder="Найти..."
+                      />
+                      <CommandList className="w-full">
+                        <CommandEmpty>Ничего не найдено.</CommandEmpty>
+                        <CommandGroup className="w-full">
+                          {item.links.map((link, index) => (
+                            <CommandItem className="my-1">
+                              <NavigationMenuLink key={index}>
+                                <Button
+                                  variant="link"
+                                  className="py-0 px-0 h-3"
+                                  asChild
+                                >
+                                  <Link
+                                    href={`/${
+                                      pathname[1] || "moscow"
+                                    }/catalog/${link.link}`}
+                                  >
+                                    <p>{link.title}</p>
+                                  </Link>
+                                </Button>
+                              </NavigationMenuLink>
+                              {/* {(link.title === "Болты" ||
+                                link.title === "Гайки") && (
+                                <Badge
+                                  variant="outline"
+                                  className="ml-2 bg-orange-text text-white border-none"
+                                >
+                                  Новое
+                                </Badge>
+                              )} */}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
                   </div>
                 ))}
               </div>

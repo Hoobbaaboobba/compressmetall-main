@@ -61,7 +61,7 @@ const FilterSelector = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between border border-orange-text"
+          className="w-[200px] justify-between border border-orange-text truncate"
         >
           {query ? query : label}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -86,7 +86,7 @@ const FilterSelector = ({
                     item === query ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {item.replace("mm", " мм")}
+                {item}
               </CommandItem>
             ))}
           </CommandGroup>

@@ -1,12 +1,9 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useState } from "react";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
-import { Button } from "@/components/ui/button";
 import DynamicVariantsComponent from "./DynamicVariantsComponent";
-import { getProducts } from "@/actions/getProducts";
 import { Product } from "@prisma/client";
 import {
   Table,
@@ -18,17 +15,10 @@ import {
 } from "@/components/ui/table";
 
 interface ParamsProps {
-  params: {
-    type: string;
-    category: string;
-    variant: string;
-    id: string;
-    size: string;
-  };
+  products: Product[];
 }
 
-const DynamicVariants = async ({ params }: ParamsProps) => {
-  const [limit, setLimit] = useState<number>(5);
+const DynamicVariants = ({ products }: ParamsProps) => {
   const pathname = usePathname().split("/");
   const searchParams = useSearchParams();
   const labelQuery = searchParams.get("label") || "";
@@ -38,12 +28,6 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
   const thirdSizeQuery = searchParams.get("thirdsize") || "";
   const forthSizeQuery = searchParams.get("forthsize") || "";
   const fifthSizeQuery = searchParams.get("fifthsize") || "";
-
-  const products: Product[] = await getProducts(
-    params.type,
-    params.category,
-    params.variant
-  );
 
   const filters = [
     {
@@ -80,7 +64,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (markaQuery) {
       return products[0].marks.filter((marka) => marka === markaQuery);
     } else {
-      return products[0].marks.splice(0, 1);
+      return products[0].marks.slice(0, 10);
     }
   };
 
@@ -88,7 +72,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (sizeQuery) {
       return products[0].sizes.filter((size) => size === sizeQuery);
     } else {
-      return products[0].sizes.splice(0, 10);
+      return products[0].sizes.slice(0, 10);
     }
   };
 
@@ -98,7 +82,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
         (second) => second === secondSizeQuery
       );
     } else {
-      return products[0].secondSizes.splice(0, 10);
+      return products[0].secondSizes.slice(0, 10);
     }
   };
 
@@ -106,7 +90,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (thirdSizeQuery) {
       return products[0].thirdSizes.filter((third) => third === thirdSizeQuery);
     } else {
-      return products[0].thirdSizes;
+      return products[0].thirdSizes.slice(0, 10);
     }
   };
 
@@ -114,7 +98,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (forthSizeQuery) {
       return products[0].forthSizes.filter((forth) => forth === forthSizeQuery);
     } else {
-      return products[0].forthSizes;
+      return products[0].forthSizes.slice(0, 10);
     }
   };
 
@@ -122,7 +106,7 @@ const DynamicVariants = async ({ params }: ParamsProps) => {
     if (fifthSizeQuery) {
       return products[0].fifthSizes.filter((fifth) => fifth === fifthSizeQuery);
     } else {
-      return products[0].fifthSizes;
+      return products[0].fifthSizes.slice(0, 10);
     }
   };
 
