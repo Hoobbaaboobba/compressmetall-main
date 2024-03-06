@@ -49,28 +49,14 @@ const CatalogMenu = () => {
                         {item.label}
                       </h2>
                       <NavigationMenuLink>
-                        <Button
-                          variant="link"
-                          className="px-0 py-0 pb-1"
-                          size="sm"
-                          asChild
-                        >
-                          <Link
-                            href={`/${pathname[1] || "moscow"}/catalog/${
-                              item.href
-                            }`}
+                        {item.label === "Трубопроводная арматура" && (
+                          <Badge
+                            variant="outline"
+                            className="ml-2 bg-orange-text text-white border-none"
                           >
-                            Посмотреть всё{" "}
-                            {item.label === "Трубопроводная арматура" && (
-                              <Badge
-                                variant="outline"
-                                className="ml-2 bg-orange-text text-white border-none"
-                              >
-                                Новое
-                              </Badge>
-                            )}
-                          </Link>
-                        </Button>
+                            Новое
+                          </Badge>
+                        )}
                       </NavigationMenuLink>
                     </div>
                     <Command className="w-full rounded-none overflow-x-hidden flex flex-col justify-start items-start overflow-y-auto h-[200px]">
