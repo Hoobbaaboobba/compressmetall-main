@@ -162,6 +162,12 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
+        title: "Задвижки чугунные",
+        link: "trubniy-prokat/zadvishki-chugunnye",
+        img: "zaporTrubCatalog",
+        metaData: "Прокат",
+      },
+      {
         title: "Затворы дисковые поворотные чугунные",
         link: "trubniy-prokat/zatvory-diskovie-povorotnye-chugunnye",
         img: "zaporTrubCatalog",
@@ -254,6 +260,12 @@ export const menuCatalog = [
       {
         title: "Клапаны обратные бронзовые",
         link: "trubniy-prokat/klapany-obrat-bronze",
+        img: "clapanRegulCatalog",
+        metaData: "Прокат",
+      },
+      {
+        title: "Клапаны обратные чугунные",
+        link: "trubniy-prokat/klapany-obrat-chugunnye",
         img: "clapanRegulCatalog",
         metaData: "Прокат",
       },
