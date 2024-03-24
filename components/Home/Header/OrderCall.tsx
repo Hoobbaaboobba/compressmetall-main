@@ -1,88 +1,154 @@
 "use client";
 
+import { sendRequestToEmail } from "@/actions/sendRequestToEmail";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
+import { formSchema } from "@/schemas/formSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useTransition } from "react";
+import { useForm } from "react-hook-form";
+
+import * as z from "zod";
+
 interface OrderCallProps {
   // onChange: (open: boolean) => void;
   placeHolder1: string;
+  value1?: string;
   placeHolder2: string;
   firstType: string;
   secondType: string;
 }
 
-import { useForm } from "react-hook-form";
+export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
+  const [isPending, startTransition] = useTransition();
+  // const [checked, setChecked] = useState(false);
+  const { toast } = useToast();
 
-const OrderCall: React.FC<OrderCallProps> = ({
-  placeHolder1,
-  placeHolder2,
-  firstType,
-  secondType,
-}) => {
-  const {
-    register,
-    trigger,
-    formState: { errors },
-  } = useForm();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      name: "",
+      product: value1,
+      message: "",
+    },
+  });
 
-  const onSubmit = async (e: { preventDefault: () => void }) => {
-    const isValid = await trigger();
-    if (!isValid) {
-      e.preventDefault();
-    }
-  };
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+    startTransition(async () => {
+      await sendRequestToEmail(values);
+      toast({
+        title: "Заявка успешно отправлена!",
+        description: "Мы свяжемся с вами в ближайшее время",
+      });
+    });
+  }
 
   return (
-    <div className="flex flex-col bg-white text-gray-bg text-center z-50">
-      <form
-        method="POST"
-        action="https://formsubmit.co/zakaz@kometal.ru"
-        onSubmit={onSubmit}
-        target="_blank"
-        className="flex flex-col text-black gap-4 mt-2"
-      >
-        <div className="text-start">
-          <input
-            required
-            type="text"
-            {...register(firstType, { required: true, maxLength: 100 })}
-            className="border w-full rounded-md py-1 px-2"
-            placeholder={placeHolder1}
-          />
-          {errors.firstType && (
-            <p className="text-red-400 text-sm ml-1">
-              {errors.firstType.type === "required" &&
-                "Это поле обязательно для заполнения"}
-              {errors.firstType.type === "maxLength" &&
-                "Максимальная длина 100 символов"}
-            </p>
-          )}
-        </div>
-        <div className="text-start">
-          <input
-            required
-            type="text"
-            {...register(secondType, {
-              required: true,
-              maxLength: 100,
-            })}
-            className="border w-full rounded-md py-1 px-2"
-            placeholder={placeHolder2}
-          />
-          {errors.secondType && (
-            <p className="text-red-400 text-sm ml-1">
-              {errors.secondType.type === "required" &&
-                "Это поле обязательно для заполнения"}
-              {errors.secondType.type === "maxLength" &&
-                "Максимальная длина 100 символов"}
-            </p>
-          )}
-        </div>
-        <button
-          type="submit"
-          className="bg-orange-bg p-2 text-white rounded-md hover:opacity-70 transition duration-200"
+    <Form {...form}>
+      <div className="flex flex-col bg-white text-gray-bg text-center z-50">
+        <form
+          method="POST"
+          onSubmit={form.handleSubmit(onSubmit)}
+          target="_blank"
+          className="flex flex-col text-black gap-4 mt-2"
         >
-          Отправить
-        </button>
-      </form>
-    </div>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="w-full text-start">
+                <FormLabel>Почта</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="example@gmail.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem className="w-full text-start">
+                <FormLabel>Ваше имя</FormLabel>
+                <FormControl>
+                  <Input placeholder="Алексей Матвеев" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="product"
+            render={({ field }) => (
+              <FormItem className="w-full text-start">
+                <FormLabel>Товар</FormLabel>
+                <FormControl>
+                  <Input className="cursor-text" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem className="w-full text-start">
+                <FormLabel>Сообщение</FormLabel>
+                <FormControl>
+                  <Textarea
+                    className="min-h-[150px]"
+                    placeholder="..."
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* <FormField
+            control={form.control}
+            name="checked"
+            render={({ field }) => (
+              <FormItem className="w-full text-start">
+                <FormControl>
+                  <Checkbox
+                    checked={checked}
+                    onCheckedChange={() => setChecked((e) => !e)}
+                  />
+                </FormControl>
+                <FormLabel>Сообщение</FormLabel>
+                <FormMessage />
+              </FormItem>
+            )}
+          /> */}
+          <button
+            type="submit"
+            className="bg-orange-bg p-2 flex justify-center items-center text-white rounded-md hover:opacity-70 transition duration-200"
+          >
+            {isPending ? <Loader2 className="animate-spin" /> : "Отправить"}
+          </button>
+        </form>
+      </div>
+    </Form>
   );
 };
 

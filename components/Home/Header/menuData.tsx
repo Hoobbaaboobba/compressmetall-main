@@ -605,4 +605,54 @@ export const menuCatalog = [
       },
     ],
   },
+  {
+    label: "Резино-технические радиационностойкие изделия",
+    href: "rezino-tech-prokat",
+    metaData:
+      "Купить Резино-технические радиационностойкие изделия оптом и в розницу",
+    links: [
+      {
+        title: "Кольца",
+        link: "rezino-tech-prokat/kolca",
+        img: "kalibrovkaCatalog",
+        metaData: "Прокат",
+      },
+      {
+        title: "Манжеты",
+        link: "rezino-tech-prokat/manshety",
+        img: "lentaZincCatalog",
+        metaData: "Прокат",
+      },
+      {
+        title: "Шнуры",
+        link: "rezino-tech-prokat/shnury",
+        img: "circleNershavCatalog",
+        metaData: "Прокат",
+      },
+      {
+        title: "Трубки",
+        link: "rezino-tech-prokat/truby",
+        img: "shpilkiCatalog",
+        metaData: "Прокат",
+      },
+      {
+        title: "Крупногабаритное кольцо",
+        link: "rezino-tech-prokat/krupnogabarity-kolco",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Мембраны и экраны",
+        link: "rezino-tech-prokat/membrany-ekrany",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Резинометаллические РТИ",
+        link: "rezino-tech-prokat/rezinometal-rti",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+    ],
+  },
 ];

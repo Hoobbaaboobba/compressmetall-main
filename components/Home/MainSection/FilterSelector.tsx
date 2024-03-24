@@ -63,7 +63,7 @@ const FilterSelector = ({
           aria-expanded={open}
           className="w-[200px] justify-between border border-orange-text truncate"
         >
-          {query ? query : label}
+          {query ? query?.replace("mm", " мм") : label?.replace("mm", " мм")}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -86,7 +86,7 @@ const FilterSelector = ({
                     item === query ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {item}
+                {item?.replace("mm", " мм")}
               </CommandItem>
             ))}
           </CommandGroup>

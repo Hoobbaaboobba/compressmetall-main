@@ -19,6 +19,7 @@ import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function RootLayout({
   children,
@@ -73,6 +74,7 @@ export default function RootLayout({
         <Request />
         <Call />
         <Price />
+        <Toaster />
         <ViewCatalogButton />
         {/* <ViewCatalog /> */}
         <Suspense

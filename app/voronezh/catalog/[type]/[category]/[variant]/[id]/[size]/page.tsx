@@ -26,10 +26,10 @@ export async function generateMetadata(
   );
 
   return {
-    title: `${products[0].label} ${decodeURI(params.id)} ${params.size
-      .replace("mm", " мм")
-      .replace(".", ",")} по цене ${
-      products[0].price
+    title: `${products[0].label} ${decodeURI(params.id)} ${decodeURI(
+      params.size.replace("mm", " мм").replace(".", ",")
+    )} ${
+      products[0].price !== "По запросу" ? `по цене ${products[0].price}` : ""
     } в Воронеже с доставкой по всей России`,
     description: `${products[0].label} в Воронеже по доступным ценам — ${products[0].label} в Воронеже от компании Компремм Металл. Заказать ${products[0].label} по выгодной цене с бесплатной доставкой по всей России и СНГ`,
     keywords: [

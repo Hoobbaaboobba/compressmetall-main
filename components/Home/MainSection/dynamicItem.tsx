@@ -37,7 +37,7 @@ const DynamicItem = ({
         }/${id || ""}/${size || ""}`}
         className="absolute top-0 left-0 w-full h-full"
       ></Link>
-      <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-4 rounded-lg">
+      <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-3 rounded-lg">
         <Image
           src={require(`../../../public/${img}.png`)}
           alt={label}
@@ -45,7 +45,7 @@ const DynamicItem = ({
           height={128}
           placeholder="blur"
         />
-        <h3>{sublabel}</h3>
+        <h3 className="text-sm">{sublabel}</h3>
         <OrangeButton label={"Подробнее"} mark />
       </div>
     </div>

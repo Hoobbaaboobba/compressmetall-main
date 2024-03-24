@@ -42,9 +42,9 @@ export default async function DynamicPage({ params }: Props) {
                       pageTitle=""
                     />
                     <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-center sm:items-start w-full">
-                      <h1 className="text-3xl font-bold text-center md:text-start text-black/80">
+                      <div className="text-3xl font-bold text-center md:text-start text-black/80">
                         <QueryLabel />
-                      </h1>
+                      </div>
                       <div
                         className={`block sm:hidden w-4 h-1 sm:w-1 sm:h-4 sm:mx-3 bg-black/50`}
                       ></div>

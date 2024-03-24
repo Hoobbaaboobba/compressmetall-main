@@ -13,7 +13,7 @@ const QueryLabel = () => {
     }
   });
 
-  return <h1>{label}</h1>;
+  return label && <h1>{decodeURI(label)}</h1>;
 };
 
 export default QueryLabel;
