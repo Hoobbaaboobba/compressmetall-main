@@ -612,6 +612,12 @@ export const menuCatalog = [
       "Купить Резино-технические радиационностойкие изделия оптом и в розницу",
     links: [
       {
+        title: "Пластины",
+        link: "rezino-tech-prokat/plastiny",
+        img: "kalibrovkaCatalog",
+        metaData: "Прокат",
+      },
+      {
         title: "Кольца",
         link: "rezino-tech-prokat/kolca",
         img: "kalibrovkaCatalog",

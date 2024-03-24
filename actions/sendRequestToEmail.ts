@@ -27,7 +27,7 @@ export const sendRequestToEmail = async (
   try {
     const mailOptions = {
       from: "kometalmailservice@mail.ru",
-      to: "lexusparker@yandex.ru",
+      to: "zakaz@kometal.ru",
       subject: "НОВАЯ ЗАЯВКА",
       html: `
           <div>          

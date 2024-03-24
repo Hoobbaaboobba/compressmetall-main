@@ -32,7 +32,7 @@ const CatalogMenu = () => {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="w-[260px] h-[44px] rounded-none text-lg">
-            <Link href={`/${pathname[1] || "moscow"}/catalog`}>Каталог</Link>
+            <p>Каталог</p>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className={`flex justify-center item-start w-full h-full`}>
@@ -40,16 +40,16 @@ const CatalogMenu = () => {
                 {menuCatalog.map((item, indexMenu) => (
                   <div
                     key={indexMenu}
-                    className={`flex text-black flex-col gap-1 border-b ${
+                    className={`flex h-full text-black flex-col gap-1 border-b ${
                       indexMenu !== (3 || 7 || 11) && "border-r"
                     } p-4`}
                   >
-                    <div className="flex flex-col justify-start items-start w-full">
+                    <div className="flex flex-col justify-center items-start w-full">
                       <h2 className="uppercase text-lg font-bold">
-                        {item.label}
-                      </h2>
-                      <NavigationMenuLink>
-                        {item.label === "Трубопроводная арматура" && (
+                        {item.label}{" "}
+                        {(item.label === "Трубопроводная арматура" ||
+                          item.label ===
+                            "Резино-технические радиационностойкие изделия") && (
                           <Badge
                             variant="outline"
                             className="ml-2 bg-orange-text text-white border-none"
@@ -57,16 +57,16 @@ const CatalogMenu = () => {
                             Новое
                           </Badge>
                         )}
-                      </NavigationMenuLink>
+                      </h2>
                     </div>
                     <Command className="w-full rounded-none overflow-x-hidden flex flex-col justify-start items-start overflow-y-auto h-[200px]">
                       <CommandInput
                         className="border-none"
                         placeholder="Найти..."
                       />
-                      <CommandList className="w-full">
+                      <CommandList className="w-full h-full">
                         <CommandEmpty>Ничего не найдено.</CommandEmpty>
-                        <CommandGroup className="w-full">
+                        <CommandGroup className="w-full h-full">
                           {item.links.map((link, index) => (
                             <CommandItem className="my-1">
                               <NavigationMenuLink key={index}>
@@ -84,15 +84,6 @@ const CatalogMenu = () => {
                                   </Link>
                                 </Button>
                               </NavigationMenuLink>
-                              {/* {(link.title === "Болты" ||
-                                link.title === "Гайки") && (
-                                <Badge
-                                  variant="outline"
-                                  className="ml-2 bg-orange-text text-white border-none"
-                                >
-                                  Новое
-                                </Badge>
-                              )} */}
                             </CommandItem>
                           ))}
                         </CommandGroup>
