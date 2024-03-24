@@ -71,9 +71,11 @@ export default function RootLayout({
           />
         </div>
         <LocationModal />
-        <Request />
-        <Call />
-        <Price />
+        <Suspense fallback={<p>Loading...</p>}>
+          <Request />
+          <Call />
+          <Price />
+        </Suspense>
         <Toaster />
         <ViewCatalogButton />
         {/* <ViewCatalog /> */}
