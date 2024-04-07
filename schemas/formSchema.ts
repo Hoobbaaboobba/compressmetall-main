@@ -8,7 +8,5 @@ export const formSchema = z.object({
     message: "Имя должно содержать минимум 2 символа",
   }),
   product: z.string(),
-  message: z.string().min(2, {
-    message: "Сообщение должно содердать минимум 1 символ",
-  }),
+  message: z.string(),
 });
