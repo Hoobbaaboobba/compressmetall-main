@@ -40,16 +40,14 @@ const CatalogMenu = () => {
                 {menuCatalog.map((item, indexMenu) => (
                   <div
                     key={indexMenu}
-                    className={`flex h-full text-black flex-col gap-1 border-b ${
+                    className={`flex h-[350px] text-black flex-col gap-1 border-b ${
                       indexMenu !== (3 || 7 || 11) && "border-r"
                     } p-4`}
                   >
                     <div className="flex flex-col justify-center items-start w-full">
                       <h2 className="uppercase text-lg font-bold">
                         {item.label}{" "}
-                        {(item.label === "Трубопроводная арматура" ||
-                          item.label ===
-                            "Резино-технические радиационностойкие изделия") && (
+                        {item.label === "Кабельная продукция" && (
                           <Badge
                             variant="outline"
                             className="ml-2 bg-orange-text text-white border-none"
@@ -59,12 +57,12 @@ const CatalogMenu = () => {
                         )}
                       </h2>
                     </div>
-                    <Command className="w-full rounded-none overflow-x-hidden flex flex-col justify-start items-start overflow-y-auto h-[200px]">
+                    <Command className="w-full rounded-none flex flex-col justify-start items-start overflow-auto h-full">
                       <CommandInput
                         className="border-none"
                         placeholder="Найти..."
                       />
-                      <CommandList className="w-full h-full">
+                      <CommandList className="w-full h-full overflow-x-auto">
                         <CommandEmpty>Ничего не найдено.</CommandEmpty>
                         <CommandGroup className="w-full h-full">
                           {item.links.map((link, index) => (
@@ -72,15 +70,17 @@ const CatalogMenu = () => {
                               <NavigationMenuLink key={index}>
                                 <Button
                                   variant="link"
+                                  size="sm"
                                   className="py-0 px-0 h-3"
                                   asChild
                                 >
                                   <Link
+                                    title={link.title}
                                     href={`/${
                                       pathname[1] || "moscow"
                                     }/catalog/${link.link}`}
                                   >
-                                    <p>{link.title}</p>
+                                    {link.title}
                                   </Link>
                                 </Button>
                               </NavigationMenuLink>

@@ -112,12 +112,12 @@ const LocationModal = () => {
               changeLoc ? "hidden" : "flex"
             } flex-col justify-center items-center gap-6 w-full py-[70px]`}
           >
-            <h1 className="font-bold text-2xl">
+            <h2 className="font-bold text-2xl">
               {" "}
               {currentGorod === "не найдена"
                 ? "Ваша геолокация не найдена"
                 : `Ваш город ${currentGorod}?`}
-            </h1>
+            </h2>
             <div className="flex gap-6">
               {currentGorod === "не найдена" ? (
                 <>
@@ -160,11 +160,13 @@ const LocationModal = () => {
                   onClick={() => changeCityName(city.name, city.capital)}
                   key={city.capital}
                   className="w-full text-center text-xl hover:underline px-[15px] py-[5px]"
-                  href={pathname.split("/")[1] ? 
-                    (currentUrl.replace(
-                      `${pathname.split("/")[1]}`,
-                      `${city.capital.split(" ").join("")}`
-                    )) : `/${city.capital.split(" ").join("")}`
+                  href={
+                    pathname.split("/")[1]
+                      ? currentUrl.replace(
+                          `${pathname.split("/")[1]}`,
+                          `${city.capital.split(" ").join("")}`
+                        )
+                      : `/${city.capital.split(" ").join("")}`
                   }
                 >
                   <li>{city.name}</li>

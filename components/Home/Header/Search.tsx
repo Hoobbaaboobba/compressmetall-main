@@ -25,13 +25,18 @@ const Search = () => {
     >
       <SearchOutlinedIcon className="text-gray-bg opacity-50 mx-2" />
       <input
+        disabled
         type="search"
         defaultValue={query || ""}
         onChange={(event) => setSearchQuery(event.target.value)}
         placeholder="Поиск по наименованию или коду товара"
-        className="text-gray-bg opacity-80 w-full outline-none pr-2"
+        className="text-gray-bg cursor-not-allowed opacity-80 w-full outline-none pr-2"
       />
-      <button type="submit" className="bg-orange-bg h-full py-2 px-4">
+      <button
+        disabled
+        type="submit"
+        className="bg-orange-bg cursor-not-allowed h-full py-2 px-4"
+      >
         Найти
       </button>
     </form>

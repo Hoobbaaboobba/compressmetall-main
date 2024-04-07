@@ -1,6 +1,7 @@
 import { usePathname } from "next/navigation";
 import React from "react";
 import DynamicItem from "../Home/MainSection/dynamicItem";
+import { Product } from "@prisma/client";
 
 type Props = {
   query: string;
@@ -17,13 +18,13 @@ const SearchContent = async ({ query, productsData }: Props) => {
       </h2>
       <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4 py-4 px-2 sm:px-4">
         {productsData.map((product) =>
-          product.id.map((ids) =>
-            product.ENGSize.map((sizes, index) => (
+          product.marks.map((ids) =>
+            product.fifthSizes.map((sizes, index) => (
               <DynamicItem
                 key={index}
-                img={product.img}
+                img={product.image}
                 label={ids}
-                topic={product.subLabel}
+                topic={product.label}
                 sublabel={sizes}
                 href={product.type}
                 category={product.category}
