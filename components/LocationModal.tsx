@@ -74,7 +74,9 @@ const LocationModal = () => {
       onClose();
     } else {
       onClose();
-      router.push(`/${currentCapital}`);
+      router.push(
+        `${currentUrl.replace(currentUrl.split("/")[3], currentCapital)}`
+      );
     }
   };
 
