@@ -4,15 +4,12 @@ import useLocationModal from "@/hooks/useLocationModal";
 import { cities } from "@/regions";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const CityButton = () => {
   const [cityHover, setCityHover] = useState(false);
   const [cityClick, setCityClick] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState<string>("");
-  const [, forceRender] = useState<any>();
 
   const { changeLocation, changeLink } = useLocationModal();
 
@@ -22,23 +19,23 @@ const CityButton = () => {
     setCityHover(false);
   };
 
-  const pathname = usePathname().split("/");
-  const router = useRouter();
+  const pathname = usePathname();
+  const splitedPathname = pathname.split("/");
 
-  useEffect(() => {
-    const fullUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
-    setCurrentUrl(fullUrl);
-  }, []);
+  const searchParams = useSearchParams();
+  const query = searchParams.get("label");
+
+  const router = useRouter();
 
   const onClick = (city: any) => {
     changeCityName(city.name, city.capital);
-    forceRender({});
-    router.push(pathname[1] ?
-      (currentUrl.replace(
-        `${pathname[1]}`,
-        `${city.capital.split(" ").join("")}`
-      )) : `/${city.capital.split(" ").join("")}`
-    );
+    if (query) {
+      router.push(
+        pathname.replace(splitedPathname[1], city.capital) + `?label=${query}`
+      );
+    } else {
+      router.push(pathname.replace(splitedPathname[1], city.capital));
+    }
   };
 
   return (
@@ -50,17 +47,18 @@ const CityButton = () => {
     >
       <button className="text-orange-text text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
         <FmdGoodOutlinedIcon />
-        {(pathname[1] === "moscow" || pathname[1] === "") && "Москва"}
-        {pathname[1] === "ufa" && "Уфа"}
-        {pathname[1] === "tver" && "Тверь"}
-        {pathname[1] === "yaroslavl" && "Ярославль"}
-        {pathname[1] === "ryazan" && "Рязань"}
-        {pathname[1] === "tula" && "Тула"}
-        {pathname[1] === "nizhnynovgorod" && "Нижний Новгород"}
-        {pathname[1] === "voronezh" && "Воронеж"}
-        {pathname[1] === "donetsk" && "Донецк"}
-        {pathname[1] === "saratov" && "Саратов"}
-        {pathname[1] === "kazan" && "Казань"}
+        {(splitedPathname[1] === "moscow" || splitedPathname[1] === "") &&
+          "Москва"}
+        {splitedPathname[1] === "ufa" && "Уфа"}
+        {splitedPathname[1] === "tver" && "Тверь"}
+        {splitedPathname[1] === "yaroslavl" && "Ярославль"}
+        {splitedPathname[1] === "ryazan" && "Рязань"}
+        {splitedPathname[1] === "tula" && "Тула"}
+        {splitedPathname[1] === "nizhnynovgorod" && "Нижний Новгород"}
+        {splitedPathname[1] === "voronezh" && "Воронеж"}
+        {splitedPathname[1] === "donetsk" && "Донецк"}
+        {splitedPathname[1] === "saratov" && "Саратов"}
+        {splitedPathname[1] === "kazan" && "Казань"}
         <KeyboardArrowDownOutlinedIcon
           fontSize="small"
           className={`${cityHover ? "xl:rotate-180" : "xl:rotate-0 "} ${
@@ -80,7 +78,7 @@ const CityButton = () => {
             key={city.capital}
             onClick={() => onClick(city)}
             className={`${
-              pathname[1] === city.capital && "underline"
+              splitedPathname[1] === city.capital && "underline"
             } w-full text-center py-[5px] hover:underline cursor-pointer`}
           >
             {city.name}
