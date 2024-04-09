@@ -31,10 +31,13 @@ const CityButton = () => {
     changeCityName(city.name, city.capital);
     if (query) {
       router.push(
-        pathname.replace(splitedPathname[1], city.capital) + `?label=${query}`
+        pathname.replace(splitedPathname[1], city.capital.split(" ").join("")) +
+          `?label=${query}`
       );
     } else {
-      router.push(pathname.replace(splitedPathname[1], city.capital));
+      router.push(
+        pathname.replace(splitedPathname[1], city.capital.split(" ").join(""))
+      );
     }
   };
 
