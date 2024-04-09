@@ -57,21 +57,21 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams() {
-  const products = await getProducts();
+// export async function generateStaticParams() {
+//   const products = await getProducts();
 
-  return products.map(
-    (product) =>
-      product.marks.length > 1 &&
-      product.sizes.length > 1 && {
-        type: product.type,
-        category: product.category,
-        variant: product.variety,
-        id: product.marks[0],
-        size: product.sizes[0],
-      }
-  );
-}
+//   return products.map(
+//     (product) =>
+//       product.marks.length > 1 &&
+//       product.sizes.length > 1 && {
+//         type: product.type,
+//         category: product.category,
+//         variant: product.variety,
+//         id: product.marks[0],
+//         size: product.sizes[0],
+//       }
+//   );
+// }
 export default async function MetalPage({ params }: Props) {
   return (
     <main className="mt-1 w-full">

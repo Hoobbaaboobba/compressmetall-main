@@ -62,7 +62,7 @@ export async function generateStaticParams({ params }: Props) {
     params.variant
   );
 
-  return products.slice(700).map((product) => ({
+  return products.map((product) => ({
     type: product.type,
     category: product.category,
     variant: product.variety,
