@@ -75,7 +75,11 @@ const LocationModal = () => {
     } else {
       onClose();
       router.push(
-        `${currentUrl.replace(currentUrl.split("/")[3], currentCapital)}`
+        `${
+          currentUrl.split("/")[3] !== ""
+            ? currentUrl.replace(currentUrl.split("/")[3], currentCapital)
+            : "/moscow"
+        }`
       );
     }
   };
@@ -137,6 +141,7 @@ const LocationModal = () => {
                 <>
                   <div onClick={locationInfo}>
                     <OrangeButton label={"Да"} />
+                    {typeof currentUrl.split("/")[3]}
                   </div>
                   <button
                     onClick={() => setChangeLoc(true)}
