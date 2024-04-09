@@ -141,7 +141,6 @@ const LocationModal = () => {
                 <>
                   <div onClick={locationInfo}>
                     <OrangeButton label={"Да"} />
-                    {typeof currentUrl.split("/")[3]}
                   </div>
                   <button
                     onClick={() => setChangeLoc(true)}
