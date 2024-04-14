@@ -5,7 +5,6 @@ import Image from "next/image";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
-import CityButton from "./CityButton";
 import Search from "./Search";
 import { Suspense } from "react";
 import Logo from "./Logo";

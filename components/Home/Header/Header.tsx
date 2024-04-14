@@ -1,3 +1,4 @@
+import { getProducts } from "@/actions/getProducts";
 import LowerHeader from "./LowerHeader";
 import UpperHeader from "./UpperHeader";
 

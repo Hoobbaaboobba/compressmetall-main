@@ -1,18 +1,9 @@
-import { searchProducts } from "@/actions/searchProducts";
-import { menuCatalog } from "@/components/Home/Header/menuData";
+import { getProducts } from "@/actions/getProducts";
 import SearchContent from "@/components/Search/SearchContent";
-import getSearchProducts from "@/components/servers/getSearch";
 import { Product } from "@prisma/client";
-import { useSearchParams } from "next/navigation";
 
 export default async function SearchPage() {
-  const products: Product[] = await searchProducts("Кабель");
+  const products: Product[] = await getProducts();
 
-  return (
-    <div className="mt-[200px]">
-      {products.map((item) => (
-        <div>{item.label}</div>
-      ))}
-    </div>
-  );
+  return <SearchContent productsData={products} />;
 }
