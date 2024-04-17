@@ -2,9 +2,9 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { Suspense } from "react";
 import Loading from "./loading";
-import DynamicPage from "@/components/Home/MainSection/DynamicPage";
-import getAllProducts from "@/components/servers/getProducts";
 import { getProducts } from "@/actions/getProducts";
+import { Product } from "@prisma/client";
+import DynamicPageCategories from "@/components/Home/MainSection/DynamicPageCategories";
 
 type Props = {
   params: {
@@ -76,18 +76,11 @@ export async function generateStaticParams({ params }: Props) {
 }
 
 export default async function MetalPage({ params }: Props) {
-  const productsData: Promise<Product[]> = getAllProducts(
-    params.type || "",
-    params.category || "",
-    params.variant || "",
-    params.id || "",
-    params.size || ""
-  );
-
+  const products: Product[] = await getProducts(params.type, params.category);
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPage params={params} />
+        <DynamicPageCategories products={products} />
       </Suspense>
     </main>
   );
