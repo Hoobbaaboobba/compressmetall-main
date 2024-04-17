@@ -48,7 +48,9 @@ const HyperLinks = ({
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+            <BreadcrumbLink asChild>
+              <Link href={`/${pathname[1]}/`}>Главная</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             <SlashIcon />
@@ -63,16 +65,20 @@ const HyperLinks = ({
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+            <BreadcrumbLink asChild>
+              <Link href={`/${pathname[1]}/`}>Главная</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
             <SlashIcon />
           </BreadcrumbSeparator>
           <BreadcrumbItem>
-            <BreadcrumbLink
-              href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}`}
-            >
-              {categoryTitle}
+            <BreadcrumbLink asChild>
+              <Link
+                href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}`}
+              >
+                {categoryTitle}
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator>
@@ -87,7 +93,9 @@ const HyperLinks = ({
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+          <BreadcrumbLink asChild>
+            <Link href={`/${pathname[1]}/`}>Главная</Link>
+          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <SlashIcon />
@@ -112,10 +120,12 @@ const HyperLinks = ({
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbLink
-            href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}/${variantLink}`}
-          >
-            {variantTitle}
+          <BreadcrumbLink>
+            <Link
+              href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}/${variantLink}`}
+            >
+              {variantTitle}
+            </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
