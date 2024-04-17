@@ -213,11 +213,15 @@ const DynamicVariants = ({ products }: ParamsProps) => {
         </h1>
         <div className="bg-black h-[5px] w-[80px] mt-4"></div>
       </div>
-      <HyperLinks
-        categoryTitle={products[0].pageTitle}
-        variantTitle={products[0].label}
-        lastVariant
-      />
+      <div className="w-full ">
+        <HyperLinks
+          categoryTitle={products[0].pageTitle}
+          categoryLink={products[0].category}
+          typeLink={products[0].type}
+          variantTitle={products[0].label}
+          variantLink={products[0].variety}
+        />
+      </div>
       <DynamicVariantsSelector
         products={products}
         markaQ={markaQuery}

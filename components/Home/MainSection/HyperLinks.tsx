@@ -1,78 +1,128 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { SlashIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface Props {
+  typeLink?: string;
   categoryTitle?: string;
-  lastCategory?: boolean;
+  categoryLink?: string;
   variantTitle?: string[];
-  lastVariant?: boolean;
-  pageTitle?: string;
-  lastPage?: boolean;
+  variantLink?: string;
+  last?: boolean;
 }
 
 const HyperLinks = ({
+  typeLink,
   categoryTitle,
-  lastCategory,
+  categoryLink,
   variantTitle,
-  lastVariant,
+  variantLink,
+  last,
 }: Props) => {
   const pathname = usePathname().split("/");
 
-  const category =
-    categoryTitle &&
-    categoryTitle?.charAt(0).toUpperCase() +
-      categoryTitle.slice(1).toLocaleLowerCase();
+  // const type =
+  //   type &&
+  //   type?.charAt(0).toUpperCase() +
+  //     type.slice(1).toLocaleLowerCase();
 
-  const titleOfProkat =
-    (pathname[3] === "tsvetnoi-prokat" && "Цветной прокат") ||
-    (pathname[3] === "cherniy-prokat" && "Чёрный прокат") ||
-    (pathname[3] === "trubniy-prokat" && "Трубопроводный прокат") ||
-    (pathname[3] === "nershav-prokat" && "Нержавеющие металлы") ||
-    (pathname[3] === "metizi-prokat" && "Метизы") ||
-    (pathname[3] === "precensplav" && "Прецензионные сплавы");
+  if (!variantTitle) {
+    return (
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <SlashIcon />
+          </BreadcrumbSeparator>
+        </BreadcrumbList>
+      </Breadcrumb>
+    );
+  }
+
+  if (!last) {
+    return (
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <SlashIcon />
+          </BreadcrumbSeparator>
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}`}
+            >
+              {categoryTitle}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator>
+            <SlashIcon />
+          </BreadcrumbSeparator>
+        </BreadcrumbList>
+      </Breadcrumb>
+    );
+  }
 
   return (
-    <div className="w-full text-sm justify-center items-center sm:justify-start  my-1 flex flex-wrap gap-2">
-      <Link
-        className="hover:underline"
-        href={`/${pathname[1]}/catalog/${pathname[3]}`}
-      >
-        {titleOfProkat}
-      </Link>
-      {categoryTitle && (
-        <>
-          <ChevronRight />
-          {!lastCategory ? (
-            <Link
-              className="hover:underline"
-              href={`/${pathname[1]}/catalog/${pathname[3]}/${pathname[4]}`}
-            >
-              {category}
-            </Link>
-          ) : (
-            <span className="opacity-50">{category}</span>
-          )}
-        </>
-      )}
-      {variantTitle && (
-        <>
-          <ChevronRight />
-          {!lastVariant ? (
-            <Link
-              className="hover:underline"
-              href={`/${pathname[1]}/catalog/${pathname[3]}/${pathname[4]}/${pathname[5]}`}
-            >
-              {variantTitle[0]}
-            </Link>
-          ) : (
-            <span className="opacity-50">{variantTitle[0]}</span>
-          )}
-        </>
-      )}
-    </div>
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href={`/${pathname[1]}/`}>Главная</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <SlashIcon />
+        </BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1">
+              <BreadcrumbEllipsis />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuItem>
+                <Link
+                  href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}`}
+                >
+                  {categoryTitle}
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <SlashIcon />
+        </BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            href={`/${pathname[1]}/catalog/${typeLink}/${categoryLink}/${variantLink}`}
+          >
+            {variantTitle}
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <SlashIcon />
+        </BreadcrumbSeparator>
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
 

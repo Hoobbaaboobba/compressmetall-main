@@ -13,8 +13,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuCatalog } from "./menuData";
 import { Badge } from "@/components/ui/badge";
-import { setJsonMenuCategory } from "@/actions/setJsonMenuCategory";
-import { setJsonMenuCategoryLinks } from "@/actions/setJsonMenuCategoryLinks";
 import {
   Command,
   CommandEmpty,

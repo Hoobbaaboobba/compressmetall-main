@@ -6,6 +6,8 @@ import { products } from "../api/products/products";
 import { getProducts } from "@/actions/getProducts";
 import { setProducts } from "@/actions/setProducts";
 import { setJsonData } from "@/actions/setJsonData";
+import { setJsonMenuCategory } from "@/actions/setJsonMenuCategory";
+import { setJsonMenuCategoryLinks } from "@/actions/setJsonMenuCategoryLinks";
 
 export const metadata: Metadata = {
   title:
