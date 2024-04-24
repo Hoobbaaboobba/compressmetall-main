@@ -1,9 +1,6 @@
-"use client";
-
 import OrangeButton from "@/components/OrangeButton";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { LinkButton } from "./Link";
 
 interface DynamicProps {
   img: string;
@@ -28,15 +25,16 @@ const DynamicItem = ({
   id,
   size,
 }: DynamicProps) => {
-  const pathname = usePathname().split("/");
   return (
     <div className="relative">
-      <Link
-        href={`/${pathname[1]}/catalog/${href}/${category || ""}/${
-          variety || ""
-        }/${id || ""}/${size || ""}`}
-        className="absolute top-0 left-0 w-full h-full"
-      ></Link>
+      <LinkButton
+        catalog
+        type={href}
+        category={category}
+        id={id}
+        size={size}
+        variety={variety}
+      />
       <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-3 rounded-lg">
         <Image
           src={require(`../../../public/${img}.png`)}

@@ -26,7 +26,7 @@ const ViewCatalogButton = () => {
   };
   return (
     <Drawer>
-      <DrawerTrigger>
+      <DrawerTrigger asChild>
         <button
           onClick={showCatalog}
           className="w-full boxshadow z-50 text-white py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden underline"

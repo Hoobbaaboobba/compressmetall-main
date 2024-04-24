@@ -13,6 +13,7 @@ type Props = {
     id: string;
     size: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata(
@@ -73,11 +74,11 @@ export async function generateMetadata(
 //   );
 // }
 
-export default async function MetalPage({ params }: Props) {
+export default async function MetalPage({ params, searchParams }: Props) {
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPage params={params} />
+        <DynamicPage params={params} searchParams={searchParams} />
       </Suspense>
     </main>
   );

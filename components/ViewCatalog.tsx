@@ -23,7 +23,7 @@ const ViewCatalog = () => {
             className="flex text-black flex-col gap-6 xl:rounded-md xl:border-r border-b border-r-black/70 :border-b-black/70 p-4"
           >
             <div className="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center w-full gap-1  sm:gap-3">
-              <h1 className="uppercase text-[26px] font-bold">{item.label}</h1>
+              <h2 className="uppercase text-[26px] font-bold">{item.label}</h2>
               <div className="hidden sm:block w-2 h-2 bg-black rounded-full"></div>
               <DrawerClose asChild>
                 <Button variant="link" size="lg" asChild>

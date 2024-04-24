@@ -64,8 +64,8 @@ const CatalogMenu = () => {
                         <CommandEmpty>Ничего не найдено.</CommandEmpty>
                         <CommandGroup className="w-full h-full">
                           {item.links.map((link, index) => (
-                            <CommandItem className="my-1">
-                              <NavigationMenuLink key={index}>
+                            <CommandItem key={index} className="my-1">
+                              <NavigationMenuLink>
                                 <Button
                                   variant="link"
                                   size="sm"

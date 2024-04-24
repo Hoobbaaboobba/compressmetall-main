@@ -2,6 +2,7 @@ import OrangeButton from "@/components/OrangeButton";
 import { Product } from "@prisma/client";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   pathname: string;
@@ -28,17 +29,44 @@ const DynamicVariantsComponent = ({
   forth,
   fifth,
 }: Props) => {
-  const router = useRouter();
+  let navlink;
 
-  const onClick = () => {
-    router.push(
-      `/${pathname}/catalog/${products[0].type}/${products[0].category}/${
-        products[0].variety
-      }/${marka.replace("/", "[")}/${size}?label=${label}`
-    );
-  };
+  if (!second) {
+    navlink = `/${pathname}/catalog/${products[0].type}/${
+      products[0].category
+    }/${products[0].variety}/${marka.replace("/", "[")}/${size}?label=${label}`;
+  } else if (!third) {
+    navlink = `/${pathname}/catalog/${products[0].type}/${
+      products[0].category
+    }/${products[0].variety}/${marka.replace(
+      "/",
+      "["
+    )}/${size}?label=${label}&secondsize=${second}`;
+  } else if (!forth) {
+    navlink = `/${pathname}/catalog/${products[0].type}/${
+      products[0].category
+    }/${products[0].variety}/${marka.replace(
+      "/",
+      "["
+    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}`;
+  } else if (!fifth) {
+    navlink = `/${pathname}/catalog/${products[0].type}/${
+      products[0].category
+    }/${products[0].variety}/${marka.replace(
+      "/",
+      "["
+    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}`;
+  } else {
+    navlink = `/${pathname}/catalog/${products[0].type}/${
+      products[0].category
+    }/${products[0].variety}/${marka.replace(
+      "/",
+      "["
+    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifth}`;
+  }
+
   return (
-    <TableRow className="w-full cursor-pointer" onClick={onClick}>
+    <TableRow className="w-full relative cursor-pointer">
       <TableCell className="md:font-medium text-md md:text-lg">
         {label}
       </TableCell>
@@ -73,6 +101,10 @@ const DynamicVariantsComponent = ({
           <OrangeButton label={"Подробнее"} mark />
         </div>
       </TableCell>
+      <Link
+        href={navlink}
+        className="absolute top-0 left-0 w-full h-full"
+      ></Link>
     </TableRow>
   );
 };

@@ -5,7 +5,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import { getProducts } from "@/actions/getProducts";
 import DynamicPageCategories from "@/components/Home/MainSection/DynamicPageCategories";
-import { Product } from "@prisma/client";
+import { MenuCategory, MenuCategoryLinks, Product } from "@prisma/client";
+import { getMenuCategory } from "@/actions/getMenuCategory";
 
 type Props = {
   params: {

@@ -32,38 +32,86 @@ type SizeProps = {
     id: string;
     size: string;
   };
+  second?: string;
+  third?: string;
+  forth?: string;
+  fifth?: string;
 };
 
-const SizeSelector = ({ products, params }: SizeProps) => {
+const SizeSelector = ({
+  products,
+  params,
+  second,
+  third,
+  forth,
+  fifth,
+}: SizeProps) => {
   const [openMarka, setOpenMarka] = useState(false);
   const [marka, setMarka] = useState("");
-
-  const [value, setValue] = useState(false);
 
   const [open, setOpen] = useState(false);
   const [valueFilter, setValueFilter] = useState("");
 
-  const [openSecond, setOpenSecond] = useState(false);
-  const [valueSecondFilter, setValueSecondFilter] = useState("");
-
   const pathname = usePathname().split("/");
-  const [valueMark, setValueMark] = useState(false);
-  const [valueWidth, setValueWidth] = useState(false);
 
   const searchParams = useSearchParams();
   const label = searchParams.get("label");
 
-  const closeSelector = () => {
-    setValueMark(false);
-    setValueWidth(false);
+  const firstNavLink = (id: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${
+        params.variant
+      }/${id.replace("/", "[")}/${params.size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${
+        params.variant
+      }/${id.replace("/", "[")}/${
+        params.size
+      }?label=${label}&secondsize=${second}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${
+        params.variant
+      }/${id.replace("/", "[")}/${
+        params.size
+      }?label=${label}&secondsize=${second}&thirdsize=${third}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${
+        params.variant
+      }/${id.replace("/", "[")}/${
+        params.size
+      }?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${
+        params.variant
+      }/${id.replace("/", "[")}/${
+        params.size
+      }?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifth}`;
+    }
+  };
+
+  const secondNavLink = (size: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}&secondsize=${second}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifth}`;
+    }
   };
 
   return (
     <>
       {products.map(
-        (product) =>
+        (product, index) =>
           params.size && (
-            <div className="w-full flex flex-col sm:flex-row gap-4 justify-start items-center px-6 sm:px-0 my-6">
+            <div
+              key={index}
+              className="w-full flex flex-col sm:flex-row gap-4 justify-start items-center px-6 sm:px-0 my-6"
+            >
               <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                   <Button
@@ -83,15 +131,11 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     <CommandGroup className="overflow-y-auto">
                       {products[0].marks.map((id: string) => (
                         <Link
+                          key={id}
                           className="hover:underline w-full"
-                          href={`/${pathname[1]}/catalog/${params.type}/${
-                            params.category
-                          }/${params.variant}/${id.replace("/", "[")}/${
-                            params.size
-                          }?label=${label}`}
+                          href={firstNavLink(id)}
                         >
                           <CommandItem
-                            key={id}
                             value={id}
                             onSelect={(currentValue) => {
                               setValueFilter(
@@ -133,11 +177,11 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     <CommandGroup className="overflow-y-auto">
                       {products[0].sizes.map((size: string) => (
                         <Link
+                          key={size}
                           className="hover:underline w-full"
-                          href={`/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${size}?label=${label}`}
+                          href={secondNavLink(size)}
                         >
                           <CommandItem
-                            key={size}
                             value={size}
                             onSelect={(currentValue) => {
                               setValueFilter(
@@ -162,7 +206,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                   </Command>
                 </PopoverContent>
               </Popover>
-              {products[0].secondTypeOfSize && (
+              {/* {products[0].secondTypeOfSize && (
                 <Popover open={openSecond} onOpenChange={setOpenSecond}>
                   <PopoverTrigger asChild className="w-[200px]">
                     <Button
@@ -208,7 +252,7 @@ const SizeSelector = ({ products, params }: SizeProps) => {
                     </Command>
                   </PopoverContent>
                 </Popover>
-              )}
+              )} */}
             </div>
           )
       )}

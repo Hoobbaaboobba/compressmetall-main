@@ -14,6 +14,7 @@ type Props = {
     id: string;
     size: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata(
@@ -58,26 +59,26 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams() {
-//   const products = await getProducts();
+export async function generateStaticParams() {
+  const products = await getProducts();
 
-//   return products.map(
-//     (product) =>
-//       product.marks.length > 1 &&
-//       product.sizes.length > 1 && {
-//         type: product.type,
-//         category: product.category,
-//         variant: product.variety,
-//         id: product.marks[0],
-//         size: product.sizes[0],
-//       }
-//   );
-// }
-export default async function MetalPage({ params }: Props) {
+  return products.map(
+    (product) =>
+      product.marks.length > 1 &&
+      product.sizes.length > 1 && {
+        type: product.type,
+        category: product.category,
+        variant: product.variety,
+        id: product.marks[0],
+        size: product.sizes[0],
+      }
+  );
+}
+export default async function MetalPage({ params, searchParams }: Props) {
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPage params={params} />
+        <DynamicPage params={params} searchParams={searchParams} />
       </Suspense>
     </main>
   );

@@ -7,7 +7,23 @@ body {
   overflow-x: hidden;
 }
 
+.dash {
+  display: flex;
+  flex: 1;
+}
+
+.dash::before {
+  content: "";
+  display: flex;
+  height: 15px;
+  border-bottom: 1px dashed rgb(199, 199, 199);
+  order: 1;
+  flex: 1;
+  margin: 0 4px;
+}
+
 *::-webkit-scrollbar {
+  height: 7px;
   width: 0.3em;
   z-index: -1;
 }

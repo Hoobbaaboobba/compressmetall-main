@@ -138,12 +138,6 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
-        title: "Чугунные вентили",
-        link: "trubniy-prokat/venteli-shugunye",
-        img: "zaporTrubCatalog",
-        metaData: "Прокат",
-      },
-      {
         title: "Задвижки латунные",
         link: "trubniy-prokat/zadvishki-latunnye",
         img: "zaporTrubCatalog",
