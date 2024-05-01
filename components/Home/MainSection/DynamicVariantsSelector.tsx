@@ -46,13 +46,6 @@ const DynamicVariantsSelector = ({
 
   const filtersArray = [
     {
-      data: products[0].label,
-      label: "Найти по названию",
-      emptyLabel: "Такого названия нет",
-      queryLabel: "label",
-      query: labelQuery,
-    },
-    {
       data: products[0].marks,
       label: "Найти по марке",
       emptyLabel: "Такой марки нет",

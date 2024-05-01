@@ -15,7 +15,7 @@ const ViewCatalog = () => {
   return (
     <>
       <div
-        className={`transition duration-300 w-full bg-white grid grid-cols-1 overflow-y-auto lg:grid-cols-2 z-40`}
+        className={`transition overflow-x-hidden duration-300 w-full bg-white grid grid-cols-1 overflow-y-auto lg:grid-cols-2 z-40`}
       >
         {menuCatalog.map((item, index) => (
           <div
@@ -25,17 +25,6 @@ const ViewCatalog = () => {
             <div className="flex flex-col sm:flex-row text-center sm:text-start justify-start items-center w-full gap-1  sm:gap-3">
               <h2 className="uppercase text-[26px] font-bold">{item.label}</h2>
               <div className="hidden sm:block w-2 h-2 bg-black rounded-full"></div>
-              <DrawerClose asChild>
-                <Button variant="link" size="lg" asChild>
-                  <Link
-                    href={`/${pathname[1] || "moscow"}/catalog/${item.href}`}
-                    onClick={openCatalog}
-                    className="text-black/70 hover:underline text-lg"
-                  >
-                    Посмотреть всё
-                  </Link>
-                </Button>
-              </DrawerClose>
             </div>
             <div className="w-full flex justify-center sm:justify-start items-center flex-wrap gap-2">
               {item.links.map((link) => (

@@ -120,7 +120,9 @@ const SizeSelector = ({
                     aria-expanded={open}
                     className="w-[200px] justify-between border-orange-text"
                   >
-                    {"Выбрать марку..."}
+                    {params.id
+                      ? `Марка: ${decodeURI(params.id)}`
+                      : "Выбрать марку..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -166,7 +168,9 @@ const SizeSelector = ({
                     aria-expanded={openMarka}
                     className="w-[200px] justify-between border-orange-text"
                   >
-                    {product.firstTypeOfSize}
+                    {`${product.firstTypeOfSize}: ${decodeURI(
+                      params.size
+                    ).replace("mm", " мм")}`}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
