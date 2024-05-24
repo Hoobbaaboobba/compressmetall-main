@@ -158,7 +158,7 @@ const Footer = () => {
             </div>
             <div className="flex w-full text-start md:text-start flex-col md:flex-row gap-2 md:gap-4 justify-start items-center">
               <EmailOutlinedIcon className="text-orange-bg" />
-              <p className="font-bold ">info@kometal.ru</p>
+              <p className="font-bold ">zakaz@kometal.ru</p>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@ const Footer = () => {
       <hr className="w-full bg-white my-4 opacity-50" />
       <div>
         <h3 className="text-white font-md text-md opacity-70">
-          ©2023 Все права защищены
+          ©2024 Все права защищены
         </h3>
       </div>
     </footer>

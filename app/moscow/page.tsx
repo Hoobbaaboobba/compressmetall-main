@@ -2,12 +2,7 @@ import { Suspense } from "react";
 import MainSection from "../../components/Home/MainSection/MainSection";
 import Advantages from "../../components/Home/advantages/Advantages";
 import { Metadata } from "next";
-import { products } from "../api/products/products";
-import { getProducts } from "@/actions/getProducts";
-import { setProducts } from "@/actions/setProducts";
-import { setJsonData } from "@/actions/setJsonData";
-import { setJsonMenuCategory } from "@/actions/setJsonMenuCategory";
-import { setJsonMenuCategoryLinks } from "@/actions/setJsonMenuCategoryLinks";
+import { turnIntoCSV } from "@/actions/turnIntoCSV";
 
 export const metadata: Metadata = {
   title:

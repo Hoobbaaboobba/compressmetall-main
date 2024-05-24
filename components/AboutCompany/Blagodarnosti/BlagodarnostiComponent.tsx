@@ -20,7 +20,21 @@ export const BlagodarnostiComponent = () => {
           <Image
             src="/blagodarnosti.jpeg"
             alt="Благодарность Станистлаву Шнайдеру"
-            className=" cursor-zoom-in hover:shadow-md transition"
+            className="cursor-zoom-in border hover:shadow-md transition"
+            width={252}
+            height={350}
+          />
+        </ImageDialog>
+        <ImageDialog
+          width={462}
+          height={641}
+          image={"pomosh-svo.jpg"}
+          title={"Благодарность Шнайдер Станистлаву"}
+        >
+          <Image
+            src="/pomosh-svo.jpg"
+            alt="Благодарность Станистлаву Шнайдеру"
+            className="cursor-zoom-in border hover:shadow-md transition"
             width={252}
             height={350}
           />
