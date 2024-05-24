@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import MainSection from "../../components/Home/MainSection/MainSection";
 import Advantages from "../../components/Home/advantages/Advantages";
 import { Metadata } from "next";
-import { turnIntoCSV } from "@/actions/turnIntoCSV";
 
 export const metadata: Metadata = {
   title:
