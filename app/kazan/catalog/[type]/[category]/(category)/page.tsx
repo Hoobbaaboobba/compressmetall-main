@@ -1,12 +1,12 @@
 import { Metadata, ResolvingMetadata } from "next";
 
 import { Suspense } from "react";
+import Loading from "./loading";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { products } from "@/app/api/products/products";
 import { getProducts } from "@/actions/getProducts";
 import { Product } from "@prisma/client";
 import DynamicPageCategories from "@/components/Home/MainSection/DynamicPageCategories";
-import { Loader2 } from "lucide-react";
 
 type Props = {
   params: {
@@ -77,7 +77,7 @@ export default async function MetalPage({ params }: Props) {
   const products: Product[] = await getProducts(params.type, params.category);
   return (
     <main className="mt-1 w-full">
-      <Suspense fallback={<Loader2 className="animate-spin" />}>
+      <Suspense fallback={<Loading />}>
         <DynamicPageCategories products={products} />
       </Suspense>
     </main>
