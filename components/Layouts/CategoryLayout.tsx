@@ -52,24 +52,36 @@ export const CategoryLayoutModel = ({
                       0,
                       products[0].type === "kabelnaya-produkcia" ? 14 : 100
                     )
-                    .map((link, index) => (
-                      <CommandItem
-                        key={index}
-                        className="text-sm py-1 rounded-none border-b relative hover:underline w-full"
-                      >
-                        <LinkButton
-                          catalog
-                          type={products[0].type}
-                          category={link.link}
-                        />
-                        <Check
-                          className={`w-3 h-3 mr-1 ${
-                            params.category === link.link ? "block" : "hidden"
-                          }`}
-                        />
-                        {link.title}
-                      </CommandItem>
-                    ))}
+                    .map(
+                      (link, index) =>
+                        link.title !== "Ниобий" &&
+                        link.title !== "Окатыши железорудные" &&
+                        link.title !== "Припои серебряные" &&
+                        link.title !== "Специальные припои" &&
+                        link.title !== "Сурьма в чушках" &&
+                        link.title !== "Цинк в чушках" &&
+                        link.title !== "Кадмий" &&
+                        link.title !== "Олово" && (
+                          <CommandItem
+                            key={index}
+                            className="text-sm py-1 rounded-none border-b relative hover:underline w-full"
+                          >
+                            <LinkButton
+                              catalog
+                              type={products[0].type}
+                              category={link.link}
+                            />
+                            <Check
+                              className={`w-3 h-3 mr-1 ${
+                                params.category === link.link
+                                  ? "block"
+                                  : "hidden"
+                              }`}
+                            />
+                            {link.title}
+                          </CommandItem>
+                        )
+                    )}
               </CommandGroup>{" "}
             </CommandList>
           </Command>
