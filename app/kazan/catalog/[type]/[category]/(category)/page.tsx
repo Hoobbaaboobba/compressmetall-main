@@ -2,8 +2,6 @@ import { Metadata, ResolvingMetadata } from "next";
 
 import { Suspense } from "react";
 import Loading from "./loading";
-import DynamicPage from "@/components/Home/MainSection/DynamicPage";
-import { products } from "@/app/api/products/products";
 import { getProducts } from "@/actions/getProducts";
 import { Product } from "@prisma/client";
 import DynamicPageCategories from "@/components/Home/MainSection/DynamicPageCategories";
