@@ -63,18 +63,18 @@ export async function generateMetadata(
   };
 }
 
-// export async function generateStaticParams({ params }: Props) {
-//   const products = await getProducts(
-//     params.type,
-//     params.category,
-//     params.variant
-//   );
+export async function generateStaticParams({ params }: Props) {
+  const products = await getProducts(
+    params.type,
+    params.category,
+    params.variant
+  );
 
-//   return products.map((product) => ({
-//     type: product.type,
-//     category: product.category,
-//   }));
-// }
+  return products.map((product) => ({
+    type: product.type,
+    category: product.category,
+  }));
+}
 
 export default async function MetalPage({ params }: Props) {
   const products: Product[] = await getProducts(params.type, params.category);
