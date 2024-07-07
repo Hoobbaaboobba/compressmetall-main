@@ -29,7 +29,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     <div className="max-w-[1300px] flex flex-col gap-4">
       <div className="relative w-full mt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
         <div className="w-full h-full flex flex-col justify-center items-start pt-4">
-          <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-center sm:items-start w-full">
+          <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-start sm:items-start w-full">
             <HyperLinks
               categoryTitle={products[0].pageTitle}
               categoryLink={products[0].category}

@@ -163,7 +163,7 @@ const SizeSelector = ({
   };
 
   return (
-    <div className="mt-8 flex flex-col justify-start">
+    <div className="mt-8 flex flex-col justify-start items-start">
       {products.map((product) => (
         <>
           <div
@@ -178,7 +178,7 @@ const SizeSelector = ({
                 className="max-w-[200px] pl-7"
               />
             </div>
-            <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+            <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
               {product.marks.filter((e) =>
                 markaValue.length > 0
                   ? e.toLowerCase().includes(markaValue.toLowerCase())
@@ -225,7 +225,7 @@ const SizeSelector = ({
                 className="max-w-[200px] pl-7"
               />
             </div>
-            <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+            <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
               {product.sizes.filter((e) =>
                 firstSizeValue.length > 0
                   ? e.toLowerCase().includes(firstSizeValue.toLowerCase())
@@ -275,7 +275,7 @@ const SizeSelector = ({
                     className="max-w-[200px] pl-7"
                   />
                 </div>
-                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
                   {product.secondSizes.filter((e) =>
                     secondSizeValue.length > 0
                       ? e.toLowerCase().includes(secondSizeValue.toLowerCase())
@@ -328,7 +328,7 @@ const SizeSelector = ({
                     className="max-w-[200px] pl-7"
                   />
                 </div>
-                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
                   {product.thirdSizes.filter((e) =>
                     thirdSizeValue.length > 0
                       ? e.toLowerCase().includes(thirdSizeValue.toLowerCase())
@@ -381,7 +381,7 @@ const SizeSelector = ({
                     className="max-w-[200px] pl-7"
                   />
                 </div>
-                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
                   {product.forthSizes.filter((e) =>
                     forthSizeValue.length > 0
                       ? e.toLowerCase().includes(forthSizeValue.toLowerCase())
@@ -434,7 +434,7 @@ const SizeSelector = ({
                     className="max-w-[200px] pl-7"
                   />
                 </div>
-                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                <div className="flex gap-2 w-full overflow-x-auto justify-start max-w-[350px] sm:max-w-[550px] pb-2">
                   {product.fifthSizes.filter((e) =>
                     fifthSizeValue.length > 0
                       ? e.toLowerCase().includes(fifthSizeValue.toLowerCase())
