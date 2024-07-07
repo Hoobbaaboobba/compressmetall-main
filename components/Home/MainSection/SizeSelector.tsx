@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Product } from "@prisma/client";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 
 type SizeProps = {
   products: Product[];
@@ -46,11 +48,12 @@ const SizeSelector = ({
   forth,
   fifth,
 }: SizeProps) => {
-  const [openMarka, setOpenMarka] = useState(false);
-  const [marka, setMarka] = useState("");
-
-  const [open, setOpen] = useState(false);
-  const [valueFilter, setValueFilter] = useState("");
+  const [markaValue, setMarkaValue] = useState("");
+  const [firstSizeValue, setFirstSizeValue] = useState("");
+  const [secondSizeValue, setSecondSizeValue] = useState("");
+  const [thirdSizeValue, setThirdSizeValue] = useState("");
+  const [forthSizeValue, setForthSizeValue] = useState("");
+  const [fifthSizeValue, setFifthSizeValue] = useState("");
 
   const pathname = usePathname().split("/");
 
@@ -103,164 +106,375 @@ const SizeSelector = ({
     }
   };
 
+  const thirdNavLink = (secondSize: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${secondSize}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${secondSize}&thirdsize=${third}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${secondSize}&thirdsize=${third}&forthsize=${forth}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${secondSize}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifth}`;
+    }
+  };
+
+  const forthNavLink = (thirdSize: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${thirdSize}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${thirdSize}&forthsize=${forth}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${thirdSize}&forthsize=${forth}&fifthsize=${fifth}`;
+    }
+  };
+
+  const fifthNavLink = (forthSize: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forthSize}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forthSize}&fifthsize=${fifth}`;
+    }
+  };
+
+  const sixthNavLink = (fifthSize: string) => {
+    if (!second) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}`;
+    } else if (!third) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}`;
+    } else if (!forth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}`;
+    } else if (!fifth) {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}`;
+    } else {
+      return `/${pathname[1]}/catalog/${params.type}/${params.category}/${params.variant}/${params.id}/${params.size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifthSize}`;
+    }
+  };
+
   return (
-    <>
-      {products.map(
-        (product, index) =>
-          params.size && (
-            <div
-              key={index}
-              className="w-full flex flex-col sm:flex-row gap-4 justify-start items-center px-6 sm:px-0 my-6"
-            >
-              <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    className="w-[200px] justify-between border-orange-text"
-                  >
-                    {params.id
-                      ? `Марка: ${decodeURI(params.id)}`
-                      : "Выбрать марку..."}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
-                  <Command>
-                    <CommandInput placeholder="Выбрать марку" />
-                    <CommandEmpty>Марка не найдена</CommandEmpty>
-                    <CommandGroup className="overflow-y-auto">
-                      {products[0].marks.map((id: string) => (
-                        <Link
-                          key={id}
-                          className="hover:underline w-full"
-                          href={firstNavLink(id)}
-                        >
-                          <CommandItem
-                            value={id}
-                            onSelect={(currentValue) => {
-                              setValueFilter(
-                                currentValue === marka ? "" : currentValue
-                              );
-                              setOpen(false);
-                            }}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                valueFilter === id ? "opacity-100" : "opacity-0"
-                              )}
-                            />
-                            {id}
-                          </CommandItem>
-                        </Link>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <Popover open={openMarka} onOpenChange={setOpenMarka}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={openMarka}
-                    className="w-[200px] justify-between border-orange-text"
-                  >
-                    {`${product.firstTypeOfSize}: ${decodeURI(
-                      params.size
-                    ).replace("mm", " мм")}`}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
-                  <Command>
-                    <CommandInput placeholder="Выбрать размер" />
-                    <CommandEmpty>Размер не найден</CommandEmpty>
-                    <CommandGroup className="overflow-y-auto">
-                      {products[0].sizes.map((size: string) => (
-                        <Link
-                          key={size}
-                          className="hover:underline w-full"
-                          href={secondNavLink(size)}
-                        >
-                          <CommandItem
-                            value={size}
-                            onSelect={(currentValue) => {
-                              setValueFilter(
-                                currentValue === marka ? "" : currentValue
-                              );
-                              setOpenMarka(false);
-                            }}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                valueFilter === size
-                                  ? "opacity-100"
-                                  : "opacity-0"
-                              )}
-                            />
-                            {size.replace("mm", " мм").replace(".", ",")}
-                          </CommandItem>
-                        </Link>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              {/* {products[0].secondTypeOfSize && (
-                <Popover open={openSecond} onOpenChange={setOpenSecond}>
-                  <PopoverTrigger asChild className="w-[200px]">
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={openSecond}
-                      className="w-[200px] justify-between border-orange-text"
-                    >
-                      {products[0].secondTypeOfSize}
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[200px] p-0 h-[250px] overflow-y-auto">
-                    <Command>
-                      <CommandInput
-                        placeholder={products[0].secondTypeOfSize}
-                      />
-                      <CommandEmpty>Размер не найден</CommandEmpty>
-                      <CommandGroup className="overflow-y-auto">
-                        {products[0].secondSizes?.map((secondSize: string) => (
-                          <CommandItem
-                            key={secondSize}
-                            value={secondSize}
-                            onSelect={(currentValue) => {
-                              setValueFilter(
-                                currentValue === marka ? "" : currentValue
-                              );
-                              setOpenMarka(false);
-                            }}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                valueFilter === secondSize
-                                  ? "opacity-100"
-                                  : "opacity-0"
-                              )}
-                            />
-                            {secondSize.replace("mm", " мм")}
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
-              )} */}
+    <div className="mt-8 flex flex-col justify-start">
+      {products.map((product) => (
+        <>
+          <div
+            key={product.id}
+            className="flex flex-col w-full justify-start items-start gap-2"
+          >
+            <div className="relative">
+              <Search className="absolute top-3 w-4 h-4 left-2" />
+              <Input
+                placeholder={`Марка:`}
+                onChange={(e) => setMarkaValue(e.target.value)}
+                className="max-w-[200px] pl-7"
+              />
             </div>
-          )
-      )}
-    </>
+            <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+              {product.marks.filter((e) =>
+                markaValue.length > 0
+                  ? e.toLowerCase().includes(markaValue.toLowerCase())
+                  : e
+              ).length > 0 ? (
+                product.marks
+                  .filter((e) =>
+                    markaValue.length > 0
+                      ? e.toLowerCase().includes(markaValue.toLowerCase())
+                      : e
+                  )
+                  .map((marka) => (
+                    <Button
+                      asChild
+                      key={marka}
+                      variant="outline"
+                      className={`${
+                        decodeURI(params.id) === marka && "border-orange-text"
+                      }`}
+                    >
+                      <Link
+                        className="hover:underline w-full"
+                        href={firstNavLink(marka)}
+                      >
+                        {marka}
+                      </Link>
+                    </Button>
+                  ))
+              ) : (
+                <p className="py-3">Ничего не найдено.</p>
+              )}
+            </div>
+          </div>
+          <Separator className="my-4" />
+          <div
+            key={product.id}
+            className="flex flex-col w-full justify-start items-start gap-2"
+          >
+            <div className="relative">
+              <Search className="absolute top-3 w-4 h-4 left-2" />
+              <Input
+                placeholder={product.firstTypeOfSize}
+                onChange={(e) => setFirstSizeValue(e.target.value)}
+                className="max-w-[200px] pl-7"
+              />
+            </div>
+            <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+              {product.sizes.filter((e) =>
+                firstSizeValue.length > 0
+                  ? e.toLowerCase().includes(firstSizeValue.toLowerCase())
+                  : e
+              ).length > 0 ? (
+                product.sizes
+                  .filter((e) =>
+                    firstSizeValue.length > 0
+                      ? e.toLowerCase().includes(firstSizeValue.toLowerCase())
+                      : e
+                  )
+                  .map((firstSize) => (
+                    <Button
+                      asChild
+                      key={firstSize}
+                      variant="outline"
+                      className={`${
+                        decodeURI(params.size) === firstSize &&
+                        "border-orange-text"
+                      }`}
+                    >
+                      <Link
+                        className="hover:underline w-full"
+                        href={secondNavLink(firstSize)}
+                      >
+                        {firstSize.replace("mm", " мм")}
+                      </Link>
+                    </Button>
+                  ))
+              ) : (
+                <p className="py-3">Ничего не найдено.</p>
+              )}
+            </div>
+          </div>
+          {product.secondTypeOfSize && (
+            <>
+              <Separator className="my-4" />
+              <div
+                key={product.id}
+                className="flex flex-col w-full justify-start items-start gap-2"
+              >
+                <div className="relative">
+                  <Search className="absolute top-3 w-4 h-4 left-2" />
+                  <Input
+                    placeholder={product.secondTypeOfSize}
+                    onChange={(e) => setSecondSizeValue(e.target.value)}
+                    className="max-w-[200px] pl-7"
+                  />
+                </div>
+                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                  {product.secondSizes.filter((e) =>
+                    secondSizeValue.length > 0
+                      ? e.toLowerCase().includes(secondSizeValue.toLowerCase())
+                      : e
+                  ).length > 0 ? (
+                    product.secondSizes
+                      .filter((e) =>
+                        secondSizeValue.length > 0
+                          ? e
+                              .toLowerCase()
+                              .includes(secondSizeValue.toLowerCase())
+                          : e
+                      )
+                      .map((secondSize) => (
+                        <Button
+                          asChild
+                          key={secondSize}
+                          variant="outline"
+                          className={`${
+                            second === secondSize && "border-orange-text"
+                          }`}
+                        >
+                          <Link
+                            className="hover:underline w-full"
+                            href={thirdNavLink(secondSize)}
+                          >
+                            {secondSize.replace("mm", " мм")}
+                          </Link>
+                        </Button>
+                      ))
+                  ) : (
+                    <p className="py-3">Ничего не найдено.</p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+          {product.thirdTypeOfSize && (
+            <>
+              <Separator className="my-4" />
+              <div
+                key={product.id}
+                className="flex flex-col w-full justify-start items-start gap-2"
+              >
+                <div className="relative">
+                  <Search className="absolute top-3 w-4 h-4 left-2" />
+                  <Input
+                    placeholder={product.thirdTypeOfSize}
+                    onChange={(e) => setThirdSizeValue(e.target.value)}
+                    className="max-w-[200px] pl-7"
+                  />
+                </div>
+                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                  {product.thirdSizes.filter((e) =>
+                    thirdSizeValue.length > 0
+                      ? e.toLowerCase().includes(thirdSizeValue.toLowerCase())
+                      : e
+                  ).length > 0 ? (
+                    product.thirdSizes
+                      .filter((e) =>
+                        thirdSizeValue.length > 0
+                          ? e
+                              .toLowerCase()
+                              .includes(thirdSizeValue.toLowerCase())
+                          : e
+                      )
+                      .map((thirdSize) => (
+                        <Button
+                          asChild
+                          key={thirdSize}
+                          variant="outline"
+                          className={`${
+                            third === thirdSize && "border-orange-text"
+                          }`}
+                        >
+                          <Link
+                            className="hover:underline w-full"
+                            href={forthNavLink(thirdSize)}
+                          >
+                            {thirdSize.replace("mm", " мм")}
+                          </Link>
+                        </Button>
+                      ))
+                  ) : (
+                    <p className="py-3">Ничего не найдено.</p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+          {product.forthTypeOfSize && (
+            <>
+              <Separator className="my-4" />
+              <div
+                key={product.id}
+                className="flex flex-col w-full justify-start items-start gap-2"
+              >
+                <div className="relative">
+                  <Search className="absolute top-3 w-4 h-4 left-2" />
+                  <Input
+                    placeholder={product.forthTypeOfSize}
+                    onChange={(e) => setForthSizeValue(e.target.value)}
+                    className="max-w-[200px] pl-7"
+                  />
+                </div>
+                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                  {product.forthSizes.filter((e) =>
+                    forthSizeValue.length > 0
+                      ? e.toLowerCase().includes(forthSizeValue.toLowerCase())
+                      : e
+                  ).length > 0 ? (
+                    product.forthSizes
+                      .filter((e) =>
+                        forthSizeValue.length > 0
+                          ? e
+                              .toLowerCase()
+                              .includes(forthSizeValue.toLowerCase())
+                          : e
+                      )
+                      .map((forthSize) => (
+                        <Button
+                          asChild
+                          key={forthSize}
+                          variant="outline"
+                          className={`${
+                            forth === forthSize && "border-orange-text"
+                          }`}
+                        >
+                          <Link
+                            className="hover:underline w-full"
+                            href={fifthNavLink(forthSize)}
+                          >
+                            {forthSize.replace("mm", " мм")}
+                          </Link>
+                        </Button>
+                      ))
+                  ) : (
+                    <p className="py-3">Ничего не найдено.</p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+          {product.fifthtypeOfSize && (
+            <>
+              <Separator className="my-4" />
+              <div
+                key={product.id}
+                className="flex flex-col w-full justify-start items-start gap-2"
+              >
+                <div className="relative">
+                  <Search className="absolute top-3 w-4 h-4 left-2" />
+                  <Input
+                    placeholder={product.fifthtypeOfSize}
+                    onChange={(e) => setFifthSizeValue(e.target.value)}
+                    className="max-w-[200px] pl-7"
+                  />
+                </div>
+                <div className="flex gap-2 w-full overflow-x-auto max-w-[550px] pb-2">
+                  {product.fifthSizes.filter((e) =>
+                    fifthSizeValue.length > 0
+                      ? e.toLowerCase().includes(fifthSizeValue.toLowerCase())
+                      : e
+                  ).length > 0 ? (
+                    product.fifthSizes
+                      .filter((e) =>
+                        fifthSizeValue.length > 0
+                          ? e
+                              .toLowerCase()
+                              .includes(fifthSizeValue.toLowerCase())
+                          : e
+                      )
+                      .map((fifthSize) => (
+                        <Button
+                          asChild
+                          key={fifthSize}
+                          variant="outline"
+                          className={`${
+                            fifth === fifthSize && "border-orange-text"
+                          }`}
+                        >
+                          <Link
+                            className="hover:underline w-full"
+                            href={sixthNavLink(fifthSize)}
+                          >
+                            {fifthSize.replace("mm", " мм")}
+                          </Link>
+                        </Button>
+                      ))
+                  ) : (
+                    <p className="py-3">Ничего не найдено.</p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      ))}
+    </div>
   );
 };
 

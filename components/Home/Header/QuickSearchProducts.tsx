@@ -69,7 +69,11 @@ export const QuickSearchProducts = ({
         </>
       ) : (
         filteredProducts?.map((item, index) => (
-          <div key={index} className="flex text-black gap-2">
+          <Link
+            key={index}
+            href={`/moscow/catalog/${item.type}/${item.category}/${item.variety}`}
+            className="text-sm flex text-black gap-2"
+          >
             <Image
               className="rounded-md"
               src={`/${item.image}.png`}
@@ -77,15 +81,8 @@ export const QuickSearchProducts = ({
               height={100}
               alt={item.label[0]}
             />
-            <div className="flex flex-col justify-between">
-              <Link
-                href={`/moscow/catalog/${item.type}/${item.category}/${item.variety}`}
-                className="text-sm"
-              >
-                {item.label[0]}
-              </Link>
-            </div>
-          </div>
+            <div className="flex flex-col justify-between">{item.label[0]}</div>
+          </Link>
         ))
       )}
     </div>
