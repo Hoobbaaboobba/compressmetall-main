@@ -3,13 +3,14 @@
 import useLocationModal from "@/hooks/useLocationModal";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
-import { Product } from "@prisma/client";
-import Link from "next/link";
+import { useEffect, useRef, useState, useTransition } from "react";
+import { QuickSearchProducts } from "./QuickSearchProducts";
+import { Search as SearchIcon } from "lucide-react";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  // const [quickSearch, setQuickSearch] = useState(false);
+  const [isSuggestions, setSuggestions] = useState(false);
+
   const params = useSearchParams();
   const query = params.get("query") || "";
   const router = useRouter();
@@ -21,37 +22,38 @@ const Search = () => {
     router.push(`/${link}/search?query=${searchQuery}`);
   };
 
-  // const results = products.filter((entry) =>
-  //   entry.label.some((label) =>
-  //     label.toLowerCase().includes(query.toLowerCase())
-  //   )
-  // );
+  const handleClickOnSearch = () => {
+    setSuggestions(true);
+  };
+
+  const handleSearchBlur = () => {
+    setTimeout(() => {
+      setSuggestions(false);
+    }, 100);
+  };
 
   return (
     <form
       onSubmit={onSearch}
-      className="border relative border-orange-bg max-w-[500px] w-full flex justify-between items-center"
+      className="border rounded-md relative border-orange-bg max-w-[500px] w-full flex gap-2 justify-between items-center"
     >
-      <SearchOutlinedIcon className="text-gray-bg opacity-50 mx-2" />
+      <SearchIcon className="w-5 h-5 text-gray-bg ml-2" />
       <input
         type="search"
+        onFocus={handleClickOnSearch}
+        onBlur={handleSearchBlur}
         defaultValue={query || ""}
         onChange={(event) => setSearchQuery(event.target.value)}
         placeholder="Поиск по наименованию или коду товара"
         className="text-gray-bg opacity-80 w-full outline-none pr-2"
       />
-      <button type="submit" className="bg-orange-bg h-full py-2 px-4">
+      <button
+        type="submit"
+        className="bg-orange-bg rounded-r-md h-full py-2 px-4"
+      >
         Найти
       </button>
-      {/* <div
-        className={`${
-          quickSearch ? "flex" : "hidden"
-        } w-full h-[300px] border bg-white absolute top-[50px] z-50 shadow-md`}
-      >
-        {products.map((link) => (
-          <Link href="/">{link.label}</Link>
-        ))}
-      </div> */}
+      {isSuggestions && <QuickSearchProducts searchValue={searchQuery} />}
     </form>
   );
 };
