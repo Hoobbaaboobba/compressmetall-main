@@ -132,7 +132,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             <ShowButtonPrice />
           </div>
         </div>
-        <div className="w-full flex justify-center items-center sticky top-[137px] right-0">
+        <div className="w-full flex justify-center items-center lg:sticky top-[137px] right-0">
           <ImageDialog
             width={462}
             height={641}
