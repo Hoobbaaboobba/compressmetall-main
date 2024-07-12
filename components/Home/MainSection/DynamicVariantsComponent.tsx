@@ -97,13 +97,16 @@ const DynamicVariantsComponent = ({
         </TableCell>
       )}
       <TableCell className="md:font-medium text-md md:flex justify-end items-center">
-        <div className="w-full flex justify-center items-center">
+        <Link
+          href={navlink}
+          className="w-full flex justify-center items-center"
+        >
           <OrangeButton label={"Подробнее"} mark />
-        </div>
+        </Link>
       </TableCell>
       <Link
         href={navlink}
-        className="absolute top-0 left-0 w-full h-full"
+        className="absolute top-0 left-0 w-full h-[68px]"
       ></Link>
     </TableRow>
   );
