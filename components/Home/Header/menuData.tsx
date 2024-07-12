@@ -397,6 +397,12 @@ export const menuCatalog = [
         metaData: "Прокат",
       },
       {
+        title: "Сетка",
+        link: "cherniy-prokat/setka",
+        img: "armaturaCatalog",
+        metaData: "Прокат",
+      },
+      {
         title: "Балка",
         link: "cherniy-prokat/beam",
         img: "beamCatalog",
