@@ -178,7 +178,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             {" "}
             +7 (495) 116-66-86
           </a>
-          , менеджеры с удовольствием помогут Вам с выбором
+          , менеджеры с удовольствием помогут Вам с выбором.
         </p>
       </div>
     </div>
