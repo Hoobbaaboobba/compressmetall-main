@@ -25,6 +25,35 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     params.variant
   );
 
+  const marka = decodeURI(params.id)
+    .replace(".", ",")
+    .replace("|", "/")
+    .replace("[", "/")
+    .replaceAll("%2C", ".");
+
+  const firstSize = decodeURI(
+    params.size.replace("mm", " мм").replace(".", ",").replaceAll("%2B", "+")
+  );
+
+  const secondSize = searchParams.secondsize
+    ?.toString()
+    .replace("mm", " мм")
+    .replaceAll(".", ",");
+  const thirdSize = searchParams.thirdsize
+    ?.toString()
+    .replace("mm", " мм")
+    .replaceAll(".", ",");
+
+  const forthSize = searchParams.forthsize
+    ?.toString()
+    .replace("mm", " мм")
+    .replaceAll(".", ",");
+
+  const fifthSize = searchParams.fifthsize
+    ?.toString()
+    .replace("mm", " мм")
+    .replaceAll(".", ",");
+
   return (
     <div className="max-w-[1300px] flex flex-col gap-4">
       <div className="relative w-full mt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
@@ -44,66 +73,34 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             <ul className="flex h-full w-full flex-col gap-2 mt-4">
               <li className="flex">
                 <span className="dash">Марка</span>
-                <span className="order-2">
-                  {decodeURI(params.id)
-                    .replace(".", ",")
-                    .replace("|", "/")
-                    .replace("[", "/")}
-                </span>
+                <span className="order-2">{marka}</span>
               </li>
               <li className="flex">
                 <span className="dash">{products[0].firstTypeOfSize}</span>
-                <span className="order-2">
-                  {decodeURI(
-                    params.size
-                      .replace("mm", " мм")
-                      .replace(".", ",")
-                      .replace("%2B", "+")
-                  )}
-                </span>
+                <span className="order-2">{firstSize}</span>
               </li>
               {searchParams.secondsize && (
                 <li className="flex">
                   <span className="dash">{products[0].secondTypeOfSize}</span>
-                  <span className="order-2">
-                    {searchParams.secondsize
-                      .toString()
-                      .replace("mm", " мм")
-                      .replace(".", ",")}
-                  </span>
+                  <span className="order-2">{secondSize}</span>
                 </li>
               )}
               {searchParams.thirdsize && (
                 <li className="flex">
                   <span className="dash">{products[0].thirdTypeOfSize}</span>
-                  <span className="order-2">
-                    {searchParams.thirdsize
-                      .toString()
-                      .replace("mm", " мм")
-                      .replace(".", ",")}
-                  </span>
+                  <span className="order-2">{thirdSize}</span>
                 </li>
               )}
               {searchParams.forthsize && (
                 <li className="flex">
                   <span className="dash">{products[0].forthTypeOfSize}</span>
-                  <span className="order-2">
-                    {searchParams.forthsize
-                      .toString()
-                      .replace("mm", " мм")
-                      .replace(".", ",")}
-                  </span>
+                  <span className="order-2">{forthSize}</span>
                 </li>
               )}
               {searchParams.fifthsize && (
                 <li className="flex">
                   <span className="dash">{products[0].fifthtypeOfSize}</span>
-                  <span className="order-2">
-                    {searchParams.fifthsize
-                      .toString()
-                      .replace("mm", " мм")
-                      .replace(".", ",")}
-                  </span>
+                  <span className="order-2">{fifthSize}</span>
                 </li>
               )}
               <li className="flex">
@@ -159,7 +156,30 @@ export default async function DynamicPage({ params, searchParams }: Props) {
           </h1>
           <div className="bg-black h-[5px] w-[80px] mt-4"></div>
         </div>
-        <p className="text-black">{products[0].description}</p>
+        <p className="text-black">
+          <strong>
+            {`${searchParams.label} ${marka} ${firstSize} ${secondSize || ""} ${
+              thirdSize || ""
+            } ${forthSize || ""} ${fifthSize || ""}| `}
+          </strong>
+          {products[0].description.replaceAll("#", "").replaceAll("*", "")} |
+          Возможны нестандартные заказы, купить{" "}
+          <strong>{searchParams.label}</strong> можно в компании{" "}
+          <strong>«Компресс металл»</strong> со склада, для заявки отправьте
+          заявку по почте{" "}
+          <a
+            href="mainto:zakaz@kometal.ru"
+            className="font-bold hover:underline"
+          >
+            zakaz@kometal.ru
+          </a>{" "}
+          или позвоните по телефону
+          <a href="tel:+74951166686" className="font-bold hover:underline">
+            {" "}
+            +7 (495) 116-66-86
+          </a>
+          , менеджеры с удовольствием помогут Вам с выбором
+        </p>
       </div>
     </div>
   );
