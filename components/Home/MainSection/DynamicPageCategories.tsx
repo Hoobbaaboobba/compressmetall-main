@@ -11,7 +11,7 @@ export default async function DynamicPageCategories({ products }: Props) {
       {products.map((product, index) => (
         <DynamicItem
           key={index}
-          img={product.image}
+          img={product.image.toString()}
           label={""}
           sublabel={product.label[0]}
           href={product.type}

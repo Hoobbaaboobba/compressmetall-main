@@ -133,12 +133,12 @@ export default async function DynamicPage({ params, searchParams }: Props) {
           <ImageDialog
             width={462}
             height={641}
-            image={`${products[0].image}.png`}
-            title={params.id}
+            image={`${products[0].image.toString()}.png`}
+            title={decodeURI(params.id)}
           >
             <Image
-              src={require(`../../../public/${products[0].image}.png`)}
-              alt={params.id}
+              src={require(`../../../public/${products[0].image.toString()}.png`)}
+              alt={decodeURI(params.id)}
               width={500}
               height={400}
               priority

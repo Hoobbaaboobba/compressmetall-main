@@ -9,6 +9,7 @@ import OrangeButton from "@/components/OrangeButton";
 import { addresses } from "@/addresses";
 import { usePathname } from "next/navigation";
 import useRequestModal from "@/hooks/useRequestModal";
+import React from "react";
 
 const OurContacts = () => {
   const { onOpen, setDefaultValue } = useRequestModal();
@@ -34,7 +35,7 @@ const OurContacts = () => {
             <div className="max-w-[350px] flex flex-col justify-center items-center xl:justify-start xl:items-start gap-4 my-4">
               {addresses.map((address) => {
                 return (
-                  <>
+                  <React.Fragment key={address.id}>
                     {pathname[1] === address.id && (
                       <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
                         <PlaceOutlinedIcon className="text-orange-bg" />
@@ -43,7 +44,7 @@ const OurContacts = () => {
                         </p>
                       </div>
                     )}
-                  </>
+                  </React.Fragment>
                 );
               })}
               {pathname[1] === "" && (

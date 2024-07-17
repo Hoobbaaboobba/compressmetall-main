@@ -7,6 +7,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import { usePathname } from "next/navigation";
 import { addresses } from "@/addresses";
+import React from "react";
 
 const company = [
   {
@@ -133,14 +134,14 @@ const Footer = () => {
           <div className="max-w-[350px] flex flex-col justify-start items-start gap-4">
             {addresses.map((address) => {
               return (
-                <>
+                <React.Fragment key={address.id}>
                   {pathname[1] === address.id && (
                     <div className="flex w-full flex-col text-center md:text-start md:flex-row gap-2 md:gap-4 justify-start items-center">
                       <PlaceOutlinedIcon className="text-orange-bg" />
                       <p>{address.address}</p>
                     </div>
                   )}
-                </>
+                </React.Fragment>
               );
             })}
             {pathname[1] === "" && (
