@@ -16,19 +16,19 @@ import {
 
 interface ParamsProps {
   products: Product[];
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | string[] | undefined } | undefined;
 }
 
 const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
   const pathname = usePathname().split("/");
   // const searchParams = useSearchParams();
-  const labelQuery = (searchParams[0] as string) || "";
-  const markaQuery = (searchParams[1] as string) || "";
-  const sizeQuery = (searchParams[2] as string) || "";
-  const secondSizeQuery = (searchParams[3] as string) || "";
-  const thirdSizeQuery = (searchParams[4] as string) || "";
-  const forthSizeQuery = (searchParams[5] as string) || "";
-  const fifthSizeQuery = (searchParams[6] as string) || "";
+  const labelQuery = (searchParams && (searchParams[0] as string)) || "";
+  const markaQuery = (searchParams && (searchParams[1] as string)) || "";
+  const sizeQuery = (searchParams && (searchParams[2] as string)) || "";
+  const secondSizeQuery = (searchParams && (searchParams[3] as string)) || "";
+  const thirdSizeQuery = (searchParams && (searchParams[4] as string)) || "";
+  const forthSizeQuery = (searchParams && (searchParams[5] as string)) || "";
+  const fifthSizeQuery = (searchParams && (searchParams[6] as string)) || "";
 
   const filters = [
     {

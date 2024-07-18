@@ -15,7 +15,17 @@ type Props = {
     id: string;
     size: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+type Params = {
+  params: {
+    type: string;
+    category: string;
+    variant: string;
+    id: string;
+    size: string;
+  };
 };
 
 export async function generateMetadata(
@@ -56,19 +66,19 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams({ params, searchParams }: Props) {
-  const products = await getProducts(
-    params.type,
-    params.category,
-    params.variant
-  );
+// export async function generateStaticParams({ params, searchParams }: Props) {
+//   const products = await getProducts(
+//     params.type,
+//     params.category,
+//     params.variant
+//   );
 
-  return products.map((product) => ({
-    type: product.type,
-    category: product.category,
-    variant: product.variety,
-  }));
-}
+//   return products.map((product) => ({
+//     type: product.type,
+//     category: product.category,
+//     variant: product.variety,
+//   }));
+// }
 
 export default async function MetalPage({ params, searchParams }: Props) {
   const products: Product[] = await getProducts(
