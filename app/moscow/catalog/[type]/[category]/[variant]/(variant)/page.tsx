@@ -56,7 +56,7 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams({ params }: Props) {
+export async function generateStaticParams({ params, searchParams }: Props) {
   const products = await getProducts(
     params.type,
     params.category,
