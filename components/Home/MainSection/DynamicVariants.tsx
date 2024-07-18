@@ -20,8 +20,6 @@ interface ParamsProps {
 }
 
 const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
-  const pathname = usePathname().split("/");
-  // const searchParams = useSearchParams();
   const labelQuery = (searchParams && (searchParams[0] as string)) || "";
   const markaQuery = (searchParams && (searchParams[1] as string)) || "";
   const sizeQuery = (searchParams && (searchParams[2] as string)) || "";
@@ -122,7 +120,6 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
                   filterProductByForthSises().map((forth) =>
                     filterProductByFifthSises().map((fifth) => (
                       <DynamicVariantsComponent
-                        pathname={pathname[1] || "moscow"}
                         marka={marka}
                         size={first}
                         label={label}
@@ -144,7 +141,6 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
                 filterProductByThirdSises().map((third) =>
                   filterProductByForthSises().map((forth) => (
                     <DynamicVariantsComponent
-                      pathname={pathname[1] || "moscow"}
                       marka={marka}
                       size={first}
                       label={label}
@@ -164,7 +160,6 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
             filterProductBySecondSises().map((second) =>
               filterProductByThirdSises().map((third) => (
                 <DynamicVariantsComponent
-                  pathname={pathname[1] || "moscow"}
                   marka={marka}
                   size={first}
                   label={label}
@@ -181,7 +176,6 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
         return filterProductsByFirstSizes().map((first) =>
           filterProductBySecondSises().map((second) => (
             <DynamicVariantsComponent
-              pathname={pathname[1] || "moscow"}
               marka={marka}
               size={first}
               label={label}
@@ -195,7 +189,6 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
     } else {
       return filterProductsByFirstSizes().map((first) => (
         <DynamicVariantsComponent
-          pathname={pathname[1] || "moscow"}
           marka={marka}
           size={first}
           label={label}

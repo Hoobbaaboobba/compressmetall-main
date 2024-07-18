@@ -1,11 +1,9 @@
 import OrangeButton from "@/components/OrangeButton";
 import { Product } from "@prisma/client";
 import { TableCell, TableRow } from "@/components/ui/table";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import ProductLink from "../ProductLink";
 
 interface Props {
-  pathname: string;
   marka: string;
   size: string;
   label: string;
@@ -18,7 +16,6 @@ interface Props {
 }
 
 const DynamicVariantsComponent = ({
-  pathname,
   marka,
   size,
   label,
@@ -29,42 +26,6 @@ const DynamicVariantsComponent = ({
   forth,
   fifth,
 }: Props) => {
-  let navlink;
-
-  if (!second) {
-    navlink = `/${pathname}/catalog/${products[0].type}/${
-      products[0].category
-    }/${products[0].variety}/${marka.replace("/", "[")}/${size}?label=${label}`;
-  } else if (!third) {
-    navlink = `/${pathname}/catalog/${products[0].type}/${
-      products[0].category
-    }/${products[0].variety}/${marka.replace(
-      "/",
-      "["
-    )}/${size}?label=${label}&secondsize=${second}`;
-  } else if (!forth) {
-    navlink = `/${pathname}/catalog/${products[0].type}/${
-      products[0].category
-    }/${products[0].variety}/${marka.replace(
-      "/",
-      "["
-    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}`;
-  } else if (!fifth) {
-    navlink = `/${pathname}/catalog/${products[0].type}/${
-      products[0].category
-    }/${products[0].variety}/${marka.replace(
-      "/",
-      "["
-    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}`;
-  } else {
-    navlink = `/${pathname}/catalog/${products[0].type}/${
-      products[0].category
-    }/${products[0].variety}/${marka.replace(
-      "/",
-      "["
-    )}/${size}?label=${label}&secondsize=${second}&thirdsize=${third}&forthsize=${forth}&fifthsize=${fifth}`;
-  }
-
   return (
     <TableRow className="w-full relative cursor-pointer">
       <TableCell className="md:font-medium text-md md:text-lg">
@@ -97,17 +58,21 @@ const DynamicVariantsComponent = ({
         </TableCell>
       )}
       <TableCell className="md:font-medium text-md md:flex justify-end items-center">
-        <Link
-          href={navlink}
-          className="w-full flex justify-center items-center"
+        <ProductLink
+          marka={marka}
+          size={size}
+          label={label}
+          products={products}
         >
           <OrangeButton label={"Подробнее"} mark />
-        </Link>
+        </ProductLink>
       </TableCell>
-      <Link
-        href={navlink}
-        className="absolute top-0 left-0 w-full h-[68px]"
-      ></Link>
+      <ProductLink
+        marka={marka}
+        size={size}
+        label={label}
+        products={products}
+      />
     </TableRow>
   );
 };
