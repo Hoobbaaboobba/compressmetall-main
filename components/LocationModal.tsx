@@ -157,9 +157,9 @@ const LocationModal = () => {
               changeLoc ? "flex" : "hidden"
             } flex-col w-full justify-center items-center p-[20px]`}
           >
-            <h1 className="font-bold text-2xl text-center">
+            <p className="font-bold text-2xl text-center">
               Мы работаем в следующих городах:
-            </h1>
+            </p>
             <ul className="flex flex-col w-full justify-center items-center p-[10px]">
               {cities.map((city) => (
                 <Link
