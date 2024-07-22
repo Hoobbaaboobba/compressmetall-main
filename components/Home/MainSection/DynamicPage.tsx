@@ -31,14 +31,43 @@ export default async function DynamicPage({ params, searchParams }: Props) {
   );
 
   if (searchParams && typeof searchParams.label === "string") {
-    const filteredProducts = products.filter((product) =>
-      product.label
-        .toString()
-        .toLowerCase()
-        .includes(searchParams.label!.toString().toLowerCase())
-    );
-
-    if (filteredProducts.length === 0) {
+    if (products[0].label.toString() !== searchParams.label) {
+      return notFound();
+    } else if (
+      searchParams.secondsize &&
+      products[0].secondSizes.find(
+        (size) => size === searchParams.secondsize
+      ) === undefined
+    ) {
+      return notFound();
+    } else if (
+      searchParams.thirdsize &&
+      products[0].thirdSizes.find((size) => size === searchParams.thirdsize) ===
+        undefined
+    ) {
+      return notFound();
+    } else if (
+      searchParams.forthsize &&
+      products[0].forthSizes.find((size) => size === searchParams.forthsize) ===
+        undefined
+    ) {
+      return notFound();
+    } else if (
+      searchParams.fifthsize &&
+      products[0].fifthSizes.find((size) => size === searchParams.fifthsize) ===
+        undefined
+    ) {
+      return notFound();
+    } else if (
+      products[0].sizes.filter(
+        (size) => size === decodeURIComponent(params.size)
+      ).length === 0
+    ) {
+      return notFound();
+    } else if (
+      products[0].marks.filter((mark) => mark === decodeURIComponent(params.id))
+        .length === 0
+    ) {
       return notFound();
     }
   }

@@ -62,6 +62,10 @@ const DynamicVariantsComponent = ({
           marka={marka}
           size={size}
           label={label}
+          second={second}
+          third={third}
+          forth={forth}
+          fifth={fifth}
           products={products}
         >
           <OrangeButton label={"Подробнее"} mark />
@@ -71,6 +75,10 @@ const DynamicVariantsComponent = ({
         marka={marka}
         size={size}
         label={label}
+        second={second}
+        third={third}
+        forth={forth}
+        fifth={fifth}
         products={products}
       />
     </TableRow>

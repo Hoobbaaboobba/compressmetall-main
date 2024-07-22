@@ -1,6 +1,3 @@
-"use client";
-
-import { usePathname, useSearchParams } from "next/navigation";
 import DynamicVariantsSelector from "./DynamicVariantsSelector";
 import HyperLinks from "./HyperLinks";
 import DynamicVariantsComponent from "./DynamicVariantsComponent";

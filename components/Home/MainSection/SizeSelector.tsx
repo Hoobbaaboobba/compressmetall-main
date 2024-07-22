@@ -163,7 +163,7 @@ const SizeSelector = ({
   };
 
   return (
-    <div className="mt-8 flex flex-col justify-start items-start">
+    <div className="mt-8 flex flex-col justify-start items-start w-full">
       {products.map((product) => (
         <>
           <div
