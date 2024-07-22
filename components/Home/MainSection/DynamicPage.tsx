@@ -6,6 +6,7 @@ import { ImageDialog } from "@/components/AboutCompany/Blagodarnosti/ImageDialog
 import HyperLinks from "./HyperLinks";
 import { Badge } from "@/components/ui/badge";
 import { searchProducts } from "@/actions/searchProducts";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -19,11 +20,28 @@ type Props = {
 };
 
 export default async function DynamicPage({ params, searchParams }: Props) {
+  if (searchParams.label === undefined || searchParams.label === "null") {
+    return notFound();
+  }
+
   const products = await getProducts(
     params.type,
     params.category,
     params.variant
   );
+
+  if (searchParams && typeof searchParams.label === "string") {
+    const filteredProducts = products.filter((product) =>
+      product.label
+        .toString()
+        .toLowerCase()
+        .includes(searchParams.label!.toString().toLowerCase())
+    );
+
+    if (filteredProducts.length === 0) {
+      return notFound();
+    }
+  }
 
   const marka = decodeURI(params.id)
     .replace(".", ",")
