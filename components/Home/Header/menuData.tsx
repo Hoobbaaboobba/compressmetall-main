@@ -52,6 +52,12 @@ export const menuCatalog = [
         img: "leadImg",
         metaData: "Свинцовый Прокат купить",
       },
+      {
+        title: "Никель",
+        link: "tsvetnoi-prokat/nikel",
+        img: "leadImg",
+        metaData: "Никелевый Прокат купить",
+      },
     ],
   },
   {
@@ -396,12 +402,12 @@ export const menuCatalog = [
         img: "armaturaCatalog",
         metaData: "Прокат",
       },
-      {
-        title: "Сетка",
-        link: "cherniy-prokat/setka",
-        img: "armaturaCatalog",
-        metaData: "Прокат",
-      },
+      // {
+      //   title: "Сетка",
+      //   link: "cherniy-prokat/setka",
+      //   img: "armaturaCatalog",
+      //   metaData: "Прокат",
+      // },
       {
         title: "Балка",
         link: "cherniy-prokat/beam",

@@ -35,26 +35,26 @@ const DynamicVariantsComponent = ({
         {marka}
       </TableCell>
       <TableCell className="md:font-medium text-md md:text-lg">
-        {first.replace("mm", " мм")}
+        {first.replaceAll("mm", " мм")}
       </TableCell>
       {second && (
         <TableCell className="md:font-medium text-md md:text-lg">
-          {second.replace("mm", " мм")}
+          {second.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {third && (
         <TableCell className="md:font-medium text-md md:text-lg">
-          {third.replace("mm", " мм")}
+          {third.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {forth && (
         <TableCell className="md:font-medium text-md md:text-lg">
-          {forth.replace("mm", " мм")}
+          {forth.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {fifth && (
         <TableCell className="md:font-medium text-md md:text-lg">
-          {fifth.replace("mm", " мм")}
+          {fifth.replaceAll("mm", " мм")}
         </TableCell>
       )}
       <TableCell className="md:font-medium text-md md:flex justify-end items-center">

@@ -226,9 +226,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
             <TableCell className="font-medium">Наименования</TableCell>
             <TableCell className="font-medium">Марки</TableCell>
             {filters.map(
-              (filter) =>
+              (filter, index) =>
                 filter.filterTitle && (
-                  <TableCell>{filter.filterTitle}</TableCell>
+                  <TableCell key={index}>{filter.filterTitle}</TableCell>
                 )
             )}
             <TableCell className="font-medium"></TableCell>

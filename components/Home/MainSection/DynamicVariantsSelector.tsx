@@ -100,9 +100,10 @@ const DynamicVariantsSelector = ({
         <SheetContent className="flex flex-col justify-between items-center">
           <div className="w-full flex flex-col gap-4 justify-center items-center">
             {filtersArray.map(
-              (filter) =>
+              (filter, index) =>
                 filter.label && (
                   <FilterSelector
+                    key={index}
                     data={filter.data}
                     label={filter.label}
                     emptyLabel={filter.emptyLabel}
@@ -136,9 +137,10 @@ const DynamicVariantsSelector = ({
       </Sheet>
       <div className="hidden md:flex bg-white left-0 w-full gap-2 justify-start items-center overflow-x-auto">
         {filtersArray.map(
-          (filter) =>
+          (filter, index) =>
             filter.label && (
               <FilterSelector
+                key={index}
                 data={filter.data}
                 label={filter.label}
                 emptyLabel={filter.emptyLabel}

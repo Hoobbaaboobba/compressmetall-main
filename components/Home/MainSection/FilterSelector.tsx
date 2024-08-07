@@ -86,7 +86,7 @@ const FilterSelector = ({
                     item === query ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {item?.replace("mm", " мм")}
+                {item?.replaceAll("mm", " мм")}
               </CommandItem>
             ))}
           </CommandGroup>
