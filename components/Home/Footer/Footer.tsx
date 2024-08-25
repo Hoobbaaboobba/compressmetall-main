@@ -167,7 +167,7 @@ const Footer = () => {
       <hr className="w-full bg-white my-4 opacity-50" />
       <div>
         <h3 className="text-white font-md text-md opacity-70">
-          ©2024 Все права защищены
+          © 2024 Все права защищены. Цены на сайте не являются публичной офертой.
         </h3>
       </div>
     </footer>

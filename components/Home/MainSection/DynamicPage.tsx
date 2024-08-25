@@ -7,6 +7,7 @@ import HyperLinks from "./HyperLinks";
 import { Badge } from "@/components/ui/badge";
 import { searchProducts } from "@/actions/searchProducts";
 import { notFound } from "next/navigation";
+import { ImageLoader } from "./ImageLoader";
 
 type Props = {
   params: {
@@ -29,6 +30,10 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     params.category,
     params.variant
   );
+
+  const imageLoader = ({ src, width, quality }: any) => {
+    return `https://www.kometal.ru${src}?w=${width}&q=${quality || 75}`;
+  };
 
   if (searchParams && typeof searchParams.label === "string") {
     if (products[0].label.toString() !== searchParams.label) {
@@ -177,22 +182,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
           </div>
         </div>
         <div className="w-full flex justify-center items-center lg:sticky top-[137px] right-0">
-          <ImageDialog
-            width={462}
-            height={641}
-            image={`${products[0].image.toString()}.png`}
-            title={decodeURI(params.id)}
-          >
-            <Image
-              src={require(`../../../public/${products[0].image.toString()}.png`)}
-              alt={decodeURI(params.id)}
-              width={500}
-              height={400}
-              priority
-              className="border border-light-gray rounded-md lg:hover:shadow-md transition cursor-zoom-in mt-4"
-              placeholder="blur"
-            />
-          </ImageDialog>
+          <ImageLoader src={require(`../../../public/${products[0].image.toString()}.png`)} title={decodeURI(params.id)}/>
         </div>
       </div>
       {/* <hr className="border border-light-gray my-2" /> */}

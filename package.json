@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS=\"--max_old_space_size=4096\" next dev",
     "build": "NODE_OPTIONS=\"--max_old_space_size=4096\" next build",
     "start": "next start",
     "lint": "next lint",
@@ -18,7 +18,7 @@
     "@next/third-parties": "^14.1.0",
     "@pbe/react-yandex-maps": "^1.2.4",
     "@prisma/client": "^5.9.1",
-    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
