@@ -31,10 +31,6 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     params.variant
   );
 
-  const imageLoader = ({ src, width, quality }: any) => {
-    return `https://www.kometal.ru${src}?w=${width}&q=${quality || 75}`;
-  };
-
   if (searchParams && typeof searchParams.label === "string") {
     if (products[0].label.toString() !== searchParams.label) {
       return notFound();
@@ -108,7 +104,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
 
   return (
     <div className="max-w-[1300px] flex flex-col gap-4">
-      <div className="relative w-full mt-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
+      <div className="relative w-full mt-4 gap-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
         <div className="w-full h-full flex flex-col justify-center items-start pt-4">
           <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-start sm:items-start w-full">
             <HyperLinks
@@ -181,9 +177,22 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             <ShowButtonPrice />
           </div>
         </div>
-        <div className="w-full flex justify-center items-center lg:sticky top-[137px] right-0">
-          <ImageLoader src={require(`../../../public/${products[0].image.toString()}.png`)} title={decodeURI(params.id)}/>
-        </div>
+        <ImageDialog
+          width={462}
+          height={641}
+          image={`${products[0].image.toString()}.png`}
+          title={decodeURI(params.id)}
+        >
+          <Image
+            src={require(`../../../public/${products[0].image.toString()}.png`)}
+            alt={decodeURI(params.id)}
+            width={500}
+            height={400}
+            priority
+            className="border border-light-gray rounded-md lg:hover:shadow-md transition cursor-zoom-in mt-4"
+            placeholder="blur"
+          />
+        </ImageDialog>
       </div>
       {/* <hr className="border border-light-gray my-2" /> */}
       <div className="w-full px-6 xl:px-12 mt-4">
