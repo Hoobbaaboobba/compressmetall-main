@@ -1,7 +1,6 @@
 import Header from "../components/Home/Header/Header";
 import Footer from "../components/Home/Footer/Footer";
 import "./globals.css";
-import ViewCatalog from "../components/ViewCatalog";
 import OurMetal from "../components/Home/OurMetal/OurMetal";
 import OurServices from "../components/Home/OurServices/OurServices";
 import BuyMetal from "../components/Home/BuyMetal/BuyMetal";
@@ -18,7 +17,6 @@ import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
 
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function RootLayout({
