@@ -9,6 +9,7 @@ import Reviews from "../components/Home/Reviews/Reviews";
 import GoToTop from "../components/Catalog/GoToTop";
 import Script from "next/script";
 import { Suspense } from "react";
+import ViewCatalog from "../components/ViewCatalog";
 import LocationModal from "@/components/LocationModal";
 import Request from "../components/Requests/Request";
 import Call from "@/components/Requests/Call";
@@ -16,6 +17,7 @@ import Price from "@/components/Requests/Price";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { Analytics } from "@vercel/analytics/react";
 import LoadingScreen from "@/components/LoadingScreen";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Toaster } from "@/components/ui/toaster";
 
