@@ -37,11 +37,10 @@ const DynamicItem = ({
       />
       <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-3 rounded-lg">
         <Image
-          src={require(`../../../public/${img}.png`)}
+          src={`/${img}.png`}
           alt={label}
           width={160}
           height={128}
-          placeholder="blur"
         />
         <h3 className="text-sm">{sublabel}</h3>
         <OrangeButton label={"Подробнее"} mark />
