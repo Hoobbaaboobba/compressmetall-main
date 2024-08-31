@@ -31,31 +31,35 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     params.variant
   );
 
-  if (searchParams && typeof searchParams.label === "string") {
-    if (products[0].label.toString() !== searchParams.label) {
-      return notFound();
+    if (products[0].label.toString() !== searchParams.label as string) {
+      return (
+          <div>
+            <p>{searchParams.label}</p>
+            <p>{products[0].label.toString()}</p>
+          </div>
+        )
     } else if (
       searchParams.secondsize &&
       products[0].secondSizes.find(
-        (size) => size === searchParams.secondsize
+        (size) => size === decodeURIComponent(searchParams.secondsize as string)
       ) === undefined
     ) {
       return notFound();
     } else if (
       searchParams.thirdsize &&
-      products[0].thirdSizes.find((size) => size === searchParams.thirdsize) ===
+      products[0].thirdSizes.find((size) => size === decodeURIComponent(searchParams.thirdsize as string)) ===
         undefined
     ) {
       return notFound();
     } else if (
       searchParams.forthsize &&
-      products[0].forthSizes.find((size) => size === searchParams.forthsize) ===
+      products[0].forthSizes.find((size) => size === decodeURIComponent(searchParams.forthsize as string)) ===
         undefined
     ) {
       return notFound();
     } else if (
       searchParams.fifthsize &&
-      products[0].fifthSizes.find((size) => size === searchParams.fifthsize) ===
+      products[0].fifthSizes.find((size) => size === decodeURIComponent(searchParams.fifthsize as string)) ===
         undefined
     ) {
       return notFound();
@@ -71,7 +75,6 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     ) {
       return notFound();
     }
-  }
 
   const marka = decodeURI(params.id)
     .replace(".", ",")
@@ -104,7 +107,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
 
   return (
     <div className="max-w-[1300px] flex flex-col gap-4">
-      <div className="relative w-full mt-4 gap-4 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
+      <div className="relative w-full mt-4 gap-8 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
         <div className="w-full h-full flex flex-col justify-center items-start pt-4">
           <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-start sm:items-start w-full">
             <HyperLinks
@@ -177,6 +180,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             <ShowButtonPrice />
           </div>
         </div>
+        <div className="sticky top-[180px]">
         <ImageDialog
           width={462}
           height={641}
@@ -193,6 +197,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             placeholder="blur"
           />
         </ImageDialog>
+        </div>
       </div>
       {/* <hr className="border border-light-gray my-2" /> */}
       <div className="w-full px-6 xl:px-12 mt-4">
