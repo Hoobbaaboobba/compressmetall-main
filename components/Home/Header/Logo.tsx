@@ -10,6 +10,7 @@ const Logo = () => {
   return (
     <Link href={`/${link}`} onClick={setCatalog}>
       <Image src="/logo.png" alt="logo" width={135} height={68} priority />
+      kometal.ru
     </Link>
   );
 };
