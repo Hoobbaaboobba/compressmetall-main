@@ -27,8 +27,8 @@ const ViewCatalog = () => {
               <div className="hidden sm:block w-2 h-2 bg-black rounded-full"></div>
             </div>
             <div className="w-full flex justify-center sm:justify-start items-center flex-wrap gap-2">
-              {item.links.map((link) => (
-                <DrawerClose asChild>
+              {item.links.map((link, index) => (
+                <DrawerClose key={index} asChild>
                   <Button variant="outline" className="text-md" asChild>
                     <Link
                       href={`/${pathname[1] || "moscow"}/catalog/${link.link}`}

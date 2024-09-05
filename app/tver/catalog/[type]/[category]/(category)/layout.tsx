@@ -25,7 +25,8 @@ export default async function CategoryLayout({
       products={products}
       categories={categories}
       params={params}
-      children={children}
-    />
+    >
+      {children}
+    </CategoryLayoutModel>
   );
 }

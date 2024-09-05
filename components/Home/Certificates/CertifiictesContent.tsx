@@ -9,11 +9,8 @@ const CertifiictesContent = () => {
   return (
     <>
       {certificates.map((certificate, index) => (
-        <Link href={`/${certificate}`} target="_blank">
-          <div
-            key={index}
-            className="cursor-pointer w-full h-full flex flex-col items-center hover:scale-105 transition duration-200"
-          >
+        <Link key={index} href={`/${certificate}`} target="_blank">
+          <div className="cursor-pointer w-full h-full flex flex-col items-center hover:scale-105 transition duration-200">
             <Image
               src="/certificate.svg"
               alt={certificate}

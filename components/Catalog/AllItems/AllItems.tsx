@@ -32,8 +32,8 @@ const datas = [
 const AllItems = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center gap-2 relative">
-      {datas.map((data) => (
-        <PageComponent data={data.data} />
+      {datas.map((data, index) => (
+        <PageComponent key={index} data={data.data} />
       ))}
     </div>
   );

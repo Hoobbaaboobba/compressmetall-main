@@ -71,8 +71,9 @@ const HoverMenuItem: React.FC<ProductsProps> = ({ label, buttonImg, item }) => {
           <hr className="w-full my-4" />
           {item.length !== 0 ? (
             <div className={`grid grid-cols-4 gap-8`}>
-              {item.map((metal) => (
+              {item.map((metal, index) => (
                 <Link
+                  key={index}
                   onClick={() => setHover(false)}
                   href={`/${pathname[1] || "moscow"}/catalog?q=${encodeURI(
                     metal.name
@@ -164,9 +165,10 @@ const HoverMenuItem: React.FC<ProductsProps> = ({ label, buttonImg, item }) => {
               {label === "Остатки" ? (
                 <div className="">
                   <h1 className="text-xl">
-                    ООО "КОМПРЕССМЕТАЛ" предлагает к реализации невостребованные
-                    остатки металла от производства по оптовым ценам. Чтобы
-                    купить металл по сниженным ценам, ознакомьтесь с Прайсом на:
+                    ООО &quot;КОМПРЕССМЕТАЛ&quot; предлагает к реализации
+                    невостребованные остатки металла от производства по оптовым
+                    ценам. Чтобы купить металл по сниженным ценам, ознакомьтесь
+                    с Прайсом на:
                   </h1>
                   <ul className="mt-4 ml-6 flex flex-col gap-4">
                     <li className="dot">Обрезь металла;</li>

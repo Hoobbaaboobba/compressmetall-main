@@ -22,7 +22,7 @@ const SearchContent = ({ productsData }: Props) => {
     return (
       <div className="flex flex-col pt-8 gap-4">
         <h2 className="text-2xl text-center lg:text-start">
-          По запросу: <span className="font-bold">"{query}"</span>
+          По запросу: <span className="font-bold">&quot;{query}&quot;</span>
         </h2>
         <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4 py-4 px-2 sm:px-4">
           {results.map((product) => (

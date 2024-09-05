@@ -255,27 +255,28 @@ const MarkiStaliComponent = () => {
           <TypographyH2>Секреты Маркировки Стали</TypographyH2>
           <TypographyP>
             Марки углеродистой стали обыкновенного качества обозначаются буквами
-            "Ст" и цифрами "0", "1", "2", "3", к примеру, Ст0, Ст1, Ст2, Ст3
-            ("Сталь ноль, сталь один, сталь два, сталь три"). Стали качественные
-            углеродистые маркируются двухзначными числами, которые показывают и
-            определяют среднее содержание углерода в сотых долях г процента: 05;
-            08; 10; 25; 40 и так далее. Буква "Г" в марке стали указывает на
-            повышенное содержание Mn, к примеру, 14Г, 18Г и так далее. Стали
-            автоматные маркируются буквой "А", а именно: А12, А30 и так далее.
-            Инструментальные углеродистые стали маркируются буквой "У", а
-            именно: У8, У10, У12 и так далее, в данном случае цифры обозначают
-            содержание стали в десятых долях процента. Обозначение марки
-            легированной стали состоит из букв, которые указывают какие
-            компоненты входят в её состав, а также цифр, которые указывают их
-            среднее содержание.
+            &quot;Ст&quot; и цифрами &quot;0&quot;, &quot;1&quot;,
+            &quot;2&quot;, &quot;3&quot;, к примеру, Ст0, Ст1, Ст2, Ст3
+            (&quot;Сталь ноль, сталь один, сталь два, сталь три&quot;). Стали
+            качественные углеродистые маркируются двухзначными числами, которые
+            показывают и определяют среднее содержание углерода в сотых долях г
+            процента: 05; 08; 10; 25; 40 и так далее. Буква &quot;Г&quot; в
+            марке стали указывает на повышенное содержание Mn, к примеру, 14Г,
+            18Г и так далее. Стали автоматные маркируются буквой &quot;А&quot;,
+            а именно: А12, А30 и так далее. Инструментальные углеродистые стали
+            маркируются буквой &quot;У&quot;, а именно: У8, У10, У12 и так
+            далее, в данном случае цифры обозначают содержание стали в десятых
+            долях процента. Обозначение марки легированной стали состоит из
+            букв, которые указывают какие компоненты входят в её состав, а также
+            цифр, которые указывают их среднее содержание.
           </TypographyP>
         </div>
         <div className="mt-8">
           <TypographyH2>Обзозначения Химического Состава Стали</TypographyH2>
           {/* <TypographyList list={alphabet} /> */}
           <div className="w-full flex flex-wrap gap-4 mt-8 z-0">
-            {alphabet.map((item) => (
-              <TypographyInlineCode>{item}</TypographyInlineCode>
+            {alphabet.map((item, index) => (
+              <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
             ))}
           </div>
           <TypographyP>
@@ -285,9 +286,9 @@ const MarkiStaliComponent = () => {
             указывается легирующий элемент. Цифрами, следующими за буквой - его
             среднее содержание в целых еденицах. При содержании легирующего
             элемента менее 1.5 % цифры за соответствующей буквой не ставятся.
-            Буква "А" в конце обозначения марки стали указывает на то, что сталь
-            является высококачественной. Буква "Ш" обозначает особо
-            высококачественную сталь.
+            Буква &quot;А&quot; в конце обозначения марки стали указывает на то,
+            что сталь является высококачественной. Буква &quot;Ш&quot;
+            обозначает особо высококачественную сталь.
           </TypographyP>
         </div>
         <div className="mt-16">
@@ -364,8 +365,8 @@ const MarkiStaliComponent = () => {
             марок:
           </TypographyP>
           <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-            {marka_Gost_1050_88.map((item) => (
-              <TypographyInlineCode>{item}</TypographyInlineCode>
+            {marka_Gost_1050_88.map((item, index) => (
+              <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
             ))}
           </div>
           <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -390,8 +391,8 @@ const MarkiStaliComponent = () => {
           Сталь качественная низкоуглеродистая изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_9045_80.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_9045_80.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -416,8 +417,8 @@ const MarkiStaliComponent = () => {
           давлением изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_5520_79.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_5520_79.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -501,8 +502,8 @@ const MarkiStaliComponent = () => {
           Сталь арматурная низколегированная изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_5781_82.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_5781_82.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -598,8 +599,8 @@ const MarkiStaliComponent = () => {
           Нелегированная инструментальная сталь изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_1435_90.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_1435_90.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -622,8 +623,8 @@ const MarkiStaliComponent = () => {
           Легированная инструментальная сталь изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_5950_73.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_5950_73.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -646,8 +647,8 @@ const MarkiStaliComponent = () => {
           Инструментальная быстрорежущая сталь изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_19265_73.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_19265_73.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -666,8 +667,8 @@ const MarkiStaliComponent = () => {
         <TypographyH2>Подшипниковая сталь ГОСТ 801-78</TypographyH2>
         <TypographyP>Подшипниковая сталь изготавливается марок:</TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_801_78.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_801_78.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -690,8 +691,8 @@ const MarkiStaliComponent = () => {
           Теплоустойчивая легированная сталь изготавливается марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_20072_74.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_20072_74.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -716,8 +717,8 @@ const MarkiStaliComponent = () => {
           жаропрочные изготавливают марок:
         </TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
-          {marka_Gost_5632_72.map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          {marka_Gost_5632_72.map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <div className="mt-12 mb-6 flex justify-start items-center gap-2">
@@ -741,8 +742,8 @@ const MarkiStaliComponent = () => {
         <TypographyP>Стали конструкционные нелегированные:</TypographyP>
         <div className="w-full flex flex-wrap gap-4 mt-4 z-0">
           {["15Л", "20Л", "25Л", "30Л", "35Л", "40Л", "45Л", "50Л"].map(
-            (item) => (
-              <TypographyInlineCode>{item}</TypographyInlineCode>
+            (item, index) => (
+              <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
             )
           )}
         </div>
@@ -777,8 +778,8 @@ const MarkiStaliComponent = () => {
             "27Х5ГСМС",
             "30Х3С3ГМЛ",
             "03Н12Х5М3ТЮЛ",
-          ].map((item) => (
-            <TypographyInlineCode>{item}</TypographyInlineCode>
+          ].map((item, index) => (
+            <TypographyInlineCode key={index}>{item}</TypographyInlineCode>
           ))}
         </div>
         <TypographyP>

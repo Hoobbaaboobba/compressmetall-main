@@ -29,8 +29,8 @@ const TableModel = ({ data, title }: { data: string[][]; title: string }) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((row) => (
-          <TableRow>
+        {data.map((row, index) => (
+          <TableRow key={index}>
             <TableCell className="font-medium text-md">{row[0]}</TableCell>
             <TableCell className="font-medium text-md">{row[1]}</TableCell>
             <TableCell className="font-medium text-md">{row[2]}</TableCell>

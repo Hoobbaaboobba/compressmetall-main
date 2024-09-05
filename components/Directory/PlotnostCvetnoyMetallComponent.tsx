@@ -125,8 +125,8 @@ const PlotnostCvetnyhMetallovComponent = () => {
           ]}
         />
       </div>
-      {listOfTables.map((table) => (
-        <div className="mt-16">
+      {listOfTables.map((table, index) => (
+        <div className="mt-16" key={index}>
           <div className="flex justify-start items-center gap-2">
             <Table className="hidden sm:block" />
             <TypographyH3>{table.title}</TypographyH3>

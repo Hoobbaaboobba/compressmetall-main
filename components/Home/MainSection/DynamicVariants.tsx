@@ -115,8 +115,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
               filterProductBySecondSises().map((second) =>
                 filterProductByThirdSises().map((third) =>
                   filterProductByForthSises().map((forth) =>
-                    filterProductByFifthSises().map((fifth) => (
+                    filterProductByFifthSises().map((fifth, index) => (
                       <DynamicVariantsComponent
+                        key={index}
                         marka={marka}
                         size={first}
                         label={label}
@@ -136,8 +137,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
             return filterProductsByFirstSizes().map((first) =>
               filterProductBySecondSises().map((second) =>
                 filterProductByThirdSises().map((third) =>
-                  filterProductByForthSises().map((forth) => (
+                  filterProductByForthSises().map((forth, index) => (
                     <DynamicVariantsComponent
+                      key={index}
                       marka={marka}
                       size={first}
                       label={label}
@@ -155,8 +157,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
         } else {
           return filterProductsByFirstSizes().map((first) =>
             filterProductBySecondSises().map((second) =>
-              filterProductByThirdSises().map((third) => (
+              filterProductByThirdSises().map((third, index) => (
                 <DynamicVariantsComponent
+                  key={index}
                   marka={marka}
                   size={first}
                   label={label}
@@ -171,8 +174,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
         }
       } else {
         return filterProductsByFirstSizes().map((first) =>
-          filterProductBySecondSises().map((second) => (
+          filterProductBySecondSises().map((second, index) => (
             <DynamicVariantsComponent
+              key={index}
               marka={marka}
               size={first}
               label={label}
@@ -184,8 +188,9 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
         );
       }
     } else {
-      return filterProductsByFirstSizes().map((first) => (
+      return filterProductsByFirstSizes().map((first, index) => (
         <DynamicVariantsComponent
+          key={index}
           marka={marka}
           size={first}
           label={label}
