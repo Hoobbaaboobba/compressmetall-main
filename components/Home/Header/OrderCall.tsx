@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { formSchema } from "@/schemas/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { warn } from "console";
 import { Loader2 } from "lucide-react";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -44,15 +45,33 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    startTransition(async () => {
-      await sendRequestToEmail(values);
-      toast({
-        title: "Заявка успешно отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время",
-      });
-    });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+      console.log(values);
+      try {
+          const mail = await fetch('https://api.calltouch.ru/calls-service/RestAPI/requests/69707/register/', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values)
+          })
+          if (!mail.ok) {
+              throw new Error("Error!");
+          }
+          toast({
+              title: "Заявка успешно отправлена!",
+              description: "Мы свяжемся с вами в ближайшее время",
+          });
+
+          const data = await mail.json();
+          return data
+      } catch (error) {
+          toast({
+              title: "Упс, что-то пошло не так!",
+              description: "Мы свяжемся с вами в ближайшее время",
+          });
+          console.log(error);
+      }
   }
 
   return (
