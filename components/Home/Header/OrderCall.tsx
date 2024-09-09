@@ -58,6 +58,12 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
           if (!mail.ok) {
               throw new Error("Error!");
           }
+          if (window.ym) {
+              window.ym(95780946, 'reachGoal', 'zayavka');
+              console.log("zayavka");
+          } else {
+              throw new Error("Заявка не отправлена!");
+          }
           toast({
               title: "Заявка успешно отправлена!",
               description: "Мы свяжемся с вами в ближайшее время",
@@ -68,7 +74,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
       } catch (error) {
           toast({
               title: "Упс, что-то пошло не так!",
-              description: "Мы свяжемся с вами в ближайшее время",
+              description: "Повторите попытку позже",
           });
           console.log(error);
       }
