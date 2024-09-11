@@ -39,9 +39,9 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      name: "",
-      product: value1,
-      message: "",
+      fio: "",
+      subject: value1,
+      comment: "",
     },
   });
 
