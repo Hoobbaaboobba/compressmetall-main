@@ -32,7 +32,7 @@ export const sendRequestToEmail = async (
       html: `
           <div>          
             <label style="font-weight: bold; margin: 0; padding: 0;">Имя:</label>
-            <p style="margin: 0; padding: 0;">${values.name}</p>
+            <p style="margin: 0; padding: 0;">${values.fio}</p>
           </div>
           <span>--------------------------------------------------------------------------------------------------------</span>
           <br/>
@@ -44,13 +44,13 @@ export const sendRequestToEmail = async (
           <br/>
           <div>          
             <label style="font-weight: bold; margin: 0; padding: 0;">Товар:</label>
-            <p style="margin: 0; padding: 0;">${values.product}</p>
+            <p style="margin: 0; padding: 0;">${values.subject}</p>
           </div>
           <span>--------------------------------------------------------------------------------------------------------</span>
           <br/>
           <div>   
             <label style="font-weight: bold; margin: 0; padding: 0;">Сообщение:</label>
-            <p style="margin: 0; padding: 0;">${values.message}</p>
+            <p style="margin: 0; padding: 0;">${values.comment}</p>
           </div>
           <span>--------------------------------------------------------------------------------------------------------</span>
       `,

@@ -46,38 +46,41 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-      console.log(values);
-      try {
-          const mail = await fetch('https://api.calltouch.ru/calls-service/RestAPI/requests/69707/register/', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values)
-          })
-          if (!mail.ok) {
-              throw new Error("Error!");
-          }
-          if (window.ym) {
-              window.ym(95780946, 'reachGoal', 'zayavka');
-              console.log("zayavka");
-          } else {
-              throw new Error("Заявка не отправлена!");
-          }
-          toast({
-              title: "Заявка успешно отправлена!",
-              description: "Мы свяжемся с вами в ближайшее время",
-          });
-
-          const data = await mail.json();
-          return data
-      } catch (error) {
-          toast({
-              title: "Упс, что-то пошло не так!",
-              description: "Повторите попытку позже",
-          });
-          console.log(error);
+    console.log(values);
+    try {
+      const mail = await fetch(
+        "https://api.calltouch.ru/calls-service/RestAPI/requests/69707/register/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
+      if (!mail.ok) {
+        throw new Error("Error!");
       }
+      if (window.ym) {
+        window.ym(95780946, "reachGoal", "zayavka");
+        console.log("zayavka");
+      } else {
+        throw new Error("Заявка не отправлена!");
+      }
+      toast({
+        title: "Заявка успешно отправлена!",
+        description: "Мы свяжемся с вами в ближайшее время",
+      });
+
+      const data = await mail.json();
+      return data;
+    } catch (error) {
+      toast({
+        title: "Упс, что-то пошло не так!",
+        description: "Повторите попытку позже",
+      });
+      console.log(error);
+    }
   }
 
   return (
@@ -108,7 +111,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
           />
           <FormField
             control={form.control}
-            name="name"
+            name="fio"
             render={({ field }) => (
               <FormItem className="w-full text-start">
                 <FormLabel>Ваше имя</FormLabel>
@@ -121,7 +124,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
           />
           <FormField
             control={form.control}
-            name="product"
+            name="subject"
             render={({ field }) => (
               <FormItem className="w-full text-start">
                 <FormLabel>Товар</FormLabel>
@@ -134,7 +137,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
           />
           <FormField
             control={form.control}
-            name="message"
+            name="comment"
             render={({ field }) => (
               <FormItem className="w-full text-start">
                 <FormLabel>Сообщение</FormLabel>
