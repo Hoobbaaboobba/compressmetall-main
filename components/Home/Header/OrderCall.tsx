@@ -46,16 +46,11 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     try {
       const mail = await fetch(
-        "https://api.calltouch.ru/calls-service/RestAPI/requests/69707/register/",
+        `https://api.calltouch.ru/calls-service/RestAPI/requests/69707/register/?fio=${values.fio}&email=${values.email}&comment=${values.comment}&subject=${values.subject}`,
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
+          method: "GET",
         }
       );
       if (!mail.ok) {
