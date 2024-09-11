@@ -74,7 +74,6 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
         title: "Упс, что-то пошло не так!",
         description: "Повторите попытку позже",
       });
-      console.log(error);
     }
   }
 
