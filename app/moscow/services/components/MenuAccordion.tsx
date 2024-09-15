@@ -15,7 +15,7 @@ export function MenuAccordion() {
   const current = usePathname().split("/");
 
   return (
-    <Accordion type="single" className="w-[350px]">
+    <Accordion type="multiple" className="w-[350px]">
       {MenuData.map((item, index) => (
         <AccordionItem
           key={index}
@@ -32,7 +32,7 @@ export function MenuAccordion() {
             </AccordionTrigger>
           </Link>
           <AccordionContent>
-            <Accordion type="single" className="w-full">
+            <Accordion type="multiple" className="w-full">
               {item.subMenu.map((subItem, index) =>
                 subItem.subLinks !== undefined ? (
                   <AccordionItem
@@ -52,13 +52,13 @@ export function MenuAccordion() {
                       </AccordionTrigger>
                     </Link>
                     <AccordionContent>
-                      {subItem.subLinks?.map((subItem, index) => (
+                      {subItem.subLinks?.map((subSubItem, index) => (
                         <Link
                           key={index}
-                          href={`/${city}/services/${item.link}/${subItem.link}`}
+                          href={`/${city}/services/${item.link}/${subItem.link}/${subSubItem.link}`}
                         >
                           <button className="text-start flex items-center gap-2 my-1 ml-2 hover:underline">
-                            {subItem.name}
+                            {subSubItem.name}
                           </button>
                         </Link>
                       ))}

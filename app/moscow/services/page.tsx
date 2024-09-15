@@ -1,7 +1,9 @@
-import ServicesComponent from "@/components/Home/OurServices/ServicesComponent";
+import { ServicesContent } from "./components/Content";
 
 const ServicesPage = () => {
-  return <ServicesComponent />;
+  return (
+      <ServicesContent/>
+  )
 };
 
 export default ServicesPage;
