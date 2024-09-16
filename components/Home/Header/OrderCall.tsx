@@ -1,6 +1,5 @@
 "use client";
 
-import { sendRequestToEmail } from "@/actions/sendRequestToEmail";
 import {
   Form,
   FormControl,
@@ -12,9 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import useRequestModal from "@/hooks/useRequestModal";
 import { formSchema } from "@/schemas/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { warn } from "console";
 import { Loader2 } from "lucide-react";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -32,7 +31,7 @@ interface OrderCallProps {
 
 export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
   const [isPending, startTransition] = useTransition();
-  // const [checked, setChecked] = useState(false);
+  const { onClose } = useRequestModal();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -62,6 +61,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
       } else {
         throw new Error("Заявка не отправлена!");
       }
+      onClose();
       toast({
         title: "Заявка успешно отправлена!",
         description: "Мы свяжемся с вами в ближайшее время",
@@ -70,6 +70,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
       const data = await mail.json();
       return data;
     } catch (error) {
+      onClose();
       toast({
         title: "Упс, что-то пошло не так!",
         description: "Повторите попытку позже",
