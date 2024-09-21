@@ -180,7 +180,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
             <ShowButtonPrice />
           </div>
         </div>
-        <div className="sticky top-[180px]">
+        <div className="lg:sticky top-[180px]">
         <ImageDialog
           width={462}
           height={641}

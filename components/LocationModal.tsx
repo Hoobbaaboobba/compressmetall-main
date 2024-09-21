@@ -7,6 +7,7 @@ import { cities } from "@/regions";
 import OrangeButton from "./OrangeButton";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { clearLine } from "readline";
 
 const LocationModal = () => {
   const [currLocation, setCurrLocation] = useState({
@@ -22,13 +23,18 @@ const LocationModal = () => {
     useLocationModal();
 
   useEffect(() => {
-    getLocation();
-    getLocationJs();
-    setCurrentUrl(window.location.href);
-
-    setTimeout(() => {
-      onOpen();
-    }, 3000);
+      if (localStorage.getItem('isShown') === null) {
+        setTimeout(() => {
+            onOpen();
+        }, 3000);
+        localStorage.setItem('isShown', JSON.stringify("true"));
+      } else {
+          onClose();
+        getLocation();
+        getLocationJs();
+        setCurrentUrl(window.location.href);
+      }
+      return () => clearTimeout(3000);
   }, []);
 
   const getLocation = async () => {

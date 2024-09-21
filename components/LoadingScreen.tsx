@@ -5,25 +5,24 @@ import Image from "next/image";
 import { Progress } from "./ui/progress";
 
 const LoadingScreen = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [logo, setLogo] = useState(false);
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    // const intervalId = setInterval(() => {
-    //   setSeconds((prevSeconds) => prevSeconds + 50);
-    // }, 500);
-    setLogo(true);
-    setLoading(true);
-    setTimeout(() => {
-      setSeconds(100);
-    }, 300);
-    setTimeout(() => {
-      setLogo(false);
-      setLoading(false);
-    }, 1500);
+      if (localStorage.getItem('isLoadingScreen') === null) {
+        localStorage.setItem('isLoadingScreen', JSON.stringify("true"));
+        setLoading(true);
+        setLogo(true);
+        setTimeout(() => {
+            setSeconds(100);
+        }, 300);
+        setTimeout(() => {
+            setLogo(false);
+            setLoading(false);
+        }, 1500);
+      }
 
-    // return () => clearInterval(intervalId);
   }, []);
 
   return (
