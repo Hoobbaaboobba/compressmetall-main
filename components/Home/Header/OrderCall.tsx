@@ -1,5 +1,6 @@
 "use client";
 
+import { sendRequestToEmail } from "@/actions/sendRequestToEmail";
 import {
   Form,
   FormControl,
@@ -55,6 +56,7 @@ export const OrderCall: React.FC<OrderCallProps> = ({ value1 }) => {
       if (!mail.ok) {
         throw new Error("Error!");
       }
+      await sendRequestToEmail(values);
       if (window.ym) {
         window.ym(95780946, "reachGoal", "zayavka");
         console.log("zayavka");
