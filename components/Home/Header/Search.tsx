@@ -56,7 +56,7 @@ const Search = () => {
   return (
     <form
       onSubmit={onSearch}
-      className={`border-2 rounded-md relative border-main-black ${scrollPosition > 60 ? "max-w-[700px]" : "max-w-[800px]"} w-full flex gap-2 justify-between items-center`}
+      className={`border-2 rounded-md relative border-main-black ${scrollPosition > 60 ? "max-w-[600px]" : "max-w-[700px]"} w-full flex gap-2 justify-between items-center`}
     >
       <SearchIcon className="w-5 h-5 text-gray-bg ml-2" />
       <input
