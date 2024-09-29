@@ -27,41 +27,26 @@ const CatalogMenu = () => {
 
   return (
     <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="w-[260px] h-[44px] rounded-none text-lg">
-            <p>Каталог</p>
+      <NavigationMenuList className="w-full">
+        <NavigationMenuItem className="w-full max-w-full">
+          <NavigationMenuTrigger className="bg-main-black p-4 rounded-md text-white text-[16px]">
+            Каталог
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className={`flex justify-center item-start w-full h-full`}>
-              <div className="w-[1300px] grid grid-cols-4 bg-white max-h-[80vh] overflow-y-auto p-2 shadow-lg">
+            <div className="w-[1300px] grid grid-cols-4 bg-white max-h-[80vh] overflow-y-auto p-2 shadow-lg">
                 {menuCatalog.map((item, indexMenu) => (
                   <div
                     key={indexMenu}
-                    className={`flex h-[350px] text-black flex-col gap-1 border-b ${
-                      indexMenu !== (3 || 7 || 11) && "border-r"
-                    } p-4`}
+                    className={`flex h-[350px] text-black flex-col gap-1 p-4`}
                   >
                     <div className="flex flex-col justify-center items-start w-full">
                       <h2 className="uppercase text-lg font-bold">
                         {item.label}{" "}
-                        {item.label === "Кабельная продукция" && (
-                          <Badge
-                            variant="outline"
-                            className="ml-2 bg-orange-text text-white border-none"
-                          >
-                            Новое
-                          </Badge>
-                        )}
                       </h2>
                     </div>
-                    <Command className="w-full rounded-none flex flex-col justify-start items-start overflow-auto h-full">
-                      <CommandInput
-                        className="border-none"
-                        placeholder="Найти..."
-                      />
-                      <CommandList className="w-full h-full overflow-x-auto">
-                        <CommandEmpty>Ничего не найдено.</CommandEmpty>
+                    <Command className="w-full rounded-none flex flex-col justify-start items-start h-full">
+                      <CommandList className="w-full h-full overflow-hidden hover:overflow-auto">
                         <CommandGroup className="w-full h-full">
                           {item.links.map((link, index) => (
                             <CommandItem key={index} className="my-1">
@@ -69,7 +54,7 @@ const CatalogMenu = () => {
                                 <Button
                                   variant="link"
                                   size="sm"
-                                  className="py-0 px-0 h-3"
+                                  className="py-0 px-0 h-3 font-normal"
                                   asChild
                                 >
                                   <Link

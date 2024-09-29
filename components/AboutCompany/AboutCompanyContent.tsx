@@ -11,7 +11,7 @@ const AboutCompanyContent = () => {
         </h1>
         <div className="bg-black h-[5px] w-[80px] mt-4"></div>
       </div>
-      <div className="flex flex-col justify-center items-center text-center lg:flex-row gap-8 xl:gap-12">
+      <div className="flex flex-col justify-center items-center lg:flex-row gap-8 xl:gap-12">
         <Image
           src={require(`../../public/aboutComponyPhoto.png`)}
           alt="about_company_image"

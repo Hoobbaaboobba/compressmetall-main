@@ -91,11 +91,9 @@ export default function RootLayout({
         >
           <Header />
         </Suspense>
-        <div className="flex w-full justify-center mt-[80px] xl:mt-[130px]">
+        <div className="flex w-full justify-center mt-[80px] xl:mt-[140px]">
           <div className="max-w-[1300px] w-full flex flex-col justify-center xl:justify-between gap-4">
             {children}
-            <hr className="w-full border-transparent my-8" />
-            <OurMetal />
             <hr className="w-full border-transparent my-8" />
             <OurServices />
             <hr className="w-full border-transparent my-8" />

@@ -5,7 +5,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuButton from "./MenuButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,7 @@ import useRequestModal from "@/hooks/useRequestModal";
 import CityButton from "./CityButton";
 import Logo from "./Logo";
 import CatalogMenu from "./CatalogMenu";
+import { Separator } from "@/components/ui/separator";
 
 const LowerHeader = () => {
   const [menu, setMenu] = useState(false);
@@ -21,7 +22,19 @@ const LowerHeader = () => {
   const [popUp, setPopUp] = useState(false);
 
   const { onOpen, setDefaultValue } = useRequestModal();
+const [scrollPosition, setScrollPosition] = useState(0);
 
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   const showRequest = () => {
     setDefaultValue("price");
     onOpen();
@@ -41,36 +54,32 @@ const LowerHeader = () => {
 
   return (
     <>
-      <nav className="text-white nav bg-gray-bg flex justify-center items-center flex-col w-full text-lg z-10 ">
-        <div className="sticky top-0 left-0 hidden xl:flex justify-center items-center max-w-[1300px] w-full">
-          <div className={`flex justify-center w-full`}>
+      <nav className="text-black nav flex justify-center items-center flex-col w-full text-md z-10 ">
+        <div className="sticky top-0 left-0 hidden xl:flex justify-between items-center max-w-[1300px] w-full">
+          <div className={`${scrollPosition > 60 ? "hidden" : "flex"} mb-3 justify-center items-center w-full`}>
             <div className="w-full">
               <CatalogMenu />
             </div>
-            <div className="relative w-full">
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/services`}
-                name="Услуги"
-                icon="false"
-              />
-            </div>
+            <div className="flex justify-center items-center gap-3">
+                <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/services`}>
+                    Услуги
+                </Link>
+                <Separator className="h-[20px]" orientation="vertical"/>
             <div
+            className="text-black hover:underline cursor-pointer"
               onClick={showRequest}
-              className="relative w-full flex py-2 font-medium justify-center items-center gap-8 xl:hover:bg-orange-bg transition cursor-pointer"
             >
               Прайс
             </div>
+                <Separator className="h-[20px]" orientation="vertical"/>
             <div
-              className="relative w-full"
               onMouseLeave={() => setPopUp(false)}
               onMouseEnter={() => setPopUp(true)}
             >
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/about_company`}
-                name="Компания"
-                icon="false"
-              />
-              <div className="absolute top-[44px] bg-transparent w-full">
+                <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/about_company`}>
+                    Компания
+                </Link>
+              <div className="absolute top-[44px] w-[200px] bg-transparent">
                 <div
                   className={`${
                     popUp ? "block" : "hidden"
@@ -101,20 +110,19 @@ const LowerHeader = () => {
                 </div>
               </div>
             </div>
-            <div className="relative w-full">
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/directory/marki_stali`}
-                name="Справочник"
-                icon="false"
-              />
-            </div>
-            <div className="relative w-full">
-              <MenuButton
-                src={`/${pathname[1] || "moscow"}/contacts`}
-                name="Контакты"
-                icon="false"
-              />
-            </div>
+                <Separator className="h-[20px]" orientation="vertical"/>
+                <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/directory/marki_stali`}>
+                    Справочник
+                </Link>
+                <Separator className="h-[20px]" orientation="vertical"/>
+                <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/about_company/vacancies`}>
+                    Вакансии
+                </Link>
+                <Separator className="h-[20px]" orientation="vertical"/>
+                <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/contacts`}>
+                    Контакты
+                </Link>
+          </div>
           </div>
         </div>
         <div className="flex fixed top-0 left-0 w-full bg-white shadow-md xl:hidden justify-between items-center px-4 py-1 h-[84px]">

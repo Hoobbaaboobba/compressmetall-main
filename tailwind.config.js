@@ -17,10 +17,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        "orange-text": " #F9A825",
+        "orange-text": "rgb(255, 210, 91)",
+        "main-black": "rgb(0, 0, 0, 80%)",
         "gray-bg": "#404040",
-        "light-gray": "#F5F5F5",
+        "light-gray": "#f7f8f9",
         "gray-text": "#2A2A2A",
+          "orange-bg": "rgb(255, 210, 91)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -55,10 +57,6 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      backgroundImage: () => ({
-        "orange-bg":
-          "linear-gradient(180deg, #F9A825 0.09%, rgba(249, 168, 37, 0.30) 225.52%)",
-      }),
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

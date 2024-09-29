@@ -5,7 +5,7 @@ export function TypographyList({ list }: { list: string[] }) {
     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
       {list.map((item, index) => (
         <li key={index}>
-          <TypographyInlineCode>{item}</TypographyInlineCode>
+          {item}
         </li>
       ))}
     </ul>

@@ -48,7 +48,7 @@ const CityButton = () => {
       onMouseLeave={() => setCityHover(false)}
       className="relative"
     >
-      <button className="text-orange-text text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
+      <button className="text-black text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
         <FmdGoodOutlinedIcon />
         {(splitedPathname[1] === "moscow" || splitedPathname[1] === "") &&
           "Москва"}

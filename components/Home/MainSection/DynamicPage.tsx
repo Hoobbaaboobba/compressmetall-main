@@ -158,7 +158,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
                 <span className="dash">В наличии</span>
                 <Badge
                   variant="outline"
-                  className="ml-2 bg-orange-text text-white border-none"
+                  className="ml-2 bg-orange-text text-black border-none"
                 >
                   {products[0].isInStock}
                 </Badge>

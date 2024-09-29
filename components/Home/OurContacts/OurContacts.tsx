@@ -38,7 +38,7 @@ const OurContacts = () => {
                   <React.Fragment key={address.id}>
                     {pathname[1] === address.id && (
                       <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
-                        <PlaceOutlinedIcon className="text-orange-bg" />
+                        <PlaceOutlinedIcon className="text-main-black" />
                         <p className="text-gray-bg text-center xl:text-start">
                           {address.address}
                         </p>
@@ -49,19 +49,19 @@ const OurContacts = () => {
               })}
               {pathname[1] === "" && (
                 <div className="flex w-full flex-col text-center md:text-start md:flex-row gap-2 md:gap-4 justify-start items-center">
-                  <PlaceOutlinedIcon className="text-orange-bg" />
+                  <PlaceOutlinedIcon className="text-main-black" />
                   <p>2-я Энтузиастов ул., 5 корпус 40, Москва, 111024</p>
                 </div>
               )}
               <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
-                <LocalPhoneOutlinedIcon className="text-orange-bg" />
+                <LocalPhoneOutlinedIcon className="text-main-black" />
                 <div className="flex flex-col text-center xl:text-start">
                   <p className="font-bold text-gray-bg">+7 (495) 116-66-86</p>
                   <p className="text-gray-bg">Пн. – Пт.: с 9:00 до 18:00</p>
                 </div>
               </div>
               <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
-                <EmailOutlinedIcon className="text-orange-bg" />
+                <EmailOutlinedIcon className="text-main-black" />
                 <p className="font-bold text-gray-bg text-center xl:text-start">
                   zakaz@kometal.ru
                 </p>

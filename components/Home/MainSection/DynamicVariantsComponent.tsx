@@ -28,32 +28,32 @@ const DynamicVariantsComponent = ({
 }: Props) => {
   return (
     <TableRow className="w-full relative cursor-pointer">
-      <TableCell className="md:font-medium text-md md:text-lg">
+      <TableCell className="md:font-medium text-md">
         {label}
       </TableCell>
-      <TableCell className="md:font-medium text-md md:text-lg">
+      <TableCell className="md:font-medium text-md">
         {marka}
       </TableCell>
-      <TableCell className="md:font-medium text-md md:text-lg">
+      <TableCell className="md:font-medium text-md">
         {first.replaceAll("mm", " мм")}
       </TableCell>
       {second && (
-        <TableCell className="md:font-medium text-md md:text-lg">
+        <TableCell className="md:font-medium text-md">
           {second.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {third && (
-        <TableCell className="md:font-medium text-md md:text-lg">
+        <TableCell className="md:font-medium text-md">
           {third.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {forth && (
-        <TableCell className="md:font-medium text-md md:text-lg">
+        <TableCell className="md:font-medium text-md">
           {forth.replaceAll("mm", " мм")}
         </TableCell>
       )}
       {fifth && (
-        <TableCell className="md:font-medium text-md md:text-lg">
+        <TableCell className="md:font-medium text-md">
           {fifth.replaceAll("mm", " мм")}
         </TableCell>
       )}

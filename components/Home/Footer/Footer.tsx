@@ -78,7 +78,7 @@ const Footer = () => {
   const pathname = usePathname().split("/");
 
   return (
-    <footer className="w-full bg-gray-bg flex flex-col justify-center items-center pt-8 px-8 pb-[75px]">
+    <footer className="w-full bg-main-black flex flex-col justify-center items-center pt-8 px-8 pb-[75px]">
       <div className="max-w-[1300px] w-full text-white flex flex-wrap justify-center xl:justify-between items-start gap-8 pb-4">
         <div className="flex flex-col gap-2 max-w-[200px] w-full text-center md:text-start">
           <h3 className="font-bold text-xl">Компания</h3>
@@ -137,7 +137,7 @@ const Footer = () => {
                 <React.Fragment key={address.id}>
                   {pathname[1] === address.id && (
                     <div className="flex w-full flex-col text-center md:text-start md:flex-row gap-2 md:gap-4 justify-start items-center">
-                      <PlaceOutlinedIcon className="text-orange-bg" />
+                      <PlaceOutlinedIcon className="text-white" />
                       <p>{address.address}</p>
                     </div>
                   )}
@@ -146,19 +146,19 @@ const Footer = () => {
             })}
             {pathname[1] === "" && (
               <div className="flex w-full flex-col text-center md:text-start md:flex-row gap-2 md:gap-4 justify-start items-center">
-                <PlaceOutlinedIcon className="text-orange-bg" />
+                <PlaceOutlinedIcon className="text-white" />
                 <p>2-я Энтузиастов ул., 5 корпус 40, Москва, 111024</p>
               </div>
             )}
             <div className="flex w-full flex-col md:flex-row gap-2 md:gap-4 justify-start items-center">
-              <LocalPhoneOutlinedIcon className="text-orange-bg" />
+              <LocalPhoneOutlinedIcon className="text-white" />
               <div className="flex flex-col text-center md:text-start">
                 <p className="font-bold">+7 (495) 116-66-86</p>
                 <p className="opacity-70">Пн. – Пт.: с 9:00 до 18:00</p>
               </div>
             </div>
             <div className="flex w-full text-start md:text-start flex-col md:flex-row gap-2 md:gap-4 justify-start items-center">
-              <EmailOutlinedIcon className="text-orange-bg" />
+              <EmailOutlinedIcon className="text-white" />
               <p className="font-bold ">zakaz@kometal.ru</p>
             </div>
           </div>
