@@ -63,17 +63,6 @@ export default async function DynamicPage({ params, searchParams }: Props) {
         undefined
     ) {
       return notFound();
-    } else if (
-      products[0].sizes.filter(
-        (size) => size === decodeURIComponent(params.size)
-      ).length === 0
-    ) {
-      return notFound();
-    } else if (
-      products[0].marks.filter((mark) => mark === decodeURIComponent(params.id))
-        .length === 0
-    ) {
-      return notFound();
     }
 
   const marka = decodeURIComponent(params.id)
