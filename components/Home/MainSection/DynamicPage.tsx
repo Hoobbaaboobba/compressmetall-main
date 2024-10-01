@@ -51,13 +51,13 @@ export default async function DynamicPage({ params, searchParams }: Props) {
         undefined
     ) {
       return notFound();
-    } else if (
-      searchParams.forthsize &&
-      products[0].forthSizes.find((size) => size === decodeURIComponent(searchParams.forthsize as string)) ===
+    }  else if (
+      searchParams.fifthsize &&
+      products[0].fifthSizes.find((size) => size === decodeURIComponent(searchParams.fifthsize as string)) ===
         undefined
     ) {
       return notFound();
-    }  else if (
+    } else if (
       products[0].sizes.filter(
         (size) => size === decodeURIComponent(params.size)
       ).length === 0
