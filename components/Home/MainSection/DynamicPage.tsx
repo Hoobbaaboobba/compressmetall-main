@@ -76,13 +76,13 @@ export default async function DynamicPage({ params, searchParams }: Props) {
       return notFound();
     }
 
-  const marka = decodeURI(params.id)
+  const marka = decodeURIComponent(params.id)
     .replace(".", ",")
     .replace("|", "/")
     .replace("[", "/")
     .replaceAll("%2C", ".");
 
-  const firstSize = decodeURI(
+  const firstSize = decodeURIComponent(
     params.size.replace("mm", " мм").replace(".", ",").replaceAll("%2B", "+")
   );
 
