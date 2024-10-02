@@ -71,14 +71,13 @@ const OurContacts = () => {
               </div>
             </div>
           </div>
-          <Image
-            src={require("../../../public/mapImage.png")}
-            alt={"карта завода компресс металл"}
-            width={690}
-            height={308}
-            placeholder="blur"
-          />
-          {/* <YMaps>
+          {/* @ts-ignore */}
+         <iframe className="block md:hidden" src="https://yandex.ru/map-widget/v1/?um=constructor%3A7e9e1cd2335674d56e21cb00be649ed25322c6ee10a064c583fc2cbe2bf1cc3c&amp;source=constructor" width="320" height="300" frameborder="0"></iframe>
+          {/* @ts-ignore */}
+         <iframe className="hidden md:block lg:hidden" src="https://yandex.ru/map-widget/v1/?um=constructor%3A7e9e1cd2335674d56e21cb00be649ed25322c6ee10a064c583fc2cbe2bf1cc3c&amp;source=constructor" width="600" height="300" frameborder="0"></iframe>
+          {/* @ts-ignore */}
+         <iframe className="hidden lg:block" src="https://yandex.ru/map-widget/v1/?um=constructor%3A7e9e1cd2335674d56e21cb00be649ed25322c6ee10a064c583fc2cbe2bf1cc3c&amp;source=constructor" width="900" height="300" frameborder="0"></iframe>
+             {/* <YMaps>
           <Map
             defaultState={{ center: [55.750449, 37.730967], zoom: 11 }}
             width={350}
