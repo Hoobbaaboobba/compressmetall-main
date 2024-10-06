@@ -20,10 +20,10 @@ const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
   const labelQuery = (searchParams && (searchParams.label as string)) || "";
   const markaQuery = (searchParams && (searchParams.marka as string)) || "";
   const sizeQuery = (searchParams && (searchParams.size as string)) || "";
-  const secondSizeQuery = (searchParams && (searchParams.secondSize as string)) || "";
-  const thirdSizeQuery = (searchParams && (searchParams.thirdSize as string)) || "";
-  const forthSizeQuery = (searchParams && (searchParams.forthSize as string)) || "";
-  const fifthSizeQuery = (searchParams && (searchParams.fifthSize as string)) || "";
+  const secondSizeQuery = (searchParams && (searchParams.secondsize as string)) || "";
+  const thirdSizeQuery = (searchParams && (searchParams.thirdsize as string)) || "";
+  const forthSizeQuery = (searchParams && (searchParams.forthsize as string)) || "";
+  const fifthSizeQuery = (searchParams && (searchParams.fifthsize as string)) || "";
 
   const filters = [
     {
