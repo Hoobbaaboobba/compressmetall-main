@@ -87,8 +87,8 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     .replaceAll(".", ",");
 
   return (
-    <div className="max-w-[1300px] flex flex-col gap-4">
-      <div className="relative w-full mt-4 gap-8 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start px-6 xl:px-12">
+    <div className="max-w-[1300px] flex flex-col gap-4 mx-6 xl:mx-2">
+      <div className="relative w-full mt-4 gap-8 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start">
         <div className="w-full h-full flex flex-col justify-center items-start pt-4">
           <div className="flex flex-col sm:flex-col gap-2 justify-center sm:justify-start items-start sm:items-start w-full">
             <HyperLinks
@@ -181,7 +181,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
         </div>
       </div>
       {/* <hr className="border border-light-gray my-2" /> */}
-      <div className="w-full px-6 xl:px-12 mt-4">
+      <div className="w-full mt-4">
         <div className="w-full mb-4 flex flex-col justify-center items-center">
           <h1 className="text-3xl font-bold text-black text-center xl:text-start">
             Описание

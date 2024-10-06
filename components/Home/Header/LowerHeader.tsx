@@ -75,27 +75,28 @@ const [scrollPosition, setScrollPosition] = useState(0);
             <div
               onMouseLeave={() => setPopUp(false)}
               onMouseEnter={() => setPopUp(true)}
+              className="relative"
             >
                 <Link className="text-black hover:underline" href={`/${pathname[1] || "moscow"}/about_company`}>
                     Компания
                 </Link>
-              <div className="absolute top-[44px] w-[200px] bg-transparent">
+              <div className="absolute top-[25px] w-[160px] left-0 bg-transparent">
                 <div
                   className={`${
                     popUp ? "block" : "hidden"
-                  } bg-white rounded-lg mt-2 text-black w-full text-start flex flex-col py-2 shadow-lg`}
+                  } bg-white rounded-lg mt-2 text-black text-start flex flex-col py-2 shadow-lg`}
                 >
                   <Link
                     href={`/${
                       pathname[1] || "moscow"
                     }/about_company/requisites`}
-                    className="hover:bg-orange-bg hover:text-white py-1 px-2"
+                    className="hover:underline py-1 px-2"
                   >
                     Реквизиты
                   </Link>
                   <Link
                     href={`/${pathname[1] || "moscow"}/about_company/partners`}
-                    className="hover:bg-orange-bg hover:text-white py-1 px-2"
+                    className="hover:underline py-1 px-2"
                   >
                     Партнёры
                   </Link>
@@ -103,7 +104,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
                     href={`/${
                       pathname[1] || "moscow"
                     }/about_company/blagodarnosti`}
-                    className="hover:bg-orange-bg hover:text-white py-1 px-2"
+                    className="hover:underline py-1 px-2"
                   >
                     Благодарности
                   </Link>

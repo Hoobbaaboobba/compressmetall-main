@@ -17,13 +17,13 @@ interface ParamsProps {
 }
 
 const DynamicVariants = ({ products, searchParams }: ParamsProps) => {
-  const labelQuery = (searchParams && (searchParams[0] as string)) || "";
-  const markaQuery = (searchParams && (searchParams[1] as string)) || "";
-  const sizeQuery = (searchParams && (searchParams[2] as string)) || "";
-  const secondSizeQuery = (searchParams && (searchParams[3] as string)) || "";
-  const thirdSizeQuery = (searchParams && (searchParams[4] as string)) || "";
-  const forthSizeQuery = (searchParams && (searchParams[5] as string)) || "";
-  const fifthSizeQuery = (searchParams && (searchParams[6] as string)) || "";
+  const labelQuery = (searchParams && (searchParams.label as string)) || "";
+  const markaQuery = (searchParams && (searchParams.marka as string)) || "";
+  const sizeQuery = (searchParams && (searchParams.size as string)) || "";
+  const secondSizeQuery = (searchParams && (searchParams.secondSize as string)) || "";
+  const thirdSizeQuery = (searchParams && (searchParams.thirdSize as string)) || "";
+  const forthSizeQuery = (searchParams && (searchParams.forthSize as string)) || "";
+  const fifthSizeQuery = (searchParams && (searchParams.fifthSize as string)) || "";
 
   const filters = [
     {

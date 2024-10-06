@@ -609,6 +609,12 @@ export const menuCatalog = [
         img: "boltyIGayky",
         metaData: "Прокат",
       },
+      {
+        title: "Канаты",
+        link: "metizi-prokat/kanaty",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
     ],
   },
   {
