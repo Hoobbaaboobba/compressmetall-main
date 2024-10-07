@@ -15,8 +15,8 @@ type Props = {
     id: string;
     size: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
-
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -76,12 +76,15 @@ export async function generateMetadata(
 //   }));
 // }
 
-export default async function MetalPage({ params }: Props) {
+export default async function MetalPage({ params, searchParams }: Props) {
   const products: Product[] = await getProducts(params.type, params.category);
   return (
     <main className="mt-1 w-full">
       <Suspense fallback={<Loading />}>
-        <DynamicPageCategories products={products} />
+        <DynamicPageCategories
+          products={products}
+          searchParams={searchParams}
+        />
       </Suspense>
     </main>
   );
