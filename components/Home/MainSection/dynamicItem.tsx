@@ -12,12 +12,13 @@ interface DynamicProps {
   variety?: string;
   id?: string;
   size?: string;
+  variant?: string | string[];
 }
 
 const DynamicItem = ({
   img,
   label,
-  topic,
+  variant,
   sublabel,
   href,
   category,
@@ -35,12 +36,12 @@ const DynamicItem = ({
         size={size}
         variety={variety}
       />
-      <div className="flex flex-col text-center w-full h-full justify-between items-center border border-light-gray p-[10px] md:p-[20px] gap-3 rounded-lg">
+      <div className={`flex ${variant === "list" ? "flex-row p-2" : "flex-col p-[10px] md:p-[20px]"} text-center w-full h-full justify-between items-center border border-light-gray gap-3 rounded-lg`}>
         <Image
           src={`/${img}.png`}
           alt={label}
-          width={160}
-          height={128}
+          width={variant === "list" ? 64 : 128}
+          height={variant === "list" ? 64 : 128}
         />
         <h3 className="text-sm">{sublabel}</h3>
         <OrangeButton label={"Подробнее"} mark />
