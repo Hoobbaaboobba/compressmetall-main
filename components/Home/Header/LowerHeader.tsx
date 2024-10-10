@@ -179,7 +179,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
         <div
           className={`xl:hidden ${
             menu ? "translate-x-0" : "translate-x-[100%]"
-          } w-full transition-all duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-black/70 justify-start items-center z-30 backdrop-blur-lg`}
+          } w-full transition-all text-white duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-black/70 justify-start items-center z-30 backdrop-blur-lg`}
         >
           <Link
             href={`/${pathname[1] || "moscow"}/catalog`}
@@ -244,7 +244,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
           <div className="w-full flex flex-col justify-center items-center">
             <button
               onClick={showRequest}
-              className="py-6 text-lg w-full bg-orange-bg underline font-bold"
+              className="py-6 text-lg text-black w-full bg-orange-bg underline font-bold"
             >
               Оставить заявку
               <CheckCircleOutlineIcon fontSize="small" className="ml-2" />
