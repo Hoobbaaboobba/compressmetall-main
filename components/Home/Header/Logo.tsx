@@ -9,7 +9,7 @@ const Logo = () => {
 
   return (
     <Link href={`/${link}`} onClick={setCatalog}>
-      <Image src="/logo.png" alt="logo" width={135} height={68} priority />
+      <Image src="/km-logo.jpg" alt="logo" width={146} height={77.5} priority />
     </Link>
   );
 };

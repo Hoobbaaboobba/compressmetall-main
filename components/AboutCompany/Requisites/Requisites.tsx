@@ -59,7 +59,7 @@ const Requisites = () => {
         <hr className="border-light-gray" />
         <div className="w-full p-2 flex flex-col md:flex-row justify-between md:items-center">
           <h2 className="font-bold">ГЕНЕРАЛЬНЫЙ ДИРЕКТОР</h2>
-          <h1 className="opacity-70">Попкова Екатерина Александровна</h1>
+          <h1 className="opacity-70">Шнайдер Станислав Олегович</h1>
         </div>
         <hr className="border-light-gray" />
         <div className="w-full p-2 flex flex-col md:flex-row justify-between md:items-center">

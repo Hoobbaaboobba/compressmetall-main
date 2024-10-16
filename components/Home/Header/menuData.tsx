@@ -615,6 +615,30 @@ export const menuCatalog = [
         img: "boltyIGayky",
         metaData: "Прокат",
       },
+      {
+        title: "Сетка",
+        link: "metizi-prokat/setka",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Стропы. Канатные",
+        link: "metizi-prokat/stropy-kanatnye",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Стропы. Текстильные",
+        link: "metizi-prokat/stropy-tekstilnye",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
+      {
+        title: "Стропы. Комплектующие",
+        link: "metizi-prokat/stropy-komplektuyushchie",
+        img: "boltyIGayky",
+        metaData: "Прокат",
+      },
     ],
   },
   {
