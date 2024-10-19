@@ -18,10 +18,10 @@ const OurServicesCard: React.FC<OurServicesCard> = ({
   link,
   description,
 }) => {
-  const pathname = usePathname().split("/") || "moscow"
+  const pathname = usePathname().split("/")
 
   return (
-    <Link href={`/${pathname[1]}/services/${link}`} className="w-full hover:bg-white hover:shadow-md transition duration-300 flex flex-col bg-light-gray rounded-lg gap-4 p-6">
+    <Link href={`/${pathname[1] || "moscow"}/services/${link}`} className="w-full hover:bg-white hover:shadow-md transition duration-300 flex flex-col bg-light-gray rounded-lg gap-4 p-6">
         <Image src={`${image}.png`} alt={`${name}`} className="rounded-md" width={100} height={60} />
         <div className="">
           <h1 className="text-lg font-bold text-dark">{name}</h1>
