@@ -8,29 +8,26 @@ import { usePathname } from "next/navigation";
 interface OurServicesCard {
   image: string;
   name: string;
+  link: string;
   description: string;
 }
 
 const OurServicesCard: React.FC<OurServicesCard> = ({
   image,
   name,
+  link,
   description,
 }) => {
-  const pathname = usePathname().split("/");
+  const pathname = usePathname().split("/") || "moscow"
 
   return (
-    <div className="w-[333px] flex flex-col gap-6 justify-center items-center py-4 px-2">
-      <div className="flex gap-4 justify-center items-center">
-        <Image src={`${image}.png`} alt={`${name}`} width={80} height={80} />
+    <Link href={`/${pathname[1]}/services/${link}`} className="w-full hover:bg-white hover:shadow-md transition duration-300 flex flex-col bg-light-gray rounded-lg gap-4 p-6">
+        <Image src={`${image}.png`} alt={`${name}`} className="rounded-md" width={100} height={60} />
         <div className="">
-          <h1 className="text-lg font-bold text-orange-bg">{name}</h1>
+          <h1 className="text-lg font-bold text-dark">{name}</h1>
           <p className="opacity-80 text-sm">{description}</p>
         </div>
-      </div>
-      <Link href={`/${pathname[1] || "moscow"}/services`}>
-        <OrangeButton mark label={"Подробнее"} />
-      </Link>
-    </div>
+    </Link>
   );
 };
 

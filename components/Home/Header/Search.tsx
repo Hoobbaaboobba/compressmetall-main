@@ -1,9 +1,8 @@
 "use client";
 
 import useLocationModal from "@/hooks/useLocationModal";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { QuickSearchProducts } from "./QuickSearchProducts";
 import { Search as SearchIcon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -70,7 +69,7 @@ const Search = () => {
       />
       <button
         type="submit"
-        className="bg-main-black h-full py-2 px-4"
+        className="bg-main-black h-full py-2 px-4 text-white"
       >
         Найти
       </button>

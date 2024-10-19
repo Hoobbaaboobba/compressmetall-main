@@ -563,7 +563,7 @@ export const menuCatalog = [
     ],
   },
   {
-    label: "Метизы",
+    label: "Метизы и Грузовое оборудование",
     href: "metizi-prokat",
     metaData: "Купить Метизы оптом и в розницу",
     links: [

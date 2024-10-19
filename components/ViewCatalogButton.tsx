@@ -1,15 +1,10 @@
 "use client";
 
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import useCatalogModal from "@/hooks/useCatalogModal";
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "./ui/drawer";
 import ViewCatalog from "./ViewCatalog";
@@ -29,7 +24,7 @@ const ViewCatalogButton = () => {
       <DrawerTrigger asChild>
         <button
           onClick={showCatalog}
-          className="w-full boxshadow z-50 text-white py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden underline"
+          className="w-full boxshadow z-50 text-black py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden"
         >
           Посмотреть каталог{" "}
           <CheckCircleOutlineIcon fontSize="small" className="ml-2" />

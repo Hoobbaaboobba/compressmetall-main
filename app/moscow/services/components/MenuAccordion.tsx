@@ -9,13 +9,21 @@ import {
 import { MenuData } from "./MenuData";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { PanelLeftClose, PanelRightClose } from "lucide-react";
+import { useState } from "react";
 
 export function MenuAccordion() {
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
   const city = usePathname().split("/")[1];
   const current = usePathname().split("/");
 
   return (
-    <Accordion type="multiple" className="w-[350px]">
+      <div className="flex flex-col relative">
+      <Button variant={"outline"} onClick={() => setSidebarOpen((e) => !e)} className="absolute left-0 top-0">
+        {isSidebarOpen ? <PanelLeftClose className="text-black w-5 h-5"/> : <PanelRightClose className="text-black w-5 h-5"/>}
+      </Button>
+    <Accordion type="multiple" className={`w-[350px] ${isSidebarOpen ? "block" : "hidden"} mt-12`}>
       {MenuData.map((item, index) => (
         <AccordionItem
           key={index}
@@ -84,5 +92,6 @@ export function MenuAccordion() {
         </AccordionItem>
       ))}
     </Accordion>
+    </div>
   );
 }
