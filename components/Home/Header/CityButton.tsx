@@ -46,7 +46,7 @@ const CityButton = () => {
       onClick={() => setCityClick((event) => !event)}
       onMouseEnter={() => setCityHover(true)}
       onMouseLeave={() => setCityHover(false)}
-      className="relative"
+      className="relative mr-1"
     >
       <button className="text-black text-base flex justify-center items-center gap-1 py-4 max-w-[100px] max-h-[56px] sm:max-w-[200px] mx-1">
         <FmdGoodOutlinedIcon />

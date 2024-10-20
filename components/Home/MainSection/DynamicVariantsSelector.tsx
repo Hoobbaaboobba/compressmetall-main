@@ -93,7 +93,7 @@ const DynamicVariantsSelector = ({
     <>
       <Sheet>
         <SheetTrigger className="block md:hidden w-full text-md">
-          <Button className="w-full bg-orange-bg hover:bg-orange-bg/70">
+          <Button className="w-full bg-orange-bg text-black hover:bg-orange-bg/70">
             Фильтры <FilterIcon className="w-4 h-4 ml-1" />
           </Button>
         </SheetTrigger>

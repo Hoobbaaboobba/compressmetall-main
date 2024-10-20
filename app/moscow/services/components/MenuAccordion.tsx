@@ -19,8 +19,8 @@ export function MenuAccordion() {
   const current = usePathname().split("/");
 
   return (
-      <div className="flex flex-col relative">
-      <Button variant={"outline"} onClick={() => setSidebarOpen((e) => !e)} className="absolute left-0 top-0">
+      <div className={`flex flex-col relative ${isSidebarOpen && "mr-12"}`}>
+      <Button variant={"outline"} size={'icon'} onClick={() => setSidebarOpen((e) => !e)} className={`absolute left-0 ${isSidebarOpen ? "top-0" : "top-12"}`}>
         {isSidebarOpen ? <PanelLeftClose className="text-black w-5 h-5"/> : <PanelRightClose className="text-black w-5 h-5"/>}
       </Button>
     <Accordion type="multiple" className={`w-[350px] ${isSidebarOpen ? "block" : "hidden"} mt-12`}>

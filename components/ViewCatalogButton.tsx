@@ -1,7 +1,4 @@
-"use client";
-
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import useCatalogModal from "@/hooks/useCatalogModal";
 import {
   Drawer,
   DrawerContent,
@@ -9,25 +6,19 @@ import {
 } from "./ui/drawer";
 import ViewCatalog from "./ViewCatalog";
 
-const ViewCatalogButton = () => {
-  const { isOpenCatalog, openCatalog } = useCatalogModal();
+interface ViewCatalogButtonProps {
+    isCatalog?: boolean
+}
 
-  const showCatalog = () => {
-    if (!isOpenCatalog) {
-      openCatalog();
-    } else {
-      openCatalog();
-    }
-  };
+const ViewCatalogButton = ({isCatalog}: ViewCatalogButtonProps) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
         <button
-          onClick={showCatalog}
-          className="w-full boxshadow z-50 text-black py-4 bg-orange-bg backdrop-blur-md fixed bottom-[0vh] left-0 xl:hidden"
+          className={`w-full ${!isCatalog ? "fixed boxshadow z-50 text-black py-6 bg-orange-bg backdrop-blur-md" : "py-6 font-bold"} bottom-[0vh] left-0 xl:hidden`}
         >
-          Посмотреть каталог{" "}
-          <CheckCircleOutlineIcon fontSize="small" className="ml-2" />
+        {isCatalog ? "Каталог" : "Посмотреть каталог"}{" "}
+        {!isCatalog &&<CheckCircleOutlineIcon fontSize="small" className="ml-2" />}
         </button>
       </DrawerTrigger>
       <DrawerContent className="h-[95%]">

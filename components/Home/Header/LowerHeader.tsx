@@ -15,6 +15,7 @@ import CityButton from "./CityButton";
 import Logo from "./Logo";
 import CatalogMenu from "./CatalogMenu";
 import { Separator } from "@/components/ui/separator";
+import ViewCatalogButton from "@/components/ViewCatalogButton";
 
 const LowerHeader = () => {
   const [menu, setMenu] = useState(false);
@@ -130,7 +131,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
           <div
             className={`fixed ${
               search ? "flex" : "hidden"
-            } gap-2 md:hidden justify-between items-center left-0 top-0 bg-white w-full h-[84px] px-6`}
+            } gap-1 md:hidden justify-between items-center left-0 top-0 bg-white w-full h-[84px] px-6`}
           >
             <div className="w-full">
               <Search />
@@ -181,15 +182,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
             menu ? "translate-x-0" : "translate-x-[100%]"
           } w-full transition-all text-white duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-black/70 justify-start items-center z-30 backdrop-blur-lg`}
         >
-          <Link
-            href={`/${pathname[1] || "moscow"}/catalog`}
-            className={`font-bold w-full flex justify-center items-center py-6 ${
-              pathname[2] === `/catalog` ? "bg-orange-bg" : "bg-transparent"
-            }`}
-            onClick={navbarHide}
-          >
-            Каталог
-          </Link>
+            <ViewCatalogButton isCatalog/>
           <hr className="border border-white/10 w-[50%]" />
           <Link
             href={`/${pathname[1] || "moscow"}/services`}

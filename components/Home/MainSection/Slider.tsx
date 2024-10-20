@@ -61,6 +61,7 @@ export const Slider = () => {
               key={index}
               className="relative flex w-full h-[400px] items-center justify-center"
             >
+                <div className="absolute w-full h-full bg-black/40 inset-0 z-10"/>
               <Image
                 src={slide.img}
                 alt="slider_img"
@@ -72,13 +73,14 @@ export const Slider = () => {
                   objectFit: "cover",
                   objectPosition: "60% 50%",
                 }}
+                className="z-0"
                 placeholder="blur"
               />
               <div className="absolute top-[20%] sm:top-[30%] left-[5%] z-10 flex justify-start items-start flex-col gap-2 text-white px-2">
                 <h1 className="uppercase text-2xl sm:text-4xl font-bold max-w-full md:max-w-[70%]">
                   {slide.h1}
                 </h1>
-                <p className="leading-5 font-bold text-sm sm:text-md ml-4 mr-5 max-w-full md:max-w-[50%]">
+                <p className="leading-5 text-sm sm:text-md ml-4 mr-5 max-w-full md:max-w-[50%]">
                   {slide.p}
                 </p>
                 <div onClick={showRequest} className="mt-2">

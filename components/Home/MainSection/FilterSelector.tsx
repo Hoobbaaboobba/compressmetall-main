@@ -71,7 +71,7 @@ const FilterSelector = ({
         <Command>
           <CommandInput placeholder={label} />
           <CommandEmpty>{emptyLabel}</CommandEmpty>
-          <CommandGroup className="overflow-y-auto">
+          <CommandGroup className="overflow-y-auto h-[250px]">
             {data.map((item) => (
               <CommandItem
                 key={item}

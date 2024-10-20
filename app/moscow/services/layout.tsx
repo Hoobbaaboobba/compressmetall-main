@@ -7,7 +7,7 @@ export default function ServicesLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="container flex mt-10 gap-12">
+        <div className="container flex mt-10">
             <MenuAccordion/>
             <div className="w-full">
             {children}

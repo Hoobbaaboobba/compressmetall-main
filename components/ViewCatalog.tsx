@@ -32,15 +32,13 @@ const ViewCatalog = () => {
             <AccordionContent className="w-full flex flex-col gap-3">
               {item.links.map((link, index) => (
                 <DrawerClose key={index} asChild>
-                <div className="w-full text-start p-2 border rounded-md border-input">
                     <Link
                       href={`/${pathname[1] || "moscow"}/catalog/${link.link}`}
                       onClick={openCatalog}
-                      className="text-black hover:undeline h-full w-full"
+                      className="className=w-full text-start p-2 border rounded-md border-input text-black hover:undeline h-full w-full"
                     >
                       <h1>{link.title}</h1>
                     </Link>
-                </div>
                 </DrawerClose>
               ))}
             </AccordionContent>
