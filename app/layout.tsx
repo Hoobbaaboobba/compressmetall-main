@@ -68,13 +68,13 @@ export default function RootLayout({
         ></iframe>
         <LoadingScreen />
         <Analytics />
-        <div>
+        <noscript>
           <img
             src="https://mc.yandex.ru/watch/95780946"
             className="position:absolute; left:-9999px;"
             alt=""
           />
-        </div>
+        </noscript>
         <LocationModal />
         <Suspense fallback={<p>Loading...</p>}>
           <Request />
