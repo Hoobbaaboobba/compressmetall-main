@@ -50,7 +50,7 @@ const OurContacts = () => {
               {pathname[1] === "" && (
                 <div className="flex w-full flex-col text-center md:text-start md:flex-row gap-2 md:gap-4 justify-start items-center">
                   <PlaceOutlinedIcon className="text-main-black" />
-                  <p>2-я Энтузиастов ул., 5 корпус 40, Москва, 111024</p>
+                  <p>Рязанский проспект, 10с18, Москва, 109428</p>
                 </div>
               )}
               <div className="flex flex-col xl:flex-row xl:gap-4 justify-center items-center">
