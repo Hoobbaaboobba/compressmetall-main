@@ -20,6 +20,7 @@ import LoadingScreen from "@/components/LoadingScreen";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Toaster } from "@/components/ui/toaster";
+import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -69,10 +70,12 @@ export default function RootLayout({
         <LoadingScreen />
         <Analytics />
         <noscript>
-          <img
+          <Image
             src="https://mc.yandex.ru/watch/95780946"
             className="position:absolute; left:-9999px;"
             alt=""
+            width={0}
+            height={0}
           />
         </noscript>
         <LocationModal />
