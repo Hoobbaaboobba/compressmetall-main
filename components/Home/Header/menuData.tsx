@@ -1092,7 +1092,7 @@ export const menuCatalog = [
     },
     {
         label: "Электроды",
-        href: "metally-i-splavy",
+        href: "electrody",
         metaData: "Купить Электроды оптом и в розницу",
         links: [
             {
