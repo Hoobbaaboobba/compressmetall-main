@@ -477,7 +477,7 @@ export const menuCatalog = [
         ],
     },
     {
-        label: "Прецензионные сплавы",
+        label: "Прецинзионные сплавы",
         href: "precensplav-prokat",
         metaData: "Купить Прецензионные сплавы оптом и в розницу",
         links: [
