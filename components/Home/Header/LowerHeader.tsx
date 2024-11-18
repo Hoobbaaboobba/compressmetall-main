@@ -17,14 +17,18 @@ import CatalogMenu from "./CatalogMenu";
 import { Separator } from "@/components/ui/separator";
 import ViewCatalogButton from "@/components/ViewCatalogButton";
 import { BookMarked, ChevronDown, Cog, FileText, Globe, Phone, UserCheck, Wrench } from "lucide-react";
+import useBurgerMenu from "@/hooks/useBurgerMenu";
+import useCallModal from "@/hooks/useCallModal";
 
 const LowerHeader = () => {
-    const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
     const [popUp, setPopUp] = useState(false);
 
-    const { onOpen, setDefaultValue } = useRequestModal();
     const [scrollPosition, setScrollPosition] = useState(0);
+
+    const { onOpen, setDefaultValue } = useRequestModal();
+    const { isOpen, onOpen: onOpenBurger, onClose: onCloseBurger } = useBurgerMenu()
+    const { onClose: onCloseCatalog } = useCallModal()
 
     const handleScroll = () => {
         setScrollPosition(window.scrollY);
@@ -43,14 +47,6 @@ const LowerHeader = () => {
         document.body.style.overflowY = "hidden";
     };
 
-    const navbarShow = () => {
-        setMenu(true);
-        document.body.classList.add("overflowHidden");
-    };
-    const navbarHide = () => {
-        setMenu(false);
-        document.body.classList.remove("overflowHidden");
-    };
 
     const pathname = usePathname().split("/");
 
@@ -162,11 +158,11 @@ const LowerHeader = () => {
                         >
                             <SearchOutlinedIcon fontSize="large" />
                         </button>
-                        {menu ? (
+                        {isOpen ? (
                             <div className="bg-orange-bg p-1">
                                 <CloseOutlinedIcon
                                     fontSize="large"
-                                    onClick={navbarHide}
+                                    onClick={onCloseBurger}
                                     className="cursor-pointer "
                                 />
                             </div>
@@ -174,7 +170,7 @@ const LowerHeader = () => {
                             <div className="bg-orange-bg p-1">
                                 <MenuOutlinedIcon
                                     fontSize="large"
-                                    onClick={navbarShow}
+                                    onClick={onOpenBurger}
                                     className="cursor-pointer"
                                 />
                             </div>
@@ -182,16 +178,18 @@ const LowerHeader = () => {
                     </div>
                 </div>
                 <div
-                    className={`xl:hidden ${menu ? "translate-x-0" : "translate-x-[100%]"
+                    className={`xl:hidden ${isOpen ? "translate-x-0" : "translate-x-[100%]"
                         } w-full transition-all text-white duration-200 h-[100dvh] flex flex-col fixed top-[84px] bg-black/70 justify-start items-center z-30 backdrop-blur-lg`}
                 >
-                    <ViewCatalogButton isCatalog />
+                    <div onClick={onCloseBurger}>
+                        <ViewCatalogButton isCatalog />
+                    </div>
                     <hr className="border border-white/10 w-[50%]" />
                     <Link
                         href={`/${pathname[1] || "moscow"}/services`}
                         className={`font-bold w-full flex justify-center items-center py-6 ${pathname[2] === `/services` ? "bg-orange-bg" : "bg-transparent"
                             }`}
-                        onClick={navbarHide}
+                        onClick={onCloseBurger}
                     >
                         Услуги
                     </Link>
@@ -199,7 +197,10 @@ const LowerHeader = () => {
                     <button
                         className={`font-bold w-full flex justify-center items-center py-6 ${pathname[2] === `/price` ? "bg-orange-bg" : "bg-transparent"
                             }`}
-                        onClick={showRequest}
+                        onClick={() => {
+                            onCloseBurger()
+                            showRequest()
+                        }}
                     >
                         Прайс
                     </button>
@@ -210,7 +211,7 @@ const LowerHeader = () => {
                             ? "bg-orange-bg"
                             : "bg-transparent"
                             }`}
-                        onClick={navbarHide}
+                        onClick={onCloseBurger}
                     >
                         Компания
                     </Link>
@@ -219,7 +220,7 @@ const LowerHeader = () => {
                         href={`/${pathname[1] || "moscow"}/directory/marki_stali`}
                         className={`font-bold w-full flex justify-center items-center py-6 ${pathname[2] === `/directory` ? "bg-orange-bg" : "bg-transparent"
                             }`}
-                        onClick={navbarHide}
+                        onClick={onCloseBurger}
                     >
                         Справочник
                     </Link>
@@ -228,13 +229,16 @@ const LowerHeader = () => {
                         href={`/${pathname[1] || "moscow"}/contacts`}
                         className={`font-bold w-full flex justify-center items-center py-6 ${pathname[2] === `/contacts` ? "bg-orange-bg" : "bg-transparent"
                             }`}
-                        onClick={navbarHide}
+                        onClick={onCloseBurger}
                     >
                         Контакты
                     </Link>
                     <div className="w-full flex flex-col justify-center items-center">
                         <button
-                            onClick={showRequest}
+                            onClick={() => {
+                                onCloseBurger()
+                                showRequest()
+                            }}
                             className="py-6 text-lg text-black w-full bg-orange-bg underline font-bold"
                         >
                             Оставить заявку
