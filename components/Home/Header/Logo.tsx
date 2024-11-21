@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Logo = () => {
-  const { link } = useLocationModal();
-  const { setCatalog } = useCatalogModal();
+    const { link } = useLocationModal();
+    const { setCatalog } = useCatalogModal();
 
-  return (
-    <Link href={`/${link}`} onClick={setCatalog}>
-      <Image src="/km-logo.jpg" alt="logo" width={160} height={77.5} priority />
-    </Link>
-  );
+    return (
+        <Link href={`/${link}`} onClick={setCatalog}>
+            <Image src="/logo-christmas.png" alt="logo" width={160} height={77.5} priority />
+        </Link>
+    );
 };
 
 export default Logo;

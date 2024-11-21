@@ -9,7 +9,6 @@ body {
         linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 0.5px),
         linear-gradient(180deg, rgba(0, 0, 0, 0.02) 1px, transparent 0.5px);
     background-size: 10px 10px;
-    /* Size of each square */
     min-height: 100vh;
 }
 
@@ -146,6 +145,42 @@ body {
         box-shadow: none;
     }
 }
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10vh;
+    background-color: rgba(200, 200, 255, 0.7);
+    /* Светло-голубой цвет */
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Тень для контраста */
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
 
 @layer base {
     :root {

@@ -21,6 +21,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Toaster } from "@/components/ui/toaster";
 import Image from "next/image";
+import Snowfall from "@/components/Home/Header/Snowfall/Snowfall";
 
 export default function RootLayout({
     children,
@@ -60,7 +61,7 @@ export default function RootLayout({
             </Script>
             <Script src="//code.jivo.ru/widget/jknCDVfDeq" async></Script>
             <meta name="yandex-verification" content="d99d66f200d7f09a" />
-            <body>
+            <body className="bg-slate-50">
                 <iframe
                     src="https://www.googletagmanager.com/ns.html?id=GTM-5QZ5BQHJ"
                     height="0"
@@ -79,6 +80,7 @@ export default function RootLayout({
                     />
                 </noscript>
                 <LocationModal />
+                <Snowfall />
                 <Suspense fallback={<p>Loading...</p>}>
                     <Request />
                     <Call />
