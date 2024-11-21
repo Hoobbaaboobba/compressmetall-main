@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ServicesContent } from "./components/Content";
+import { ServicesContent } from "@/app/moscow/services/components/Content";
 
 export const metadata: Metadata = {
   title:
