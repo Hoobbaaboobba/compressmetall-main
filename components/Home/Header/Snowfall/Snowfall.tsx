@@ -17,7 +17,7 @@ const Snowfall = () => {
         // Генерация снежинок
         const createSnowflakes = () => {
             const flakes = [];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 30; i++) {
                 flakes.push({
                     id: i,
                     left: Math.random() * 100, // Позиция по горизонтали
