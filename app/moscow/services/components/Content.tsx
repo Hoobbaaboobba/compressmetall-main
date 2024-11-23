@@ -8,7 +8,7 @@ export const ServicesContent = () => {
     return (
         <>
             <ServicesHeader title="Услуги" />
-            <div className="my-6 w-full min-w-[400px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="my-6 w-full min-w-[350px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {MenuData.map((item, index) => (
                     <div key={index} className="relative bg-white hover:shadow-md transition duration-300 rounded-md">
                         <Link className="absolute inset-0" href={`/moscow/services/${item.link}`} key={index} />

@@ -145,7 +145,7 @@ const LowerHeader = () => {
                         </div>
                     </div>
                     <Logo />
-                    <div className={`${search ? "hidden" : "block"}`}>
+                    <div className={`${search ? "hidden" : "hidden xl:block"}`}>
                         <CityButton />
                     </div>
                     <div className="hidden md:block">

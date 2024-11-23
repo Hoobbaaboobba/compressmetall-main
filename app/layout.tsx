@@ -79,7 +79,6 @@ export default function RootLayout({
                         height={0}
                     />
                 </noscript>
-                <LocationModal />
                 <Snowfall />
                 <Suspense fallback={<p>Loading...</p>}>
                     <Request />
