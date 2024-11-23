@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { IzgotovlenieDetaliyContent } from "./components/Content";
+import { IzgotovlenieDetaliyContent } from "@/app/moscow/services/izgotovlenie-detaliy/components/Content";
 
 export const metadata: Metadata = {
   title: 'Компресс Металл | Услуги | Изготовление деталей',
