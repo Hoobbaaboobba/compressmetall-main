@@ -1108,7 +1108,7 @@ export const menuCatalog = [
                 metaData: "Купить",
             },
             {
-                title: "Электроды LB 42U ЛБ-52У",
+                title: "Электроды LB 42U",
                 link: "electrody/electrody-lb-42u-lb-52u",
                 img: "kalibrovkaCatalog",
                 metaData: "Купить",
@@ -1198,7 +1198,7 @@ export const menuCatalog = [
                 metaData: "Купить",
             },
             {
-                title: "Электроды Э50 А",
+                title: "Электроды Kobelco LB 52U",
                 link: "electrody/electrody-e50-a",
                 img: "kalibrovkaCatalog",
                 metaData: "Купить",
