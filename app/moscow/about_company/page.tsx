@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import AboutCompanyContent from "../../../components/AboutCompany/AboutCompanyContent";
 import Loading from "./loading";
 import { Metadata } from "next";
-import { products } from "@/app/api/products/products";
 import { menuCatalog } from "@/components/Home/Header/menuData";
 
 export const metadata: Metadata = {
