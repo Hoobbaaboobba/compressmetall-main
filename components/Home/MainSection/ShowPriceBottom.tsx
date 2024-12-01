@@ -14,7 +14,7 @@ const ShowButtonPrice = () => {
 
     return (
         <div className="w-full" onClick={showPrice}>
-            <OrangeButton label={"Оставить заявку"} />
+            <OrangeButton className="w-full" label={"Оставить заявку"} />
         </div>
     );
 };

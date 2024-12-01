@@ -51,13 +51,15 @@ const DynamicItem = ({
                     />
                     <h3 className="text-md">{sublabel}</h3>
                     <Separator className="w-full my-1" />
-                    <div className="flex flex flex-col">
-                        <div className="flex text-slate-400 text-sm gap-1 items-center w-full">
-                            <span>Цена</span>
-                            <PricePopup />
+                    <div className="flex w-full">
+                        <div className="flex flex-col w-full justify-start">
+                            <div className="flex w-full gap-1 text-slate-400 text-sm">
+                                <span>Цена</span>
+                                <PricePopup />
+                            </div>
+                            <span className="font-medium text-start">{price}</span>
                         </div>
-                        <div className="flex justify-between items-center w-full gap-4">
-                            <span className="font-medium">{price}</span>
+                        <div className="flex justify-between items-center gap-4">
                             <button className="bg-orange-bg hover:bg-orange-bg/90 rounded-md p-[6px] text-black">
                                 <LogInIcon className="w-5 h-5" />
                             </button>

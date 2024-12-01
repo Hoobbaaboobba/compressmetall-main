@@ -2,14 +2,9 @@ import Image from "next/image";
 import ShowButtonPrice from "./ShowPriceBottom";
 import SizeSelector from "./SizeSelector";
 import { getProducts } from "@/actions/getProducts";
-import { ImageDialog } from "@/components/AboutCompany/Blagodarnosti/ImageDialog";
 import HyperLinks from "./HyperLinks";
 import { Badge } from "@/components/ui/badge";
-import { searchProducts } from "@/actions/searchProducts";
 import { notFound } from "next/navigation";
-import { ImageLoader } from "./ImageLoader";
-import { HelpCircle } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Calculator } from "./Calculator/Calculator";
 import { LensImage } from "./LensImage/LensImage";
 import { PricePopup } from "./Price/PricePopup";
@@ -92,7 +87,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
         .replaceAll(".", ",");
 
     return (
-        <div className="max-w-[1300px] flex flex-col gap-4 mx-6 xl:mx-2">
+        <div className="max-w-[1300px] flex flex-col gap-4 mx-4 xl:mx-2">
             <div className="relative w-full mt-4 gap-8 lg:mt-auto flex flex-col-reverse lg:flex-row justify-center text-center sm:items-start">
                 <div className="w-full h-full flex flex-col justify-center items-start pt-4">
                     <div className="flex flex-col sm:flex-col  justify-center sm:justify-start items-start sm:items-start w-full">
@@ -182,7 +177,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
                         <p className="font-bold text-xl mb-3 text-center text-black/80">
                             {products[0].price}
                         </p>
-                        <div className="flex gap-2 w-full">
+                        <div className="flex gap-2 w-full flex-col sm:flex-row">
                             <ShowButtonPrice />
                             <Calculator />
                         </div>
