@@ -22,6 +22,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
 import Image from "next/image";
 import Snowfall from "@/components/Home/Header/Snowfall/Snowfall";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function RootLayout({
     children,
@@ -68,7 +69,6 @@ export default function RootLayout({
                     width="0"
                     className="hidden"
                 ></iframe>
-                <LoadingScreen />
                 <Analytics />
                 <noscript>
                     <Image
@@ -80,7 +80,7 @@ export default function RootLayout({
                     />
                 </noscript>
                 <Snowfall />
-                <Suspense fallback={<p>Loading...</p>}>
+                <Suspense fallback={<p></p>}>
                     <Request />
                     <Call />
                     <Price />
@@ -90,7 +90,7 @@ export default function RootLayout({
                 {/* <ViewCatalog /> */}
                 <Suspense
                     fallback={
-                        <div className="w-[300px] h-[100px] rounded-md bg-light-gray"></div>
+                        <Skeleton className="w-full h-[84px] xlw-[160px] rounded-md bg-light-gray" />
                     }
                 >
                     <Header />
@@ -100,9 +100,9 @@ export default function RootLayout({
                         {children}
                         <hr className="w-full border-transparent my-8" />
                         <OurServices />
-                        <hr className="w-full border-transparent my-8" />
+                        <hr className="w-full border-transparent my-4" />
                         <BuyMetal />
-                        <hr className="w-full border-transparent my-8" />
+                        <hr className="w-full border-transparent my-4" />
                         <Reviews />
                         <hr className="w-full border-transparent my-8" />
                         <OurContacts />

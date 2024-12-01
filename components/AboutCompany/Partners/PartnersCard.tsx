@@ -1,21 +1,18 @@
-import Link from "next/link";
 import Image from "next/image";
 
 interface PartnersProps {
-  src: string;
-  label: string;
-  href: string;
+    src: string;
+    label: string;
 }
 
-const PartnersCard: React.FC<PartnersProps> = ({ src, label, href }) => {
-  return (
-    <Link
-      href={href}
-      className="w-[220px] h-[220px] border border-light-gray rounded-xl flex justify-center items-center hover:shadow-md transition"
-    >
-      <Image src={`/${src}.png`} alt={label} width={220} height={91} />
-    </Link>
-  );
+const PartnersCard: React.FC<PartnersProps> = ({ src, label }) => {
+    return (
+        <div
+            className="w-[220px] h-[150px] border border-light-gray rounded-xl overflow-y-hidden bg-white flex justify-center items-center"
+        >
+            <Image src={`/${src}.png`} alt={label} width={label === "ММК" ? 140 : 180} height={150} />
+        </div>
+    );
 };
 
 export default PartnersCard;

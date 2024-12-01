@@ -2,30 +2,30 @@ import DynamicItem from "../Home/MainSection/dynamicItem";
 import { menuCatalog } from "../Home/Header/menuData";
 
 const CatalogSelectorPage = () => {
-  return (
-    <main className="w-full flex flex-col justify-center items-center">
-      {menuCatalog.map((menulink) => (
-        <>
-          <div className="w-full mb-8 flex flex-col justify-center items-center">
-            <h1 className="text-3xl font-bold text-black text-center xl:text-start mt-4">
-              {menulink.label}
-            </h1>
-            <div className="bg-black h-[5px] w-[80px] mt-4"></div>
-          </div>
-          <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {menulink.links.map((sublink, index) => (
-              <DynamicItem
-                key={index}
-                img={sublink.img}
-                label={menulink.label}
-                sublabel={sublink.title}
-                href={sublink.link}
-              />
+    return (
+        <main className="w-full flex flex-col justify-center items-center">
+            {menuCatalog.map((menulink) => (
+                <>
+                    <div className="w-full mb-8 flex flex-col justify-center items-center">
+                        <h1 className="text-3xl font-bold text-black text-center xl:text-start mt-4">
+                            {menulink.label}
+                        </h1>
+                        <div className="bg-black h-[5px] w-[80px] mt-4"></div>
+                    </div>
+                    <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                        {menulink.links.map((sublink, index) => (
+                            <DynamicItem
+                                key={index}
+                                img={sublink.img}
+                                label={menulink.label}
+                                sublabel={sublink.title}
+                                href={sublink.link}
+                            />
+                        ))}
+                    </div>
+                </>
             ))}
-          </div>
-        </>
-      ))}
-      {/* <div className="max-w-[1000px] w-full flex flex-col py-8 px-4">
+            {/* <div className="max-w-[1000px] w-full flex flex-col py-8 px-4">
         <div className="w-full relative">
           <div className="flex gap-4 justify-start items-center">
             <div
@@ -81,8 +81,8 @@ const CatalogSelectorPage = () => {
           <CatalogContent query={query || "Все товары"} />
         </Suspense>
       </div> */}
-    </main>
-  );
+        </main>
+    );
 };
 
 export default CatalogSelectorPage;

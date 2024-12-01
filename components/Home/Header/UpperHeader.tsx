@@ -1,45 +1,20 @@
 "use client";
 
-import Image from "next/image";
-
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 
 import Search from "./Search";
-import { Suspense, useEffect, useState } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
 import LocationProvider from "../Providers/LocationProvider";
-import CatalogMenu from "./CatalogMenu";
-
-const Loading = () => {
-    return <Image src="/loading.gif" alt="loading" width={100} height={100} />;
-};
 
 const UpperHeader = () => {
-    const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleScroll = () => {
-        setScrollPosition(window.scrollY);
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     return (
         <div className="hidden xl:flex justify-center bg-white items-center w-full text-white py-3">
             <div className="flex justify-between items-center max-w-[1300px] w-full">
-                <div className={`${scrollPosition > 60 ? "block" : "hidden"}`}>
-                    <CatalogMenu />
-                </div>
                 <Logo />
-                <Suspense fallback={<Loading />}>
-                    <Search />
-                </Suspense>
+                <Search />
                 <LocationProvider />
                 <div className="flex flex-col">
                     <div className="flex gap-2">

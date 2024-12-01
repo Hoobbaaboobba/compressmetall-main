@@ -32,20 +32,10 @@ const Search = () => {
             setSuggestions(false);
         }, 100);
     };
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    const handleScroll = () => {
-        setScrollPosition(window.scrollY);
-    };
 
     useEffect(() => {
         setIsMount(true);
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    }, [isMount]);
 
     if (!isMount) {
         return (
@@ -55,7 +45,7 @@ const Search = () => {
     return (
         <form
             onSubmit={onSearch}
-            className={`border-2 rounded-md relative ${isSuggestions ? "border-orange-bg" : "border-main-black"} ${scrollPosition > 60 ? "max-w-[600px]" : "max-w-[700px]"} w-full flex gap-2 justify-between items-center`}
+            className={`border-2 rounded-md relative ${isSuggestions ? "border-orange-bg" : "border-main-black"} max-w-[700px] w-full flex gap-2 justify-between items-center`}
         >
             <SearchIcon className="w-5 h-5 text-gray-bg ml-2" />
             <input

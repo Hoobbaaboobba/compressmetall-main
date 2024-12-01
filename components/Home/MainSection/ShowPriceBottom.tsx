@@ -4,19 +4,19 @@ import OrangeButton from "@/components/OrangeButton";
 import useRequestModal from "@/hooks/useRequestModal";
 
 const ShowButtonPrice = () => {
-  const { onOpen, setDefaultValue } = useRequestModal();
+    const { onOpen, setDefaultValue } = useRequestModal();
 
-  const showPrice = () => {
-    setDefaultValue("ptice");
-    onOpen();
-    document.body.style.overflowY = "hidden";
-  };
+    const showPrice = () => {
+        setDefaultValue("ptice");
+        onOpen();
+        document.body.style.overflowY = "hidden";
+    };
 
-  return (
-    <div onClick={showPrice}>
-      <OrangeButton label={"Оставить заявку"} />
-    </div>
-  );
+    return (
+        <div className="w-full" onClick={showPrice}>
+            <OrangeButton label={"Оставить заявку"} />
+        </div>
+    );
 };
 
 export default ShowButtonPrice;
