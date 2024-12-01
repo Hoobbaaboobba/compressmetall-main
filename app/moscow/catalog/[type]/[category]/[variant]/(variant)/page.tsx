@@ -3,7 +3,6 @@ import { Metadata, ResolvingMetadata } from "next";
 import { Suspense } from "react";
 import Loading from "./loading";
 import DynamicVariants from "@/components/Home/MainSection/DynamicVariants";
-import { products } from "@/app/api/products/products";
 import { getProducts } from "@/actions/getProducts";
 import { Product } from "@prisma/client";
 
