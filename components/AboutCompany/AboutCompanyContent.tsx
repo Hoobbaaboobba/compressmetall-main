@@ -1,5 +1,4 @@
 "use client";
-import { products } from "@/app/api/products/products";
 import Image from "next/image";
 
 const AboutCompanyContent = () => {
