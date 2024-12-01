@@ -3,7 +3,6 @@ import { Metadata, ResolvingMetadata } from "next";
 import DynamicPage from "@/components/Home/MainSection/DynamicPage";
 import { Suspense } from "react";
 import Loading from "../../../../../(catalog)/loading";
-import { products } from "@/app/api/products/products";
 import { getProducts } from "@/actions/getProducts";
 
 type Props = {
