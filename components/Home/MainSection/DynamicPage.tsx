@@ -32,12 +32,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
     );
 
     if (products[0].label.toString() !== searchParams.label as string) {
-        return (
-            <div>
-                <p>{searchParams.label}</p>
-                <p>{products[0].label.toString()}</p>
-            </div>
-        )
+        return notFound()
     } else if (
         searchParams.fifthsize &&
         products[0].fifthSizes.find((size) => size === decodeURIComponent(searchParams.fifthsize as string)) ===
@@ -106,7 +101,7 @@ export default async function DynamicPage({ params, searchParams }: Props) {
                             <ul className="flex h-full w-full flex-col gap-2">
                                 <li className="flex">
                                     <span className="dash">Марка</span>
-                                    <span className="order-2">{marka}</span>
+                                    <span className="order-2">{marka.replaceAll("|", "/")}</span>
                                 </li>
                                 <li className="flex">
                                     <span className="dash">{products[0].firstTypeOfSize}</span>

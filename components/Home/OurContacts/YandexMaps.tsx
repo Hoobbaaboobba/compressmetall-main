@@ -1,4 +1,21 @@
+"use client"
+
+import { Skeleton } from "@/components/ui/skeleton"
+import { useEffect, useState } from "react"
+
 export const YandexMaps = ({ city }: { city: string }) => {
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
+    if (!isMounted) {
+        return (
+            <Skeleton className="w-full h-[300px]" />
+        )
+    }
+
     return (
         <>
             {city === "moscow" && (

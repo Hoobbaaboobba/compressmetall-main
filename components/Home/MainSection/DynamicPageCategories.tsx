@@ -1,6 +1,5 @@
 import { Product } from "@prisma/client";
 import DynamicItem from "./dynamicItem";
-import { MenuGridButton } from "./MenuGridButton";
 
 type Props = {
     products: Product[];
@@ -16,12 +15,18 @@ export default async function DynamicPageCategories({ products, searchParams }: 
                         variant={searchParams?.variant}
                         key={index}
                         img={product.image.toString()}
-                        label={""}
+                        label={product.label[0]}
                         sublabel={product.label[0]}
+                        id={product.marks[0]}
                         href={product.type}
                         category={product.category}
                         variety={product.variety}
                         price={product.price}
+                        size={product.sizes[0]}
+                        secondsize={product.secondSizes[0]}
+                        thirdsize={product.thirdSizes[0]}
+                        fourthsize={product.forthSizes[0]}
+                        fifthsize={product.fifthSizes[0]}
                     />
                 ))}
             </div>

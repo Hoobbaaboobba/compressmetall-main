@@ -1,4 +1,3 @@
-import OrangeButton from "@/components/OrangeButton";
 import Image from "next/image";
 import { LinkButton } from "./Link";
 import { PricePopup } from "./Price/PricePopup";
@@ -17,6 +16,10 @@ interface DynamicProps {
     size?: string;
     variant?: string | string[];
     price?: string
+    secondsize?: string
+    thirdsize?: string
+    fourthsize?: string
+    fifthsize?: string
 }
 
 const DynamicItem = ({
@@ -30,6 +33,10 @@ const DynamicItem = ({
     id,
     size,
     price,
+    secondsize,
+    thirdsize,
+    fourthsize,
+    fifthsize
 }: DynamicProps) => {
     return (
         <div className="relative rounded-lg hover:shadow-md transition duration-300">
@@ -38,8 +45,13 @@ const DynamicItem = ({
                 type={href}
                 category={category}
                 id={id}
+                label={label}
                 size={size}
                 variety={variety}
+                secondsize={secondsize}
+                thirdsize={thirdsize}
+                fourthsize={fourthsize}
+                fifthsize={fifthsize}
             >
                 <div className={`flex bg-white  ${variant === "list" ? "flex-row p-2" : "flex-col p-[10px] md:p-[20px]"} text-center w-full h-full justify-between items-center border border-light-gray gap-3 rounded-lg`}>
                     <Image

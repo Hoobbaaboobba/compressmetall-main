@@ -32,7 +32,7 @@ const DynamicVariantsComponent = ({
                 {label}
             </TableCell>
             <TableCell className="md:font-medium text-md">
-                {marka}
+                {marka.replaceAll("|", "/")}
             </TableCell>
             <TableCell className="md:font-medium text-md">
                 {first.replaceAll("mm", " мм")}

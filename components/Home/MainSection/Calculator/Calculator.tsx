@@ -1,13 +1,22 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import { CalculatorIcon, Loader2 } from "lucide-react";
+import { CalculatorIcon, Loader, Loader2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface CalculatorProps {
     className?: string
 }
 
 export const Calculator = ({ className }: CalculatorProps) => {
+    const [isMounted, setIsMounted] = useState(false)
+
+    const handleLoad = () => {
+        setIsMounted(true)
+    }
 
     return (
         <Dialog>
@@ -17,11 +26,9 @@ export const Calculator = ({ className }: CalculatorProps) => {
                     <CalculatorIcon className="ml-1 w-5 h-5" />
                 </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[1000px] w-full">
-                <div className="w-full h-full flex justify-center items-center relative p-1">
-                    <Loader2 className="w-10 h-10 animate-spin z-0 absolute" />
-                    <iframe src="https://metall-calculator.top/iframe/" width="100%" height="600" className="z-10"></iframe>
-                </div>
+            <DialogContent className="max-w-[710px] w-full">
+                {!isMounted && <Loader2 className="animate-spin transition" />}
+                <iframe onLoad={handleLoad} src="https://service-online.su/text/calc/calc1-01.php" width="100%" height="400"></iframe>
             </DialogContent>
         </Dialog>
     )
